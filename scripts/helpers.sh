@@ -10,6 +10,7 @@ perfom_install(){
     echo "Installing vim-dan ${DOCU_NAME} into ${DOCU_PATH}/ ..."
     cp $CURRENT_DIR/ready-docus/main.${DOCU_NAME}dan ${DOCU_PATH}/main.${DOCU_NAME}dan-toupdate
     perform_patch
+    updating_tags
 }
 
 perfom_update(){
@@ -17,6 +18,7 @@ perfom_update(){
     echo "Note!! . In order for this to have any effect you previously should have updated the repository"
     cp $CURRENT_DIR/ready-docus/main.${DOCU_NAME}dan ${DOCU_PATH}/main.${DOCU_NAME}dan-toupdate
     perform_patch
+    updating_tags
 }
 
 perfom_index(){
@@ -28,6 +30,7 @@ perfom_index(){
 perfom_parse(){
     echo "Parsing vim-dan ${DOCU_NAME} on ${DOCU_PATH}/ ..."
     ${CURRENT_DIR}/frameworks/${DOCU_NAME}.sh ${DOCU_PATH} "-p"
+    updating_tags
 #    delete_index
 }
 
@@ -59,6 +62,12 @@ delete_index() {
     echo "Deleting previous Index ..."
     rm -r ${DOCU_PATH}/downloaded
 }
+updating_tags() {
+    echo "Updating the tag file..."
+    ctags --options=NONE --options=${CURRENT_DIR}/ctags-rules/${DOCU_NAME}dan.ctags -f ${DOCU_PATH}/tags ${MAIN_FILE} 
+}
+#updating_vim_syntax() {
+#}
 ## EOF EOF EOF AUTOMATIC ACTIONS
 ## ------------------------------------
 

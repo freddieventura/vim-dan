@@ -2,9 +2,6 @@
 
 DOCU_PATH="$1"
 shift
-DOCU_NAME=$(basename ${0} '.sh')
-MAIN_TOUPDATE="${DOCU_PATH}/main-toupdate.${DOCU_NAME}dan"
-
 
 indexing_rules(){
     echo "Into Indexing Rules ${0}"
@@ -21,7 +18,7 @@ indexing_rules(){
       --timestamping \
     `## Directory Options` \
       --directory-prefix=${DOCU_PATH}/downloaded \
-      -nH \
+      -nH --cut-dirs=3 \
     `## HTTP Options` \
       --user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59" \
       --adjust-extension \
@@ -32,38 +29,14 @@ indexing_rules(){
     `## Recursive Accept/Reject Options` \
       --no-parent \
       --reject '*.svg,*.js,*json,*.css,*.png,*.xml,*.txt' \
+      --exclude-directories=en-US/docs/Web/Accessibility,en-US/docs/Web/Accessibility/*,en-US/docs/Web/API,en-US/docs/Web/API/*,en-US/docs/Web/CSS,en-US/docs/Web/CSS/*,en-US/docs/Web/HTML,en-US/docs/Web/HTML/*,en-US/docs/Web/Media,en-US/docs/Web/Media/*,en-US/docs/Web/XML,en-US/docs/Web/XML/*,/en-US/docs/Web/Manifest,/en-US/docs/Web/Manifest/*,/en-US/docs/Web/MathML,/en-US/docs/Web/MathML/*,/en-US/docs/Web/EXSLT,/en-US/docs/Web/EXSLT/*,/en-US/docs/Web/SVG,/en-US/docs/Web/SVG/*,/en-US/docs/Web/XSLT,/en-US/docs/Web/XSLT/*,/en-US/docs/Web/Events,/en-US/docs/Web/Events/*,/en-US/docs/Web/Guide,/en-US/docs/Web/Guide/*,/en-US/docs/Web/Progressive_web_apps,/en-US/docs/Web/Progressive_web_apps/*,/en-US/docs/Web/Performance,/en-US/docs/Web/Performance/*,/en-US/docs/Web/XPath,/en-US/docs/Web/XPath/*,/en-US/docs/Web/Security,/en-US/docs/Web/Security/*,/en-US/docs/Web/JavaScript,/en-US/docs/Web/JavaScript/* \
+      --reject-regex '\\\"' \
       --page-requisites \
-      https://ai-scripting.docsforadobe.dev/
+      https://developer.mozilla.org/en-US/docs/Web/HTTP
 }
 
 parsing_rules(){
     echo "Into Parsing Rules ${0}"
-
-# Parsing index-document
-
-cat ${DOCU_PATH}/downloaded/index.html | pup -i 0 --pre '.rst-content' | pandoc -f html -t plain > ${MAIN_TOUPDATE}
-
-# Parsing and appending
-mapfile -t dirs_array < <(find ${DOCU_PATH}/downloaded/ -type d -name "*" | sort )
- 
-for file in "${dirs_array[@]}"; do
-    mapfile -t files_array < <(find ${dirs_array} -type f -name "*" | sort )
-
-    for file in "${files_array[@]}"; do
-        cat ${file} | pup -i 0 --pre 'li.current' | pandoc -f html -t plain > ${DOCU_PATH}/topic-header-toupdate.txt
-        cat ${file} | pup -i 0 --pre '.rst-content' | pandoc -f html -t plain > ${DOCU_PATH}/topic-body-toupdate.txt
-        sed -i '1s/^/# /; 1s/$/ #/' ${DOCU_PATH}/topic-header-toupdate.txt
-        sed -i 's/¶/#/g' ${DOCU_PATH}/topic-body-toupdate.txt
-        cat ${DOCU_PATH}/topic-header-toupdate.txt >> ${MAIN_TOUPDATE}
-        cat ${DOCU_PATH}/topic-body-toupdate.txt >> ${MAIN_TOUPDATE}
-    done
-done
-
-# Deleting buffer files
-#rm -r ./downloaded
-rm ./topic-header-toupdate.txt
-rm ./topic-body-toupdate.txt
-
 }
 
 

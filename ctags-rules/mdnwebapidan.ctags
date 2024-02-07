@@ -1,0 +1,4 @@
+--langdef=mdnwebapidantags
+--langmap=mdnwebapidantags:.mdnwebapidan
+--kinddef-mdnwebapidantags=t,topic,topics
+--regex-mdnwebapidantags=/^#\s(\w.*)#$/\1/t/
