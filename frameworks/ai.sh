@@ -1,14 +1,20 @@
 #!/bin/bash
 
+# DECLARING VARIABLES AND PROCESSING ARGS
+# -------------------------------------
+# (do not touch)
+CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source "$CURRENT_DIR/../scripts/helpers.sh"
+
 DOCU_PATH="$1"
 shift
 DOCU_NAME=$(basename ${0} '.sh')
 MAIN_TOUPDATE="${DOCU_PATH}/main-toupdate.${DOCU_NAME}dan"
+# -------------------------------------
+# eof eof eof DECLARING VARIABLES AND PROCESSING ARGS
 
 
 indexing_rules(){
-    echo "Into Indexing Rules ${0}"
-
     if [ ! -d "${DOCU_PATH}/downloaded" ]; then
         mkdir -p "${DOCU_PATH}/downloaded"
     fi
@@ -37,38 +43,43 @@ indexing_rules(){
 }
 
 parsing_rules(){
-    echo "Into Parsing Rules ${0}"
+    # Header of docu    
+    echo "vim-dan" | figlet -f univers > ${MAIN_TOUPDATE}
+    echo ${DOCU_NAME} | figlet >> ${MAIN_TOUPDATE}
 
-# Parsing index-document
 
-cat ${DOCU_PATH}/downloaded/index.html | pup -i 0 --pre '.rst-content' | pandoc -f html -t plain > ${MAIN_TOUPDATE}
+    cat ${DOCU_PATH}/downloaded/index.html | pup -i 0 --pre '.rst-content' | pandoc -f html -t plain >> ${MAIN_TOUPDATE}
 
-# Parsing and appending
-mapfile -t dirs_array < <(find ${DOCU_PATH}/downloaded/ -type d -name "*" | sort )
- 
-for file in "${dirs_array[@]}"; do
-    mapfile -t files_array < <(find ${dirs_array} -type f -name "*" | sort )
+    # Parsing and appending
+    mapfile -t dirs_array < <(find ${DOCU_PATH}/downloaded/ -type d -name "*" | sort )
+     
+    for file in "${dirs_array[@]}"; do
+        mapfile -t files_array < <(find ${dirs_array} -type f -name "*" | sort )
 
-    for file in "${files_array[@]}"; do
-        cat ${file} | pup -i 0 --pre 'li.current' | pandoc -f html -t plain > ${DOCU_PATH}/topic-header-toupdate.txt
-        cat ${file} | pup -i 0 --pre '.rst-content' | pandoc -f html -t plain > ${DOCU_PATH}/topic-body-toupdate.txt
-        sed -i '1s/^/# /; 1s/$/ #/' ${DOCU_PATH}/topic-header-toupdate.txt
-        sed -i 's/¶/#/g' ${DOCU_PATH}/topic-body-toupdate.txt
-        cat ${DOCU_PATH}/topic-header-toupdate.txt >> ${MAIN_TOUPDATE}
-        cat ${DOCU_PATH}/topic-body-toupdate.txt >> ${MAIN_TOUPDATE}
+        for file in "${files_array[@]}"; do
+
+            cat ${file} | pup 'section h1' | pandoc -f html -t plain | sed 's/¶//g' > ${DOCU_PATH}/topic-header-toupdate.txt
+            cat ${file} | pup 'section h1' | pandoc -f html -t plain | sed 's/¶//g' | figlet >> ${DOCU_PATH}/topic-header-toupdate.txt
+            cat ${file} | pup -i 0 --pre 'li.current' | pandoc -f html -t plain >> ${DOCU_PATH}/topic-header-toupdate.txt
+
+            sed -i '1s/^/# /; 1s/$/ #/' ${DOCU_PATH}/topic-header-toupdate.txt
+            cat ${file} | pup -i 0 --pre '.rst-content' | pandoc -f html -t plain > ${DOCU_PATH}/topic-body-toupdate.txt
+            sed -i 's/¶/#/g' ${DOCU_PATH}/topic-body-toupdate.txt
+            cat ${DOCU_PATH}/topic-header-toupdate.txt >> ${MAIN_TOUPDATE}
+            cat ${DOCU_PATH}/topic-body-toupdate.txt >> ${MAIN_TOUPDATE}
+        done
     done
-done
 
-# Deleting buffer files
-#rm -r ./downloaded
-rm ./topic-header-toupdate.txt
-rm ./topic-body-toupdate.txt
-
+    # Deleting buffer files
+    rm ${DOCU_PATH}/topic-header-toupdate.txt
+    rm ${DOCU_PATH}/topic-body-toupdate.txt
 }
+
 
 
 ## PARSING ARGUMENTS
 ## ------------------------------------
+# (do not touch)
 while getopts ":ip" opt; do
     case ${opt} in
         i)

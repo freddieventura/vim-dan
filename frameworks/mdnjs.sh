@@ -1,11 +1,20 @@
 #!/bin/bash
 
+# DECLARING VARIABLES AND PROCESSING ARGS
+# -------------------------------------
+# (do not touch)
+CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source "$CURRENT_DIR/../scripts/helpers.sh"
+
 DOCU_PATH="$1"
 shift
+DOCU_NAME=$(basename ${0} '.sh')
+MAIN_TOUPDATE="${DOCU_PATH}/main-toupdate.${DOCU_NAME}dan"
+# -------------------------------------
+# eof eof eof DECLARING VARIABLES AND PROCESSING ARGS
+
 
 indexing_rules(){
-    echo "Into Indexing Rules ${0}"
-
     if [ ! -d "${DOCU_PATH}/downloaded" ]; then
         mkdir -p "${DOCU_PATH}/downloaded"
     fi
@@ -28,7 +37,7 @@ indexing_rules(){
       --recursive --level=4 \
     `## Recursive Accept/Reject Options` \
       --no-parent \
-      --reject '*.svg,*.js,*json,*.css,*.png,*.xml,*.txt' \
+      --reject '*.gif,*.svg,*.js,*json,*.css,*.png,*.xml,*.txt' \
       --exclude-directories=en-US/docs/Web/Accessibility,en-US/docs/Web/Accessibility/*,en-US/docs/Web/API,en-US/docs/Web/API/*,en-US/docs/Web/CSS,en-US/docs/Web/CSS/*,en-US/docs/Web/HTML,en-US/docs/Web/HTML/*,en-US/docs/Web/Media,en-US/docs/Web/Media/*,en-US/docs/Web/XML,en-US/docs/Web/XML/*,/en-US/docs/Web/Manifest,/en-US/docs/Web/Manifest/*,/en-US/docs/Web/MathML,/en-US/docs/Web/MathML/*,/en-US/docs/Web/EXSLT,/en-US/docs/Web/EXSLT/*,/en-US/docs/Web/SVG,/en-US/docs/Web/SVG/*,/en-US/docs/Web/XSLT,/en-US/docs/Web/XSLT/*,/en-US/docs/Web/Events,/en-US/docs/Web/Events/*,/en-US/docs/Web/Guide,/en-US/docs/Web/Guide/*,/en-US/docs/Web/Progressive_web_apps,/en-US/docs/Web/Progressive_web_apps/*,/en-US/docs/Web/Performance,/en-US/docs/Web/Performance/*,/en-US/docs/Web/XPath,/en-US/docs/Web/XPath/*,/en-US/docs/Web/Security,/en-US/docs/Web/Security/*,/en-US/docs/Web/HTTP,/en-US/docs/Web/HTTP/* \
       --reject-regex '\\\"' \
       --page-requisites \
@@ -36,12 +45,50 @@ indexing_rules(){
 }
 
 parsing_rules(){
-    echo "Into Parsing Rules ${0}"
+    # Header of docu    
+    echo "vim-dan" | figlet -f univers > ${MAIN_TOUPDATE}
+    echo ${DOCU_NAME} | figlet >> ${MAIN_TOUPDATE}
+
+
+    # Parsing index file
+    cat ${DOCU_PATH}/downloaded/JavaScript.html | pup -i 0 --pre '.sidebar-inner-nav' | pandoc -f html -t plain >> ${MAIN_TOUPDATE}
+
+    # Parsing topics
+    mapfile -t files_array < <(find ${DOCU_PATH}/downloaded/JavaScript -type f -name "*" | sort )
+
+    # Navigation will only be parsed on .html files with same name directory
+    mapfile -t nav_inclusion_array < <(find_same_name_sibling_directory "${DOCU_PATH}" 'html')
+
+    for file in "${files_array[@]}"; do
+        #Parsing headers
+        cat ${file} | pup -i 0 --pre 'header h1' | pandoc -f html -t plain > ${DOCU_PATH}/topic-toupdate.txt
+
+
+        # Parsing the navigation
+        for nav_inclusion_file in "${nav_inclusion_array[@]}";do
+            if [ ${file} == ${nav_inclusion_file} ]; then
+                # Adding title
+                cat ${file} | pup -i 0 --pre 'header h1' | pandoc -f html -t plain | figlet >> ${DOCU_PATH}/topic-toupdate.txt
+                cat ${file} | pup -i 0 --pre 'details[open]' | pandoc -f html -t plain >> ${DOCU_PATH}/topic-toupdate.txt
+                break;
+            fi
+        done
+
+        #Parsing content
+        cat ${file} | pup -i 0 --pre '#content' | pandoc -f html -t plain >> ${DOCU_PATH}/topic-toupdate.txt
+
+        sed -i '1s/^/# /; 1s/$/ #/' ${DOCU_PATH}/topic-toupdate.txt
+        cat ${DOCU_PATH}/topic-toupdate.txt >> ${MAIN_TOUPDATE}
+    done
+
+    # Deleting buffer files
+    rm ${DOCU_PATH}/topic-toupdate.txt
 }
 
 
 ## PARSING ARGUMENTS
 ## ------------------------------------
+# (do not touch)
 while getopts ":ip" opt; do
     case ${opt} in
         i)

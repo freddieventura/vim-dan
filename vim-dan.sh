@@ -5,6 +5,7 @@
 ## Modify accordingly
 
 VIMDAN_DIR="${HOME}/baul-documents/vim-dan"
+VIM_RTP_DIR="${HOME}/.vim"
 
 ## EOF EOF EOF USER DEFINED OPTIONS
 ## ------------------------------------
@@ -69,7 +70,7 @@ MAIN_TOUPDATE="${DOCU_PATH}/main-toupdate.${DOCU_NAME}dan"
 
 ## PARSING ARGUMENTS
 ## ------------------------------------
-while getopts ":iupxrh" opt; do
+while getopts ":iupxrdh" opt; do
     case ${opt} in
         i)
             perfom_install
@@ -86,14 +87,18 @@ while getopts ":iupxrh" opt; do
         r)
             perfom_remove
             ;;
+        d)
+            delete_index
+            ;;
         h | *)
-            echo "Usage: $0 [FRAMEWORK] [-i] [-u] [-p] [-x] [-r] [-h] "
+            echo "Usage: $0 [FRAMEWORK] [-i] [-u] [-p] [-x] [-r] [-d] [-h]"
             echo "Options:"
-            echo "  -i  Install"
-            echo "  -u  Update"
-            echo "  -p  Parse"
-            echo "  -x  Index"
-            echo "  -r  Remove"
+            echo "  -i  Install Docu"
+            echo "  -u  Update Docu"
+            echo "  -p  Parse Docu"
+            echo "  -x  Index Docu"
+            echo "  -r  Remove Docu"
+            echo "  -d  Delete Index"
             echo "  -h  Help"
             exit 0
             ;;

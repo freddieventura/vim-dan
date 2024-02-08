@@ -11,6 +11,7 @@ perfom_install(){
     cp $CURRENT_DIR/ready-docus/main.${DOCU_NAME}dan ${DOCU_PATH}/main.${DOCU_NAME}dan-toupdate
     perform_patch
     updating_tags
+    updating_vim
 }
 
 perfom_update(){
@@ -19,26 +20,32 @@ perfom_update(){
     cp $CURRENT_DIR/ready-docus/main.${DOCU_NAME}dan ${DOCU_PATH}/main.${DOCU_NAME}dan-toupdate
     perform_patch
     updating_tags
+    updating_vim
 }
 
 perfom_index(){
     echo "Indexing vim-dan ${DOCU_NAME} on ${DOCU_PATH}/ ..."
-#    delete_index
     ${CURRENT_DIR}/frameworks/${DOCU_NAME}.sh ${DOCU_PATH} "-i"
 }
 
 perfom_parse(){
     echo "Parsing vim-dan ${DOCU_NAME} on ${DOCU_PATH}/ ..."
     ${CURRENT_DIR}/frameworks/${DOCU_NAME}.sh ${DOCU_PATH} "-p"
+    perform_patch
     updating_tags
-#    delete_index
+    updating_vim
 }
-
 perfom_remove(){
     echo "Removing vim-dan ${DOCU_NAME} off ${DOCU_PATH}/ ..."
     rm -r ${DOCU_PATH}
+    rm ${VIM_RTP_DIR}/ftdetect/${DOCU_NAME}dan.vim 
+    rm ${VIM_RTP_DIR}/after/ftplugin/${DOCU_NAME}dan.vim 
+    rm ${VIM_RTP_DIR}/syntax/${DOCU_NAME}dan.vim 
 }
-
+delete_index() {
+    echo "Deleting previous Index ..."
+    rm -r ${DOCU_PATH}/downloaded
+}
 ## EOF EOF EOFF USER TRIGGERED ACTIONS
 ## ------------------------------------
 
@@ -51,23 +58,23 @@ perform_patch(){
     # If performed for the first-time just use the new index
     if [ -e ${MAIN_FILE} ]; then
         cp ${MAIN_FILE} ${MAIN_FILE}-bk
-        diff <(sed 's/ (X)$//g' ${MAIN_FILE}) ${MAIN_FILE}-toupdate | patch ${MAIN_FILE}
-        rm ${MAIN_FILE}-toupdate
+        diff <(sed 's/ (X)$//g' ${MAIN_FILE}) ${MAIN_TOUPDATE} | patch ${MAIN_FILE}
+        rm ${MAIN_TOUPDATE}
     else
-        mv ${MAIN_FILE}-toupdate ${MAIN_FILE}
+        mv ${MAIN_TOUPDATE} ${MAIN_FILE}
     fi
 }
 
-delete_index() {
-    echo "Deleting previous Index ..."
-    rm -r ${DOCU_PATH}/downloaded
-}
 updating_tags() {
     echo "Updating the tag file..."
     ctags --options=NONE --options=${CURRENT_DIR}/ctags-rules/${DOCU_NAME}dan.ctags -f ${DOCU_PATH}/tags ${MAIN_FILE} 
 }
-#updating_vim_syntax() {
-#}
+updating_vim() {
+    echo "Updating vim files..."
+    cp ${CURRENT_DIR}/ft-detection/${DOCU_NAME}dan.vim  ${VIM_RTP_DIR}/ftdetect/
+    cp ${CURRENT_DIR}/linking-rules/${DOCU_NAME}dan.vim  ${VIM_RTP_DIR}/after/ftplugin/
+    cp ${CURRENT_DIR}/syntax-rules/${DOCU_NAME}dan.vim  ${VIM_RTP_DIR}/syntax/
+}
 ## EOF EOF EOF AUTOMATIC ACTIONS
 ## ------------------------------------
 

@@ -20,6 +20,19 @@ The framework documentation can be periodically updated according to their publi
 The project aims for the simplicity of `vim`'s functionality, aiming to extend the use **plain-text** , **syntax highlight** and **tags** navigation in a similar fashion to [vim-help-files](https://vimhelp.org/) , analogous to the usage of `filetype = help'.
 
 
+## Dependencies
+
+```
+vim
+ctags
+# For indexing yourself
+wget
+# For parsing yourself
+pandoc
+pup
+gnu-utils
+```
+
 ## Frameworks available
 
 By framework it can mean any system that has a concise documentation available online, mostly in `.html` , it can refer from Programming Languages, to actual frameworks, to any other topic with concise documentation.
