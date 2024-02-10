@@ -11,6 +11,7 @@ DOCU_PATH="$1"
 shift
 DOCU_NAME=$(basename ${0} '.sh')
 MAIN_TOUPDATE="${DOCU_PATH}/main-toupdate.${DOCU_NAME}dan"
+DOWNLOAD_LINK="https://nodejs.org/dist/latest-v16.x/docs/api/all.html"
 # -------------------------------------
 # eof eof eof DECLARING VARIABLES AND PROCESSING ARGS
 
@@ -37,10 +38,18 @@ indexing_rules(){
       --no-check-certificate \
     `## Recursive Retrieval Options` \
     `## Recursive Accept/Reject Options` \
-      https://nodejs.org/dist/latest-v16.x/docs/api/all.html
+      ${DOWNLOAD_LINK}
 }
 
 parsing_rules(){
+    # Header of docu    
+    echo "vim-dan" | figlet -f univers > ${MAIN_TOUPDATE}
+    echo ${DOCU_NAME} | figlet >> ${MAIN_TOUPDATE}
+    echo "Documentation indexed from : ${DOWNLOAD_LINK} " >> ${MAIN_TOUPDATE}
+    echo "Last parsed on : $(date)" >> ${MAIN_TOUPDATE}
+
+    # Parsing main file
+    cat ${DOCU_PATH}/downloaded/all.html | pandoc -f html -t plain >> ${MAIN_TOUPDATE}
 }
 
 

@@ -10,6 +10,7 @@ DOCU_PATH="$1"
 shift
 DOCU_NAME=$(basename ${0} '.sh')
 MAIN_TOUPDATE="${DOCU_PATH}/main-toupdate.${DOCU_NAME}dan"
+DOWNLOAD_LINK="https://ai-scripting.docsforadobe.dev/"
 # -------------------------------------
 # eof eof eof DECLARING VARIABLES AND PROCESSING ARGS
 
@@ -39,19 +40,22 @@ indexing_rules(){
       --no-parent \
       --reject '*.svg,*.js,*json,*.css,*.png,*.xml,*.txt' \
       --page-requisites \
-      https://ai-scripting.docsforadobe.dev/
+      ${DOWNLOAD_LINK}
 }
 
 parsing_rules(){
     # Header of docu    
     echo "vim-dan" | figlet -f univers > ${MAIN_TOUPDATE}
     echo ${DOCU_NAME} | figlet >> ${MAIN_TOUPDATE}
+    echo "Documentation indexed from : ${DOWNLOAD_LINK} " >> ${MAIN_TOUPDATE}
+    echo "Last parsed on : $(date)" >> ${MAIN_TOUPDATE}
+
 
 
     cat ${DOCU_PATH}/downloaded/index.html | pup -i 0 --pre '.rst-content' | pandoc -f html -t plain >> ${MAIN_TOUPDATE}
 
-    # Parsing and appending
-    mapfile -t dirs_array < <(find ${DOCU_PATH}/downloaded/ -type d -name "*" | sort )
+    # Parsing topics (sorting by path, then alphabetically)
+    mapfile -t dirs_array < <(find ${DOCU_PATH}/downloaded/ -type d -name "*" | awk '{print gsub(/\//,"/")"|"$0; }' | sort -t'|' -k1,1n -k2 | sed 's/^[^|]*|//')
      
     for file in "${dirs_array[@]}"; do
         mapfile -t files_array < <(find ${dirs_array} -type f -name "*" | sort )

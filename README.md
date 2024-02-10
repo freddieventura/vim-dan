@@ -73,6 +73,11 @@ Setting up the highlight rules for the filetype in vim , that will make viewing 
 Code syntax highlighting, and header highlight.
 
 
+## Limitation on current docus
+
+### apps-script
+- Documentation is only for reference items (no tutorials)
+- Pending to include api/reference/ items
 
 ## Further ideas on the way
 

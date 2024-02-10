@@ -10,6 +10,7 @@ DOCU_PATH="$1"
 shift
 DOCU_NAME=$(basename ${0} '.sh')
 MAIN_TOUPDATE="${DOCU_PATH}/main-toupdate.${DOCU_NAME}dan"
+DOWNLOAD_LINK="https://developer.mozilla.org/en-US/docs/Web/API"
 # -------------------------------------
 # eof eof eof DECLARING VARIABLES AND PROCESSING ARGS
 
@@ -41,7 +42,7 @@ indexing_rules(){
       --exclude-directories=en-US/docs/Web/Accessibility,en-US/docs/Web/Accessibility/*,en-US/docs/Web/CSS,en-US/docs/Web/CSS/*,en-US/docs/Web/HTML,en-US/docs/Web/HTML/*,en-US/docs/Web/Media,en-US/docs/Web/Media/*,en-US/docs/Web/XML,en-US/docs/Web/XML/*,/en-US/docs/Web/Manifest,/en-US/docs/Web/Manifest/*,/en-US/docs/Web/MathML,/en-US/docs/Web/MathML/*,/en-US/docs/Web/EXSLT,/en-US/docs/Web/EXSLT/*,/en-US/docs/Web/SVG,/en-US/docs/Web/SVG/*,/en-US/docs/Web/XSLT,/en-US/docs/Web/XSLT/*,/en-US/docs/Web/Events,/en-US/docs/Web/Events/*,/en-US/docs/Web/Guide,/en-US/docs/Web/Guide/*,/en-US/docs/Web/Progressive_web_apps,/en-US/docs/Web/Progressive_web_apps/*,/en-US/docs/Web/Performance,/en-US/docs/Web/Performance/*,/en-US/docs/Web/XPath,/en-US/docs/Web/XPath/*,/en-US/docs/Web/Security,/en-US/docs/Web/Security/*,/en-US/docs/Web/JavaScript,/en-US/docs/Web/JavaScript/*,/en-US/docs/Web/HTTP,/en-US/docs/Web/HTTP/* \
       --reject-regex '\\\"' \
       --page-requisites \
-      https://developer.mozilla.org/en-US/docs/Web/API
+      ${DOWNLOAD_LINK}
 
 }
 
@@ -49,13 +50,15 @@ parsing_rules(){
     # Header of docu    
     echo "vim-dan" | figlet -f univers > ${MAIN_TOUPDATE}
     echo ${DOCU_NAME} | figlet >> ${MAIN_TOUPDATE}
+    echo "Documentation indexed from : ${DOWNLOAD_LINK} " >> ${MAIN_TOUPDATE}
+    echo "Last parsed on : $(date)" >> ${MAIN_TOUPDATE}
 
 
     # Parsing index file
     cat ${DOCU_PATH}/downloaded/API.html | pup -i 0 --pre '#content' | pandoc -f html -t plain >> ${MAIN_TOUPDATE}
 
-    # Parsing topics
-    mapfile -t files_array < <(find ${DOCU_PATH}/downloaded/API -type f -name "*" | sort )
+    # Parsing topics (sorting by path, then alphabetically)
+    mapfile -t files_array < <(find ${DOCU_PATH}/downloaded/API -type f -name "*" | awk '{print gsub(/\//,"/")"|"$0; }' | sort -t'|' -k1,1n -k2 | sed 's/^[^|]*|//')
 
     # Navigation will only be parsed on .html files with same name directory
     mapfile -t nav_inclusion_array < <(find_same_name_sibling_directory "${DOCU_PATH}" 'html')
