@@ -66,12 +66,9 @@ declare -a files_array
 ## (called services in Google , i.e: Spreadsheet Service)
 mapfile -t level_one_files_array < <(find "${DOCU_PATH}/downloaded/reference" -maxdepth 1 -type f | awk '{print gsub(/\//,"/")"|"$0; }' | sort -t'|' -k1,1n -k2 | sed 's/^[^|]*|//')
 
-
-## Grabbing all .html files that got same foldername in an array
-#mapfile -t titles_inclusion_array < <(find_same_name_sibling_directory "${DOCU_PATH}" 'html')
-
 ## EOF EOF EOF PRECALCULATING ARRAYS
 # -----------------------------------------------------------
+
 
 # Creating a manual index of the documentation
 # -----------------------------------------------------------
@@ -85,7 +82,7 @@ for level_one_file in "${level_one_files_array[@]}"; do
 
     # Parsing level_one list Item
     link_from=$(cat ${level_one_file} | pup -i 0 --pre 'h1.devsite-page-title' | pandoc -f html -t plain)
-    echo "- |${link_from}|" >> ${MAIN_TOUPDATE}
+    echo "- &${link_from}&" >> ${MAIN_TOUPDATE}
 
     directory="${level_one_file%.html}/"
 
@@ -104,9 +101,8 @@ for level_one_file in "${level_one_files_array[@]}"; do
         #        i.e 
         #             Enum MimeType may be brom Base Service or from Content Service
         #             Do "Base Enum MimeType" and "Content Enum MimeType"
-#        prefix=$($(basename "$(dirname "$level_two_file")") | awk -F"-" '{for(i=1;i<=NF;i++){$i=toupper(substr($i,1,1)) substr($i,2)}} 1' OFS="")
         prefix=$(basename "$(dirname "$level_two_file")" | awk -F"-" '{for(i=1;i<=NF;i++){$i=toupper(substr($i,1,1)) substr($i,2)}} 1' OFS="")
-        echo "    - |${prefix} ${link_from}|" >> ${MAIN_TOUPDATE}
+        echo "    - &${prefix} ${link_from}&" >> ${MAIN_TOUPDATE}
     done
 done
 
@@ -121,20 +117,23 @@ done
         # Parsing level_one title and link_to different to level_two
         
         is_level_one=false
-        # Parsing Level One Content
         for level_one_file in "${level_one_files_array[@]}"; do
+            # level_one content title and link_to
             if [ ${file} == ${level_one_file} ]; then
-                link_to="# $(cat ${file} | pup -i 0 --pre 'h1.devsite-page-title' | pandoc -f html -t plain)#" 
-                echo ${link_to} >> ${MAIN_TOUPDATE}
-                cat ${file} | pup -i 0 --pre 'h1.devsite-page-title' | pandoc -f html -t plain | figlet >> ${MAIN_TOUPDATE}
+
+                # creating link_to
+                link_to=$(cat ${file} | pup -i 0 --pre 'h1.devsite-page-title' | pandoc -f html -t plain)
+                echo "# ${link_to} #" >> ${MAIN_TOUPDATE}   ## Actual link_to
+                echo ${link_to} | figlet >> ${MAIN_TOUPDATE}
                 is_level_one=true
                 break;
             fi
         done
 
+        # level_two content title and link_to
         if [ "$is_level_one" = false ]; then
                 prefix=$(basename "$(dirname "$file")" | awk -F"-" '{for(i=1;i<=NF;i++){$i=toupper(substr($i,1,1)) substr($i,2)}} 1' OFS="")
-                link_to="# ${prefix} $(cat ${file} | pup -i 0 --pre 'h1.devsite-page-title' | pandoc -f html -t plain)#" 
+                link_to="# ${prefix} $(cat ${file} | pup -i 0 --pre 'h1.devsite-page-title' | pandoc -f html -t plain) #" 
                 echo ${link_to} >> ${MAIN_TOUPDATE}
         fi
 

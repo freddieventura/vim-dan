@@ -1,0 +1,8 @@
+--langdef=adobepsddantags
+--langmap=adobepsddantags:.adobe-psddan
+--kinddef-adobepsddantags=t,topic,topics
+--kinddef-adobepsddantags=s,subtopic,subtopics
+--kinddef-adobepsddantags=p,property,properties
+--kinddef-adobepsddantags=m,method,methods
+--regex-adobepsddantags=/^#\s(.*)\s#$/\1/t/
+--regex-adobepsddantags=/^(\w.*)\s#$/\1/s/

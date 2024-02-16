@@ -1,8 +1,0 @@
---langdef=aidantags
---langmap=aidantags:.aidan
---kinddef-aidantags=t,topic,topics
---kinddef-aidantags=p,property,properties
---kinddef-aidantags=m,method,methods
---regex-aidantags=/^#\s(\w*)\s#$/\1/t/
---regex-aidantags=/^(\w*\.\w*)\s#$/\1/p/
---regex-aidantags=/^(\w*\.\w*)\(\)\s#$/\1/m/

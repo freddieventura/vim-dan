@@ -1,0 +1,4 @@
+--langdef=javaapidantags
+--langmap=javaapidantags:.java-apidan
+--kinddef-javaapidantags=t,topic,topics
+--regex-javaapidantags=/^#\s(.*)\s#$/\1/t/

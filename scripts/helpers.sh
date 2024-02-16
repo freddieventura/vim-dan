@@ -13,7 +13,6 @@ perfom_install(){
     updating_tags
     updating_vim
 }
-
 perfom_update(){
     echo "Updating vim-dan ${DOCU_NAME} on ${DOCU_PATH}/ ..."
     echo "Note!! . In order for this to have any effect you previously should have updated the repository"

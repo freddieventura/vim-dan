@@ -1,0 +1,8 @@
+--langdef=adobeaidantags
+--langmap=adobeaidantags:.adobe-aidan
+--kinddef-adobeaidantags=t,topic,topics
+--kinddef-adobeaidantags=s,subtopic,subtopics
+--kinddef-adobeaidantags=p,property,properties
+--kinddef-adobeaidantags=m,method,methods
+--regex-adobeaidantags=/^#\s(.*)\s#$/\1/t/
+--regex-adobeaidantags=/^(\w.*)\s#$/\1/s/

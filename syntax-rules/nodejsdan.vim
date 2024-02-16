@@ -38,8 +38,8 @@ syn match nodejsdanKonline "(K)"
 
 hi def link nodejsdanHyperTextJump	Identifier
 hi def link nodejsdanMethodLink	Identifier
-ei def link nodejsdanLeftBracket		Ignore
-hi def link nodejsdanRightBracket    Ignore
+hi def link nodejsdanLeftBracket Ignore
+hi def link nodejsdanRightBracket Ignore
 hi def link nodejsdanXonline StatusLineTerm
 hi def link nodejsdanKonline SpellRare
 

@@ -1,6 +1,9 @@
-" freddieventura
-" related to mdncss.dan filetype which is valid to parse mdn css documentation
-" documentation with ctags
+" Author: freddieventura
+" File related to vim-dan linking rules
+" so in files with the extension .${framework_name}dan
+"      Upon locating in certain navigation areas
+"      You can press Ctrl + ] and move around topics/signatures/etc
+" Check https://github.com/freddieventura/vim-dan for more info
 
 " Using Ctrl + ] to access topics
 command! GotoTopic call GotoTopicFn()

@@ -58,6 +58,17 @@ Also any suggestions on how to improve the already existing source are more than
 - Linking
 - Styling
 
+First off copy the template for indexing and parsing and create your doc name
+For future compatiblity don't use a ${doc_name} that is already been used on this repository
+Also there are some limitations for such as ${doc_name}
+    - No dashes on it (Ctags incompatibility)
+    - 
+
+```
+cp ./framworks/template-to-follow.sh ${doc_name}.sh
+```
+
+
 ### Indexing: Specifying the Indexing Commands
 
 ### Parsing
@@ -66,7 +77,22 @@ First line of each single document will be appended with something like (# mytit
 Mind that to do the `${doc_name}dan.ctags` file
 
 ### Linking 
+#### links_from
 Creating the logic in `$HOME/.vim/after/ftplugin/${doc_name}dan.vim` , so the lines of the Index and other places in the Document can take you to the different tags by pressing `Ctrl + ]` 
+
+#### links_to
+Means to create the ruleset for ctags in order to parse the links_to of each topic/property/signature/function or whatever language feature you want to link on the docs.
+
+```
+$ cp ./ctags-rules/aidan.ctags ./ctags-rules/my-language.ctags
+(Change all the fields s/aidan/mylanguage/g)
+--langdef=mylanguagedantags
+--langmap=mylanguagedantags:.my-languagedan
+--kinddef-mylanguagedantags=t,topic,topics
+--regex-mylanguagedantags=/^#\s(\w*)\s#$/\1/t/
+```
+
+Note if the name of your documentation has a dash on it, on ctags definitions on the directives on the left hand side you cannot use dashes, just put it together as 'mylanguagedantags'
 
 ### Styling 
 Setting up the highlight rules for the filetype in vim , that will make viewing the document a pleasant time, enhacing visual memory , according to the patterns of the documentation.

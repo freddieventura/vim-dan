@@ -717,6 +717,1873 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Mar 6, 2023 by MDN contributors .
+# SVG Attribute reference #
+ ______     ______      _   _   _        _ _           _       
+/ ___\ \   / / ___|    / \ | |_| |_ _ __(_) |__  _   _| |_ ___ 
+\___ \\ \ / / |  _    / _ \| __| __| '__| | '_ \| | | | __/ _ \
+ ___) |\ V /| |_| |  / ___ \ |_| |_| |  | | |_) | |_| | ||  __/
+|____/  \_/  \____| /_/   \_\__|\__|_|  |_|_.__/ \__,_|\__\___|
+                                                               
+           __                              
+ _ __ ___ / _| ___ _ __ ___ _ __   ___ ___ 
+| '__/ _ \ |_ / _ \ '__/ _ \ '_ \ / __/ _ \
+| | |  __/  _|  __/ | |  __/ | | | (_|  __/
+|_|  \___|_|  \___|_|  \___|_| |_|\___\___|
+                                           
+SVG Attribute reference
+
+SVG elements can be modified using attributes that specify details about
+exactly how the element should be handled or rendered.
+
+Below is a list of all of the attributes available in SVG along with
+links to reference documentation to help you learn which elements
+support them and how they work.
+
+SVG attributes A to Z
+
+A
+
+-     accent-height 
+-     accumulate 
+-     additive 
+-     alignment-baseline 
+-     alphabetic 
+-     amplitude 
+-     arabic-form 
+-     ascent 
+-     attributeName 
+-     attributeType 
+-     azimuth 
+
+B
+
+-     baseFrequency 
+-     baseline-shift 
+-     baseProfile 
+-     bbox 
+-     begin 
+-     bias 
+-     by 
+
+C
+
+-     calcMode 
+-     cap-height 
+-     class 
+-     clip 
+-     clipPathUnits 
+-     clip-path 
+-     clip-rule 
+-     color 
+-     color-interpolation 
+-     color-interpolation-filters 
+-     color-profile 
+-     color-rendering 
+-     crossorigin 
+-     cursor 
+-     cx 
+-     cy 
+
+D
+
+-     d 
+-     decelerate 
+-     descent 
+-     diffuseConstant 
+-     direction 
+-     display 
+-     divisor 
+-     dominant-baseline 
+-     dur 
+-     dx 
+-     dy 
+
+E
+
+-     edgeMode 
+-     elevation 
+-     enable-background 
+-     end 
+-     exponent 
+
+F
+
+-     fill 
+-     fill-opacity 
+-     fill-rule 
+-     filter 
+-     filterUnits 
+-     flood-color 
+-     flood-opacity 
+-     font-family 
+-     font-size 
+-     font-size-adjust 
+-     font-stretch 
+-     font-style 
+-     font-variant 
+-     font-weight 
+-     format 
+-     from 
+-     fr 
+-     fx 
+-     fy 
+
+G
+
+-     g1 
+-     g2 
+-     glyph-name 
+-     glyph-orientation-horizontal 
+-     glyph-orientation-vertical 
+-     glyphRef 
+-     gradientTransform 
+-     gradientUnits 
+
+H
+
+-     hanging 
+-     height 
+-     href 
+-     hreflang 
+-     horiz-adv-x 
+-     horiz-origin-x 
+
+I
+
+-     id 
+-     ideographic 
+-     image-rendering 
+-     in 
+-     in2 
+-     intercept 
+
+K
+
+-     k 
+-     k1 
+-     k2 
+-     k3 
+-     k4 
+-     kernelMatrix 
+-     kernelUnitLength 
+-     kerning 
+-     keyPoints 
+-     keySplines 
+-     keyTimes 
+
+L
+
+-     lang 
+-     lengthAdjust 
+-     letter-spacing 
+-     lighting-color 
+-     limitingConeAngle 
+-     local 
+
+M
+
+-     marker-end 
+-     marker-mid 
+-     marker-start 
+-     markerHeight 
+-     markerUnits 
+-     markerWidth 
+-     mask 
+-     maskContentUnits 
+-     maskUnits 
+-     mathematical 
+-     max 
+-     media 
+-     method 
+-     min 
+-     mode 
+
+N
+
+-     name 
+-     numOctaves 
+
+O
+
+-     offset 
+-     opacity 
+-     operator 
+-     order 
+-     orient 
+-     orientation 
+-     origin 
+-     overflow 
+-     overline-position 
+-     overline-thickness 
+
+P
+
+-     panose-1 
+-     paint-order 
+-     path 
+-     pathLength 
+-     patternContentUnits 
+-     patternTransform 
+-     patternUnits 
+-     ping 
+-     pointer-events 
+-     points 
+-     pointsAtX 
+-     pointsAtY 
+-     pointsAtZ 
+-     preserveAlpha 
+-     preserveAspectRatio 
+-     primitiveUnits 
+
+R
+
+-     r 
+-     radius 
+-     referrerPolicy 
+-     refX 
+-     refY 
+-     rel 
+-     rendering-intent 
+-     repeatCount 
+-     repeatDur 
+-     requiredExtensions 
+-     requiredFeatures 
+-     restart 
+-     result 
+-     rotate 
+-     rx 
+-     ry 
+
+S
+
+-     scale 
+-     seed 
+-     shape-rendering 
+-     slope 
+-     spacing 
+-     specularConstant 
+-     specularExponent 
+-     speed 
+-     spreadMethod 
+-     startOffset 
+-     stdDeviation 
+-     stemh 
+-     stemv 
+-     stitchTiles 
+-     stop-color 
+-     stop-opacity 
+-     strikethrough-position 
+-     strikethrough-thickness 
+-     string 
+-     stroke 
+-     stroke-dasharray 
+-     stroke-dashoffset 
+-     stroke-linecap 
+-     stroke-linejoin 
+-     stroke-miterlimit 
+-     stroke-opacity 
+-     stroke-width 
+-     style 
+-     surfaceScale 
+-     systemLanguage 
+
+T
+
+-     tabindex 
+-     tableValues 
+-     target 
+-     targetX 
+-     targetY 
+-     text-anchor 
+-     text-decoration 
+-     text-rendering 
+-     textLength 
+-     to 
+-     transform 
+-     transform-origin 
+-     type 
+
+U
+
+-     u1 
+-     u2 
+-     underline-position 
+-     underline-thickness 
+-     unicode 
+-     unicode-bidi 
+-     unicode-range 
+-     units-per-em 
+
+V
+
+-     v-alphabetic 
+-     v-hanging 
+-     v-ideographic 
+-     v-mathematical 
+-     values 
+-     vector-effect 
+-     version 
+-     vert-adv-y 
+-     vert-origin-x 
+-     vert-origin-y 
+-     viewBox 
+-     visibility 
+
+W
+
+-     width 
+-     widths 
+-     word-spacing 
+-     writing-mode 
+
+X
+
+-     x 
+-     x-height 
+-     x1 
+-     x2 
+-     xChannelSelector 
+-     xlink:actuate 
+-     xlink:arcrole 
+-     xlink:href  Deprecated
+-     xlink:role 
+-     xlink:show 
+-     xlink:title 
+-     xlink:type 
+-     xml:base 
+-     xml:lang 
+-     xml:space 
+
+Y
+
+-     y 
+-     y1 
+-     y2 
+-     yChannelSelector 
+
+Z
+
+-     z 
+-     zoomAndPan 
+
+SVG attributes by category
+
+Generic attributes
+
+Core attributes
+
+    Core attributes
+
+      id  ,   lang  ,   tabindex  ,   xml:base  ,   xml:lang  ,
+      xml:space 
+
+Style attributes
+
+    Style attributes
+
+      class  ,   style 
+
+Conditional processing attributes
+
+      requiredExtensions  ,   requiredFeatures  ,   systemLanguage  .
+
+XLink attributes
+
+  xlink:href  Deprecated ,   xlink:type  ,   xlink:role  ,
+  xlink:arcrole  ,   xlink:title  ,   xlink:show  ,   xlink:actuate 
+
+Presentation attributes
+
+Note: All SVG presentation attributes can be used as CSS properties.
+
+-     alignment-baseline 
+-     baseline-shift 
+-     clip 
+-     clip-path 
+-     clip-rule 
+-     color 
+-     color-interpolation 
+-     color-interpolation-filters 
+-     color-profile 
+-     color-rendering 
+-     cursor 
+-     direction 
+-     display 
+-     dominant-baseline 
+-     enable-background 
+-     fill 
+-     fill-opacity 
+-     fill-rule 
+-     filter 
+-     flood-color 
+-     flood-opacity 
+-     font-family 
+-     font-size 
+-     font-size-adjust 
+-     font-stretch 
+-     font-style 
+-     font-variant 
+-     font-weight 
+-     glyph-orientation-horizontal 
+-     glyph-orientation-vertical 
+-     image-rendering 
+-     kerning 
+-     letter-spacing 
+-     lighting-color 
+-     marker-end 
+-     marker-mid 
+-     marker-start 
+-     mask 
+-     opacity 
+-     overflow 
+-     pointer-events 
+-     shape-rendering 
+-     stop-color 
+-     stop-opacity 
+-     stroke 
+-     stroke-dasharray 
+-     stroke-dashoffset 
+-     stroke-linecap 
+-     stroke-linejoin 
+-     stroke-miterlimit 
+-     stroke-opacity 
+-     stroke-width 
+-     text-anchor 
+-     text-decoration 
+-     text-rendering 
+-     transform 
+-     transform-origin 
+-     unicode-bidi 
+-     vector-effect 
+-     visibility 
+-     word-spacing 
+-     writing-mode 
+
+Filters attributes
+
+Filter primitive attributes
+      height  ,   result  ,   width  ,   x  ,   y 
+
+Transfer function attributes
+      type  ,   tableValues  ,   slope  ,   intercept  ,   amplitude  ,
+      exponent  ,   offset 
+
+Animation attributes
+
+Animation target element attributes
+      href 
+
+Animation attribute target attributes
+      attributeType  ,   attributeName 
+
+Animation timing attributes
+      begin  ,   dur  ,   end  ,   min  ,   max  ,   restart  ,
+      repeatCount  ,   repeatDur  ,   fill 
+
+Animation value attributes
+      calcMode  ,   values  ,   keyTimes  ,   keySplines  ,   from  ,
+      to  ,   by  ,   autoReverse  ,   accelerate  ,   decelerate 
+
+Animation addition attributes
+      additive  ,   accumulate 
+
+Event attributes
+
+Animation event attributes
+
+    Animation event attributes
+
+     onbegin ,  onend ,  onrepeat
+
+Document event attributes
+
+    Document event attributes
+
+     onabort ,  onerror ,  onresize ,  onscroll ,  onunload
+
+Global event attributes
+
+    Global event attributes
+
+     oncancel ,  oncanplay ,  oncanplaythrough ,  onchange ,  onclick ,
+     onclose ,  oncuechange ,  ondblclick ,  ondrag ,  ondragend ,
+     ondragenter ,  ondragleave ,  ondragover ,  ondragstart ,  ondrop ,
+     ondurationchange ,  onemptied ,  onended ,  onerror ,  onfocus ,
+     oninput ,  oninvalid ,  onkeydown ,  onkeypress ,  onkeyup ,
+     onload ,  onloadeddata ,  onloadedmetadata ,  onloadstart ,
+     onmousedown ,  onmouseenter ,  onmouseleave ,  onmousemove ,
+     onmouseout ,  onmouseover ,  onmouseup ,  onmousewheel ,  onpause ,
+     onplay ,  onplaying ,  onprogress ,  onratechange ,  onreset ,
+     onresize ,  onscroll ,  onseeked ,  onseeking ,  onselect ,  onshow
+    ,  onstalled ,  onsubmit ,  onsuspend ,  ontimeupdate ,  ontoggle ,
+     onvolumechange ,  onwaiting
+
+Graphical event attributes
+
+    Graphical event attributes
+
+     onactivate ,  onfocusin ,  onfocusout
+
+See also
+
+-   SVG element reference
+-   SVG Tutorial
+-   SVG interface reference
+
+Found a content problem with this page?
+
+-   Edit the page on GitHub .
+-   Report the content issue .
+-   View the source on GitHub .
+
+Want to get more involved? Learn how to contribute .
+
+This page was last modified on Dec 19, 2023 by MDN contributors .
+# Content type #
+  ____            _             _     _                    
+ / ___|___  _ __ | |_ ___ _ __ | |_  | |_ _   _ _ __   ___ 
+| |   / _ \| '_ \| __/ _ \ '_ \| __| | __| | | | '_ \ / _ \
+| |__| (_) | | | | ||  __/ | | | |_  | |_| |_| | |_) |  __/
+ \____\___/|_| |_|\__\___|_| |_|\__|  \__|\__, | .__/ \___|
+                                          |___/|_|         
+Content type
+
+SVG makes use of a number of data types. This article lists these types
+along with their syntax and descriptions of what they're used for.
+
+Angle
+
+<angle>
+
+    Angles are specified in one of two ways. When used in the value of a
+    property in a stylesheet, an <angle> is defined as follows:
+
+        angle ::= number (~"deg" | ~"grad" | ~"rad")?
+
+    where  deg indicates degrees,  grad indicates grads and  rad
+    indicates radians.
+
+    For properties defined in CSS2, an angle unit identifier must be
+    provided. For angle values in SVG-specific properties and their
+    corresponding presentation attributes, the angle unit identifier is
+    optional. If not provided, the angle value is assumed to be in
+    degrees. In presentation attributes for all properties, whether
+    defined in SVG1.1 or in CSS2, the angle identifier, if specified,
+    must be in lower case.
+
+    When angles are used in an SVG attribute, <angle> is instead defined
+    as follows:
+
+        angle ::= number ("deg" | "grad" | "rad")?
+
+    The unit identifiers in such <angle> values must be in lower case.
+
+    In the SVG DOM, <angle> values are represented using  SVGAngle or
+     SVGAnimatedAngle objects.
+
+Anything
+
+<anything>
+
+    The basic type <anything> is a sequence of zero or more characters.
+    Specifically:
+
+        anything ::= Char*
+
+    where Char is the production for a character, as defined in XML 1.0,
+    section 2.2.
+
+Clock-value
+
+<clock-value>
+
+    Clock values have the same syntax as in SMIL Animation
+    specification. The grammar for clock values is repeated here:
+
+        Clock-val         ::= Full-clock-val | Partial-clock-val
+                              | Timecount-val
+        Full-clock-val    ::= Hours ":" Minutes ":" Seconds ("." Fraction)?
+        Partial-clock-val ::= Minutes ":" Seconds ("." Fraction)?
+        Timecount-val     ::= Timecount ("." Fraction)? (Metric)?
+        Metric            ::= "h" | "min" | "s" | "ms"
+        Hours             ::= DIGIT+; any positive number
+        Minutes           ::= 2DIGIT; range from 00 to 59
+        Seconds           ::= 2DIGIT; range from 00 to 59
+        Fraction          ::= DIGIT+
+        Timecount         ::= DIGIT+
+        2DIGIT            ::= DIGIT DIGIT
+        DIGIT             ::= [0-9]
+
+    For  Timecount values, the default metric suffix is "  s " (for
+    seconds). No embedded white space is allowed in clock values,
+    although leading and trailing white space characters will be
+    ignored.
+
+    The following are examples of legal clock values:
+
+    -   Full clock values:
+        -    02:30:03 = 2 hours, 30 minutes and 3 seconds
+        -    50:00:10.25 = 50 hours, 10 seconds and 250 milliseconds
+    -   Partial clock value:
+        -    02:33 = 2 minutes and 33 seconds
+        -    00:10.5 = 10.5 seconds = 10 seconds and 500 milliseconds
+    -   Timecount values:
+        -    3.2h = 3.2 hours = 3 hours and 12 minutes
+        -    45min = 45 minutes
+        -    30s = 30 seconds
+        -    5ms = 5 milliseconds
+        -    12.467 = 12 seconds and 467 milliseconds
+    -   Fractional values are just (base 10) floating point definitions
+        of seconds. Thus:
+        -    00.5s = 500 milliseconds
+        -    00:00.005 = 5 milliseconds
+
+Color
+
+<color>
+
+    The basic type <color> is a CSS2 compatible specification for a
+    color in the sRGB color space. <color> applies to SVG's use of the
+      color  attribute and is a component of the definitions of
+    attributes   fill  ,   stroke  ,   stop-color  ,   flood-color  ,
+    and   lighting-color  , which also offer optional ICC-based color
+    specifications.
+
+    SVG supports all of the syntax alternatives for <color> defined in
+    CSS2 syntax and basic data types , and (depend on the
+    implementation) in the future CSS Color Module Level 3 .
+
+    A <color> is either a keyword or a numerical RGB specification.
+
+    In addition to these color keywords, users may specify keywords that
+    correspond to the colors used by objects in the user's environment.
+    The normative definition of these keywords is found in User
+    preferences for colors (CSS2, section 18.2).
+
+    The format of an RGB value in hexadecimal notation is a "  # "
+    immediately followed by either three or six hexadecimal characters.
+    The three-digit RGB notation (  #rgb ) is converted into six-digit
+    form (  #rrggbb ) by replicating digits, not by adding zeros. For
+    example,  #fb0 expands to  #ffbb00 . This ensures that white (
+     #ffffff ) can be specified with the short notation (  #fff ) and
+    removes any dependencies on the color depth of the display. The
+    format of an RGB value in the functional notation is an RGB
+    start-function, followed by a comma-separated list of three
+    numerical values (either three integer values or three percentage
+    values) followed by "  ) ". An RGB start-function is the
+    case-insensitive string "  rgb( ", for example "  RGB( " or "  rGb(
+    ". For compatibility, the all-lowercase form "  rgb( " is preferred.
+    The integer value  255 corresponds to  100% , and to  F or  FF in
+    the hexadecimal notation:  rgb(255 255 255) =  rgb(100% 100% 100%) =
+     #FFF . White space characters are allowed around the numerical
+    values. All RGB colors are specified in the sRGB color space. Using
+    sRGB provides an unambiguous and objectively measurable definition
+    of the color, which can be related to international standards.
+
+        color    ::= "#" hexdigit hexdigit hexdigit (hexdigit hexdigit hexdigit)?
+                      | "rgb("integer integer integer")"
+                      | "rgb("integer "%" integer "%" integer "%)"
+                      | color-keyword
+        hexdigit ::= [0-9A-Fa-f]
+
+    where  color-keyword matches (case insensitively) one of the color
+    keywords listed in CSS Color Module Level 3 , or one of the system
+    color keywords listed in User preferences for colors (CSS2, section
+    18.2).
+
+    The corresponding SVG DOM interface definitions for <color> are
+    defined the one defined by CSS. SVG's extension to color, including
+    the ability to specify ICC-based colors, are represented using DOM
+    interface  SVGColor .
+
+Coordinate
+
+<coordinate>
+
+    A <coordinate> is a length in the user coordinate system that is the
+    given distance from the origin of the user coordinate system along
+    the relevant axis (the x-axis for X coordinates, the y-axis for Y
+    coordinates). Its syntax is the same as that for <length> .
+
+    Within the SVG DOM, a <coordinate> is represented as an  SVGLength
+    or an  SVGAnimatedLength .
+
+Frequency
+
+<frequency>
+
+    Frequency values are used with aural properties. As defined in CSS2,
+    a frequency value is a <number> immediately followed by a frequency
+    unit identifier. The frequency unit identifiers are:
+
+    -    Hz : Hertz
+    -    kHz : kilo Hertz
+
+    Frequency values may not be negative.
+
+FuncIRI
+
+<FuncIRI>
+
+    Functional notation for a reference. The syntax for this reference
+    is the same as the  CSS URI .
+
+Integer
+
+<integer>
+
+    An <integer> is specified as an optional sign character (  + or  - )
+    followed by one or more digits  0 to  9 :
+
+        integer ::= [+-]? [0-9]+
+
+    If the sign character is not present, the number is non-negative.
+
+    Unless stated otherwise for a particular attribute or property, the
+    range for an <integer> encompasses (at a minimum)  -2147483648 to
+     2147483647 .
+
+    Within the SVG DOM, an <integer> is represented as a  number or an
+     SVGAnimatedInteger .
+
+IRI
+
+<IRI>
+
+    An I nternationalized R esource I dentifier.
+
+    On the Internet, resources are identified using IRIs
+    (Internationalized Resource Identifiers). For example, an SVG file
+    called  someDrawing.svg located at  http://example.com might have
+    the following IRI :
+
+        http://example.com/someDrawing.svg
+
+    An IRI can also address a particular element within an XML document
+    by including an IRI fragment identifier as part of the IRI . An IRI
+    which includes an IRI fragment identifier consists of an optional
+    base IRI , followed by a "  # " character, followed by the IRI
+    fragment identifier. For example, the following IRI can be used to
+    specify the element whose ID is "  Lamppost " within file
+     someDrawing.svg :
+
+        http://example.com/someDrawing.svg#Lamppost
+
+    IRIs are used in the   href  attribute. Some attributes allow both
+    IRIs and text strings as content. To disambiguate a text string from
+    a relative IRI, the functional notation <FuncIRI> is used. This is
+    an IRI delimited with a functional notation. Note: For historical
+    reasons, the delimiters are "  url( " and "  ) ", for compatibility
+    with the CSS specifications. The FuncIRI form is used in
+    presentation attributes .
+
+    SVG makes extensive use of IRI references, both absolute and
+    relative, to other objects. For example, to fill a rectangle with a
+    linear gradient, you first define a  <linearGradient> element and
+    give it an ID, as in:
+
+    html
+
+        <linearGradient xml:id="MyGradient">...</linearGradient>
+
+    You then reference the linear gradient as the value of the   fill 
+    attribute for the rectangle, as in the following example:
+
+    html
+
+        <rect fill="url(#MyGradient)" />
+
+    SVG supports two types of IRI references:
+
+    -   local IRI references , where the IRI reference does not contain
+        an <absoluteIRI> or <relativeIRI> and thus only contains a
+        fragment identifier (i.e.,  #<elementID> or
+         #xpointer(id<elementID>) ).
+    -   non-local IRI references , where the IRI reference does contain
+        an <absoluteIRI> or <relativeIRI>. For the full specification of
+        IRI references in SVG, see SVG 1.1 (2nd Edition): IRI references
+        .
+
+Length
+
+<length>
+
+    A length is a distance measurement, given as a number along with a
+    unit. The SVG2 specification aligns with CSS  <length> data types
+    and units for the attribute syntax and values. A length unit
+    identifier must be provided and the values of the length unit
+    identifiers are case-insensitive. The syntax follows the CSS
+     <length> syntax:
+
+        length ::= <number> (<absolute-length> | <relative-length>)?
+
+    For SVG-specific properties defined in SVG1.1 and their
+    corresponding presentation attributes, the unit identifiers in
+    values are optional. If not provided, the length value represents a
+    distance in the current user coordinate system. Length identifiers
+    must be in lower case when used in presentation attributes for all
+    properties whether they are defined in SVG or in CSS. This case
+    sensitivity is relaxed in SVG2 to align with CSS.
+
+    Note that the non-property <length> definition also allows a
+    percentage (  % ) unit identifier. The meaning of a percentage
+    length value depends on the attribute for which the percentage
+    length value has been specified. Two common cases are:
+
+    -   when a percentage length value represents a percentage of the
+        viewport width or height
+    -   when a percentage length value represents a percentage of the
+        bounding box width or height on a given object.
+
+    In the SVG DOM, <length> values are represented using  SVGLength or
+     SVGAnimatedLength objects.
+
+List-of-Ts
+
+<list-of-Ts>
+
+    (Where T is some type.) A list consists of a separated sequence of
+    values. Unless explicitly described differently, lists within SVG's
+    XML attributes can be either comma-separated (with optional white
+    space before or after the comma), or white space-separated.
+
+    White space in lists is defined as one or more of the following
+    consecutive characters: "space" (  U+0020 ), "tab" (  U+0009 ),
+    "line feed" (  U+000A ), "carriage return" (  U+000D ), and
+    "form-feed" (  U+000C ).
+
+    The following is a template for an EBNF grammar describing the
+    <list-of-Ts> syntax:
+
+        list-of-Ts ::= T
+                        | T, list-of-Ts
+
+    Within the SVG DOM, values of a <list-of-Ts> type are represented by
+    an interface specific for the particular type T . For example, a
+    <list-of-lengths> is represented in the SVG DOM using an
+     SVGLengthList or  SVGAnimatedLengthList object.
+
+Name
+
+<name>
+
+    A name, which is a string where a few characters of syntactic
+    significance are disallowed.
+
+        name  ::= [^,()#x20#x9#xD#xA] /* any char except ",", "(", ")" or wsp */
+
+Number
+
+<number>
+
+    Real numbers are specified in one of two ways. When used in a
+    stylesheet, a <number> is defined as follows:
+
+        number ::= integer
+                    | [+-]? [0-9]* "." [0-9]+
+
+    This syntax is the same as the definition in CSS (CSS2, section
+    4.3.1).
+
+    When used in an SVG attribute, a <number> is defined differently, to
+    allow numbers with large magnitudes to be specified more concisely:
+
+        number ::= integer ([Ee] integer)?
+                    | [+-]? [0-9]* "." [0-9]+ ([Ee] integer)?
+
+    Within the SVG DOM, a <number> is represented as a float,  SVGNumber
+    or a  SVGAnimatedNumber .
+
+Number-optional-number
+
+<number-optional-number>
+
+    A pair of <number>s, where the second <number> is optional.
+
+        number-optional-number ::= number
+                                    | number, number
+
+    In the SVG DOM, a <number-optional-number> is represented using a
+    pair of  SVGAnimatedInteger or  SVGAnimatedNumber objects.
+
+Opacity value
+
+<opacity-value>
+
+    The opacity of the color or the content the current object is filled
+    with, as a <number> . Any values outside the range  0.0 (fully
+    transparent) to  1.0 (fully opaque) will be clamped to this range.
+
+Paint
+
+<paint>
+
+    The values for properties   fill  and   stroke  define the type of
+    paint to use when filling or stroking a given graphics element. The
+    available options and syntax for <paint> are:
+
+        paint ::= none | <color> | <url> [none | <color>]? | context-fill | context-stroke
+
+    The  context-fill and  context-stroke values allow for inheriting
+    values in marker and use elements.
+
+    Within the SVG DOM, <paint> values are represented using  SVGPaint
+    objects.
+
+Percentage
+
+<percentage>
+
+    Percentages are specified as a number followed by a "  % "
+    character:
+
+        percentage ::= number "%"
+
+    Note that the definition of <number> depends on whether the
+    percentage is specified in a stylesheet or in an attribute that is
+    not also a presentation attribute.
+
+    Percentage values are always relative to another value (for example,
+    a length). Each attribute or property that allows percentages also
+    defines the reference distance measurement to which the percentage
+    refers.
+
+    Within the SVG DOM, a <percentage> is represented using an
+     SVGNumber or  SVGAnimatedNumber object.
+
+Time
+
+<time>
+
+    A time value is a <number> immediately followed by a time unit
+    identifier. The time unit identifiers are:
+
+    -    ms : milliseconds
+    -    s : seconds
+
+Transform-list
+
+<transform-list>
+
+    A <transform-list> is used to specify a list of coordinate system
+    transformations. A detailed description of the possible values for a
+    <transform-list> is given in the   transform  attribute definition.
+
+    Within the SVG DOM, a <transform-list> value is represented using an
+     SVGTransformList or  SVGAnimatedTransformList object.
+
+URL
+
+URL
+
+    A U niform R esource L ocator.
+
+    A URL is a sequence of Unicode characters, building an address to an
+    internal or external resource.
+
+    Before SVG 2, the more limited IRI content type was used instead,
+    because the URL specification was not standardized before.
+
+Found a content problem with this page?
+
+-   Edit the page on GitHub .
+-   Report the content issue .
+-   View the source on GitHub .
+
+Want to get more involved? Learn how to contribute .
+
+This page was last modified on Jan 24, 2024 by MDN contributors .
+# SVG element reference #
+ ______     ______        _                           _   
+/ ___\ \   / / ___|   ___| | ___ _ __ ___   ___ _ __ | |_ 
+\___ \\ \ / / |  _   / _ \ |/ _ \ '_ ` _ \ / _ \ '_ \| __|
+ ___) |\ V /| |_| | |  __/ |  __/ | | | | |  __/ | | | |_ 
+|____/  \_/  \____|  \___|_|\___|_| |_| |_|\___|_| |_|\__|
+                                                          
+           __                              
+ _ __ ___ / _| ___ _ __ ___ _ __   ___ ___ 
+| '__/ _ \ |_ / _ \ '__/ _ \ '_ \ / __/ _ \
+| | |  __/  _|  __/ | |  __/ | | | (_|  __/
+|_|  \___|_|  \___|_|  \___|_| |_|\___\___|
+                                           
+SVG element reference
+
+SVG drawings and images are created using a wide array of elements which
+are dedicated to the construction, drawing, and layout of vector images
+and diagrams. Here you'll find reference documentation for each of the
+SVG elements.
+
+SVG elements A to Z
+
+A
+
+-    <a>
+-    <animate>
+-    <animateMotion>
+-    <animateTransform>
+
+C
+
+-    <circle>
+-    <clipPath>
+
+D
+
+-    <defs>
+-    <desc>
+
+E
+
+-    <ellipse>
+
+F
+
+-    <feBlend>
+-    <feColorMatrix>
+-    <feComponentTransfer>
+-    <feComposite>
+-    <feConvolveMatrix>
+-    <feDiffuseLighting>
+-    <feDisplacementMap>
+-    <feDistantLight>
+-    <feDropShadow>
+-    <feFlood>
+-    <feFuncA>
+-    <feFuncB>
+-    <feFuncG>
+-    <feFuncR>
+-    <feGaussianBlur>
+-    <feImage>
+-    <feMerge>
+-    <feMergeNode>
+-    <feMorphology>
+-    <feOffset>
+-    <fePointLight>
+-    <feSpecularLighting>
+-    <feSpotLight>
+-    <feTile>
+-    <feTurbulence>
+-    <filter>
+-    <foreignObject>
+
+G
+
+-    <g>
+
+H
+
+-    <hatch>
+-    <hatchpath>
+
+I
+
+-    <image>
+
+L
+
+-    <line>
+-    <linearGradient>
+
+M
+
+-    <marker>
+-    <mask>
+-    <metadata>
+-    <mpath>
+
+P
+
+-    <path>
+-    <pattern>
+-    <polygon>
+-    <polyline>
+
+R
+
+-    <radialGradient>
+-    <rect>
+
+S
+
+-    <script>
+-    <set>
+-    <stop>
+-    <style>
+-    <svg>
+-    <switch>
+-    <symbol>
+
+T
+
+-    <text>
+-    <textPath>
+-    <title>
+-    <tspan>
+
+U
+
+-    <use>
+
+V
+
+-    <view>
+
+Note: The SVG 2 spec requires that any unknown elements be treated as
+ <g> for the purpose of rendering.
+
+SVG elements by category
+
+Animation elements
+
+ <animate> ,  <animateMotion> ,  <animateTransform> ,  <mpath> ,  <set>
+
+Basic shapes
+
+ <circle> ,  <ellipse> ,  <line> ,  <polygon> ,  <polyline> ,  <rect>
+
+Container elements
+
+ <a> ,  <defs> ,  <g> ,  <marker> ,  <mask> ,  <missing-glyph> ,
+ <pattern> ,  <svg> ,  <switch> ,  <symbol>
+
+Descriptive elements
+
+ <desc> ,  <metadata> ,  <title>
+
+Filter primitive elements
+
+ <feBlend> ,  <feColorMatrix> ,  <feComponentTransfer> ,  <feComposite>
+,  <feConvolveMatrix> ,  <feDiffuseLighting> ,  <feDisplacementMap> ,
+ <feDropShadow> ,  <feFlood> ,  <feFuncA> ,  <feFuncB> ,  <feFuncG> ,
+ <feFuncR> ,  <feGaussianBlur> ,  <feImage> ,  <feMerge> ,
+ <feMergeNode> ,  <feMorphology> ,  <feOffset> ,  <feSpecularLighting> ,
+ <feTile> ,  <feTurbulence>
+
+Font elements
+
+ <font> ,  <font-face> ,  <font-face-format> ,  <font-face-name> ,
+ <font-face-src> ,  <font-face-uri> ,  <hkern> ,  <vkern>
+
+Gradient elements
+
+ <linearGradient> ,  <radialGradient> ,  <stop>
+
+Graphics elements
+
+ <circle> ,  <ellipse> ,  <image> ,  <line> ,  <path> ,  <polygon> ,
+ <polyline> ,  <rect> ,  <text> ,  <use>
+
+Graphics referencing elements
+
+ <use>
+
+Light source elements
+
+ <feDistantLight> ,  <fePointLight> ,  <feSpotLight>
+
+Never-rendered elements
+
+ <clipPath> ,  <defs> ,  <hatch> ,  <linearGradient> ,  <marker> ,
+ <mask> ,  <metadata> ,  <pattern> ,  <radialGradient> ,  <script> ,
+ <style> ,  <symbol> ,  <title>
+
+Paint server elements
+
+ <hatch> ,  <linearGradient> ,  <pattern> ,  <radialGradient> ,
+ <solidcolor>
+
+Renderable elements
+
+ <a> ,  <circle> ,  <ellipse> ,  <foreignObject> ,  <g> ,  <image> ,
+ <line> ,  <path> ,  <polygon> ,  <polyline> ,  <rect> ,  <svg> ,
+ <switch> ,  <symbol> ,  <text> ,  <textPath> ,  <tspan> ,  <use>
+
+Note: The SVG 2 spec requires that any unknown elements be treated as
+ <g> for the purpose of rendering.
+
+Shape elements
+
+ <circle> ,  <ellipse> ,  <line> ,  <path> ,  <polygon> ,  <polyline> ,
+ <rect>
+
+Structural elements
+
+ <defs> ,  <g> ,  <svg> ,  <symbol> ,  <use>
+
+Text content elements
+
+ <glyph> ,  <glyphRef> ,  <textPath> ,  <text> ,  <tref> ,  <tspan>
+
+Text content child elements
+
+ <textPath> ,  <tref> ,  <tspan>
+
+Uncategorized elements
+
+ <clipPath> ,  <cursor> ,  <filter> ,  <foreignObject> ,  <hatchpath> ,
+ <script> ,  <style> ,  <view>
+
+Obsolete and deprecated elements
+
+Warning: These are old SVG elements which are deprecated and should not
+be used. You should never use them in new projects, and should replace
+them in old projects as soon as you can. They are listed here for
+informational purposes only.
+
+C
+
+ <cursor>
+
+F
+
+ <font> ,  <font-face> ,  <font-face-format> ,  <font-face-name> ,
+ <font-face-src> ,  <font-face-uri>
+
+G
+
+ <glyph> ,  <glyphRef>
+
+H
+
+ <hkern>
+
+M
+
+ <missing-glyph>
+
+T
+
+ <tref>
+
+V
+
+ <vkern>
+
+See also
+
+-   SVG attribute reference
+-   SVG Tutorial
+-   SVG interface reference
+
+Found a content problem with this page?
+
+-   Edit the page on GitHub .
+-   Report the content issue .
+-   View the source on GitHub .
+
+Want to get more involved? Learn how to contribute .
+
+This page was last modified on May 21, 2023 by MDN contributors .
+#  #
+
+
+
+
+
+
+
+# Namespaces crash course #
+ _   _                                                     
+| \ | | __ _ _ __ ___   ___  ___ _ __   __ _  ___ ___  ___ 
+|  \| |/ _` | '_ ` _ \ / _ \/ __| '_ \ / _` |/ __/ _ \/ __|
+| |\  | (_| | | | | | |  __/\__ \ |_) | (_| | (_|  __/\__ \
+|_| \_|\__,_|_| |_| |_|\___||___/ .__/ \__,_|\___\___||___/
+                                |_|                        
+                    _                                     
+  ___ _ __ __ _ ___| |__     ___ ___  _   _ _ __ ___  ___ 
+ / __| '__/ _` / __| '_ \   / __/ _ \| | | | '__/ __|/ _ \
+| (__| | | (_| \__ \ | | | | (_| (_) | |_| | |  \__ \  __/
+ \___|_|  \__,_|___/_| |_|  \___\___/ \__,_|_|  |___/\___|
+                                                          
+Namespaces crash course
+
+As an XML dialect, SVG is namespaced. It is important to understand the
+concept of namespaces and how they are used if you plan to author SVG
+content. Namespaces are essential to user agents that support multiple
+XML dialects; browsers must be very strict. Taking the time to
+understand namespaces now will save you from future headaches.
+
+Background
+
+A long-standing goal of the various W3C specifications is to make it
+possible for different types of XML-based content to be mixed together
+in the same XML or HTML file. For example, SVG and MathML might be
+incorporated directly into an HTML based scientific document. Being able
+to mix content types like this has many advantages, but it also required
+a very real problem to be solved.
+
+Naturally, each XML dialect defines the meaning of the markup element
+names described in its specification. The problem with mixing content
+from different XML dialects in a single document is that the elements
+defined by one dialect may have the same name as elements defined by
+another. For example, both HTML and SVG have a  <title> element. How
+does the user agent distinguish between the two? How do CSS styles
+distinguish between the two? In fact, how does the user agent tell when
+content is something it knows about, and not just a meaningless
+undefined HTML custom element or an XML file containing arbitrary
+element names unknown to it?
+
+Contrary to popular opinion, the answer to this question is not "it can
+tell from the  DOCTYPE declaration". DTDs were never designed with mixed
+content in mind, and past attempts to create mixed content DTDs are now
+considered to have failed. XML, and some XML dialects (SVG and HTML
+included), don't require a  DOCTYPE declaration. SVG 1.2 doesn't even
+have one. The fact that  DOCTYPE declarations (usually) match the
+content in single content-type files is merely coincidental. DTDs are
+for validation only, not identification of content. Any user agent that
+identifies XML content using its  DOCTYPE declaration is unreliable.
+
+The real answer to the question is that XML content tells the user agent
+which dialect the element names belong to by giving them explicit
+"namespace declarations".
+
+Declaring namespaces
+
+So what do these namespace declarations look like, and where do they go?
+Here is a short example.
+
+svg
+
+    <svg xmlns="http://www.w3.org/2000/svg">
+      <!-- more tags here -->
+    </svg>
+
+The namespace declaration is provided by the  xmlns parameter. This
+parameter says that the  <svg> element and its child elements belong to
+whichever XML dialect has the namespace name  http://www.w3.org/2000/svg
+which is, of course, SVG. Note that the namespace declaration is only
+provided once on a root element (and is implied if omitted). The
+declaration defines the default namespace, so the user agent knows that
+all the  <svg> element's descendants also belong to the same namespace.
+User agents check to see if they recognize the namespace name to
+determine if they know how to handle the markup.
+
+Note that namespace names are just strings, so the fact that the SVG
+namespace name also looks like a URI isn't important. URIs are commonly
+used because they are unique, but the intention is not to "link"
+somewhere. (In fact, URIs are used so frequently that the term
+"namespace URI" is commonly used instead of "namespace name".)
+
+Redeclaring the default namespace
+
+If all the descendants of the root element are also defined to be in the
+default namespace, how do you mix in content from another namespace? To
+include the SVG namespace in HTML, you include  <svg> . In XML, you
+declare a namespace. Here's a short example.
+
+xml
+
+    <report xmlns="https://www.acme.org/reports">
+      <title>Some stats</title>
+      <summary>...</summary>
+      <statTable xmlns="https://www.acme.org/tables">
+        <content>...</content>
+        <!-- redeclaring root's default namespace -->
+        <summary xmlns="https://www.acme.org/reports">...</summary>
+      </statTable>
+    </report>
+
+In this example, the  xmlns attribute on the root  <report> element
+declares the default namespace to be  https://www.acme.org/reports , or
+ reports . As a result, it and all its child elements are interpreted by
+the user agent as belonging to  reports , except for the  <content>
+element, which exists in the  https://www.acme.org/tables , or  tables ,
+namespace. The  <summary> element has its own  xmlns parameter, and by
+redeclaring the  reports namespace, this tells the user agent that the
+ <summary> element and its descendants (unless they also redeclare an
+alternative namespace) belong to  reports .
+
+With HTML,  http://www.w3.org/1999/xhtml is the implied namespace. With
+SVG, it is  http://www.w3.org/2000/svg . MathML is
+ http://www.w3.org/1998/Math/MathML .
+
+Declaring namespace prefixes
+
+XML dialects not only define their own elements, but they also declare
+their own parameters.
+
+By default, parameters don't have a namespace at all. They are only
+known to be unique because they appear on an element that itself has a
+unique name. However, sometimes it is necessary to define parameters so
+that they can be reused on many different elements and still be
+considered to be the same parameter, independently of the element with
+which they are used. A very good example of this is the  href parameter
+defined by the XLink specification. This parameter is commonly used by
+other XML dialects as a means to link to external resources. But how do
+you tell the user agent which dialect the parameter belongs to, in this
+case  XLink ? Consider the following example.
+
+xml
+
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink">
+      <script xlink:href="cool-script.js" type="text/javascript" />
+    </svg>
+
+This example has the rather unusual-looking parameter  xmlns:xlink . As
+you may guess from the first  xmlns part, this is another namespace
+declaration. However, instead of setting the default namespace, this
+namespace declaration sets the namespace for something called a "
+namespace prefix ". In this case, we have chosen to use the prefix
+ xlink (the second part) since the prefix will be used to tell the user
+agent about attributes that belong to  XLink .
+
+As their name suggests, namespace prefixes are used to prefix parameter
+and element names. This is done by putting the namespace prefix and a
+colon before the parameter name as shown on the  <script> element in the
+example above. This tells the user agent that the particular parameter
+belongs to the namespace assigned to the namespace prefix (  XLink ),
+and is a parameter that can be used with the same meaning on other
+elements.
+
+Note that, in XML, it is an XML error to use a prefix that hasn't been
+bound to a namespace name. The binding created by the  xmlns:xlink
+parameter in the example above is required for the  xlink:href parameter
+to not cause an error. This XLink parameter is also frequently used in
+SVG on the  <a> ,  <use> and  <image> elements among others, so it's a
+good idea to always include the XLink declaration in your documents.
+
+As an aside, it's useful to know that namespace prefixes can also be
+used for element names. This tells the user agent that the particular
+element (but not its children this time!) belongs to the namespace
+assigned to the prefix. Knowing this will save you some confusion if you
+come across markup like in the following example:
+
+html
+
+    <html
+      lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:svg="http://www.w3.org/2000/svg">
+      <body>
+        <h1>SVG embedded inline in XHTML</h1>
+        <svg:svg width="300px" height="200px">
+          <svg:circle cx="150" cy="100" r="50" fill="#ff0000" />
+        </svg:svg>
+      </body>
+    </html>
+
+Note that because a namespace prefix is used for the  <svg:svg> element
+and its child  <svg:circle> , it wasn't necessary to redeclare the
+default namespace. In general, it is better to redeclare the default
+namespace rather than prefix lots of elements in this way.
+
+Scripting in namespaced XML
+
+Namespaces affect markup and scripting ( and even CSS ). If you write
+scripts for namespaced XML such as SVG, read on.
+
+The DOM Level 1 recommendation was created before the original
+Namespaces in XML recommendation was released; therefore, DOM1 isn't
+namespace-aware. This causes problems for namespaced XML such as SVG. To
+resolve these problems, DOM Level 2 Core added namespace-aware
+equivalents of all the applicable DOM Level 1 methods. When scripting
+SVG, it is important to use the namespace-aware methods . The table
+below lists the DOM1 methods that shouldn't be used in SVG, along with
+their equivalent DOM2 counterparts that should be used instead.
+
+  ------------------------- ----------------------------------------------------
+  DOM1 (don't use)          DOM2 (use these instead!)
+   createAttribute()         createAttributeNS()
+   createElement()           createElementNS()
+   getAttributeNode()        getAttributeNodeNS()
+   getAttribute()            getAttributeNS()
+   getElementsByTagName()    getElementsByTagNameNS() (also added to Element )
+   getNamedItem()            getNamedItemNS()
+   hasAttribute()            hasAttributeNS()
+   removeAttribute()         removeAttributeNS()
+   removeNamedItem()         removeNamedItemNS()
+   setAttribute()            setAttributeNS()
+   setAttributeNode()        setAttributeNodeNS()
+   setNamedItem()            setNamedItemNS()
+  ------------------------- ----------------------------------------------------
+
+The first parameter for all the DOM2 namespace-aware methods must be the
+namespace name (also known as the namespace URI) of the element or
+parameter in question. For SVG elements this is
+ http://www.w3.org/2000/svg . However, note carefully: the Namespaces in
+XML 1.1 recommendation states that the namespace name for parameters
+without a prefix does not have a value. In other words, although the
+parameters belong to the namespace of the element, you do not use the
+tag's namespace name. Instead, you must use null as the namespace name
+for unqualified (prefixless) parameters . So, to create an SVG  rect
+element using  document.createElementNS() , you must write:
+
+js
+
+    document.createElementNS("http://www.w3.org/2000/svg", "rect");
+
+But to retrieve the value of the  x parameter on an SVG  rect element,
+you must write:
+
+js
+
+    rect.getAttributeNS(null, "x");
+
+Note that this isn't the case for parameters with a namespace prefix
+(parameters that don't belong to the same XML dialect as the element).
+Parameters such as  xlink:href require the namespace name that was
+assigned to that prefix (  http://www.w3.org/1999/xlink for XLink).
+Hence to get the value of the  xlink:href parameter of an  <a> element
+in SVG you would write:
+
+js
+
+    elt.getAttributeNS("http://www.w3.org/1999/xlink", "href");
+
+For setting parameters that have a namespace, it is recommended (but not
+required) that you also include their prefix in the second parameter so
+that the DOM can later be more easily converted back to XML (if, for
+instance, you want to send it back to the server). For example:
+
+js
+
+    elt.setAttributeNS(
+      "http://www.w3.org/1999/xlink",
+      "xlink:href",
+      "otherdoc.svg",
+    );
+
+As a final example, here's a demonstration of how you could dynamically
+create an  <image> element using JavaScript:
+
+js
+
+    const SVG_NS = "http://www.w3.org/2000/svg";
+    const XLink_NS = "http://www.w3.org/1999/xlink";
+    const image = document.createElementNS(SVG_NS, "image");
+    image.setAttributeNS(null, "width", "100");
+    image.setAttributeNS(null, "height", "100");
+    image.setAttributeNS(XLink_NS, "xlink:href", "flower.png");
+
+Conclusion
+
+For SVG, HTML, and MathML, the namespace is implied and therefore
+optional. It is required to declare the namespace for XML files. If you
+don't, user agents will not recognize the content and will show the XML
+markup or inform the user that there's an error in the XML.
+
+When writing SVG, it is helpful to use a template that includes all the
+commonly used namespace declarations when creating new files. If you
+don't already have one, make one up starting with the following code:
+
+html
+
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
+
+Even if you don't use all those namespaces in a particular document,
+there's no harm in including the namespace declarations. It may save you
+from some annoying errors if you end up adding content from one of the
+unused namespaces at a later date.
+
+A full example
+
+For a full example see SVG: Namespaces Crash Course: Example .
+
+Found a content problem with this page?
+
+-   Edit the page on GitHub .
+-   Report the content issue .
+-   View the source on GitHub .
+
+Want to get more involved? Learn how to contribute .
+
+This page was last modified on Nov 18, 2023 by MDN contributors .
+# SVG animation with SMIL #
+ ______     ______               _                 _   _             
+/ ___\ \   / / ___|   __ _ _ __ (_)_ __ ___   __ _| |_(_) ___  _ __  
+\___ \\ \ / / |  _   / _` | '_ \| | '_ ` _ \ / _` | __| |/ _ \| '_ \ 
+ ___) |\ V /| |_| | | (_| | | | | | | | | | | (_| | |_| | (_) | | | |
+|____/  \_/  \____|  \__,_|_| |_|_|_| |_| |_|\__,_|\__|_|\___/|_| |_|
+                                                                     
+          _ _   _       ____  __  __ ___ _     
+__      _(_) |_| |__   / ___||  \/  |_ _| |    
+\ \ /\ / / | __| '_ \  \___ \| |\/| || || |    
+ \ V  V /| | |_| | | |  ___) | |  | || || |___ 
+  \_/\_/ |_|\__|_| |_| |____/|_|  |_|___|_____|
+                                               
+SVG animation with SMIL
+
+Synchronized Multimedia Integration Language (SMIL) is an extension of
+SVG allowing to animating SVG elements. SMIL allows you to:
+
+-   animate the numeric attributes of an element (x, y, …)
+-   animate transform attributes (translation or rotation)
+-   animate color attributes
+-   follow a motion path
+
+This is done adding an SVG element like  <animate> inside the SVG
+element to animate. Below are examples for the four different ways.
+
+Animating attributes of an element
+
+The following example animates the cx attribute of a circle. To do so,
+we add an  <animate> element inside the  <circle> element. The important
+attributes for  <animate> are:
+
+attributeName
+
+    The name of the attribute to animate.
+
+from
+
+    The initial value of the attribute.
+
+to
+
+    The final value.
+
+dur
+
+    The duration of the animation (for example, write '5s' for 5
+    seconds).
+
+If you want to animate more attributes inside the same element, just add
+more  <animate> elements.
+
+html
+
+    <svg width="300" height="100">
+      <title>Attribute Animation with SMIL</title>
+      <rect x="0" y="0" width="300" height="100" stroke="black" stroke-width="1" />
+      <circle cx="0" cy="50" r="15" fill="blue" stroke="black" stroke-width="1">
+        <animate
+          attributeName="cx"
+          from="0"
+          to="500"
+          dur="5s"
+          repeatCount="indefinite" />
+      </circle>
+    </svg>
+
+Animating the transform attributes
+
+The  <animateTransform> element let you animate transform attributes.
+This new element is necessary because we are not animating a simple
+attribute like x which is just a number. Rotation attributes look like
+this:  rotation(theta, x, y) , where  theta is the angle in degrees, and
+ x and  y are absolute positions. In the example below, we animate the
+center of the rotation and the angle.
+
+html
+
+    <svg width="300" height="100">
+      <title>SVG SMIL Animate with transform</title>
+      <rect x="0" y="0" width="300" height="100" stroke="black" stroke-width="1" />
+      <rect
+        x="0"
+        y="50"
+        width="15"
+        height="34"
+        fill="blue"
+        stroke="black"
+        stroke-width="1">
+        <animateTransform
+          attributeName="transform"
+          begin="0s"
+          dur="20s"
+          type="rotate"
+          from="0 60 60"
+          to="360 100 60"
+          repeatCount="indefinite" />
+      </rect>
+    </svg>
+
+Animation following a path
+
+The  <animateMotion> element lets you animate an element position and
+rotation according to a path. The path is defined the same way as in
+ <path> . You can set the attribute to define whether the object rotates
+following the tangent of the path.
+
+Example 1: Linear motion
+
+In this example, a blue circle bounces between the left and right edges
+of a black box, over and over again, indefinitely. The animation here is
+handled by the  <animateMotion> element. In this case, we're
+establishing a path consisting of a MoveTo command to establish the
+starting point for the animation, then the Horizontal-line command to
+move the circle 300 pixels to the right, followed by the Z command ,
+which closes the path, establishing a loop back to the beginning. By
+setting the value of the repeatCount attribute to  indefinite , we
+indicate that the animation should loop forever, as long as the SVG
+image exists.
+
+html
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="300" height="100">
+      <title>SVG SMIL Animate with Path</title>
+      <rect x="0" y="0" width="300" height="100" stroke="black" stroke-width="1" />
+      <circle cx="0" cy="50" r="15" fill="blue" stroke="black" stroke-width="1">
+        <animateMotion path="M 0 0 H 300 Z" dur="3s" repeatCount="indefinite" />
+      </circle>
+    </svg>
+
+View live sample
+
+Example 2: Curved motion
+
+Same example as before with a curved path and following the direction of
+the path.
+
+html
+
+    <svg width="300" height="100">
+      <title>SVG SMIL Animate with Path</title>
+      <rect x="0" y="0" width="300" height="100" stroke="black" stroke-width="1" />
+      <rect
+        x="0"
+        y="0"
+        width="20"
+        height="20"
+        fill="blue"
+        stroke="black"
+        stroke-width="1">
+        <animateMotion
+          path="M 250,80 H 50 Q 30,80 30,50 Q 30,20 50,20 H 250 Q 280,20,280,50 Q 280,80,250,80Z"
+          dur="3s"
+          repeatCount="indefinite"
+          rotate="auto" />
+      </rect>
+    </svg>
+
+See also
+
+-   SVG
+-   SVG Animation Specification
+-   SMIL Specification
+
+Found a content problem with this page?
+
+-   Edit the page on GitHub .
+-   Report the content issue .
+-   View the source on GitHub .
+
+Want to get more involved? Learn how to contribute .
+
+This page was last modified on Dec 20, 2023 by MDN contributors .
+# SVG as an Image #
+ ______     ______                             ___                            
+/ ___\ \   / / ___|   __ _ ___    __ _ _ __   |_ _|_ __ ___   __ _  __ _  ___ 
+\___ \\ \ / / |  _   / _` / __|  / _` | '_ \   | || '_ ` _ \ / _` |/ _` |/ _ \
+ ___) |\ V /| |_| | | (_| \__ \ | (_| | | | |  | || | | | | | (_| | (_| |  __/
+|____/  \_/  \____|  \__,_|___/  \__,_|_| |_| |___|_| |_| |_|\__,_|\__, |\___|
+                                                                   |___/      
+SVG as an Image
+
+SVG images can be used as an image format, in a number of contexts.
+Browsers support SVG images in:
+
+-   HTML  <img> or  <svg> elements
+-   CSS  background-image
+-   CSS  list-style-image
+-   CSS  content
+-   SVG  <image> element
+-   SVG  <feImage> element
+-   Canvas  drawImage function
+
+Restrictions
+
+For security purposes, Gecko places some restrictions on SVG content
+when it's being used as an image:
+
+-   JavaScript is disabled.
+-   External resources (e.g. images, stylesheets) cannot be loaded,
+    though they can be used if inlined through data: Ls.
+-    :visited -link styles aren't rendered.
+-   Platform-native widget styling (based on OS theme) is disabled.
+
+Note that the above restrictions are specific to image contexts; they
+don't apply when SVG content is viewed directly, or when it's embedded
+as a document via the  <iframe> ,  <object> , or  <embed> elements.
+
+Specifications
+
+  -----------------------------------------------------------------------
+  Specification
+  -----------------------------------------------------------------------
+  CSS Backgrounds and Borders Module Level 3
+  # the-background-image
+
+  -----------------------------------------------------------------------
+
+Found a content problem with this page?
+
+-   Edit the page on GitHub .
+-   Report the content issue .
+-   View the source on GitHub .
+
+Want to get more involved? Learn how to contribute .
+
+This page was last modified on Mar 6, 2023 by MDN contributors .
+# SVG Tutorial #
+ ______     ______   _____      _             _       _ 
+/ ___\ \   / / ___| |_   _|   _| |_ ___  _ __(_) __ _| |
+\___ \\ \ / / |  _    | || | | | __/ _ \| '__| |/ _` | |
+ ___) |\ V /| |_| |   | || |_| | || (_) | |  | | (_| | |
+|____/  \_/  \____|   |_| \__,_|\__\___/|_|  |_|\__,_|_|
+                                                        
+SVG Tutorial
+
+Scalable Vector Graphics, SVG , is a W3C XML dialect to mark up
+graphics.
+
+This tutorial aims to explain the internals of SVG and is packed with
+technical details. If you just want to draw beautiful images, you might
+find more useful resources at Inkscape's documentation page . Another
+good introduction to SVG is provided by the W3C's SVG Primer .
+
+Introducing SVG from Scratch
+
+-   Introduction
+-   Getting Started
+-   Positions
+-   Basic Shapes
+-   Paths
+-   Fills and Strokes
+-   Gradients
+-   Patterns
+-   Texts
+-   Basic Transformations
+-   Clipping and masking
+-   Other content in SVG
+-   Filter effects
+-   SVG fonts
+-   SVG Image tag
+-   Tools for SVG
+-   SVG and CSS
+
+The following topics are more advanced and hence should get their own
+tutorials.
+
+Scripting SVG with JavaScript
+
+TBD
+
+SVG filters tutorial
+
+TBD
+
+Animations with SMIL in SVG
+
+TBD
+
+Creating fonts in SVG
+
+TBD
+
+Found a content problem with this page?
+
+-   Edit the page on GitHub .
+-   Report the content issue .
+-   View the source on GitHub .
+
+Want to get more involved? Learn how to contribute .
+
+This page was last modified on Mar 6, 2023 by MDN contributors .
 # accent-height #
                           _        _          _       _     _   
   __ _  ___ ___ ___ _ __ | |_     | |__   ___(_) __ _| |__ | |_ 
@@ -10991,528 +12858,6 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 17, 2023 by MDN contributors .
-# SVG Attribute reference #
- ______     ______      _   _   _        _ _           _       
-/ ___\ \   / / ___|    / \ | |_| |_ _ __(_) |__  _   _| |_ ___ 
-\___ \\ \ / / |  _    / _ \| __| __| '__| | '_ \| | | | __/ _ \
- ___) |\ V /| |_| |  / ___ \ |_| |_| |  | | |_) | |_| | ||  __/
-|____/  \_/  \____| /_/   \_\__|\__|_|  |_|_.__/ \__,_|\__\___|
-                                                               
-           __                              
- _ __ ___ / _| ___ _ __ ___ _ __   ___ ___ 
-| '__/ _ \ |_ / _ \ '__/ _ \ '_ \ / __/ _ \
-| | |  __/  _|  __/ | |  __/ | | | (_|  __/
-|_|  \___|_|  \___|_|  \___|_| |_|\___\___|
-                                           
-SVG Attribute reference
-
-SVG elements can be modified using attributes that specify details about
-exactly how the element should be handled or rendered.
-
-Below is a list of all of the attributes available in SVG along with
-links to reference documentation to help you learn which elements
-support them and how they work.
-
-SVG attributes A to Z
-
-A
-
--     accent-height 
--     accumulate 
--     additive 
--     alignment-baseline 
--     alphabetic 
--     amplitude 
--     arabic-form 
--     ascent 
--     attributeName 
--     attributeType 
--     azimuth 
-
-B
-
--     baseFrequency 
--     baseline-shift 
--     baseProfile 
--     bbox 
--     begin 
--     bias 
--     by 
-
-C
-
--     calcMode 
--     cap-height 
--     class 
--     clip 
--     clipPathUnits 
--     clip-path 
--     clip-rule 
--     color 
--     color-interpolation 
--     color-interpolation-filters 
--     color-profile 
--     color-rendering 
--     crossorigin 
--     cursor 
--     cx 
--     cy 
-
-D
-
--     d 
--     decelerate 
--     descent 
--     diffuseConstant 
--     direction 
--     display 
--     divisor 
--     dominant-baseline 
--     dur 
--     dx 
--     dy 
-
-E
-
--     edgeMode 
--     elevation 
--     enable-background 
--     end 
--     exponent 
-
-F
-
--     fill 
--     fill-opacity 
--     fill-rule 
--     filter 
--     filterUnits 
--     flood-color 
--     flood-opacity 
--     font-family 
--     font-size 
--     font-size-adjust 
--     font-stretch 
--     font-style 
--     font-variant 
--     font-weight 
--     format 
--     from 
--     fr 
--     fx 
--     fy 
-
-G
-
--     g1 
--     g2 
--     glyph-name 
--     glyph-orientation-horizontal 
--     glyph-orientation-vertical 
--     glyphRef 
--     gradientTransform 
--     gradientUnits 
-
-H
-
--     hanging 
--     height 
--     href 
--     hreflang 
--     horiz-adv-x 
--     horiz-origin-x 
-
-I
-
--     id 
--     ideographic 
--     image-rendering 
--     in 
--     in2 
--     intercept 
-
-K
-
--     k 
--     k1 
--     k2 
--     k3 
--     k4 
--     kernelMatrix 
--     kernelUnitLength 
--     kerning 
--     keyPoints 
--     keySplines 
--     keyTimes 
-
-L
-
--     lang 
--     lengthAdjust 
--     letter-spacing 
--     lighting-color 
--     limitingConeAngle 
--     local 
-
-M
-
--     marker-end 
--     marker-mid 
--     marker-start 
--     markerHeight 
--     markerUnits 
--     markerWidth 
--     mask 
--     maskContentUnits 
--     maskUnits 
--     mathematical 
--     max 
--     media 
--     method 
--     min 
--     mode 
-
-N
-
--     name 
--     numOctaves 
-
-O
-
--     offset 
--     opacity 
--     operator 
--     order 
--     orient 
--     orientation 
--     origin 
--     overflow 
--     overline-position 
--     overline-thickness 
-
-P
-
--     panose-1 
--     paint-order 
--     path 
--     pathLength 
--     patternContentUnits 
--     patternTransform 
--     patternUnits 
--     ping 
--     pointer-events 
--     points 
--     pointsAtX 
--     pointsAtY 
--     pointsAtZ 
--     preserveAlpha 
--     preserveAspectRatio 
--     primitiveUnits 
-
-R
-
--     r 
--     radius 
--     referrerPolicy 
--     refX 
--     refY 
--     rel 
--     rendering-intent 
--     repeatCount 
--     repeatDur 
--     requiredExtensions 
--     requiredFeatures 
--     restart 
--     result 
--     rotate 
--     rx 
--     ry 
-
-S
-
--     scale 
--     seed 
--     shape-rendering 
--     slope 
--     spacing 
--     specularConstant 
--     specularExponent 
--     speed 
--     spreadMethod 
--     startOffset 
--     stdDeviation 
--     stemh 
--     stemv 
--     stitchTiles 
--     stop-color 
--     stop-opacity 
--     strikethrough-position 
--     strikethrough-thickness 
--     string 
--     stroke 
--     stroke-dasharray 
--     stroke-dashoffset 
--     stroke-linecap 
--     stroke-linejoin 
--     stroke-miterlimit 
--     stroke-opacity 
--     stroke-width 
--     style 
--     surfaceScale 
--     systemLanguage 
-
-T
-
--     tabindex 
--     tableValues 
--     target 
--     targetX 
--     targetY 
--     text-anchor 
--     text-decoration 
--     text-rendering 
--     textLength 
--     to 
--     transform 
--     transform-origin 
--     type 
-
-U
-
--     u1 
--     u2 
--     underline-position 
--     underline-thickness 
--     unicode 
--     unicode-bidi 
--     unicode-range 
--     units-per-em 
-
-V
-
--     v-alphabetic 
--     v-hanging 
--     v-ideographic 
--     v-mathematical 
--     values 
--     vector-effect 
--     version 
--     vert-adv-y 
--     vert-origin-x 
--     vert-origin-y 
--     viewBox 
--     visibility 
-
-W
-
--     width 
--     widths 
--     word-spacing 
--     writing-mode 
-
-X
-
--     x 
--     x-height 
--     x1 
--     x2 
--     xChannelSelector 
--     xlink:actuate 
--     xlink:arcrole 
--     xlink:href  Deprecated
--     xlink:role 
--     xlink:show 
--     xlink:title 
--     xlink:type 
--     xml:base 
--     xml:lang 
--     xml:space 
-
-Y
-
--     y 
--     y1 
--     y2 
--     yChannelSelector 
-
-Z
-
--     z 
--     zoomAndPan 
-
-SVG attributes by category
-
-Generic attributes
-
-Core attributes
-
-    Core attributes
-
-      id  ,   lang  ,   tabindex  ,   xml:base  ,   xml:lang  ,
-      xml:space 
-
-Style attributes
-
-    Style attributes
-
-      class  ,   style 
-
-Conditional processing attributes
-
-      requiredExtensions  ,   requiredFeatures  ,   systemLanguage  .
-
-XLink attributes
-
-  xlink:href  Deprecated ,   xlink:type  ,   xlink:role  ,
-  xlink:arcrole  ,   xlink:title  ,   xlink:show  ,   xlink:actuate 
-
-Presentation attributes
-
-Note: All SVG presentation attributes can be used as CSS properties.
-
--     alignment-baseline 
--     baseline-shift 
--     clip 
--     clip-path 
--     clip-rule 
--     color 
--     color-interpolation 
--     color-interpolation-filters 
--     color-profile 
--     color-rendering 
--     cursor 
--     direction 
--     display 
--     dominant-baseline 
--     enable-background 
--     fill 
--     fill-opacity 
--     fill-rule 
--     filter 
--     flood-color 
--     flood-opacity 
--     font-family 
--     font-size 
--     font-size-adjust 
--     font-stretch 
--     font-style 
--     font-variant 
--     font-weight 
--     glyph-orientation-horizontal 
--     glyph-orientation-vertical 
--     image-rendering 
--     kerning 
--     letter-spacing 
--     lighting-color 
--     marker-end 
--     marker-mid 
--     marker-start 
--     mask 
--     opacity 
--     overflow 
--     pointer-events 
--     shape-rendering 
--     stop-color 
--     stop-opacity 
--     stroke 
--     stroke-dasharray 
--     stroke-dashoffset 
--     stroke-linecap 
--     stroke-linejoin 
--     stroke-miterlimit 
--     stroke-opacity 
--     stroke-width 
--     text-anchor 
--     text-decoration 
--     text-rendering 
--     transform 
--     transform-origin 
--     unicode-bidi 
--     vector-effect 
--     visibility 
--     word-spacing 
--     writing-mode 
-
-Filters attributes
-
-Filter primitive attributes
-      height  ,   result  ,   width  ,   x  ,   y 
-
-Transfer function attributes
-      type  ,   tableValues  ,   slope  ,   intercept  ,   amplitude  ,
-      exponent  ,   offset 
-
-Animation attributes
-
-Animation target element attributes
-      href 
-
-Animation attribute target attributes
-      attributeType  ,   attributeName 
-
-Animation timing attributes
-      begin  ,   dur  ,   end  ,   min  ,   max  ,   restart  ,
-      repeatCount  ,   repeatDur  ,   fill 
-
-Animation value attributes
-      calcMode  ,   values  ,   keyTimes  ,   keySplines  ,   from  ,
-      to  ,   by  ,   autoReverse  ,   accelerate  ,   decelerate 
-
-Animation addition attributes
-      additive  ,   accumulate 
-
-Event attributes
-
-Animation event attributes
-
-    Animation event attributes
-
-     onbegin ,  onend ,  onrepeat
-
-Document event attributes
-
-    Document event attributes
-
-     onabort ,  onerror ,  onresize ,  onscroll ,  onunload
-
-Global event attributes
-
-    Global event attributes
-
-     oncancel ,  oncanplay ,  oncanplaythrough ,  onchange ,  onclick ,
-     onclose ,  oncuechange ,  ondblclick ,  ondrag ,  ondragend ,
-     ondragenter ,  ondragleave ,  ondragover ,  ondragstart ,  ondrop ,
-     ondurationchange ,  onemptied ,  onended ,  onerror ,  onfocus ,
-     oninput ,  oninvalid ,  onkeydown ,  onkeypress ,  onkeyup ,
-     onload ,  onloadeddata ,  onloadedmetadata ,  onloadstart ,
-     onmousedown ,  onmouseenter ,  onmouseleave ,  onmousemove ,
-     onmouseout ,  onmouseover ,  onmouseup ,  onmousewheel ,  onpause ,
-     onplay ,  onplaying ,  onprogress ,  onratechange ,  onreset ,
-     onresize ,  onscroll ,  onseeked ,  onseeking ,  onselect ,  onshow
-    ,  onstalled ,  onsubmit ,  onsuspend ,  ontimeupdate ,  ontoggle ,
-     onvolumechange ,  onwaiting
-
-Graphical event attributes
-
-    Graphical event attributes
-
-     onactivate ,  onfocusin ,  onfocusout
-
-See also
-
--   SVG element reference
--   SVG Tutorial
--   SVG interface reference
-
-Found a content problem with this page?
-
--   Edit the page on GitHub .
--   Report the content issue .
--   View the source on GitHub .
-
-Want to get more involved? Learn how to contribute .
-
-This page was last modified on Dec 19, 2023 by MDN contributors .
 # ideographic #
  _     _                                  _     _      
 (_) __| | ___  ___   __ _ _ __ __ _ _ __ | |__ (_) ___ 
@@ -31096,460 +32441,6 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Mar 6, 2023 by MDN contributors .
-# Content type #
-  ____            _             _     _                    
- / ___|___  _ __ | |_ ___ _ __ | |_  | |_ _   _ _ __   ___ 
-| |   / _ \| '_ \| __/ _ \ '_ \| __| | __| | | | '_ \ / _ \
-| |__| (_) | | | | ||  __/ | | | |_  | |_| |_| | |_) |  __/
- \____\___/|_| |_|\__\___|_| |_|\__|  \__|\__, | .__/ \___|
-                                          |___/|_|         
-Content type
-
-SVG makes use of a number of data types. This article lists these types
-along with their syntax and descriptions of what they're used for.
-
-Angle
-
-<angle>
-
-    Angles are specified in one of two ways. When used in the value of a
-    property in a stylesheet, an <angle> is defined as follows:
-
-        angle ::= number (~"deg" | ~"grad" | ~"rad")?
-
-    where  deg indicates degrees,  grad indicates grads and  rad
-    indicates radians.
-
-    For properties defined in CSS2, an angle unit identifier must be
-    provided. For angle values in SVG-specific properties and their
-    corresponding presentation attributes, the angle unit identifier is
-    optional. If not provided, the angle value is assumed to be in
-    degrees. In presentation attributes for all properties, whether
-    defined in SVG1.1 or in CSS2, the angle identifier, if specified,
-    must be in lower case.
-
-    When angles are used in an SVG attribute, <angle> is instead defined
-    as follows:
-
-        angle ::= number ("deg" | "grad" | "rad")?
-
-    The unit identifiers in such <angle> values must be in lower case.
-
-    In the SVG DOM, <angle> values are represented using  SVGAngle or
-     SVGAnimatedAngle objects.
-
-Anything
-
-<anything>
-
-    The basic type <anything> is a sequence of zero or more characters.
-    Specifically:
-
-        anything ::= Char*
-
-    where Char is the production for a character, as defined in XML 1.0,
-    section 2.2.
-
-Clock-value
-
-<clock-value>
-
-    Clock values have the same syntax as in SMIL Animation
-    specification. The grammar for clock values is repeated here:
-
-        Clock-val         ::= Full-clock-val | Partial-clock-val
-                              | Timecount-val
-        Full-clock-val    ::= Hours ":" Minutes ":" Seconds ("." Fraction)?
-        Partial-clock-val ::= Minutes ":" Seconds ("." Fraction)?
-        Timecount-val     ::= Timecount ("." Fraction)? (Metric)?
-        Metric            ::= "h" | "min" | "s" | "ms"
-        Hours             ::= DIGIT+; any positive number
-        Minutes           ::= 2DIGIT; range from 00 to 59
-        Seconds           ::= 2DIGIT; range from 00 to 59
-        Fraction          ::= DIGIT+
-        Timecount         ::= DIGIT+
-        2DIGIT            ::= DIGIT DIGIT
-        DIGIT             ::= [0-9]
-
-    For  Timecount values, the default metric suffix is "  s " (for
-    seconds). No embedded white space is allowed in clock values,
-    although leading and trailing white space characters will be
-    ignored.
-
-    The following are examples of legal clock values:
-
-    -   Full clock values:
-        -    02:30:03 = 2 hours, 30 minutes and 3 seconds
-        -    50:00:10.25 = 50 hours, 10 seconds and 250 milliseconds
-    -   Partial clock value:
-        -    02:33 = 2 minutes and 33 seconds
-        -    00:10.5 = 10.5 seconds = 10 seconds and 500 milliseconds
-    -   Timecount values:
-        -    3.2h = 3.2 hours = 3 hours and 12 minutes
-        -    45min = 45 minutes
-        -    30s = 30 seconds
-        -    5ms = 5 milliseconds
-        -    12.467 = 12 seconds and 467 milliseconds
-    -   Fractional values are just (base 10) floating point definitions
-        of seconds. Thus:
-        -    00.5s = 500 milliseconds
-        -    00:00.005 = 5 milliseconds
-
-Color
-
-<color>
-
-    The basic type <color> is a CSS2 compatible specification for a
-    color in the sRGB color space. <color> applies to SVG's use of the
-      color  attribute and is a component of the definitions of
-    attributes   fill  ,   stroke  ,   stop-color  ,   flood-color  ,
-    and   lighting-color  , which also offer optional ICC-based color
-    specifications.
-
-    SVG supports all of the syntax alternatives for <color> defined in
-    CSS2 syntax and basic data types , and (depend on the
-    implementation) in the future CSS Color Module Level 3 .
-
-    A <color> is either a keyword or a numerical RGB specification.
-
-    In addition to these color keywords, users may specify keywords that
-    correspond to the colors used by objects in the user's environment.
-    The normative definition of these keywords is found in User
-    preferences for colors (CSS2, section 18.2).
-
-    The format of an RGB value in hexadecimal notation is a "  # "
-    immediately followed by either three or six hexadecimal characters.
-    The three-digit RGB notation (  #rgb ) is converted into six-digit
-    form (  #rrggbb ) by replicating digits, not by adding zeros. For
-    example,  #fb0 expands to  #ffbb00 . This ensures that white (
-     #ffffff ) can be specified with the short notation (  #fff ) and
-    removes any dependencies on the color depth of the display. The
-    format of an RGB value in the functional notation is an RGB
-    start-function, followed by a comma-separated list of three
-    numerical values (either three integer values or three percentage
-    values) followed by "  ) ". An RGB start-function is the
-    case-insensitive string "  rgb( ", for example "  RGB( " or "  rGb(
-    ". For compatibility, the all-lowercase form "  rgb( " is preferred.
-    The integer value  255 corresponds to  100% , and to  F or  FF in
-    the hexadecimal notation:  rgb(255 255 255) =  rgb(100% 100% 100%) =
-     #FFF . White space characters are allowed around the numerical
-    values. All RGB colors are specified in the sRGB color space. Using
-    sRGB provides an unambiguous and objectively measurable definition
-    of the color, which can be related to international standards.
-
-        color    ::= "#" hexdigit hexdigit hexdigit (hexdigit hexdigit hexdigit)?
-                      | "rgb("integer integer integer")"
-                      | "rgb("integer "%" integer "%" integer "%)"
-                      | color-keyword
-        hexdigit ::= [0-9A-Fa-f]
-
-    where  color-keyword matches (case insensitively) one of the color
-    keywords listed in CSS Color Module Level 3 , or one of the system
-    color keywords listed in User preferences for colors (CSS2, section
-    18.2).
-
-    The corresponding SVG DOM interface definitions for <color> are
-    defined the one defined by CSS. SVG's extension to color, including
-    the ability to specify ICC-based colors, are represented using DOM
-    interface  SVGColor .
-
-Coordinate
-
-<coordinate>
-
-    A <coordinate> is a length in the user coordinate system that is the
-    given distance from the origin of the user coordinate system along
-    the relevant axis (the x-axis for X coordinates, the y-axis for Y
-    coordinates). Its syntax is the same as that for <length> .
-
-    Within the SVG DOM, a <coordinate> is represented as an  SVGLength
-    or an  SVGAnimatedLength .
-
-Frequency
-
-<frequency>
-
-    Frequency values are used with aural properties. As defined in CSS2,
-    a frequency value is a <number> immediately followed by a frequency
-    unit identifier. The frequency unit identifiers are:
-
-    -    Hz : Hertz
-    -    kHz : kilo Hertz
-
-    Frequency values may not be negative.
-
-FuncIRI
-
-<FuncIRI>
-
-    Functional notation for a reference. The syntax for this reference
-    is the same as the  CSS URI .
-
-Integer
-
-<integer>
-
-    An <integer> is specified as an optional sign character (  + or  - )
-    followed by one or more digits  0 to  9 :
-
-        integer ::= [+-]? [0-9]+
-
-    If the sign character is not present, the number is non-negative.
-
-    Unless stated otherwise for a particular attribute or property, the
-    range for an <integer> encompasses (at a minimum)  -2147483648 to
-     2147483647 .
-
-    Within the SVG DOM, an <integer> is represented as a  number or an
-     SVGAnimatedInteger .
-
-IRI
-
-<IRI>
-
-    An I nternationalized R esource I dentifier.
-
-    On the Internet, resources are identified using IRIs
-    (Internationalized Resource Identifiers). For example, an SVG file
-    called  someDrawing.svg located at  http://example.com might have
-    the following IRI :
-
-        http://example.com/someDrawing.svg
-
-    An IRI can also address a particular element within an XML document
-    by including an IRI fragment identifier as part of the IRI . An IRI
-    which includes an IRI fragment identifier consists of an optional
-    base IRI , followed by a "  # " character, followed by the IRI
-    fragment identifier. For example, the following IRI can be used to
-    specify the element whose ID is "  Lamppost " within file
-     someDrawing.svg :
-
-        http://example.com/someDrawing.svg#Lamppost
-
-    IRIs are used in the   href  attribute. Some attributes allow both
-    IRIs and text strings as content. To disambiguate a text string from
-    a relative IRI, the functional notation <FuncIRI> is used. This is
-    an IRI delimited with a functional notation. Note: For historical
-    reasons, the delimiters are "  url( " and "  ) ", for compatibility
-    with the CSS specifications. The FuncIRI form is used in
-    presentation attributes .
-
-    SVG makes extensive use of IRI references, both absolute and
-    relative, to other objects. For example, to fill a rectangle with a
-    linear gradient, you first define a  <linearGradient> element and
-    give it an ID, as in:
-
-    html
-
-        <linearGradient xml:id="MyGradient">...</linearGradient>
-
-    You then reference the linear gradient as the value of the   fill 
-    attribute for the rectangle, as in the following example:
-
-    html
-
-        <rect fill="url(#MyGradient)" />
-
-    SVG supports two types of IRI references:
-
-    -   local IRI references , where the IRI reference does not contain
-        an <absoluteIRI> or <relativeIRI> and thus only contains a
-        fragment identifier (i.e.,  #<elementID> or
-         #xpointer(id<elementID>) ).
-    -   non-local IRI references , where the IRI reference does contain
-        an <absoluteIRI> or <relativeIRI>. For the full specification of
-        IRI references in SVG, see SVG 1.1 (2nd Edition): IRI references
-        .
-
-Length
-
-<length>
-
-    A length is a distance measurement, given as a number along with a
-    unit. The SVG2 specification aligns with CSS  <length> data types
-    and units for the attribute syntax and values. A length unit
-    identifier must be provided and the values of the length unit
-    identifiers are case-insensitive. The syntax follows the CSS
-     <length> syntax:
-
-        length ::= <number> (<absolute-length> | <relative-length>)?
-
-    For SVG-specific properties defined in SVG1.1 and their
-    corresponding presentation attributes, the unit identifiers in
-    values are optional. If not provided, the length value represents a
-    distance in the current user coordinate system. Length identifiers
-    must be in lower case when used in presentation attributes for all
-    properties whether they are defined in SVG or in CSS. This case
-    sensitivity is relaxed in SVG2 to align with CSS.
-
-    Note that the non-property <length> definition also allows a
-    percentage (  % ) unit identifier. The meaning of a percentage
-    length value depends on the attribute for which the percentage
-    length value has been specified. Two common cases are:
-
-    -   when a percentage length value represents a percentage of the
-        viewport width or height
-    -   when a percentage length value represents a percentage of the
-        bounding box width or height on a given object.
-
-    In the SVG DOM, <length> values are represented using  SVGLength or
-     SVGAnimatedLength objects.
-
-List-of-Ts
-
-<list-of-Ts>
-
-    (Where T is some type.) A list consists of a separated sequence of
-    values. Unless explicitly described differently, lists within SVG's
-    XML attributes can be either comma-separated (with optional white
-    space before or after the comma), or white space-separated.
-
-    White space in lists is defined as one or more of the following
-    consecutive characters: "space" (  U+0020 ), "tab" (  U+0009 ),
-    "line feed" (  U+000A ), "carriage return" (  U+000D ), and
-    "form-feed" (  U+000C ).
-
-    The following is a template for an EBNF grammar describing the
-    <list-of-Ts> syntax:
-
-        list-of-Ts ::= T
-                        | T, list-of-Ts
-
-    Within the SVG DOM, values of a <list-of-Ts> type are represented by
-    an interface specific for the particular type T . For example, a
-    <list-of-lengths> is represented in the SVG DOM using an
-     SVGLengthList or  SVGAnimatedLengthList object.
-
-Name
-
-<name>
-
-    A name, which is a string where a few characters of syntactic
-    significance are disallowed.
-
-        name  ::= [^,()#x20#x9#xD#xA] /* any char except ",", "(", ")" or wsp */
-
-Number
-
-<number>
-
-    Real numbers are specified in one of two ways. When used in a
-    stylesheet, a <number> is defined as follows:
-
-        number ::= integer
-                    | [+-]? [0-9]* "." [0-9]+
-
-    This syntax is the same as the definition in CSS (CSS2, section
-    4.3.1).
-
-    When used in an SVG attribute, a <number> is defined differently, to
-    allow numbers with large magnitudes to be specified more concisely:
-
-        number ::= integer ([Ee] integer)?
-                    | [+-]? [0-9]* "." [0-9]+ ([Ee] integer)?
-
-    Within the SVG DOM, a <number> is represented as a float,  SVGNumber
-    or a  SVGAnimatedNumber .
-
-Number-optional-number
-
-<number-optional-number>
-
-    A pair of <number>s, where the second <number> is optional.
-
-        number-optional-number ::= number
-                                    | number, number
-
-    In the SVG DOM, a <number-optional-number> is represented using a
-    pair of  SVGAnimatedInteger or  SVGAnimatedNumber objects.
-
-Opacity value
-
-<opacity-value>
-
-    The opacity of the color or the content the current object is filled
-    with, as a <number> . Any values outside the range  0.0 (fully
-    transparent) to  1.0 (fully opaque) will be clamped to this range.
-
-Paint
-
-<paint>
-
-    The values for properties   fill  and   stroke  define the type of
-    paint to use when filling or stroking a given graphics element. The
-    available options and syntax for <paint> are:
-
-        paint ::= none | <color> | <url> [none | <color>]? | context-fill | context-stroke
-
-    The  context-fill and  context-stroke values allow for inheriting
-    values in marker and use elements.
-
-    Within the SVG DOM, <paint> values are represented using  SVGPaint
-    objects.
-
-Percentage
-
-<percentage>
-
-    Percentages are specified as a number followed by a "  % "
-    character:
-
-        percentage ::= number "%"
-
-    Note that the definition of <number> depends on whether the
-    percentage is specified in a stylesheet or in an attribute that is
-    not also a presentation attribute.
-
-    Percentage values are always relative to another value (for example,
-    a length). Each attribute or property that allows percentages also
-    defines the reference distance measurement to which the percentage
-    refers.
-
-    Within the SVG DOM, a <percentage> is represented using an
-     SVGNumber or  SVGAnimatedNumber object.
-
-Time
-
-<time>
-
-    A time value is a <number> immediately followed by a time unit
-    identifier. The time unit identifiers are:
-
-    -    ms : milliseconds
-    -    s : seconds
-
-Transform-list
-
-<transform-list>
-
-    A <transform-list> is used to specify a list of coordinate system
-    transformations. A detailed description of the possible values for a
-    <transform-list> is given in the   transform  attribute definition.
-
-    Within the SVG DOM, a <transform-list> value is represented using an
-     SVGTransformList or  SVGAnimatedTransformList object.
-
-URL
-
-URL
-
-    A U niform R esource L ocator.
-
-    A URL is a sequence of Unicode characters, building an address to an
-    internal or external resource.
-
-    Before SVG 2, the more limited IRI content type was used instead,
-    because the URL specification was not standardized before.
-
-Found a content problem with this page?
-
--   Edit the page on GitHub .
--   Report the content issue .
--   View the source on GitHub .
-
-Want to get more involved? Learn how to contribute .
-
-This page was last modified on Jan 24, 2024 by MDN contributors .
 # <a> #
   __    __  
  / /__ _\ \ 
@@ -37291,287 +38182,6 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Mar 6, 2023 by MDN contributors .
-# SVG element reference #
- ______     ______        _                           _   
-/ ___\ \   / / ___|   ___| | ___ _ __ ___   ___ _ __ | |_ 
-\___ \\ \ / / |  _   / _ \ |/ _ \ '_ ` _ \ / _ \ '_ \| __|
- ___) |\ V /| |_| | |  __/ |  __/ | | | | |  __/ | | | |_ 
-|____/  \_/  \____|  \___|_|\___|_| |_| |_|\___|_| |_|\__|
-                                                          
-           __                              
- _ __ ___ / _| ___ _ __ ___ _ __   ___ ___ 
-| '__/ _ \ |_ / _ \ '__/ _ \ '_ \ / __/ _ \
-| | |  __/  _|  __/ | |  __/ | | | (_|  __/
-|_|  \___|_|  \___|_|  \___|_| |_|\___\___|
-                                           
-SVG element reference
-
-SVG drawings and images are created using a wide array of elements which
-are dedicated to the construction, drawing, and layout of vector images
-and diagrams. Here you'll find reference documentation for each of the
-SVG elements.
-
-SVG elements A to Z
-
-A
-
--    <a>
--    <animate>
--    <animateMotion>
--    <animateTransform>
-
-C
-
--    <circle>
--    <clipPath>
-
-D
-
--    <defs>
--    <desc>
-
-E
-
--    <ellipse>
-
-F
-
--    <feBlend>
--    <feColorMatrix>
--    <feComponentTransfer>
--    <feComposite>
--    <feConvolveMatrix>
--    <feDiffuseLighting>
--    <feDisplacementMap>
--    <feDistantLight>
--    <feDropShadow>
--    <feFlood>
--    <feFuncA>
--    <feFuncB>
--    <feFuncG>
--    <feFuncR>
--    <feGaussianBlur>
--    <feImage>
--    <feMerge>
--    <feMergeNode>
--    <feMorphology>
--    <feOffset>
--    <fePointLight>
--    <feSpecularLighting>
--    <feSpotLight>
--    <feTile>
--    <feTurbulence>
--    <filter>
--    <foreignObject>
-
-G
-
--    <g>
-
-H
-
--    <hatch>
--    <hatchpath>
-
-I
-
--    <image>
-
-L
-
--    <line>
--    <linearGradient>
-
-M
-
--    <marker>
--    <mask>
--    <metadata>
--    <mpath>
-
-P
-
--    <path>
--    <pattern>
--    <polygon>
--    <polyline>
-
-R
-
--    <radialGradient>
--    <rect>
-
-S
-
--    <script>
--    <set>
--    <stop>
--    <style>
--    <svg>
--    <switch>
--    <symbol>
-
-T
-
--    <text>
--    <textPath>
--    <title>
--    <tspan>
-
-U
-
--    <use>
-
-V
-
--    <view>
-
-Note: The SVG 2 spec requires that any unknown elements be treated as
- <g> for the purpose of rendering.
-
-SVG elements by category
-
-Animation elements
-
- <animate> ,  <animateMotion> ,  <animateTransform> ,  <mpath> ,  <set>
-
-Basic shapes
-
- <circle> ,  <ellipse> ,  <line> ,  <polygon> ,  <polyline> ,  <rect>
-
-Container elements
-
- <a> ,  <defs> ,  <g> ,  <marker> ,  <mask> ,  <missing-glyph> ,
- <pattern> ,  <svg> ,  <switch> ,  <symbol>
-
-Descriptive elements
-
- <desc> ,  <metadata> ,  <title>
-
-Filter primitive elements
-
- <feBlend> ,  <feColorMatrix> ,  <feComponentTransfer> ,  <feComposite>
-,  <feConvolveMatrix> ,  <feDiffuseLighting> ,  <feDisplacementMap> ,
- <feDropShadow> ,  <feFlood> ,  <feFuncA> ,  <feFuncB> ,  <feFuncG> ,
- <feFuncR> ,  <feGaussianBlur> ,  <feImage> ,  <feMerge> ,
- <feMergeNode> ,  <feMorphology> ,  <feOffset> ,  <feSpecularLighting> ,
- <feTile> ,  <feTurbulence>
-
-Font elements
-
- <font> ,  <font-face> ,  <font-face-format> ,  <font-face-name> ,
- <font-face-src> ,  <font-face-uri> ,  <hkern> ,  <vkern>
-
-Gradient elements
-
- <linearGradient> ,  <radialGradient> ,  <stop>
-
-Graphics elements
-
- <circle> ,  <ellipse> ,  <image> ,  <line> ,  <path> ,  <polygon> ,
- <polyline> ,  <rect> ,  <text> ,  <use>
-
-Graphics referencing elements
-
- <use>
-
-Light source elements
-
- <feDistantLight> ,  <fePointLight> ,  <feSpotLight>
-
-Never-rendered elements
-
- <clipPath> ,  <defs> ,  <hatch> ,  <linearGradient> ,  <marker> ,
- <mask> ,  <metadata> ,  <pattern> ,  <radialGradient> ,  <script> ,
- <style> ,  <symbol> ,  <title>
-
-Paint server elements
-
- <hatch> ,  <linearGradient> ,  <pattern> ,  <radialGradient> ,
- <solidcolor>
-
-Renderable elements
-
- <a> ,  <circle> ,  <ellipse> ,  <foreignObject> ,  <g> ,  <image> ,
- <line> ,  <path> ,  <polygon> ,  <polyline> ,  <rect> ,  <svg> ,
- <switch> ,  <symbol> ,  <text> ,  <textPath> ,  <tspan> ,  <use>
-
-Note: The SVG 2 spec requires that any unknown elements be treated as
- <g> for the purpose of rendering.
-
-Shape elements
-
- <circle> ,  <ellipse> ,  <line> ,  <path> ,  <polygon> ,  <polyline> ,
- <rect>
-
-Structural elements
-
- <defs> ,  <g> ,  <svg> ,  <symbol> ,  <use>
-
-Text content elements
-
- <glyph> ,  <glyphRef> ,  <textPath> ,  <text> ,  <tref> ,  <tspan>
-
-Text content child elements
-
- <textPath> ,  <tref> ,  <tspan>
-
-Uncategorized elements
-
- <clipPath> ,  <cursor> ,  <filter> ,  <foreignObject> ,  <hatchpath> ,
- <script> ,  <style> ,  <view>
-
-Obsolete and deprecated elements
-
-Warning: These are old SVG elements which are deprecated and should not
-be used. You should never use them in new projects, and should replace
-them in old projects as soon as you can. They are listed here for
-informational purposes only.
-
-C
-
- <cursor>
-
-F
-
- <font> ,  <font-face> ,  <font-face-format> ,  <font-face-name> ,
- <font-face-src> ,  <font-face-uri>
-
-G
-
- <glyph> ,  <glyphRef>
-
-H
-
- <hkern>
-
-M
-
- <missing-glyph>
-
-T
-
- <tref>
-
-V
-
- <vkern>
-
-See also
-
--   SVG attribute reference
--   SVG Tutorial
--   SVG interface reference
-
-Found a content problem with this page?
-
--   Edit the page on GitHub .
--   Report the content issue .
--   View the source on GitHub .
-
-Want to get more involved? Learn how to contribute .
-
-This page was last modified on May 21, 2023 by MDN contributors .
 # <image> #
   ___                           __  
  / (_)_ __ ___   __ _  __ _  ___\ \ 
@@ -41875,14 +42485,6 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Mar 6, 2023 by MDN contributors .
-#  #
-
-
-
-
-
-
-
 # Example #
  _____                           _      
 | ____|_  ____ _ _ __ ___  _ __ | | ___ 
@@ -42205,543 +42807,6 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on May 19, 2023 by MDN contributors .
-# Namespaces crash course #
- _   _                                                     
-| \ | | __ _ _ __ ___   ___  ___ _ __   __ _  ___ ___  ___ 
-|  \| |/ _` | '_ ` _ \ / _ \/ __| '_ \ / _` |/ __/ _ \/ __|
-| |\  | (_| | | | | | |  __/\__ \ |_) | (_| | (_|  __/\__ \
-|_| \_|\__,_|_| |_| |_|\___||___/ .__/ \__,_|\___\___||___/
-                                |_|                        
-                    _                                     
-  ___ _ __ __ _ ___| |__     ___ ___  _   _ _ __ ___  ___ 
- / __| '__/ _` / __| '_ \   / __/ _ \| | | | '__/ __|/ _ \
-| (__| | | (_| \__ \ | | | | (_| (_) | |_| | |  \__ \  __/
- \___|_|  \__,_|___/_| |_|  \___\___/ \__,_|_|  |___/\___|
-                                                          
-Namespaces crash course
-
-As an XML dialect, SVG is namespaced. It is important to understand the
-concept of namespaces and how they are used if you plan to author SVG
-content. Namespaces are essential to user agents that support multiple
-XML dialects; browsers must be very strict. Taking the time to
-understand namespaces now will save you from future headaches.
-
-Background
-
-A long-standing goal of the various W3C specifications is to make it
-possible for different types of XML-based content to be mixed together
-in the same XML or HTML file. For example, SVG and MathML might be
-incorporated directly into an HTML based scientific document. Being able
-to mix content types like this has many advantages, but it also required
-a very real problem to be solved.
-
-Naturally, each XML dialect defines the meaning of the markup element
-names described in its specification. The problem with mixing content
-from different XML dialects in a single document is that the elements
-defined by one dialect may have the same name as elements defined by
-another. For example, both HTML and SVG have a  <title> element. How
-does the user agent distinguish between the two? How do CSS styles
-distinguish between the two? In fact, how does the user agent tell when
-content is something it knows about, and not just a meaningless
-undefined HTML custom element or an XML file containing arbitrary
-element names unknown to it?
-
-Contrary to popular opinion, the answer to this question is not "it can
-tell from the  DOCTYPE declaration". DTDs were never designed with mixed
-content in mind, and past attempts to create mixed content DTDs are now
-considered to have failed. XML, and some XML dialects (SVG and HTML
-included), don't require a  DOCTYPE declaration. SVG 1.2 doesn't even
-have one. The fact that  DOCTYPE declarations (usually) match the
-content in single content-type files is merely coincidental. DTDs are
-for validation only, not identification of content. Any user agent that
-identifies XML content using its  DOCTYPE declaration is unreliable.
-
-The real answer to the question is that XML content tells the user agent
-which dialect the element names belong to by giving them explicit
-"namespace declarations".
-
-Declaring namespaces
-
-So what do these namespace declarations look like, and where do they go?
-Here is a short example.
-
-svg
-
-    <svg xmlns="http://www.w3.org/2000/svg">
-      <!-- more tags here -->
-    </svg>
-
-The namespace declaration is provided by the  xmlns parameter. This
-parameter says that the  <svg> element and its child elements belong to
-whichever XML dialect has the namespace name  http://www.w3.org/2000/svg
-which is, of course, SVG. Note that the namespace declaration is only
-provided once on a root element (and is implied if omitted). The
-declaration defines the default namespace, so the user agent knows that
-all the  <svg> element's descendants also belong to the same namespace.
-User agents check to see if they recognize the namespace name to
-determine if they know how to handle the markup.
-
-Note that namespace names are just strings, so the fact that the SVG
-namespace name also looks like a URI isn't important. URIs are commonly
-used because they are unique, but the intention is not to "link"
-somewhere. (In fact, URIs are used so frequently that the term
-"namespace URI" is commonly used instead of "namespace name".)
-
-Redeclaring the default namespace
-
-If all the descendants of the root element are also defined to be in the
-default namespace, how do you mix in content from another namespace? To
-include the SVG namespace in HTML, you include  <svg> . In XML, you
-declare a namespace. Here's a short example.
-
-xml
-
-    <report xmlns="https://www.acme.org/reports">
-      <title>Some stats</title>
-      <summary>...</summary>
-      <statTable xmlns="https://www.acme.org/tables">
-        <content>...</content>
-        <!-- redeclaring root's default namespace -->
-        <summary xmlns="https://www.acme.org/reports">...</summary>
-      </statTable>
-    </report>
-
-In this example, the  xmlns attribute on the root  <report> element
-declares the default namespace to be  https://www.acme.org/reports , or
- reports . As a result, it and all its child elements are interpreted by
-the user agent as belonging to  reports , except for the  <content>
-element, which exists in the  https://www.acme.org/tables , or  tables ,
-namespace. The  <summary> element has its own  xmlns parameter, and by
-redeclaring the  reports namespace, this tells the user agent that the
- <summary> element and its descendants (unless they also redeclare an
-alternative namespace) belong to  reports .
-
-With HTML,  http://www.w3.org/1999/xhtml is the implied namespace. With
-SVG, it is  http://www.w3.org/2000/svg . MathML is
- http://www.w3.org/1998/Math/MathML .
-
-Declaring namespace prefixes
-
-XML dialects not only define their own elements, but they also declare
-their own parameters.
-
-By default, parameters don't have a namespace at all. They are only
-known to be unique because they appear on an element that itself has a
-unique name. However, sometimes it is necessary to define parameters so
-that they can be reused on many different elements and still be
-considered to be the same parameter, independently of the element with
-which they are used. A very good example of this is the  href parameter
-defined by the XLink specification. This parameter is commonly used by
-other XML dialects as a means to link to external resources. But how do
-you tell the user agent which dialect the parameter belongs to, in this
-case  XLink ? Consider the following example.
-
-xml
-
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink">
-      <script xlink:href="cool-script.js" type="text/javascript" />
-    </svg>
-
-This example has the rather unusual-looking parameter  xmlns:xlink . As
-you may guess from the first  xmlns part, this is another namespace
-declaration. However, instead of setting the default namespace, this
-namespace declaration sets the namespace for something called a "
-namespace prefix ". In this case, we have chosen to use the prefix
- xlink (the second part) since the prefix will be used to tell the user
-agent about attributes that belong to  XLink .
-
-As their name suggests, namespace prefixes are used to prefix parameter
-and element names. This is done by putting the namespace prefix and a
-colon before the parameter name as shown on the  <script> element in the
-example above. This tells the user agent that the particular parameter
-belongs to the namespace assigned to the namespace prefix (  XLink ),
-and is a parameter that can be used with the same meaning on other
-elements.
-
-Note that, in XML, it is an XML error to use a prefix that hasn't been
-bound to a namespace name. The binding created by the  xmlns:xlink
-parameter in the example above is required for the  xlink:href parameter
-to not cause an error. This XLink parameter is also frequently used in
-SVG on the  <a> ,  <use> and  <image> elements among others, so it's a
-good idea to always include the XLink declaration in your documents.
-
-As an aside, it's useful to know that namespace prefixes can also be
-used for element names. This tells the user agent that the particular
-element (but not its children this time!) belongs to the namespace
-assigned to the prefix. Knowing this will save you some confusion if you
-come across markup like in the following example:
-
-html
-
-    <html
-      lang="en"
-      xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:svg="http://www.w3.org/2000/svg">
-      <body>
-        <h1>SVG embedded inline in XHTML</h1>
-        <svg:svg width="300px" height="200px">
-          <svg:circle cx="150" cy="100" r="50" fill="#ff0000" />
-        </svg:svg>
-      </body>
-    </html>
-
-Note that because a namespace prefix is used for the  <svg:svg> element
-and its child  <svg:circle> , it wasn't necessary to redeclare the
-default namespace. In general, it is better to redeclare the default
-namespace rather than prefix lots of elements in this way.
-
-Scripting in namespaced XML
-
-Namespaces affect markup and scripting ( and even CSS ). If you write
-scripts for namespaced XML such as SVG, read on.
-
-The DOM Level 1 recommendation was created before the original
-Namespaces in XML recommendation was released; therefore, DOM1 isn't
-namespace-aware. This causes problems for namespaced XML such as SVG. To
-resolve these problems, DOM Level 2 Core added namespace-aware
-equivalents of all the applicable DOM Level 1 methods. When scripting
-SVG, it is important to use the namespace-aware methods . The table
-below lists the DOM1 methods that shouldn't be used in SVG, along with
-their equivalent DOM2 counterparts that should be used instead.
-
-  ------------------------- ----------------------------------------------------
-  DOM1 (don't use)          DOM2 (use these instead!)
-   createAttribute()         createAttributeNS()
-   createElement()           createElementNS()
-   getAttributeNode()        getAttributeNodeNS()
-   getAttribute()            getAttributeNS()
-   getElementsByTagName()    getElementsByTagNameNS() (also added to Element )
-   getNamedItem()            getNamedItemNS()
-   hasAttribute()            hasAttributeNS()
-   removeAttribute()         removeAttributeNS()
-   removeNamedItem()         removeNamedItemNS()
-   setAttribute()            setAttributeNS()
-   setAttributeNode()        setAttributeNodeNS()
-   setNamedItem()            setNamedItemNS()
-  ------------------------- ----------------------------------------------------
-
-The first parameter for all the DOM2 namespace-aware methods must be the
-namespace name (also known as the namespace URI) of the element or
-parameter in question. For SVG elements this is
- http://www.w3.org/2000/svg . However, note carefully: the Namespaces in
-XML 1.1 recommendation states that the namespace name for parameters
-without a prefix does not have a value. In other words, although the
-parameters belong to the namespace of the element, you do not use the
-tag's namespace name. Instead, you must use null as the namespace name
-for unqualified (prefixless) parameters . So, to create an SVG  rect
-element using  document.createElementNS() , you must write:
-
-js
-
-    document.createElementNS("http://www.w3.org/2000/svg", "rect");
-
-But to retrieve the value of the  x parameter on an SVG  rect element,
-you must write:
-
-js
-
-    rect.getAttributeNS(null, "x");
-
-Note that this isn't the case for parameters with a namespace prefix
-(parameters that don't belong to the same XML dialect as the element).
-Parameters such as  xlink:href require the namespace name that was
-assigned to that prefix (  http://www.w3.org/1999/xlink for XLink).
-Hence to get the value of the  xlink:href parameter of an  <a> element
-in SVG you would write:
-
-js
-
-    elt.getAttributeNS("http://www.w3.org/1999/xlink", "href");
-
-For setting parameters that have a namespace, it is recommended (but not
-required) that you also include their prefix in the second parameter so
-that the DOM can later be more easily converted back to XML (if, for
-instance, you want to send it back to the server). For example:
-
-js
-
-    elt.setAttributeNS(
-      "http://www.w3.org/1999/xlink",
-      "xlink:href",
-      "otherdoc.svg",
-    );
-
-As a final example, here's a demonstration of how you could dynamically
-create an  <image> element using JavaScript:
-
-js
-
-    const SVG_NS = "http://www.w3.org/2000/svg";
-    const XLink_NS = "http://www.w3.org/1999/xlink";
-    const image = document.createElementNS(SVG_NS, "image");
-    image.setAttributeNS(null, "width", "100");
-    image.setAttributeNS(null, "height", "100");
-    image.setAttributeNS(XLink_NS, "xlink:href", "flower.png");
-
-Conclusion
-
-For SVG, HTML, and MathML, the namespace is implied and therefore
-optional. It is required to declare the namespace for XML files. If you
-don't, user agents will not recognize the content and will show the XML
-markup or inform the user that there's an error in the XML.
-
-When writing SVG, it is helpful to use a template that includes all the
-commonly used namespace declarations when creating new files. If you
-don't already have one, make one up starting with the following code:
-
-html
-
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
-
-Even if you don't use all those namespaces in a particular document,
-there's no harm in including the namespace declarations. It may save you
-from some annoying errors if you end up adding content from one of the
-unused namespaces at a later date.
-
-A full example
-
-For a full example see SVG: Namespaces Crash Course: Example .
-
-Found a content problem with this page?
-
--   Edit the page on GitHub .
--   Report the content issue .
--   View the source on GitHub .
-
-Want to get more involved? Learn how to contribute .
-
-This page was last modified on Nov 18, 2023 by MDN contributors .
-# SVG animation with SMIL #
- ______     ______               _                 _   _             
-/ ___\ \   / / ___|   __ _ _ __ (_)_ __ ___   __ _| |_(_) ___  _ __  
-\___ \\ \ / / |  _   / _` | '_ \| | '_ ` _ \ / _` | __| |/ _ \| '_ \ 
- ___) |\ V /| |_| | | (_| | | | | | | | | | | (_| | |_| | (_) | | | |
-|____/  \_/  \____|  \__,_|_| |_|_|_| |_| |_|\__,_|\__|_|\___/|_| |_|
-                                                                     
-          _ _   _       ____  __  __ ___ _     
-__      _(_) |_| |__   / ___||  \/  |_ _| |    
-\ \ /\ / / | __| '_ \  \___ \| |\/| || || |    
- \ V  V /| | |_| | | |  ___) | |  | || || |___ 
-  \_/\_/ |_|\__|_| |_| |____/|_|  |_|___|_____|
-                                               
-SVG animation with SMIL
-
-Synchronized Multimedia Integration Language (SMIL) is an extension of
-SVG allowing to animating SVG elements. SMIL allows you to:
-
--   animate the numeric attributes of an element (x, y, …)
--   animate transform attributes (translation or rotation)
--   animate color attributes
--   follow a motion path
-
-This is done adding an SVG element like  <animate> inside the SVG
-element to animate. Below are examples for the four different ways.
-
-Animating attributes of an element
-
-The following example animates the cx attribute of a circle. To do so,
-we add an  <animate> element inside the  <circle> element. The important
-attributes for  <animate> are:
-
-attributeName
-
-    The name of the attribute to animate.
-
-from
-
-    The initial value of the attribute.
-
-to
-
-    The final value.
-
-dur
-
-    The duration of the animation (for example, write '5s' for 5
-    seconds).
-
-If you want to animate more attributes inside the same element, just add
-more  <animate> elements.
-
-html
-
-    <svg width="300" height="100">
-      <title>Attribute Animation with SMIL</title>
-      <rect x="0" y="0" width="300" height="100" stroke="black" stroke-width="1" />
-      <circle cx="0" cy="50" r="15" fill="blue" stroke="black" stroke-width="1">
-        <animate
-          attributeName="cx"
-          from="0"
-          to="500"
-          dur="5s"
-          repeatCount="indefinite" />
-      </circle>
-    </svg>
-
-Animating the transform attributes
-
-The  <animateTransform> element let you animate transform attributes.
-This new element is necessary because we are not animating a simple
-attribute like x which is just a number. Rotation attributes look like
-this:  rotation(theta, x, y) , where  theta is the angle in degrees, and
- x and  y are absolute positions. In the example below, we animate the
-center of the rotation and the angle.
-
-html
-
-    <svg width="300" height="100">
-      <title>SVG SMIL Animate with transform</title>
-      <rect x="0" y="0" width="300" height="100" stroke="black" stroke-width="1" />
-      <rect
-        x="0"
-        y="50"
-        width="15"
-        height="34"
-        fill="blue"
-        stroke="black"
-        stroke-width="1">
-        <animateTransform
-          attributeName="transform"
-          begin="0s"
-          dur="20s"
-          type="rotate"
-          from="0 60 60"
-          to="360 100 60"
-          repeatCount="indefinite" />
-      </rect>
-    </svg>
-
-Animation following a path
-
-The  <animateMotion> element lets you animate an element position and
-rotation according to a path. The path is defined the same way as in
- <path> . You can set the attribute to define whether the object rotates
-following the tangent of the path.
-
-Example 1: Linear motion
-
-In this example, a blue circle bounces between the left and right edges
-of a black box, over and over again, indefinitely. The animation here is
-handled by the  <animateMotion> element. In this case, we're
-establishing a path consisting of a MoveTo command to establish the
-starting point for the animation, then the Horizontal-line command to
-move the circle 300 pixels to the right, followed by the Z command ,
-which closes the path, establishing a loop back to the beginning. By
-setting the value of the repeatCount attribute to  indefinite , we
-indicate that the animation should loop forever, as long as the SVG
-image exists.
-
-html
-
-    <svg xmlns="http://www.w3.org/2000/svg" width="300" height="100">
-      <title>SVG SMIL Animate with Path</title>
-      <rect x="0" y="0" width="300" height="100" stroke="black" stroke-width="1" />
-      <circle cx="0" cy="50" r="15" fill="blue" stroke="black" stroke-width="1">
-        <animateMotion path="M 0 0 H 300 Z" dur="3s" repeatCount="indefinite" />
-      </circle>
-    </svg>
-
-View live sample
-
-Example 2: Curved motion
-
-Same example as before with a curved path and following the direction of
-the path.
-
-html
-
-    <svg width="300" height="100">
-      <title>SVG SMIL Animate with Path</title>
-      <rect x="0" y="0" width="300" height="100" stroke="black" stroke-width="1" />
-      <rect
-        x="0"
-        y="0"
-        width="20"
-        height="20"
-        fill="blue"
-        stroke="black"
-        stroke-width="1">
-        <animateMotion
-          path="M 250,80 H 50 Q 30,80 30,50 Q 30,20 50,20 H 250 Q 280,20,280,50 Q 280,80,250,80Z"
-          dur="3s"
-          repeatCount="indefinite"
-          rotate="auto" />
-      </rect>
-    </svg>
-
-See also
-
--   SVG
--   SVG Animation Specification
--   SMIL Specification
-
-Found a content problem with this page?
-
--   Edit the page on GitHub .
--   Report the content issue .
--   View the source on GitHub .
-
-Want to get more involved? Learn how to contribute .
-
-This page was last modified on Dec 20, 2023 by MDN contributors .
-# SVG as an Image #
- ______     ______                             ___                            
-/ ___\ \   / / ___|   __ _ ___    __ _ _ __   |_ _|_ __ ___   __ _  __ _  ___ 
-\___ \\ \ / / |  _   / _` / __|  / _` | '_ \   | || '_ ` _ \ / _` |/ _` |/ _ \
- ___) |\ V /| |_| | | (_| \__ \ | (_| | | | |  | || | | | | | (_| | (_| |  __/
-|____/  \_/  \____|  \__,_|___/  \__,_|_| |_| |___|_| |_| |_|\__,_|\__, |\___|
-                                                                   |___/      
-SVG as an Image
-
-SVG images can be used as an image format, in a number of contexts.
-Browsers support SVG images in:
-
--   HTML  <img> or  <svg> elements
--   CSS  background-image
--   CSS  list-style-image
--   CSS  content
--   SVG  <image> element
--   SVG  <feImage> element
--   Canvas  drawImage function
-
-Restrictions
-
-For security purposes, Gecko places some restrictions on SVG content
-when it's being used as an image:
-
--   JavaScript is disabled.
--   External resources (e.g. images, stylesheets) cannot be loaded,
-    though they can be used if inlined through data: Ls.
--    :visited -link styles aren't rendered.
--   Platform-native widget styling (based on OS theme) is disabled.
-
-Note that the above restrictions are specific to image contexts; they
-don't apply when SVG content is viewed directly, or when it's embedded
-as a document via the  <iframe> ,  <object> , or  <embed> elements.
-
-Specifications
-
-  -----------------------------------------------------------------------
-  Specification
-  -----------------------------------------------------------------------
-  CSS Backgrounds and Borders Module Level 3
-  # the-background-image
-
-  -----------------------------------------------------------------------
-
-Found a content problem with this page?
-
--   Edit the page on GitHub .
--   Report the content issue .
--   View the source on GitHub .
-
-Want to get more involved? Learn how to contribute .
-
-This page was last modified on Mar 6, 2023 by MDN contributors .
 # Basic shapes #
  ____            _            _                           
 | __ )  __ _ ___(_) ___   ___| |__   __ _ _ __   ___  ___ 
@@ -44293,71 +44358,6 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Aug 30, 2023 by MDN contributors .
-# SVG Tutorial #
- ______     ______   _____      _             _       _ 
-/ ___\ \   / / ___| |_   _|   _| |_ ___  _ __(_) __ _| |
-\___ \\ \ / / |  _    | || | | | __/ _ \| '__| |/ _` | |
- ___) |\ V /| |_| |   | || |_| | || (_) | |  | | (_| | |
-|____/  \_/  \____|   |_| \__,_|\__\___/|_|  |_|\__,_|_|
-                                                        
-SVG Tutorial
-
-Scalable Vector Graphics, SVG , is a W3C XML dialect to mark up
-graphics.
-
-This tutorial aims to explain the internals of SVG and is packed with
-technical details. If you just want to draw beautiful images, you might
-find more useful resources at Inkscape's documentation page . Another
-good introduction to SVG is provided by the W3C's SVG Primer .
-
-Introducing SVG from Scratch
-
--   Introduction
--   Getting Started
--   Positions
--   Basic Shapes
--   Paths
--   Fills and Strokes
--   Gradients
--   Patterns
--   Texts
--   Basic Transformations
--   Clipping and masking
--   Other content in SVG
--   Filter effects
--   SVG fonts
--   SVG Image tag
--   Tools for SVG
--   SVG and CSS
-
-The following topics are more advanced and hence should get their own
-tutorials.
-
-Scripting SVG with JavaScript
-
-TBD
-
-SVG filters tutorial
-
-TBD
-
-Animations with SMIL in SVG
-
-TBD
-
-Creating fonts in SVG
-
-TBD
-
-Found a content problem with this page?
-
--   Edit the page on GitHub .
--   Report the content issue .
--   View the source on GitHub .
-
-Want to get more involved? Learn how to contribute .
-
-This page was last modified on Mar 6, 2023 by MDN contributors .
 # Introduction #
  ___       _                 _            _   _             
 |_ _|_ __ | |_ _ __ ___   __| |_   _  ___| |_(_) ___  _ __  

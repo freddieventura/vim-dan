@@ -1,0 +1,4 @@
+--langdef=maxforlivedantags
+--langmap=maxforlivedantags:.maxforlivedan
+--kinddef-maxforlivedantags=t,topic,topics
+--regex-maxforlivedantags=/^#\s(.*)\s#$/\1/t/

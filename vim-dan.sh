@@ -70,7 +70,7 @@ MAIN_TOUPDATE="${DOCU_PATH}/main-toupdate.${DOCU_NAME}dan"
 
 ## PARSING ARGUMENTS
 ## ------------------------------------
-while getopts ":iupxrdh" opt; do
+while getopts ":iupxrdth" opt; do
     case ${opt} in
         i)
             perfom_install
@@ -87,17 +87,21 @@ while getopts ":iupxrdh" opt; do
         r)
             perfom_remove
             ;;
+        t)
+            updating_tags
+            ;;
         d)
             delete_index
             ;;
         h | *)
-            echo "Usage: $0 [FRAMEWORK] [-i] [-u] [-p] [-x] [-r] [-d] [-h]"
+            echo "Usage: $0 [FRAMEWORK] [-i] [-u] [-p] [-x] [-r] [-t] [-d] [-h]"
             echo "Options:"
             echo "  -i  Install Docu"
             echo "  -u  Update Docu"
             echo "  -p  Parse Docu"
             echo "  -x  Index Docu"
             echo "  -r  Remove Docu"
+            echo "  -t  Updating Tags"
             echo "  -d  Delete Index"
             echo "  -h  Help"
             exit 0
