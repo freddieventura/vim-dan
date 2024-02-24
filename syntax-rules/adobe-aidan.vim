@@ -39,10 +39,12 @@ hi def link danLinkFromParentName Ignore
 
 " Links to
 syn match danLinktoEntry "^#\s.*\s#$" contains=danLinktoHash
+syn match danLinktoEntryXed "^#\s.*\s#\s(X)$" contains=danLinktoHash
 syn match danLinktoHash contained "#" conceal
 
 hi def link danLinktoHash Ignore
 hi def link danLinktoEntry String
+hi def link danLinktoEntryXed String
 
 
 " (X) and (K) Annotation

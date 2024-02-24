@@ -4,5 +4,5 @@
 --kinddef-adobeaidantags=s,subtopic,subtopics
 --kinddef-adobeaidantags=p,property,properties
 --kinddef-adobeaidantags=m,method,methods
---regex-adobeaidantags=/^#\s(.*)\s#$/\1/t/
+--regex-adobeaidantags=/^#\s(.*)\s#(\s\(X\)){0,1}$/\1/t/
 --regex-adobeaidantags=/^(\w.*)\s#$/\1/s/

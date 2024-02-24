@@ -1,4 +1,4 @@
 --langdef=javatutorialsdantags
 --langmap=javatutorialsdantags:.java-tutorialsdan
 --kinddef-javatutorialsdantags=t,topic,topics
---regex-javatutorialsdantags=/^#\s(.*)\s#$/\1/t/
+--regex-javatutorialsdantags=/^#\s(.*)\s#(\s\(X\)){0,1}$/\1/t/

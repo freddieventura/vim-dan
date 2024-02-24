@@ -1,4 +1,4 @@
 --langdef=mdnhttpdantags
 --langmap=mdnhttpdantags:.mdnhttpdan
 --kinddef-mdnhttpdantags=t,topic,topics
---regex-mdnhttpdantags=/^#\s(\w.*)#$/\1/t/
+--regex-mdnhttpdantags=/^#\s(.*)\s#(\s\(X\)){0,1}$/\1/t/

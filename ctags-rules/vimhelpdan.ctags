@@ -1,0 +1,6 @@
+--langdef=vimhelpdantags
+--langmap=vimhelpdantags:.vimhelpdan
+--kinddef-vimhelpdantags=t,topic,topics
+--kinddef-vimhelpdantags=s,subtopic,subtopics
+--regex-vimhelpdantags=/\*(.*)\*/\1/t/
+--regex-vimhelpdantags=/^#\s(\w.*)\s#$/\1/s/

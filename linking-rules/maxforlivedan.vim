@@ -12,7 +12,7 @@ nnoremap <expr> <C-]> IsLineTopicFn() ? ':GotoTopic<CR>' : '<C-]>'
 " Using Ctrl + ] to access topics
 def IsLineTopicFn(): number
     # if there is a $linkto& in the current line
-    if match(getline('.'), '&.*&$') != -1
+    if match(getline('.'), '&.*&') != -1
         return 1
     else
         # in case other patterns in the line do match
@@ -30,7 +30,7 @@ def GotoTopicFn(): void
     var myString = getline('.')
 
     # If there is a keyword enclosed in between &keyword& goto there
-    if match(myString, '&.*&$') != -1
+    if match(myString, '&.*&') != -1
     echo "into gotopic and &"
         # Some patterns to be filtered on the link_from
         # This filters out the ats at @parentName@

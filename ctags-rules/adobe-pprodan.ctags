@@ -1,8 +1,8 @@
---langdef=adobepsddantags
---langmap=adobepsddantags:.adobe-pprodan
---kinddef-adobepsddantags=t,topic,topics
---kinddef-adobepsddantags=s,subtopic,subtopics
---kinddef-adobepsddantags=p,property,properties
---kinddef-adobepsddantags=m,method,methods
---regex-adobepsddantags=/^#\s(.*)\s#$/\1/t/
---regex-adobepsddantags=/^(\w.*)\s#$/\1/s/
+--langdef=adobepprodantags
+--langmap=adobepprodantags:.adobe-pprodan
+--kinddef-adobepprodantags=t,topic,topics
+--kinddef-adobepprodantags=s,subtopic,subtopics
+--kinddef-adobepprodantags=p,property,properties
+--kinddef-adobepprodantags=m,method,methods
+--regex-adobepprodantags=/^#\s(.*)\s#(\s\(X\)){0,1}$/\1/t/
+--regex-adobepprodantags=/^(\w.*)\s#$/\1/s/

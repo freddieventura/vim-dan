@@ -4,9 +4,7 @@
 ## USER TRIGGERED ACTIONS
 ## ------------------------------------
 perfom_install(){
-    if [ ! -d "${DOCU_PATH}" ]; then
-        mkdir -p "${DOCU_PATH}"
-    fi
+    [ ! -d "${DOCU_PATH}" ] && mkdir -p "${DOCU_PATH}"
     echo "Installing vim-dan ${DOCU_NAME} into ${DOCU_PATH}/ ..."
     cp $CURRENT_DIR/ready-docus/main.${DOCU_NAME}dan ${DOCU_PATH}/main.${DOCU_NAME}dan-toupdate
     perform_patch
@@ -66,12 +64,17 @@ perform_patch(){
 
 updating_tags() {
     echo "Updating the tag file..."
-    ctags --options=NONE --options=${CURRENT_DIR}/ctags-rules/${DOCU_NAME}dan.ctags -f ${DOCU_PATH}/tags ${MAIN_FILE} 
+    ctags --options=NONE --options=${CURRENT_DIR}/ctags-rules/${DOCU_NAME}dan.ctags --tag-relative=always -f ${DOCU_PATH}/tags ${MAIN_FILE} 
+    [ ! -d "${HOME}/c.tags.d" ] && mkdir -p "${HOME}/c.tags.d"
+    cp ${CURRENT_DIR}/ctags-rules/${DOCU_NAME}dan.ctags ${HOME}/.ctags.d/
 }
 updating_vim() {
     echo "Updating vim files..."
+    [ ! -d "${VIM_RTP_DIR}/ftdetect" ] && mkdir -p "${VIM_RTP_DIR}/ftdetect"
     cp ${CURRENT_DIR}/ft-detection/${DOCU_NAME}dan.vim  ${VIM_RTP_DIR}/ftdetect/
+    [ ! -d "${VIM_RTP_DIR}/after/ftplugin" ] && mkdir -p "${VIM_RTP_DIR}/after/ftplugin"
     cp ${CURRENT_DIR}/linking-rules/${DOCU_NAME}dan.vim  ${VIM_RTP_DIR}/after/ftplugin/
+    [ ! -d "${VIM_RTP_DIR}/syntax" ] && mkdir -p "${VIM_RTP_DIR}/syntax"
     cp ${CURRENT_DIR}/syntax-rules/${DOCU_NAME}dan.vim  ${VIM_RTP_DIR}/syntax/
 }
 ## EOF EOF EOF AUTOMATIC ACTIONS

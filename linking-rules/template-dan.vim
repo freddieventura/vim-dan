@@ -31,6 +31,14 @@ def GotoTopicFn(): void
 
     # If there is a keyword enclosed in between &keyword& goto there
     if match(myString, '&.*&') != -1
+        # Some patterns to be filtered on the link_from
+        # This filters out the ats at @parentName@
+        var patternList = ['@\(\w*\)\@=', '@\(\w*\)\@=']
+        for patternI in patternList
+            if match(myString, patternI) != -1
+                myString = substitute(myString, patternI, '', '')
+            endif
+        endfor
         execute "tag " .. matchstr(myString, '&\@<=.*&\@=')
     else
         # Some patterns to be filtered on the match

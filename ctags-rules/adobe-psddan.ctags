@@ -4,5 +4,5 @@
 --kinddef-adobepsddantags=s,subtopic,subtopics
 --kinddef-adobepsddantags=p,property,properties
 --kinddef-adobepsddantags=m,method,methods
---regex-adobepsddantags=/^#\s(.*)\s#$/\1/t/
+--regex-adobepsddantags=/^#\s(.*)\s#(\s\(X\)){0,1}$/\1/t/
 --regex-adobepsddantags=/^(\w.*)\s#$/\1/s/

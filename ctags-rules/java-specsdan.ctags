@@ -1,4 +1,4 @@
 --langdef=javaspecsdantags
 --langmap=javaspecsdantags:.java-specsdan
 --kinddef-javaspecsdantags=t,topic,topics
---regex-javaspecsdantags=/^#\s(.*)\s#$/\1/t/
+--regex-javaspecsdantags=/^#\s(.*)\s#(\s\(X\)){0,1}$/\1/t/

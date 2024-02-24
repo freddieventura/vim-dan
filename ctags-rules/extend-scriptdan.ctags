@@ -1,0 +1,8 @@
+--langdef=extendscriptdantags
+--langmap=extendscriptdantags:.extend-scriptdan
+--kinddef-extendscriptdantags=t,topic,topics
+--kinddef-extendscriptdantags=s,subtopic,subtopics
+--kinddef-extendscriptdantags=p,property,properties
+--kinddef-extendscriptdantags=m,method,methods
+--regex-extendscriptdantags=/^#\s(.*)\s#(\s\(X\)){0,1}$/\1/t/
+--regex-extendscriptdantags=/^(\w.*)\s#$/\1/s/

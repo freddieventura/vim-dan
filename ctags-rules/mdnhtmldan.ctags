@@ -1,4 +1,4 @@
 --langdef=mdnhtmldantags
 --langmap=mdnhtmldantags:.mdnhtmldan
 --kinddef-mdnhtmldantags=t,topic,topics
---regex-mdnhtmldantags=/^#\s(\w.*)#$/\1/t/
+--regex-mdnhtmldantags=/^#\s(.*)\s#(\s\(X\)){0,1}$/\1/t/

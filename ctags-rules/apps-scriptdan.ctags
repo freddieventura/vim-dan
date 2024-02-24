@@ -1,4 +1,4 @@
 --langdef=appsscriptdantags
 --langmap=appsscriptdantags:.apps-scriptdan
 --kinddef-appsscriptdantags=t,topic,topics
---regex-appsscriptdantags=/^#\s(.*)\s#$/\1/t/
+--regex-appsscriptdantags=/^#\s(.*)\s#(\s\(X\)){0,1}$/\1/t/
