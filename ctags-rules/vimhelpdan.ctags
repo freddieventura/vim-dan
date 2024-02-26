@@ -3,4 +3,4 @@
 --kinddef-vimhelpdantags=t,topic,topics
 --kinddef-vimhelpdantags=s,subtopic,subtopics
 --regex-vimhelpdantags=/\*(.*)\*/\1/t/
---regex-vimhelpdantags=/^#\s(\w.*)\s#$/\1/s/
+--regex-vimhelpdantags=/^#\s(\w.*)\s#(\s\(X\)){0,1}$/\1/s/

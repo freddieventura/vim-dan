@@ -109,4 +109,5 @@ Code syntax highlighting, and header highlight.
 
 The following are ideas pending to develop within the project:
 
+    - Re-write linking rules for use of `set iskeyword` , check example of `vimhelpdan`
     - Create an ebook (`.epub`, `.pdf` etc...) parser, which will recognise the lines highlighted by the reader and the notes taken. Store
