@@ -1,4 +1,4 @@
 --langdef=mdnjsdantags
 --langmap=mdnjsdantags:.mdnjsdan
 --kinddef-mdnjsdantags=t,topic,topics
---regex-mdnjsdantags=/^#\s(\w.*)#$/\1/t/
+--regex-mdnjsdantags=/^#\s(.*)\s#(\s\(X\)){0,1}$/\1/t/

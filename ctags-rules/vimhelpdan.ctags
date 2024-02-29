@@ -2,5 +2,5 @@
 --langmap=vimhelpdantags:.vimhelpdan
 --kinddef-vimhelpdantags=t,topic,topics
 --kinddef-vimhelpdantags=s,subtopic,subtopics
---regex-vimhelpdantags=/\*(.*)\*/\1/t/
+--regex-vimhelpdantags=/\*([^[:space:]]*)\*/\1/t/
 --regex-vimhelpdantags=/^#\s(\w.*)\s#(\s\(X\)){0,1}$/\1/s/

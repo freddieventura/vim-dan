@@ -15,272 +15,293 @@
 | | | | | | (_| | | | | | | | |_| | | | | | |
 |_| |_| |_|\__,_|_| |_|_| |_|\__|_| |_| |_|_|
                                              
-In this article
-
--   Key resources
--   Beginner's tutorials
--   Advanced topics
--   Reference
--   Related topics
-
-1.  HTML
-
-2.  Tutorials
-
-3.  HTML basics
-
-4.  Introduction to HTML
-    1.  Introduction to HTML overview
-    2.  Getting started with HTML
-    3.  What's in the head? Metadata in HTML
-    4.  HTML text fundamentals
-    5.  Creating hyperlinks
-    6.  Advanced text formatting
-    7.  Document and website structure
-    8.  Debugging HTML
-    9.  Assessment: Marking up a letter
-    10. Assessment: Structuring a page of content
-
-5.  Multimedia and embedding
-    1.  Multimedia and embedding overview
-    2.  Images in HTML
-    3.  Video and audio content
-    4.  From object to iframe — other embedding technologies
-    5.  Adding vector graphics to the web
-    6.  Responsive images
-    7.  Assessment: Mozilla splash page
-
-6.  HTML tables
-    1.  HTML tables overview
-    2.  HTML table basics
-    3.  HTML table advanced features and accessibility
-    4.  Assessment: Structuring planet data
-
-7.  References
-
-8.  HTML elements
-    1.   <a>
-    2.   <abbr>
-    3.   <acronym> Deprecated
-    4.   <address>
-    5.   <area>
-    6.   <article>
-    7.   <aside>
-    8.   <audio>
-    9.   <b>
-    10.  <base>
-    11.  <bdi>
-    12.  <bdo>
-    13.  <big> Deprecated
-    14.  <blockquote>
-    15.  <body>
-    16.  <br>
-    17.  <button>
-    18.  <canvas>
-    19.  <caption>
-    20.  <center> Deprecated
-    21.  <cite>
-    22.  <code>
-    23.  <col>
-    24.  <colgroup>
-    25.  <data>
-    26.  <datalist>
-    27.  <dd>
-    28.  <del>
-    29.  <details>
-    30.  <dfn>
-    31.  <dialog>
-    32.  <dir> Deprecated
-    33.  <div>
-    34.  <dl>
-    35.  <dt>
-    36.  <em>
-    37.  <embed>
-    38.  <fieldset>
-    39.  <figcaption>
-    40.  <figure>
-    41.  <font> Deprecated
-    42.  <footer>
-    43.  <form>
-    44.  <frame> Deprecated
-    45.  <frameset> Deprecated
-    46.  <h1>
-    47.  <head>
-    48.  <header>
-    49.  <hgroup>
-    50.  <hr>
-    51.  <html>
-    52.  <i>
-    53.  <iframe>
-    54.  <image> Non-standard Deprecated
-    55.  <img>
-    56.  <input>
-    57.  <ins>
-    58.  <kbd>
-    59.  <label>
-    60.  <legend>
-    61.  <li>
-    62.  <link>
-    63.  <main>
-    64.  <map>
-    65.  <mark>
-    66.  <marquee> Deprecated
-    67.  <menu>
-    68.  <menuitem> Non-standard Deprecated
-    69.  <meta>
-    70.  <meter>
-    71.  <nav>
-    72.  <nobr> Deprecated
-    73.  <noembed> Deprecated
-    74.  <noframes> Deprecated
-    75.  <noscript>
-    76.  <object>
-    77.  <ol>
-    78.  <optgroup>
-    79.  <option>
-    80.  <output>
-    81.  <p>
-    82.  <param> Deprecated
-    83.  <picture>
-    84.  <plaintext> Deprecated
-    85.  <portal> Experimental
-    86.  <pre>
-    87.  <progress>
-    88.  <q>
-    89.  <rb> Deprecated
-    90.  <rp>
-    91.  <rt>
-    92.  <rtc> Deprecated
-    93.  <ruby>
-    94.  <s>
-    95.  <samp>
-    96.  <script>
-    97.  <search>
-    98.  <section>
-    99.  <select>
-    100.  <slot>
-    101.  <small>
-    102.  <source>
-    103.  <span>
-    104.  <strike> Deprecated
-    105.  <strong>
-    106.  <style>
-    107.  <sub>
-    108.  <summary>
-    109.  <sup>
-    110.  <table>
-    111.  <tbody>
-    112.  <td>
-    113.  <template>
-    114.  <textarea>
-    115.  <tfoot>
-    116.  <th>
-    117.  <thead>
-    118.  <time>
-    119.  <title>
-    120.  <tr>
-    121.  <track>
-    122.  <tt> Deprecated
-    123.  <u>
-    124.  <ul>
-    125.  <var>
-    126.  <video>
-    127.  <wbr>
-    128.  <xmp> Deprecated
-
-9.  Global attributes
-    1.   accesskey
-    2.   autocapitalize
-    3.   autofocus
-    4.   class
-    5.   contenteditable
-    6.   contextmenu Non-standard Deprecated
-    7.   data-*
-    8.   dir
-    9.   draggable
-    10.  enterkeyhint
-    11.  exportparts
-    12.  hidden
-    13.  id
-    14.  inert
-    15.  inputmode
-    16.  is
-    17.  itemid
-    18.  itemprop
-    19.  itemref
-    20.  itemscope
-    21.  itemtype
-    22.  lang
-    23.  nonce
-    24.  part
-    25.  popover
-    26.  slot
-    27.  spellcheck
-    28.  style
-    29.  tabindex
-    30.  title
-    31.  translate
-    32.  virtualkeyboardpolicy Experimental
-
-10. Attributes
-    1.  accept
-    2.  autocomplete
-    3.  capture
-    4.  crossorigin
-    5.  dirname
-    6.  disabled
-    7.  elementtiming
-    8.  for
-    9.  max
-    10. maxlength
-    11. min
-    12. minlength
-    13. multiple
-    14. pattern
-    15. placeholder
-    16. readonly
-    17. rel
-    18. required
-    19. size
-    20. step
-
-11.  <input> types
-    1.   <input type="button">
-    2.   <input type="checkbox">
-    3.   <input type="color">
-    4.   <input type="date">
-    5.   <input type="datetime-local">
-    6.   <input type="email">
-    7.   <input type="file">
-    8.   <input type="hidden">
-    9.   <input type="image">
-    10.  <input type="month">
-    11.  <input type="number">
-    12.  <input type="password">
-    13.  <input type="radio">
-    14.  <input type="range">
-    15.  <input type="reset">
-    16.  <input type="search">
-    17.  <input type="submit">
-    18.  <input type="tel">
-    19.  <input type="text">
-    20.  <input type="time">
-    21.  <input type="url">
-    22.  <input type="week">
-
-12. Guides
-
-13. 1.  Content categories
-    2.  Block-level elements
-    3.  Inline elements
-    4.  Quirks Mode and Standards Mode
-    5.  Date and time formats used in HTML
-    6.  Constraint validation
-    7.  Microdata
-    8.  Microformats
-    9.  Viewport meta tag
-    10. Allowing cross-origin use of images and canvas
-# HTML attribute reference #
+Documentation indexed from : https://developer.mozilla.org/en-US/docs/Web/HTML 
+Last parsed on : Thu Feb 29 06:53:13 PM GMT 2024
+ _           _           
+(_)_ __   __| | _____  __
+| | '_ \ / _` |/ _ \ \/ /
+| | | | | (_| |  __/>  < 
+|_|_| |_|\__,_|\___/_/\_\
+                         
+- downloaded
+      - & @downloaded@ Accessibility&
+      - & @downloaded@ Web APIs&
+      - & @downloaded@ CSS: Cascading Style Sheets&
+      - & @downloaded@ Demos of open web technologies&
+      - & @downloaded@ Event reference&
+      - & @downloaded@ Developer guides&
+      - & @downloaded@ HTML: HyperText Markup Language&
+      - & @downloaded@ HTTP&
+      - & @downloaded@ JavaScript&
+      - & @downloaded@ Web app manifests&
+      - & @downloaded@ MathML&
+      - & @downloaded@ Web media technologies&
+      - & @downloaded@ OpenSearch description format&
+      - & @downloaded@ Web performance&
+      - & @downloaded@ Privacy on the web&
+      - & @downloaded@ Progressive web apps&
+      - & @downloaded@ Security on the web&
+      - & @downloaded@ SVG: Scalable Vector Graphics&
+      - & @downloaded@ Text fragments&
+      - & @downloaded@ XML: Extensible Markup Language&
+- HTML
+        - & @HTML@ HTML attribute reference&
+        - & @HTML@ Block-level content&
+        - & @HTML@ Constraint validation&
+        - & @HTML@ Content categories&
+        - & @HTML@ Allowing cross-origin use of images and canvas&
+        - & @HTML@ Date and time formats used in HTML&
+        - & @HTML@ HTML elements reference&
+        - & @HTML@ Global attributes&
+        - & @HTML@ Inline-level content&
+        - & @HTML@ Microdata&
+        - & @HTML@ Microformats&
+        - & @HTML@ Quirks Mode&
+        - & @HTML@ HTML reference&
+        - & @HTML@ Viewport meta tag&
+- Privacy
+        - & @Privacy@ Firefox tracking protection&
+        - & @Privacy@ Cookies Having Independent Partitioned State (CHIPS)&
+        - & @Privacy@ Redirect tracking protection&
+        - & @Privacy@ State Partitioning&
+        - & @Privacy@ Storage access policy: Block cookies from trackers&
+- Attributes
+          - & @Attributes@ HTML attribute: accept&
+          - & @Attributes@ HTML attribute: autocomplete&
+          - & @Attributes@ HTML attribute: capture&
+          - & @Attributes@ HTML attribute: crossorigin&
+          - & @Attributes@ HTML attribute: dirname&
+          - & @Attributes@ HTML attribute: disabled&
+          - & @Attributes@ HTML attribute: elementtiming&
+          - & @Attributes@ HTML attribute: for&
+          - & @Attributes@ HTML attribute: max&
+          - & @Attributes@ HTML attribute: maxlength&
+          - & @Attributes@ HTML attribute: min&
+          - & @Attributes@ HTML attribute: minlength&
+          - & @Attributes@ HTML attribute: multiple&
+          - & @Attributes@ HTML attribute: pattern&
+          - & @Attributes@ HTML attribute: placeholder&
+          - & @Attributes@ HTML attribute: readonly&
+          - & @Attributes@ HTML attribute: rel&
+          - & @Attributes@ HTML attribute: required&
+          - & @Attributes@ HTML attribute: size&
+          - & @Attributes@ HTML attribute: step&
+- Element
+          - & @Element@ <abbr>: The Abbreviation element&
+          - & @Element@ <acronym>&
+          - & @Element@ <address>: The Contact Address element&
+          - & @Element@ <a>: The Anchor element&
+          - & @Element@ <area>: The Image Map Area element&
+          - & @Element@ <article>: The Article Contents element&
+          - & @Element@ <aside>: The Aside element&
+          - & @Element@ <audio>: The Embed Audio element&
+          - & @Element@ <base>: The Document Base URL element&
+          - & @Element@ <bdi>: The Bidirectional Isolate element&
+          - & @Element@ <bdo>: The Bidirectional Text Override element&
+          - & @Element@ <b>: The Bring Attention To element&
+          - & @Element@ <big>: The Bigger Text element&
+          - & @Element@ <blockquote>: The Block Quotation element&
+          - & @Element@ <body>: The Document Body element&
+          - & @Element@ <br>: The Line Break element&
+          - & @Element@ <button>: The Button element&
+          - & @Element@ <canvas>: The Graphics Canvas element&
+          - & @Element@ <caption>: The Table Caption element&
+          - & @Element@ <center>: The Centered Text element&
+          - & @Element@ <cite>: The Citation element&
+          - & @Element@ <code>: The Inline Code element&
+          - & @Element@ <colgroup>: The Table Column Group element&
+          - & @Element@ <col>: The Table Column element&
+          - & @Element@ <data>: The Data element&
+          - & @Element@ <datalist>: The HTML Data List element&
+          - & @Element@ <dd>: The Description Details element&
+          - & @Element@ <del>: The Deleted Text element&
+          - & @Element@ <details>: The Details disclosure element&
+          - & @Element@ <dfn>: The Definition element&
+          - & @Element@ <dialog>: The Dialog element&
+          - & @Element@ <dir>: The Directory element&
+          - & @Element@ <div>: The Content Division element&
+          - & @Element@ <dl>: The Description List element&
+          - & @Element@ <dt>: The Description Term element&
+          - & @Element@ <embed>: The Embed External Content element&
+          - & @Element@ <em>: The Emphasis element&
+          - & @Element@ <fieldset>: The Field Set element&
+          - & @Element@ <figcaption>: The Figure Caption element&
+          - & @Element@ <figure>: The Figure with Optional Caption element&
+          - & @Element@ <font>&
+          - & @Element@ <footer>: The Footer element&
+          - & @Element@ <form>: The Form element&
+          - & @Element@ <frame>&
+          - & @Element@ <frameset>&
+          - & @Element@ <header>: The Header element&
+          - & @Element@ <head>: The Document Metadata (Header) element&
+          - & @Element@ <h1>–<h6>: The HTML Section Heading elements&
+          - & @Element@ <hgroup>: The Heading Group element&
+          - & @Element@ <hr>: The Thematic Break (Horizontal Rule) element&
+          - & @Element@ <html>: The HTML Document / Root element&
+          - & @Element@ <iframe>: The Inline Frame element&
+          - & @Element@ <i>: The Idiomatic Text element&
+          - & @Element@ <image>: The Image element&
+          - & @Element@ <img>: The Image Embed element&
+          - & @Element@ <input>: The Input (Form Input) element&
+          - & @Element@ <ins>: The Inserted Text element&
+          - & @Element@ <kbd>: The Keyboard Input element&
+          - & @Element@ <label>: The Label element&
+          - & @Element@ <legend>: The Field Set Legend element&
+          - & @Element@ <li>: The List Item element&
+          - & @Element@ <link>: The External Resource Link element&
+          - & @Element@ <main>: The Main element&
+          - & @Element@ <map>: The Image Map element&
+          - & @Element@ <mark>: The Mark Text element&
+          - & @Element@ <marquee>: The Marquee element&
+          - & @Element@ <menu>: The Menu element&
+          - & @Element@ <menuitem>&
+          - & @Element@ <meta>: The metadata element&
+          - & @Element@ <meter>: The HTML Meter element&
+          - & @Element@ <nav>: The Navigation Section element&
+          - & @Element@ <nobr>: The Non-Breaking Text element&
+          - & @Element@ <noembed>: The Embed Fallback element&
+          - & @Element@ <noframes>: The Frame Fallback element&
+          - & @Element@ <noscript>: The Noscript element&
+          - & @Element@ <object>: The External Object element&
+          - & @Element@ <ol>: The Ordered List element&
+          - & @Element@ <optgroup>: The Option Group element&
+          - & @Element@ <option>: The HTML Option element&
+          - & @Element@ <output>: The Output element&
+          - & @Element@ <param>: The Object Parameter element&
+          - & @Element@ <p>: The Paragraph element&
+          - & @Element@ <picture>: The Picture element&
+          - & @Element@ <plaintext>: The Plain Text element (Deprecated)&
+          - & @Element@ <portal>: The Portal element&
+          - & @Element@ <pre>: The Preformatted Text element&
+          - & @Element@ <progress>: The Progress Indicator element&
+          - & @Element@ <q>: The Inline Quotation element&
+          - & @Element@ <rb>: The Ruby Base element&
+          - & @Element@ <rp>: The Ruby Fallback Parenthesis element&
+          - & @Element@ <rtc>: The Ruby Text Container element&
+          - & @Element@ <rt>: The Ruby Text element&
+          - & @Element@ <ruby>: The Ruby Annotation element&
+          - & @Element@ <samp>: The Sample Output element&
+          - & @Element@ <script>: The Script element&
+          - & @Element@ <search>: The generic search element&
+          - & @Element@ <section>: The Generic Section element&
+          - & @Element@ <select>: The HTML Select element&
+          - & @Element@ <s>: The Strikethrough element&
+          - & @Element@ <slot>: The Web Component Slot element&
+          - & @Element@ <small>: the side comment element&
+          - & @Element@ <source>: The Media or Image Source element&
+          - & @Element@ <span>: The Content Span element&
+          - & @Element@ <strike>&
+          - & @Element@ <strong>: The Strong Importance element&
+          - & @Element@ <style>: The Style Information element&
+          - & @Element@ <sub>: The Subscript element&
+          - & @Element@ <summary>: The Disclosure Summary element&
+          - & @Element@ <sup>: The Superscript element&
+          - & @Element@ <table>: The Table element&
+          - & @Element@ <tbody>: The Table Body element&
+          - & @Element@ <td>: The Table Data Cell element&
+          - & @Element@ <template>: The Content Template element&
+          - & @Element@ <textarea>: The Textarea element&
+          - & @Element@ <tfoot>: The Table Foot element&
+          - & @Element@ <thead>: The Table Head element&
+          - & @Element@ <th>: The Table Header element&
+          - & @Element@ <time>: The (Date) Time element&
+          - & @Element@ <title>: The Document Title element&
+          - & @Element@ <track>: The Embed Text Track element&
+          - & @Element@ <tr>: The Table Row element&
+          - & @Element@ <tt>: The Teletype Text element&
+          - & @Element@ <u>: The Unarticulated Annotation (Underline) element&
+          - & @Element@ <ul>: The Unordered List element&
+          - & @Element@ <var>: The Variable element&
+          - & @Element@ <video>: The Video Embed element&
+          - & @Element@ <wbr>: The Line Break Opportunity element&
+          - & @Element@ <xmp>&
+- Global_attributes
+          - & @Global_attributes@ accesskey&
+          - & @Global_attributes@ autocapitalize&
+          - & @Global_attributes@ autofocus&
+          - & @Global_attributes@ class&
+          - & @Global_attributes@ contenteditable&
+          - & @Global_attributes@ contextmenu&
+          - & @Global_attributes@ data-*&
+          - & @Global_attributes@ dir&
+          - & @Global_attributes@ draggable&
+          - & @Global_attributes@ enterkeyhint&
+          - & @Global_attributes@ exportparts&
+          - & @Global_attributes@ hidden&
+          - & @Global_attributes@ id&
+          - & @Global_attributes@ inert&
+          - & @Global_attributes@ inputmode&
+          - & @Global_attributes@ is&
+          - & @Global_attributes@ itemid&
+          - & @Global_attributes@ itemprop&
+          - & @Global_attributes@ itemref&
+          - & @Global_attributes@ itemscope&
+          - & @Global_attributes@ itemtype&
+          - & @Global_attributes@ lang&
+          - & @Global_attributes@ nonce&
+          - & @Global_attributes@ part&
+          - & @Global_attributes@ popover&
+          - & @Global_attributes@ slot&
+          - & @Global_attributes@ spellcheck&
+          - & @Global_attributes@ style&
+          - & @Global_attributes@ tabindex&
+          - & @Global_attributes@ title&
+          - & @Global_attributes@ translate&
+          - & @Global_attributes@ virtualkeyboardpolicy&
+- Storage_Access_Policy
+          - & @Storage_Access_Policy@ Errors&
+- rel
+            - & @rel@ rel=dns-prefetch&
+            - & @rel@ rel=manifest&
+            - & @rel@ rel=me&
+            - & @rel@ rel=modulepreload&
+            - & @rel@ rel=noopener&
+            - & @rel@ rel=noreferrer&
+            - & @rel@ rel=preconnect&
+            - & @rel@ rel=prefetch&
+            - & @rel@ rel=preload&
+            - & @rel@ rel=prerender&
+- input
+            - & @input@ <input type="button">&
+            - & @input@ <input type="checkbox">&
+            - & @input@ <input type="color">&
+            - & @input@ <input type="date">&
+            - & @input@ <input type="datetime-local">&
+            - & @input@ <input type="email">&
+            - & @input@ <input type="file">&
+            - & @input@ <input type="hidden">&
+            - & @input@ <input type="image">&
+            - & @input@ <input type="month">&
+            - & @input@ <input type="number">&
+            - & @input@ <input type="password">&
+            - & @input@ <input type="radio">&
+            - & @input@ <input type="range">&
+            - & @input@ <input type="reset">&
+            - & @input@ <input type="search">&
+            - & @input@ <input type="submit">&
+            - & @input@ <input type="tel">&
+            - & @input@ <input type="text">&
+            - & @input@ <input type="time">&
+            - & @input@ <input type="url">&
+            - & @input@ <input type="week">&
+- meta
+            - & @meta@ Standard metadata names&
+- script
+            - & @script@ <script>: type attribute&
+- Errors
+            - & @Errors@ Blocked: All storage access requests&
+            - & @Errors@ Blocked: Custom cookie permission&
+            - & @Errors@ Blocked: All third-party storage access requests&
+            - & @Errors@ Blocked: Storage access requests from trackers&
+            - & @Errors@ Partitioned: All third-party storage access requests&
+- radio
+              - & @radio@ &
+- name
+              - & @name@ theme-color&
+- type
+              - & @type@ <script type="importmap">&
+              - & @type@ <script type="speculationrules">&
+# HTML HTML attribute reference #
  _   _ _____ __  __ _             _   _        _ _           _       
 | | | |_   _|  \/  | |       __ _| |_| |_ _ __(_) |__  _   _| |_ ___ 
 | |_| | | | | |\/| | |      / _` | __| __| '__| | '_ \| | | | __/ _ \
@@ -1142,7 +1163,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Feb 1, 2024 by MDN contributors .
-# Block-level content #
+# HTML Block-level content #
  ____  _            _         _                _ 
 | __ )| | ___   ___| | __    | | _____   _____| |
 |  _ \| |/ _ \ / __| |/ /____| |/ _ \ \ / / _ \ |
@@ -1212,7 +1233,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 30, 2024 by MDN contributors .
-# Constraint validation #
+# HTML Constraint validation #
   ____                _             _       _   
  / ___|___  _ __  ___| |_ _ __ __ _(_)_ __ | |_ 
 | |   / _ \| '_ \/ __| __| '__/ _` | | '_ \| __|
@@ -1539,7 +1560,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jun 13, 2023 by MDN contributors .
-# Content categories #
+# HTML Content categories #
   ____            _             _   
  / ___|___  _ __ | |_ ___ _ __ | |_ 
 | |   / _ \| '_ \| __/ _ \ '_ \| __|
@@ -1923,7 +1944,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 28, 2024 by MDN contributors .
-# Allowing cross-origin use of images and canvas #
+# HTML Allowing cross-origin use of images and canvas #
     _    _ _               _             
    / \  | | | _____      _(_)_ __   __ _ 
   / _ \ | | |/ _ \ \ /\ / / | '_ \ / _` |
@@ -2127,7 +2148,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Nov 16, 2023 by MDN contributors .
-# Date and time formats used in HTML #
+# HTML Date and time formats used in HTML #
  ____        _                         _   _   _                
 |  _ \  __ _| |_ ___    __ _ _ __   __| | | |_(_)_ __ ___   ___ 
 | | | |/ _` | __/ _ \  / _` | '_ \ / _` | | __| | '_ ` _ \ / _ \
@@ -2568,7 +2589,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Aug 29, 2023 by MDN contributors .
-# HTML elements reference #
+# HTML HTML elements reference #
  _   _ _____ __  __ _            _                           _       
 | | | |_   _|  \/  | |       ___| | ___ _ __ ___   ___ _ __ | |_ ___ 
 | |_| | | | | |\/| | |      / _ \ |/ _ \ '_ ` _ \ / _ \ '_ \| __/ __|
@@ -2871,7 +2892,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 25, 2024 by MDN contributors .
-# Global attributes #
+# HTML Global attributes #
   ____ _       _           _         _   _        _ _           _            
  / ___| | ___ | |__   __ _| |   __ _| |_| |_ _ __(_) |__  _   _| |_ ___  ___ 
 | |  _| |/ _ \| '_ \ / _` | |  / _` | __| __| '__| | '_ \| | | | __/ _ \/ __|
@@ -3298,7 +3319,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 10, 2024 by MDN contributors .
-# Inline-level content #
+# HTML Inline-level content #
  ___       _ _                  _                _ 
 |_ _|_ __ | (_)_ __   ___      | | _____   _____| |
  | || '_ \| | | '_ \ / _ \_____| |/ _ \ \ / / _ \ |
@@ -3372,7 +3393,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jun 8, 2023 by MDN contributors .
-# Microdata #
+# HTML Microdata #
  __  __ _                    _       _        
 |  \/  (_) ___ _ __ ___   __| | __ _| |_ __ _ 
 | |\/| | |/ __| '__/ _ \ / _` |/ _` | __/ _` |
@@ -3546,7 +3567,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 7, 2023 by MDN contributors .
-# Microformats #
+# HTML Microformats #
  __  __ _                 __                            _       
 |  \/  (_) ___ _ __ ___  / _| ___  _ __ _ __ ___   __ _| |_ ___ 
 | |\/| | |/ __| '__/ _ \| |_ / _ \| '__| '_ ` _ \ / _` | __/ __|
@@ -4099,7 +4120,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jun 13, 2023 by MDN contributors .
-# Quirks Mode #
+# HTML Quirks Mode #
   ___        _      _          __  __           _      
  / _ \ _   _(_)_ __| | _____  |  \/  | ___   __| | ___ 
 | | | | | | | | '__| |/ / __| | |\/| |/ _ \ / _` |/ _ \
@@ -4200,7 +4221,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 7, 2023 by MDN contributors .
-# HTML reference #
+# HTML HTML reference #
  _   _ _____ __  __ _                 __                              
 | | | |_   _|  \/  | |      _ __ ___ / _| ___ _ __ ___ _ __   ___ ___ 
 | |_| | | | | |\/| | |     | '__/ _ \ |_ / _ \ '__/ _ \ '_ \ / __/ _ \
@@ -4249,7 +4270,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Feb 24, 2023 by MDN contributors .
-# Viewport meta tag #
+# HTML Viewport meta tag #
 __     ___                                _                    _        
 \ \   / (_) _____      ___ __   ___  _ __| |_   _ __ ___   ___| |_ __ _ 
  \ \ / /| |/ _ \ \ /\ / / '_ \ / _ \| '__| __| | '_ ` _ \ / _ \ __/ _` |
@@ -4462,7 +4483,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 30, 2023 by MDN contributors .
-# HTML attribute: accept #
+# Attributes HTML attribute: accept #
  _   _ _____ __  __ _             _   _        _ _           _         
 | | | |_   _|  \/  | |       __ _| |_| |_ _ __(_) |__  _   _| |_ ___ _ 
 | |_| | | | | |\/| | |      / _` | __| __| '__| | '_ \| | | | __/ _ (_)
@@ -4679,7 +4700,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 13, 2023 by MDN contributors .
-# HTML attribute: autocomplete #
+# Attributes HTML attribute: autocomplete #
  _   _ _____ __  __ _             _   _        _ _           _         
 | | | |_   _|  \/  | |       __ _| |_| |_ _ __(_) |__  _   _| |_ ___ _ 
 | |_| | | | | |\/| | |      / _` | __| __| '__| | '_ \| | | | __/ _ (_)
@@ -5163,7 +5184,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 15, 2023 by MDN contributors .
-# HTML attribute: capture #
+# Attributes HTML attribute: capture #
  _   _ _____ __  __ _             _   _        _ _           _         
 | | | |_   _|  \/  | |       __ _| |_| |_ _ __(_) |__  _   _| |_ ___ _ 
 | |_| | | | | |\/| | |      / _` | __| __| '__| | '_ \| | | | __/ _ (_)
@@ -5254,7 +5275,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 13, 2023 by MDN contributors .
-# HTML attribute: crossorigin #
+# Attributes HTML attribute: crossorigin #
  _   _ _____ __  __ _             _   _        _ _           _         
 | | | |_   _|  \/  | |       __ _| |_| |_ _ __(_) |__  _   _| |_ ___ _ 
 | |_| | | | | |\/| | |      / _` | __| __| '__| | '_ \| | | | __/ _ (_)
@@ -5384,7 +5405,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Sep 27, 2023 by MDN contributors .
-# HTML attribute: dirname #
+# Attributes HTML attribute: dirname #
  _   _ _____ __  __ _             _   _        _ _           _         
 | | | |_   _|  \/  | |       __ _| |_| |_ _ __(_) |__  _   _| |_ ___ _ 
 | |_| | | | | |\/| | |      / _` | __| __| '__| | '_ \| | | | __/ _ (_)
@@ -5546,7 +5567,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 31, 2023 by MDN contributors .
-# HTML attribute: disabled #
+# Attributes HTML attribute: disabled #
  _   _ _____ __  __ _             _   _        _ _           _         
 | | | |_   _|  \/  | |       __ _| |_| |_ _ __(_) |__  _   _| |_ ___ _ 
 | |_| | | | | |\/| | |      / _` | __| __| '__| | '_ \| | | | __/ _ (_)
@@ -5774,7 +5795,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 1, 2023 by MDN contributors .
-# HTML attribute: elementtiming #
+# Attributes HTML attribute: elementtiming #
  _   _ _____ __  __ _             _   _        _ _           _         
 | | | |_   _|  \/  | |       __ _| |_| |_ _ __(_) |__  _   _| |_ ___ _ 
 | |_| | | | | |\/| | |      / _` | __| __| '__| | '_ \| | | | __/ _ (_)
@@ -5838,7 +5859,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Feb 24, 2023 by MDN contributors .
-# HTML attribute: for #
+# Attributes HTML attribute: for #
  _   _ _____ __  __ _             _   _        _ _           _         
 | | | |_   _|  \/  | |       __ _| |_| |_ _ __(_) |__  _   _| |_ ___ _ 
 | |_| | | | | |\/| | |      / _` | __| __| '__| | '_ \| | | | __/ _ (_)
@@ -5917,7 +5938,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 15, 2024 by MDN contributors .
-# HTML attribute: max #
+# Attributes HTML attribute: max #
  _   _ _____ __  __ _             _   _        _ _           _         
 | | | |_   _|  \/  | |       __ _| |_| |_ _ __(_) |__  _   _| |_ ___ _ 
 | |_| | | | | |\/| | |      / _` | __| __| '__| | '_ \| | | | __/ _ (_)
@@ -6050,7 +6071,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 17, 2023 by MDN contributors .
-# HTML attribute: maxlength #
+# Attributes HTML attribute: maxlength #
  _   _ _____ __  __ _             _   _        _ _           _         
 | | | |_   _|  \/  | |       __ _| |_| |_ _ __(_) |__  _   _| |_ ___ _ 
 | |_| | | | | |\/| | |      / _` | __| __| '__| | '_ \| | | | __/ _ (_)
@@ -6135,7 +6156,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jun 30, 2023 by MDN contributors .
-# HTML attribute: min #
+# Attributes HTML attribute: min #
  _   _ _____ __  __ _             _   _        _ _           _         
 | | | |_   _|  \/  | |       __ _| |_| |_ _ __(_) |__  _   _| |_ ___ _ 
 | |_| | | | | |\/| | |      / _` | __| __| '__| | '_ \| | | | __/ _ (_)
@@ -6279,7 +6300,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Feb 24, 2023 by MDN contributors .
-# HTML attribute: minlength #
+# Attributes HTML attribute: minlength #
  _   _ _____ __  __ _             _   _        _ _           _         
 | | | |_   _|  \/  | |       __ _| |_| |_ _ __(_) |__  _   _| |_ ___ _ 
 | |_| | | | | |\/| | |      / _` | __| __| '__| | '_ \| | | | __/ _ (_)
@@ -6380,7 +6401,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jun 30, 2023 by MDN contributors .
-# HTML attribute: multiple #
+# Attributes HTML attribute: multiple #
  _   _ _____ __  __ _             _   _        _ _           _         
 | | | |_   _|  \/  | |       __ _| |_| |_ _ __(_) |__  _   _| |_ ___ _ 
 | |_| | | | | |\/| | |      / _` | __| __| '__| | '_ \| | | | __/ _ (_)
@@ -6642,7 +6663,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Nov 30, 2023 by MDN contributors .
-# HTML attribute: pattern #
+# Attributes HTML attribute: pattern #
  _   _ _____ __  __ _             _   _        _ _           _         
 | | | |_   _|  \/  | |       __ _| |_| |_ _ __(_) |__  _   _| |_ ___ _ 
 | |_| | | | | |\/| | |      / _` | __| __| '__| | '_ \| | | | __/ _ (_)
@@ -6875,7 +6896,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 9, 2024 by MDN contributors .
-# HTML attribute: placeholder #
+# Attributes HTML attribute: placeholder #
  _   _ _____ __  __ _             _   _        _ _           _         
 | | | |_   _|  \/  | |       __ _| |_| |_ _ __(_) |__  _   _| |_ ___ _ 
 | |_| | | | | |\/| | |      / _` | __| __| '__| | '_ \| | | | __/ _ (_)
@@ -6988,7 +7009,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 10, 2024 by MDN contributors .
-# HTML attribute: readonly #
+# Attributes HTML attribute: readonly #
  _   _ _____ __  __ _             _   _        _ _           _         
 | | | |_   _|  \/  | |       __ _| |_| |_ _ __(_) |__  _   _| |_ ___ _ 
 | |_| | | | | |\/| | |      / _` | __| __| '__| | '_ \| | | | __/ _ (_)
@@ -7131,7 +7152,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 28, 2023 by MDN contributors .
-# HTML attribute: rel #
+# Attributes HTML attribute: rel #
  _   _ _____ __  __ _             _   _        _ _           _         
 | | | |_   _|  \/  | |       __ _| |_| |_ _ __(_) |__  _   _| |_ ___ _ 
 | |_| | | | | |\/| | |      / _` | __| __| '__| | '_ \| | | | __/ _ (_)
@@ -7581,7 +7602,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Feb 1, 2024 by MDN contributors .
-# HTML attribute: required #
+# Attributes HTML attribute: required #
  _   _ _____ __  __ _             _   _        _ _           _         
 | | | |_   _|  \/  | |       __ _| |_| |_ _ __(_) |__  _   _| |_ ___ _ 
 | |_| | | | | |\/| | |      / _` | __| __| '__| | '_ \| | | | __/ _ (_)
@@ -7699,7 +7720,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 24, 2024 by MDN contributors .
-# HTML attribute: size #
+# Attributes HTML attribute: size #
  _   _ _____ __  __ _             _   _        _ _           _         
 | | | |_   _|  \/  | |       __ _| |_| |_ _ __(_) |__  _   _| |_ ___ _ 
 | |_| | | | | |\/| | |      / _` | __| __| '__| | '_ \| | | | __/ _ (_)
@@ -7784,7 +7805,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jun 30, 2023 by MDN contributors .
-# HTML attribute: step #
+# Attributes HTML attribute: step #
  _   _ _____ __  __ _             _   _        _ _           _         
 | | | |_   _|  \/  | |       __ _| |_| |_ _ __(_) |__  _   _| |_ ___ _ 
 | |_| | | | | |\/| | |      / _` | __| __| '__| | '_ \| | | | __/ _ (_)
@@ -7929,7 +7950,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 27, 2024 by MDN contributors .
-# <abbr>: The Abbreviation element #
+# Element <abbr>: The Abbreviation element #
   __     _     _        __      _____ _          
  / /__ _| |__ | |__  _ _\ \ _  |_   _| |__   ___ 
 / // _` | '_ \| '_ \| '__\ (_)   | | | '_ \ / _ \
@@ -8155,7 +8176,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 29, 2023 by MDN contributors .
-# <acronym> #
+# Element <acronym> #
   __                                         __  
  / /__ _  ___ _ __ ___  _ __  _   _ _ __ ___ \ \ 
 / // _` |/ __| '__/ _ \| '_ \| | | | '_ ` _ \ \ \
@@ -8240,7 +8261,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Nov 29, 2023 by MDN contributors .
-# <address>: The Contact Address element #
+# Element <address>: The Contact Address element #
   __         _     _                  __      _____ _          
  / /__ _  __| | __| |_ __ ___  ___ ___\ \ _  |_   _| |__   ___ 
 / // _` |/ _` |/ _` | '__/ _ \/ __/ __|\ (_)   | | | '_ \ / _ \
@@ -8361,7 +8382,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Nov 3, 2023 by MDN contributors .
-# <a>: The Anchor element #
+# Element <a>: The Anchor element #
   __    __      _____ _               _               _                
  / /__ _\ \ _  |_   _| |__   ___     / \   _ __   ___| |__   ___  _ __ 
 / // _` |\ (_)   | | | '_ \ / _ \   / _ \ | '_ \ / __| '_ \ / _ \| '__|
@@ -8950,7 +8971,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 20, 2023 by MDN contributors .
-# <area>: The Image Map Area element #
+# Element <area>: The Image Map Area element #
   __                   __      _____ _          
  / /__ _ _ __ ___  __ _\ \ _  |_   _| |__   ___ 
 / // _` | '__/ _ \/ _` |\ (_)   | | | '_ \ / _ \
@@ -9158,7 +9179,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 17, 2023 by MDN contributors .
-# <article>: The Article Contents element #
+# Element <article>: The Article Contents element #
   __          _   _      _     __      _____ _          
  / /__ _ _ __| |_(_) ___| | ___\ \ _  |_   _| |__   ___ 
 / // _` | '__| __| |/ __| |/ _ \\ (_)   | | | '_ \ / _ \
@@ -9299,7 +9320,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 31, 2023 by MDN contributors .
-# <aside>: The Aside element #
+# Element <aside>: The Aside element #
   __         _     _     __      _____ _               _        _     _      
  / /__ _ ___(_) __| | ___\ \ _  |_   _| |__   ___     / \   ___(_) __| | ___ 
 / // _` / __| |/ _` |/ _ \\ (_)   | | | '_ \ / _ \   / _ \ / __| |/ _` |/ _ \
@@ -9395,7 +9416,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 13, 2023 by MDN contributors .
-# <audio>: The Embed Audio element #
+# Element <audio>: The Embed Audio element #
   __               _ _     __      _____ _          
  / /__ _ _   _  __| (_) ___\ \ _  |_   _| |__   ___ 
 / // _` | | | |/ _` | |/ _ \\ (_)   | | | '_ \ / _ \
@@ -9871,7 +9892,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 28, 2024 by MDN contributors .
-# <base>: The Document Base URL element #
+# Element <base>: The Document Base URL element #
   ___                   __      _____ _          
  / / |__   __ _ ___  ___\ \ _  |_   _| |__   ___ 
 / /| '_ \ / _` / __|/ _ \\ (_)   | | | '_ \ / _ \
@@ -9999,7 +10020,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 19, 2024 by MDN contributors .
-# <bdi>: The Bidirectional Isolate element #
+# Element <bdi>: The Bidirectional Isolate element #
   ___         _ ___      _____ _          
  / / |__   __| (_) \ _  |_   _| |__   ___ 
 / /| '_ \ / _` | |\ (_)   | | | '_ \ / _ \
@@ -10194,7 +10215,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 14, 2023 by MDN contributors .
-# <bdo>: The Bidirectional Text Override element #
+# Element <bdo>: The Bidirectional Text Override element #
   ___         _     __      _____ _          
  / / |__   __| | ___\ \ _  |_   _| |__   ___ 
 / /| '_ \ / _` |/ _ \\ (_)   | | | '_ \ / _ \
@@ -10293,7 +10314,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 14, 2023 by MDN contributors .
-# <b>: The Bring Attention To element #
+# Element <b>: The Bring Attention To element #
   ___   __      _____ _            ____       _             
  / / |__\ \ _  |_   _| |__   ___  | __ ) _ __(_)_ __   __ _ 
 / /| '_ \\ (_)   | | | '_ \ / _ \ |  _ \| '__| | '_ \ / _` |
@@ -10414,7 +10435,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 14, 2023 by MDN contributors .
-# <big>: The Bigger Text element #
+# Element <big>: The Bigger Text element #
   ___     _      __      _____ _            ____  _                       
  / / |__ (_) __ _\ \ _  |_   _| |__   ___  | __ )(_) __ _  __ _  ___ _ __ 
 / /| '_ \| |/ _` |\ (_)   | | | '_ \ / _ \ |  _ \| |/ _` |/ _` |/ _ \ '__|
@@ -10531,7 +10552,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 13, 2023 by MDN contributors .
-# <blockquote>: The Block Quotation element #
+# Element <blockquote>: The Block Quotation element #
   ___     _            _                     _      __      _____ _          
  / / |__ | | ___   ___| | ____ _ _   _  ___ | |_ ___\ \ _  |_   _| |__   ___ 
 / /| '_ \| |/ _ \ / __| |/ / _` | | | |/ _ \| __/ _ \\ (_)   | | | '_ \ / _ \
@@ -10642,7 +10663,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 14, 2023 by MDN contributors .
-# <body>: The Document Body element #
+# Element <body>: The Document Body element #
   ___               _      __      _____ _          
  / / |__   ___   __| |_   _\ \ _  |_   _| |__   ___ 
 / /| '_ \ / _ \ / _` | | | |\ (_)   | | | '_ \ / _ \
@@ -10879,7 +10900,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Aug 15, 2023 by MDN contributors .
-# <br>: The Line Break element #
+# Element <br>: The Line Break element #
   ___        __      _____ _            _     _            
  / / |__  _ _\ \ _  |_   _| |__   ___  | |   (_)_ __   ___ 
 / /| '_ \| '__\ (_)   | | | '_ \ / _ \ | |   | | '_ \ / _ \
@@ -10999,7 +11020,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 13, 2023 by MDN contributors .
-# <button>: The Button element #
+# Element <button>: The Button element #
   ___           _   _             __      _____ _          
  / / |__  _   _| |_| |_ ___  _ __ \ \ _  |_   _| |__   ___ 
 / /| '_ \| | | | __| __/ _ \| '_ \ \ (_)   | | | '_ \ / _ \
@@ -11350,7 +11371,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 23, 2024 by MDN contributors .
-# <canvas>: The Graphics Canvas element #
+# Element <canvas>: The Graphics Canvas element #
   __                            __      _____ _          
  / /___ __ _ _ ____   ____ _ ___\ \ _  |_   _| |__   ___ 
 / // __/ _` | '_ \ \ / / _` / __|\ (_)   | | | '_ \ / _ \
@@ -11530,7 +11551,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 2, 2023 by MDN contributors .
-# <caption>: The Table Caption element #
+# Element <caption>: The Table Caption element #
   __               _   _            __      _____ _          
  / /___ __ _ _ __ | |_(_) ___  _ __ \ \ _  |_   _| |__   ___ 
 / // __/ _` | '_ \| __| |/ _ \| '_ \ \ (_)   | | | '_ \ / _ \
@@ -11708,7 +11729,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 25, 2024 by MDN contributors .
-# <center>: The Centered Text element #
+# Element <center>: The Centered Text element #
   __              _          __      _____ _          
  / /___ ___ _ __ | |_ ___ _ _\ \ _  |_   _| |__   ___ 
 / // __/ _ \ '_ \| __/ _ \ '__\ (_)   | | | '_ \ / _ \
@@ -11818,7 +11839,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 2, 2024 by MDN contributors .
-# <cite>: The Citation element #
+# Element <cite>: The Citation element #
   __    _ _      __      _____ _             ____ _ _        _   _             
  / /___(_) |_ ___\ \ _  |_   _| |__   ___   / ___(_) |_ __ _| |_(_) ___  _ __  
 / // __| | __/ _ \\ (_)   | | | '_ \ / _ \ | |   | | __/ _` | __| |/ _ \| '_ \ 
@@ -11933,7 +11954,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 13, 2023 by MDN contributors .
-# <code>: The Inline Code element #
+# Element <code>: The Inline Code element #
   __             _     __      _____ _            ___       _ _            
  / /___ ___   __| | ___\ \ _  |_   _| |__   ___  |_ _|_ __ | (_)_ __   ___ 
 / // __/ _ \ / _` |/ _ \\ (_)   | | | '_ \ / _ \  | || '_ \| | | '_ \ / _ \
@@ -12025,7 +12046,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 14, 2023 by MDN contributors .
-# <colgroup>: The Table Column Group element #
+# Element <colgroup>: The Table Column Group element #
   __         _                           __      _____ _          
  / /___ ___ | | __ _ _ __ ___  _   _ _ __\ \ _  |_   _| |__   ___ 
 / // __/ _ \| |/ _` | '__/ _ \| | | | '_ \\ (_)   | | | '_ \ / _ \
@@ -12343,7 +12364,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 25, 2024 by MDN contributors .
-# <col>: The Table Column element #
+# Element <col>: The Table Column element #
   __         ___      _____ _            _____     _     _      
  / /___ ___ | \ \ _  |_   _| |__   ___  |_   _|_ _| |__ | | ___ 
 / // __/ _ \| |\ (_)   | | | '_ \ / _ \   | |/ _` | '_ \| |/ _ \
@@ -12640,7 +12661,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 25, 2024 by MDN contributors .
-# <data>: The Data element #
+# Element <data>: The Data element #
   __   _       _       __      _____ _            ____        _        
  / /__| | __ _| |_ __ _\ \ _  |_   _| |__   ___  |  _ \  __ _| |_ __ _ 
 / // _` |/ _` | __/ _` |\ (_)   | | | '_ \ / _ \ | | | |/ _` | __/ _` |
@@ -12724,7 +12745,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 14, 2023 by MDN contributors .
-# <datalist>: The HTML Data List element #
+# Element <datalist>: The HTML Data List element #
   __   _       _        _ _     _  __      _____ _          
  / /__| | __ _| |_ __ _| (_)___| |_\ \ _  |_   _| |__   ___ 
 / // _` |/ _` | __/ _` | | / __| __|\ (_)   | | | '_ \ / _ \
@@ -12907,7 +12928,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 17, 2023 by MDN contributors .
-# <dd>: The Description Details element #
+# Element <dd>: The Description Details element #
   __   _     ___      _____ _          
  / /__| | __| \ \ _  |_   _| |__   ___ 
 / // _` |/ _` |\ (_)   | | | '_ \ / _ \
@@ -12996,7 +13017,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 29, 2024 by MDN contributors .
-# <del>: The Deleted Text element #
+# Element <del>: The Deleted Text element #
   __   _      ___      _____ _            ____       _      _           _ 
  / /__| | ___| \ \ _  |_   _| |__   ___  |  _ \  ___| | ___| |_ ___  __| |
 / // _` |/ _ \ |\ (_)   | | | '_ \ / _ \ | | | |/ _ \ |/ _ \ __/ _ \/ _` |
@@ -13126,7 +13147,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 14, 2023 by MDN contributors .
-# <details>: The Details disclosure element #
+# Element <details>: The Details disclosure element #
   __   _      _        _ _    __      _____ _          
  / /__| | ___| |_ __ _(_) |___\ \ _  |_   _| |__   ___ 
 / // _` |/ _ \ __/ _` | | / __|\ (_)   | | | '_ \ / _ \
@@ -13417,7 +13438,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 24, 2024 by MDN contributors .
-# <dfn>: The Definition element #
+# Element <dfn>: The Definition element #
   __   _  __      __      _____ _          
  / /__| |/ _|_ __ \ \ _  |_   _| |__   ___ 
 / // _` | |_| '_ \ \ (_)   | | | '_ \ / _ \
@@ -13614,7 +13635,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Feb 1, 2024 by MDN contributors .
-# <dialog>: The Dialog element #
+# Element <dialog>: The Dialog element #
   __   _ _       _            __      _____ _          
  / /__| (_) __ _| | ___   __ _\ \ _  |_   _| |__   ___ 
 / // _` | |/ _` | |/ _ \ / _` |\ (_)   | | | '_ \ / _ \
@@ -14379,7 +14400,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 22, 2024 by MDN contributors .
-# <dir>: The Directory element #
+# Element <dir>: The Directory element #
   __   _ _    __      _____ _          
  / /__| (_)_ _\ \ _  |_   _| |__   ___ 
 / // _` | | '__\ (_)   | | | '_ \ / _ \
@@ -14463,7 +14484,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 17, 2023 by MDN contributors .
-# <div>: The Content Division element #
+# Element <div>: The Content Division element #
   __   _ _      __      _____ _             ____            _             _   
  / /__| (_)_   _\ \ _  |_   _| |__   ___   / ___|___  _ __ | |_ ___ _ __ | |_ 
 / // _` | \ \ / /\ (_)   | | | '_ \ / _ \ | |   / _ \| '_ \| __/ _ \ '_ \| __|
@@ -14609,7 +14630,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 14, 2023 by MDN contributors .
-# <dl>: The Description List element #
+# Element <dl>: The Description List element #
   __   _ ___      _____ _          
  / /__| | \ \ _  |_   _| |__   ___ 
 / // _` | |\ (_)   | | | '_ \ / _ \
@@ -14845,7 +14866,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 13, 2023 by MDN contributors .
-# <dt>: The Description Term element #
+# Element <dt>: The Description Term element #
   __   _ _  __      _____ _          
  / /__| | |_\ \ _  |_   _| |__   ___ 
 / // _` | __|\ (_)   | | | '_ \ / _ \
@@ -14948,7 +14969,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 14, 2023 by MDN contributors .
-# <embed>: The Embed External Content element #
+# Element <embed>: The Embed External Content element #
   __              _              ___      _____ _          
  / /___ _ __ ___ | |__   ___  __| \ \ _  |_   _| |__   ___ 
 / // _ \ '_ ` _ \| '_ \ / _ \/ _` |\ (_)   | | | '_ \ / _ \
@@ -15077,7 +15098,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jun 20, 2023 by MDN contributors .
-# <em>: The Emphasis element #
+# Element <em>: The Emphasis element #
   __             __      _____ _          
  / /___ _ __ ___ \ \ _  |_   _| |__   ___ 
 / // _ \ '_ ` _ \ \ (_)   | | | '_ \ / _ \
@@ -15205,7 +15226,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 14, 2023 by MDN contributors .
-# <fieldset>: The Field Set element #
+# Element <fieldset>: The Field Set element #
   __ __ _      _     _          _  __      _____ _          
  / // _(_) ___| | __| |___  ___| |_\ \ _  |_   _| |__   ___ 
 / /| |_| |/ _ \ |/ _` / __|/ _ \ __|\ (_)   | | | '_ \ / _ \
@@ -15377,7 +15398,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 30, 2024 by MDN contributors .
-# <figcaption>: The Figure Caption element #
+# Element <figcaption>: The Figure Caption element #
   __ __ _                       _   _            __      _____ _          
  / // _(_) __ _  ___ __ _ _ __ | |_(_) ___  _ __ \ \ _  |_   _| |__   ___ 
 / /| |_| |/ _` |/ __/ _` | '_ \| __| |/ _ \| '_ \ \ (_)   | | | '_ \ / _ \
@@ -15452,7 +15473,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 24, 2024 by MDN contributors .
-# <figure>: The Figure with Optional Caption element #
+# Element <figure>: The Figure with Optional Caption element #
   __ __ _                     __      _____ _          
  / // _(_) __ _ _   _ _ __ ___\ \ _  |_   _| |__   ___ 
 / /| |_| |/ _` | | | | '__/ _ \\ (_)   | | | '_ \ / _ \
@@ -15614,7 +15635,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 24, 2024 by MDN contributors .
-# <font> #
+# Element <font> #
   __ __             _  __  
  / // _| ___  _ __ | |_\ \ 
 / /| |_ / _ \| '_ \| __|\ \
@@ -15691,7 +15712,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 17, 2023 by MDN contributors .
-# <footer>: The Footer element #
+# Element <footer>: The Footer element #
   __ __             _          __      _____ _          
  / // _| ___   ___ | |_ ___ _ _\ \ _  |_   _| |__   ___ 
 / /| |_ / _ \ / _ \| __/ _ \ '__\ (_)   | | | '_ \ / _ \
@@ -15807,7 +15828,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 4, 2023 by MDN contributors .
-# <form>: The Form element #
+# Element <form>: The Form element #
   __ __                     __      _____ _          
  / // _| ___  _ __ _ __ ___ \ \ _  |_   _| |__   ___ 
 / /| |_ / _ \| '__| '_ ` _ \ \ (_)   | | | '_ \ / _ \
@@ -16030,7 +16051,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 4, 2023 by MDN contributors .
-# <frame> #
+# Element <frame> #
   __ __                         __  
  / // _|_ __ __ _ _ __ ___   ___\ \ 
 / /| |_| '__/ _` | '_ ` _ \ / _ \\ \
@@ -16148,7 +16169,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 7, 2023 by MDN contributors .
-# <frameset> #
+# Element <frameset> #
   __ __                                    _  __  
  / // _|_ __ __ _ _ __ ___   ___  ___  ___| |_\ \ 
 / /| |_| '__/ _` | '_ ` _ \ / _ \/ __|/ _ \ __|\ \
@@ -16237,7 +16258,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 7, 2023 by MDN contributors .
-# <header>: The Header element #
+# Element <header>: The Header element #
   ___                    _         __      _____ _          
  / / |__   ___  __ _  __| | ___ _ _\ \ _  |_   _| |__   ___ 
 / /| '_ \ / _ \/ _` |/ _` |/ _ \ '__\ (_)   | | | '_ \ / _ \
@@ -16367,7 +16388,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 20, 2023 by MDN contributors .
-# <head>: The Document Metadata (Header) element #
+# Element <head>: The Document Metadata (Header) element #
   ___                    ___      _____ _          
  / / |__   ___  __ _  __| \ \ _  |_   _| |__   ___ 
 / /| '_ \ / _ \/ _` |/ _` |\ (_)   | | | '_ \ / _ \
@@ -16495,7 +16516,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 7, 2023 by MDN contributors .
-# <h1>–<h6>: The HTML Section Heading elements #
+# Element <h1>–<h6>: The HTML Section Heading elements #
   ___     ___   //\    ___      __ __      _____ _          
  / / |__ / \ \ |/_\|  / / |__  / /_\ \ _  |_   _| |__   ___ 
 / /| '_ \| |\ \/ _` |/ /| '_ \| '_ \\ (_)   | | | '_ \ / _ \
@@ -16737,7 +16758,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Aug 11, 2023 by MDN contributors .
-# <hgroup>: The Heading Group element #
+# Element <hgroup>: The Heading Group element #
   ___                               __      _____ _          
  / / |__   __ _ _ __ ___  _   _ _ __\ \ _  |_   _| |__   ___ 
 / /| '_ \ / _` | '__/ _ \| | | | '_ \\ (_)   | | | '_ \ / _ \
@@ -16854,7 +16875,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 9, 2023 by MDN contributors .
-# <hr>: The Thematic Break (Horizontal Rule) element #
+# Element <hr>: The Thematic Break (Horizontal Rule) element #
   ___        __      _____ _          
  / / |__  _ _\ \ _  |_   _| |__   ___ 
 / /| '_ \| '__\ (_)   | | | '_ \ / _ \
@@ -16989,7 +17010,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 22, 2023 by MDN contributors .
-# <html>: The HTML Document / Root element #
+# Element <html>: The HTML Document / Root element #
   ___     _             ___      _____ _            _   _ _____ __  __ _     
  / / |__ | |_ _ __ ___ | \ \ _  |_   _| |__   ___  | | | |_   _|  \/  | |    
 / /| '_ \| __| '_ ` _ \| |\ (_)   | | | '_ \ / _ \ | |_| | | | | |\/| | |    
@@ -17122,7 +17143,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 7, 2023 by MDN contributors .
-# <iframe>: The Inline Frame element #
+# Element <iframe>: The Inline Frame element #
   ___  __                         __      _____ _          
  / (_)/ _|_ __ __ _ _ __ ___   ___\ \ _  |_   _| |__   ___ 
 / /| | |_| '__/ _` | '_ ` _ \ / _ \\ (_)   | | | '_ \ / _ \
@@ -17583,7 +17604,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 2, 2024 by MDN contributors .
-# <i>: The Idiomatic Text element #
+# Element <i>: The Idiomatic Text element #
   _____      _____ _            ___    _ _                       _   _      
  / (_) \ _  |_   _| |__   ___  |_ _|__| (_) ___  _ __ ___   __ _| |_(_) ___ 
 / /| |\ (_)   | | | '_ \ / _ \  | |/ _` | |/ _ \| '_ ` _ \ / _` | __| |/ __|
@@ -17702,7 +17723,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 14, 2023 by MDN contributors .
-# <image>: The Image element #
+# Element <image>: The Image element #
   ___                           __      _____ _          
  / (_)_ __ ___   __ _  __ _  ___\ \ _  |_   _| |__   ___ 
 / /| | '_ ` _ \ / _` |/ _` |/ _ \\ (_)   | | | '_ \ / _ \
@@ -17763,7 +17784,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 13, 2023 by MDN contributors .
-# <img>: The Image Embed element #
+# Element <img>: The Image Embed element #
   ___                __      _____ _            ___                            
  / (_)_ __ ___   __ _\ \ _  |_   _| |__   ___  |_ _|_ __ ___   __ _  __ _  ___ 
 / /| | '_ ` _ \ / _` |\ (_)   | | | '_ \ / _ \  | || '_ ` _ \ / _` |/ _` |/ _ \
@@ -18436,7 +18457,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 23, 2024 by MDN contributors .
-# <input>: The Input (Form Input) element #
+# Element <input>: The Input (Form Input) element #
   ___                   _  __      _____ _          
  / (_)_ __  _ __  _   _| |_\ \ _  |_   _| |__   ___ 
 / /| | '_ \| '_ \| | | | __|\ (_)   | | | '_ \ / _ \
@@ -20866,7 +20887,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 4, 2023 by MDN contributors .
-# <ins>: The Inserted Text element #
+# Element <ins>: The Inserted Text element #
   ___          __      _____ _          
  / (_)_ __  ___\ \ _  |_   _| |__   ___ 
 / /| | '_ \/ __|\ (_)   | | | '_ \ / _ \
@@ -20996,7 +21017,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 14, 2023 by MDN contributors .
-# <kbd>: The Keyboard Input element #
+# Element <kbd>: The Keyboard Input element #
   ___    _         ___      _____ _          
  / / | _| |__   __| \ \ _  |_   _| |__   ___ 
 / /| |/ / '_ \ / _` |\ (_)   | | | '_ \ / _ \
@@ -21221,7 +21242,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jun 13, 2023 by MDN contributors .
-# <label>: The Label element #
+# Element <label>: The Label element #
   ___       _          ___      _____ _            _          _          _ 
  / / | __ _| |__   ___| \ \ _  |_   _| |__   ___  | |    __ _| |__   ___| |
 / /| |/ _` | '_ \ / _ \ |\ (_)   | | | '_ \ / _ \ | |   / _` | '_ \ / _ \ |
@@ -21437,7 +21458,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on May 19, 2023 by MDN contributors .
-# <legend>: The Field Set Legend element #
+# Element <legend>: The Field Set Legend element #
   ___                           ___      _____ _          
  / / | ___  __ _  ___ _ __   __| \ \ _  |_   _| |__   ___ 
 / /| |/ _ \/ _` |/ _ \ '_ \ / _` |\ (_)   | | | '_ \ / _ \
@@ -21511,7 +21532,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 13, 2023 by MDN contributors .
-# <li>: The List Item element #
+# Element <li>: The List Item element #
   ___ ___      _____ _            _     _     _     ___ _                 
  / / (_) \ _  |_   _| |__   ___  | |   (_)___| |_  |_ _| |_ ___ _ __ ___  
 / /| | |\ (_)   | | | '_ \ / _ \ | |   | / __| __|  | || __/ _ \ '_ ` _ \ 
@@ -21651,7 +21672,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 17, 2023 by MDN contributors .
-# <link>: The External Resource Link element #
+# Element <link>: The External Resource Link element #
   ___ _       _    __      _____ _          
  / / (_)_ __ | | __\ \ _  |_   _| |__   ___ 
 / /| | | '_ \| |/ / \ (_)   | | | '_ \ / _ \
@@ -22201,7 +22222,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 3, 2024 by MDN contributors .
-# <main>: The Main element #
+# Element <main>: The Main element #
   __                _      __      _____ _            __  __       _       
  / /_ __ ___   __ _(_)_ __ \ \ _  |_   _| |__   ___  |  \/  | __ _(_)_ __  
 / /| '_ ` _ \ / _` | | '_ \ \ (_)   | | | '_ \ / _ \ | |\/| |/ _` | | '_ \ 
@@ -22357,7 +22378,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 4, 2023 by MDN contributors .
-# <map>: The Image Map element #
+# Element <map>: The Image Map element #
   __                    __      _____ _          
  / /_ __ ___   __ _ _ __\ \ _  |_   _| |__   ___ 
 / /| '_ ` _ \ / _` | '_ \\ (_)   | | | '_ \ / _ \
@@ -22470,7 +22491,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 13, 2023 by MDN contributors .
-# <mark>: The Mark Text element #
+# Element <mark>: The Mark Text element #
   __                     _    __      _____ _          
  / /_ __ ___   __ _ _ __| | __\ \ _  |_   _| |__   ___ 
 / /| '_ ` _ \ / _` | '__| |/ / \ (_)   | | | '_ \ / _ \
@@ -22640,7 +22661,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 13, 2023 by MDN contributors .
-# <marquee>: The Marquee element #
+# Element <marquee>: The Marquee element #
   __                                         __      _____ _          
  / /_ __ ___   __ _ _ __ __ _ _   _  ___  ___\ \ _  |_   _| |__   ___ 
 / /| '_ ` _ \ / _` | '__/ _` | | | |/ _ \/ _ \\ (_)   | | | '_ \ / _ \
@@ -22803,7 +22824,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Nov 14, 2023 by MDN contributors .
-# <menu>: The Menu element #
+# Element <menu>: The Menu element #
   __                          __      _____ _          
  / /_ __ ___   ___ _ __  _   _\ \ _  |_   _| |__   ___ 
 / /| '_ ` _ \ / _ \ '_ \| | | |\ (_)   | | | '_ \ / _ \
@@ -22930,7 +22951,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 13, 2023 by MDN contributors .
-# <menuitem> #
+# Element <menuitem> #
   __                           _ _                __  
  / /_ __ ___   ___ _ __  _   _(_) |_ ___ _ __ ___ \ \ 
 / /| '_ ` _ \ / _ \ '_ \| | | | | __/ _ \ '_ ` _ \ \ \
@@ -23094,7 +23115,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on May 22, 2023 by MDN contributors .
-# <meta>: The metadata element #
+# Element <meta>: The metadata element #
   __               _       __      _____ _          
  / /_ __ ___   ___| |_ __ _\ \ _  |_   _| |__   ___ 
 / /| '_ ` _ \ / _ \ __/ _` |\ (_)   | | | '_ \ / _ \
@@ -23287,7 +23308,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 18, 2023 by MDN contributors .
-# <meter>: The HTML Meter element #
+# Element <meter>: The HTML Meter element #
   __               _          __      _____ _          
  / /_ __ ___   ___| |_ ___ _ _\ \ _  |_   _| |__   ___ 
 / /| '_ ` _ \ / _ \ __/ _ \ '__\ (_)   | | | '_ \ / _ \
@@ -23458,7 +23479,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 26, 2023 by MDN contributors .
-# <nav>: The Navigation Section element #
+# Element <nav>: The Navigation Section element #
   __                 __      _____ _          
  / /_ __   __ ___   _\ \ _  |_   _| |__   ___ 
 / /| '_ \ / _` \ \ / /\ (_)   | | | '_ \ / _ \
@@ -23591,7 +23612,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 13, 2023 by MDN contributors .
-# <nobr>: The Non-Breaking Text element #
+# Element <nobr>: The Non-Breaking Text element #
   __            _        __      _____ _          
  / /_ __   ___ | |__  _ _\ \ _  |_   _| |__   ___ 
 / /| '_ \ / _ \| '_ \| '__\ (_)   | | | '_ \ / _ \
@@ -23662,7 +23683,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 13, 2023 by MDN contributors .
-# <noembed>: The Embed Fallback element #
+# Element <noembed>: The Embed Fallback element #
   __                           _              ___      _____ _          
  / /_ __   ___   ___ _ __ ___ | |__   ___  __| \ \ _  |_   _| |__   ___ 
 / /| '_ \ / _ \ / _ \ '_ ` _ \| '_ \ / _ \/ _` |\ (_)   | | | '_ \ / _ \
@@ -23741,7 +23762,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 13, 2023 by MDN contributors .
-# <noframes>: The Frame Fallback element #
+# Element <noframes>: The Frame Fallback element #
   __             __                              __      _____ _          
  / /_ __   ___  / _|_ __ __ _ _ __ ___   ___  ___\ \ _  |_   _| |__   ___ 
 / /| '_ \ / _ \| |_| '__/ _` | '_ ` _ \ / _ \/ __|\ (_)   | | | '_ \ / _ \
@@ -23849,7 +23870,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 7, 2023 by MDN contributors .
-# <noscript>: The Noscript element #
+# Element <noscript>: The Noscript element #
   __                          _       _  __      _____ _          
  / /_ __   ___  ___  ___ _ __(_)_ __ | |_\ \ _  |_   _| |__   ___ 
 / /| '_ \ / _ \/ __|/ __| '__| | '_ \| __|\ (_)   | | | '_ \ / _ \
@@ -23953,7 +23974,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 13, 2023 by MDN contributors .
-# <object>: The External Object element #
+# Element <object>: The External Object element #
   __     _     _           _  __      _____ _          
  / /___ | |__ (_) ___  ___| |_\ \ _  |_   _| |__   ___ 
 / // _ \| '_ \| |/ _ \/ __| __|\ (_)   | | | '_ \ / _ \
@@ -24122,7 +24143,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jun 16, 2023 by MDN contributors .
-# <ol>: The Ordered List element #
+# Element <ol>: The Ordered List element #
   __     ___      _____ _             ___          _                   _ 
  / /___ | \ \ _  |_   _| |__   ___   / _ \ _ __ __| | ___ _ __ ___  __| |
 / // _ \| |\ (_)   | | | '_ \ / _ \ | | | | '__/ _` |/ _ \ '__/ _ \/ _` |
@@ -24326,7 +24347,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Nov 20, 2023 by MDN contributors .
-# <optgroup>: The Option Group element #
+# Element <optgroup>: The Option Group element #
   __           _                            __      _____ _          
  / /___  _ __ | |_ __ _ _ __ ___  _   _ _ __\ \ _  |_   _| |__   ___ 
 / // _ \| '_ \| __/ _` | '__/ _ \| | | | '_ \\ (_)   | | | '_ \ / _ \
@@ -24434,7 +24455,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on May 22, 2023 by MDN contributors .
-# <option>: The HTML Option element #
+# Element <option>: The HTML Option element #
   __           _   _            __      _____ _          
  / /___  _ __ | |_(_) ___  _ __ \ \ _  |_   _| |__   ___ 
 / // _ \| '_ \| __| |/ _ \| '_ \ \ (_)   | | | '_ \ / _ \
@@ -24549,7 +24570,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 21, 2023 by MDN contributors .
-# <output>: The Output element #
+# Element <output>: The Output element #
   __           _               _  __      _____ _          
  / /___  _   _| |_ _ __  _   _| |_\ \ _  |_   _| |__   ___ 
 / // _ \| | | | __| '_ \| | | | __|\ (_)   | | | '_ \ / _ \
@@ -24657,7 +24678,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 20, 2023 by MDN contributors .
-# <param>: The Object Parameter element #
+# Element <param>: The Object Parameter element #
   __                               __      _____ _          
  / /_ __   __ _ _ __ __ _ _ __ ___ \ \ _  |_   _| |__   ___ 
 / /| '_ \ / _` | '__/ _` | '_ ` _ \ \ (_)   | | | '_ \ / _ \
@@ -24761,7 +24782,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 13, 2023 by MDN contributors .
-# <p>: The Paragraph element #
+# Element <p>: The Paragraph element #
   __    __      _____ _          
  / /_ __\ \ _  |_   _| |__   ___ 
 / /| '_ \\ (_)   | | | '_ \ / _ \
@@ -24948,7 +24969,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 19, 2023 by MDN contributors .
-# <picture>: The Picture element #
+# Element <picture>: The Picture element #
   __      _      _                 __      _____ _          
  / /_ __ (_) ___| |_ _   _ _ __ ___\ \ _  |_   _| |__   ___ 
 / /| '_ \| |/ __| __| | | | '__/ _ \\ (_)   | | | '_ \ / _ \
@@ -25152,7 +25173,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 24, 2023 by MDN contributors .
-# <plaintext>: The Plain Text element (Deprecated) #
+# Element <plaintext>: The Plain Text element (Deprecated) #
   __      _       _       _            _  __      _____ _          
  / /_ __ | | __ _(_)_ __ | |_ _____  _| |_\ \ _  |_   _| |__   ___ 
 / /| '_ \| |/ _` | | '_ \| __/ _ \ \/ / __|\ (_)   | | | '_ \ / _ \
@@ -25246,7 +25267,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 13, 2023 by MDN contributors .
-# <portal>: The Portal element #
+# Element <portal>: The Portal element #
   __                 _        ___      _____ _          
  / /_ __   ___  _ __| |_ __ _| \ \ _  |_   _| |__   ___ 
 / /| '_ \ / _ \| '__| __/ _` | |\ (_)   | | | '_ \ / _ \
@@ -25351,7 +25372,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 13, 2023 by MDN contributors .
-# <pre>: The Preformatted Text element #
+# Element <pre>: The Preformatted Text element #
   __              __      _____ _          
  / /_ __  _ __ ___\ \ _  |_   _| |__   ___ 
 / /| '_ \| '__/ _ \\ (_)   | | | '_ \ / _ \
@@ -25523,7 +25544,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 3, 2023 by MDN contributors .
-# <progress>: The Progress Indicator element #
+# Element <progress>: The Progress Indicator element #
   __                                       __      _____ _          
  / /_ __  _ __ ___   __ _ _ __ ___  ___ ___\ \ _  |_   _| |__   ___ 
 / /| '_ \| '__/ _ \ / _` | '__/ _ \/ __/ __|\ (_)   | | | '_ \ / _ \
@@ -25686,7 +25707,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 20, 2023 by MDN contributors .
-# <q>: The Inline Quotation element #
+# Element <q>: The Inline Quotation element #
   __    __      _____ _            ___       _ _            
  / /__ _\ \ _  |_   _| |__   ___  |_ _|_ __ | (_)_ __   ___ 
 / // _` |\ (_)   | | | '_ \ / _ \  | || '_ \| | | '_ \ / _ \
@@ -25780,7 +25801,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 14, 2023 by MDN contributors .
-# <rb>: The Ruby Base element #
+# Element <rb>: The Ruby Base element #
   __     _   __      _____ _            ____        _           
  / /_ __| |__\ \ _  |_   _| |__   ___  |  _ \ _   _| |__  _   _ 
 / /| '__| '_ \\ (_)   | | | '_ \ / _ \ | |_) | | | | '_ \| | | |
@@ -25901,7 +25922,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jun 13, 2023 by MDN contributors .
-# <rp>: The Ruby Fallback Parenthesis element #
+# Element <rp>: The Ruby Fallback Parenthesis element #
   __         __      _____ _            ____        _           
  / /_ __ _ __\ \ _  |_   _| |__   ___  |  _ \ _   _| |__  _   _ 
 / /| '__| '_ \\ (_)   | | | '_ \ / _ \ | |_) | | | | '_ \| | | |
@@ -26024,7 +26045,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jun 13, 2023 by MDN contributors .
-# <rtc>: The Ruby Text Container element #
+# Element <rtc>: The Ruby Text Container element #
   __     _      __      _____ _            ____        _           
  / /_ __| |_ ___\ \ _  |_   _| |__   ___  |  _ \ _   _| |__  _   _ 
 / /| '__| __/ __|\ (_)   | | | '_ \ / _ \ | |_) | | | | '_ \| | | |
@@ -26128,7 +26149,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 13, 2023 by MDN contributors .
-# <rt>: The Ruby Text element #
+# Element <rt>: The Ruby Text element #
   __     _  __      _____ _            ____        _           
  / /_ __| |_\ \ _  |_   _| |__   ___  |  _ \ _   _| |__  _   _ 
 / /| '__| __|\ (_)   | | | '_ \ / _ \ | |_) | | | | '_ \| | | |
@@ -26217,7 +26238,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jun 13, 2023 by MDN contributors .
-# <ruby>: The Ruby Annotation element #
+# Element <ruby>: The Ruby Annotation element #
   __           _          __      _____ _            ____        _           
  / /_ __ _   _| |__  _   _\ \ _  |_   _| |__   ___  |  _ \ _   _| |__  _   _ 
 / /| '__| | | | '_ \| | | |\ (_)   | | | '_ \ / _ \ | |_) | | | | '_ \| | | |
@@ -26315,7 +26336,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jun 13, 2023 by MDN contributors .
-# <samp>: The Sample Output element #
+# Element <samp>: The Sample Output element #
   __                        __      _____ _          
  / /___  __ _ _ __ ___  _ __\ \ _  |_   _| |__   ___ 
 / // __|/ _` | '_ ` _ \| '_ \\ (_)   | | | '_ \ / _ \
@@ -26469,7 +26490,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 14, 2023 by MDN contributors .
-# <script>: The Script element #
+# Element <script>: The Script element #
   __              _       _  __      _____ _          
  / /___  ___ _ __(_)_ __ | |_\ \ _  |_   _| |__   ___ 
 / // __|/ __| '__| | '_ \| __|\ (_)   | | | '_ \ / _ \
@@ -26858,7 +26879,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 12, 2023 by MDN contributors .
-# <search>: The generic search element #
+# Element <search>: The generic search element #
   __                        _    __      _____ _          
  / /___  ___  __ _ _ __ ___| |__ \ \ _  |_   _| |__   ___ 
 / // __|/ _ \/ _` | '__/ __| '_ \ \ (_)   | | | '_ \ / _ \
@@ -27042,7 +27063,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 20, 2023 by MDN contributors .
-# <section>: The Generic Section element #
+# Element <section>: The Generic Section element #
   __              _   _            __      _____ _          
  / /___  ___  ___| |_(_) ___  _ __ \ \ _  |_   _| |__   ___ 
 / // __|/ _ \/ __| __| |/ _ \| '_ \ \ (_)   | | | '_ \ / _ \
@@ -27211,7 +27232,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 14, 2023 by MDN contributors .
-# <select>: The HTML Select element #
+# Element <select>: The HTML Select element #
   __         _           _  __      _____ _          
  / /___  ___| | ___  ___| |_\ \ _  |_   _| |__   ___ 
 / // __|/ _ \ |/ _ \/ __| __|\ (_)   | | | '_ \ / _ \
@@ -27893,7 +27914,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 8, 2024 by MDN contributors .
-# <s>: The Strikethrough element #
+# Element <s>: The Strikethrough element #
   __   __      _____ _          
  / /___\ \ _  |_   _| |__   ___ 
 / // __|\ (_)   | | | '_ \ / _ \
@@ -28022,7 +28043,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 14, 2023 by MDN contributors .
-# <slot>: The Web Component Slot element #
+# Element <slot>: The Web Component Slot element #
   __    _       _  __      _____ _           __        __   _     
  / /___| | ___ | |_\ \ _  |_   _| |__   ___  \ \      / /__| |__  
 / // __| |/ _ \| __|\ (_)   | | | '_ \ / _ \  \ \ /\ / / _ \ '_ \ 
@@ -28164,7 +28185,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Aug 10, 2023 by MDN contributors .
-# <small>: the side comment element #
+# Element <small>: the side comment element #
   __                    _ ___      _   _                _     _      
  / /___ _ __ ___   __ _| | \ \ _  | |_| |__   ___   ___(_) __| | ___ 
 / // __| '_ ` _ \ / _` | | |\ (_) | __| '_ \ / _ \ / __| |/ _` |/ _ \
@@ -28271,7 +28292,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 14, 2023 by MDN contributors .
-# <source>: The Media or Image Source element #
+# Element <source>: The Media or Image Source element #
   __                            __      _____ _          
  / /___  ___  _   _ _ __ ___ ___\ \ _  |_   _| |__   ___ 
 / // __|/ _ \| | | | '__/ __/ _ \\ (_)   | | | '_ \ / _ \
@@ -28565,7 +28586,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Nov 8, 2023 by MDN contributors .
-# <span>: The Content Span element #
+# Element <span>: The Content Span element #
   __                     __      _____ _          
  / /___ _ __   __ _ _ __ \ \ _  |_   _| |__   ___ 
 / // __| '_ \ / _` | '_ \ \ (_)   | | | '_ \ / _ \
@@ -28674,7 +28695,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on May 10, 2023 by MDN contributors .
-# <strike> #
+# Element <strike> #
   __    _        _ _       __  
  / /___| |_ _ __(_) | _____\ \ 
 / // __| __| '__| | |/ / _ \\ \
@@ -28749,7 +28770,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jun 20, 2023 by MDN contributors .
-# <strong>: The Strong Importance element #
+# Element <strong>: The Strong Importance element #
   __    _                        __      _____ _          
  / /___| |_ _ __ ___  _ __   __ _\ \ _  |_   _| |__   ___ 
 / // __| __| '__/ _ \| '_ \ / _` |\ (_)   | | | '_ \ / _ \
@@ -28905,7 +28926,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 14, 2023 by MDN contributors .
-# <style>: The Style Information element #
+# Element <style>: The Style Information element #
   __    _         _     __      _____ _            ____  _         _      
  / /___| |_ _   _| | ___\ \ _  |_   _| |__   ___  / ___|| |_ _   _| | ___ 
 / // __| __| | | | |/ _ \\ (_)   | | | '_ \ / _ \ \___ \| __| | | | |/ _ \
@@ -29124,7 +29145,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 8, 2023 by MDN contributors .
-# <sub>: The Subscript element #
+# Element <sub>: The Subscript element #
   __          _   __      _____ _          
  / /___ _   _| |__\ \ _  |_   _| |__   ___ 
 / // __| | | | '_ \\ (_)   | | | '_ \ / _ \
@@ -29275,7 +29296,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 14, 2023 by MDN contributors .
-# <summary>: The Disclosure Summary element #
+# Element <summary>: The Disclosure Summary element #
   __                                              __      _____ _          
  / /___ _   _ _ __ ___  _ __ ___   __ _ _ __ _   _\ \ _  |_   _| |__   ___ 
 / // __| | | | '_ ` _ \| '_ ` _ \ / _` | '__| | | |\ (_)   | | | '_ \ / _ \
@@ -29455,7 +29476,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 24, 2024 by MDN contributors .
-# <sup>: The Superscript element #
+# Element <sup>: The Superscript element #
   __              __      _____ _          
  / /___ _   _ _ __\ \ _  |_   _| |__   ___ 
 / // __| | | | '_ \\ (_)   | | | '_ \ / _ \
@@ -29605,7 +29626,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Nov 11, 2023 by MDN contributors .
-# <table>: The Table element #
+# Element <table>: The Table element #
   ___        _     _     __      _____ _            _____     _     _      
  / / |_ __ _| |__ | | ___\ \ _  |_   _| |__   ___  |_   _|_ _| |__ | | ___ 
 / /| __/ _` | '_ \| |/ _ \\ (_)   | | | '_ \ / _ \   | |/ _` | '_ \| |/ _ \
@@ -30822,7 +30843,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 25, 2024 by MDN contributors .
-# <tbody>: The Table Body element #
+# Element <tbody>: The Table Body element #
   ___   _               _      __      _____ _          
  / / |_| |__   ___   __| |_   _\ \ _  |_   _| |__   ___ 
 / /| __| '_ \ / _ \ / _` | | | |\ (_)   | | | '_ \ / _ \
@@ -31265,7 +31286,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 25, 2024 by MDN contributors .
-# <td>: The Table Data Cell element #
+# Element <td>: The Table Data Cell element #
   ___      ___      _____ _            _____     _     _      
  / / |_ __| \ \ _  |_   _| |__   ___  |_   _|_ _| |__ | | ___ 
 / /| __/ _` |\ (_)   | | | '_ \ / _ \   | |/ _` | '_ \| |/ _ \
@@ -31694,7 +31715,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 25, 2024 by MDN contributors .
-# <template>: The Content Template element #
+# Element <template>: The Content Template element #
   ___                       _       _      __      _____ _          
  / / |_ ___ _ __ ___  _ __ | | __ _| |_ ___\ \ _  |_   _| |__   ___ 
 / /| __/ _ \ '_ ` _ \| '_ \| |/ _` | __/ _ \\ (_)   | | | '_ \ / _ \
@@ -31984,7 +32005,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 25, 2024 by MDN contributors .
-# <textarea>: The Textarea element #
+# Element <textarea>: The Textarea element #
   ___            _                      __      _____ _          
  / / |_ _____  _| |_ __ _ _ __ ___  __ _\ \ _  |_   _| |__   ___ 
 / /| __/ _ \ \/ / __/ _` | '__/ _ \/ _` |\ (_)   | | | '_ \ / _ \
@@ -32355,7 +32376,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 4, 2023 by MDN contributors .
-# <tfoot>: The Table Foot element #
+# Element <tfoot>: The Table Foot element #
   ___    __             _  __      _____ _            _____     _     _      
  / / |_ / _| ___   ___ | |_\ \ _  |_   _| |__   ___  |_   _|_ _| |__ | | ___ 
 / /| __| |_ / _ \ / _ \| __|\ (_)   | | | '_ \ / _ \   | |/ _` | '_ \| |/ _ \
@@ -32618,7 +32639,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 25, 2024 by MDN contributors .
-# <thead>: The Table Head element #
+# Element <thead>: The Table Head element #
   ___   _                    ___      _____ _          
  / / |_| |__   ___  __ _  __| \ \ _  |_   _| |__   ___ 
 / /| __| '_ \ / _ \/ _` |/ _` |\ (_)   | | | '_ \ / _ \
@@ -32944,7 +32965,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 25, 2024 by MDN contributors .
-# <th>: The Table Header element #
+# Element <th>: The Table Header element #
   ___   _    __      _____ _            _____     _     _      
  / / |_| |__ \ \ _  |_   _| |__   ___  |_   _|_ _| |__ | | ___ 
 / /| __| '_ \ \ (_)   | | | '_ \ / _ \   | |/ _` | '_ \| |/ _ \
@@ -33423,7 +33444,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 31, 2024 by MDN contributors .
-# <time>: The (Date) Time element #
+# Element <time>: The (Date) Time element #
   ___   _               __      _____ _             ______        _     __  
  / / |_(_)_ __ ___   ___\ \ _  |_   _| |__   ___   / /  _ \  __ _| |_ __\ \ 
 / /| __| | '_ ` _ \ / _ \\ (_)   | | | '_ \ / _ \ | || | | |/ _` | __/ _ \ |
@@ -33596,7 +33617,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 14, 2023 by MDN contributors .
-# <title>: The Document Title element #
+# Element <title>: The Document Title element #
   ___   _ _   _     __      _____ _          
  / / |_(_) |_| | ___\ \ _  |_   _| |__   ___ 
 / /| __| | __| |/ _ \\ (_)   | | | '_ \ / _ \
@@ -33748,7 +33769,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 14, 2023 by MDN contributors .
-# <track>: The Embed Text Track element #
+# Element <track>: The Embed Text Track element #
   ___                  _    __      _____ _          
  / / |_ _ __ __ _  ___| | __\ \ _  |_   _| |__   ___ 
 / /| __| '__/ _` |/ __| |/ / \ (_)   | | | '_ \ / _ \
@@ -33928,7 +33949,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 13, 2023 by MDN contributors .
-# <tr>: The Table Row element #
+# Element <tr>: The Table Row element #
   ___      __      _____ _            _____     _     _      
  / / |_ _ _\ \ _  |_   _| |__   ___  |_   _|_ _| |__ | | ___ 
 / /| __| '__\ (_)   | | | '_ \ / _ \   | |/ _` | '_ \| |/ _ \
@@ -34388,7 +34409,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 25, 2024 by MDN contributors .
-# <tt>: The Teletype Text element #
+# Element <tt>: The Teletype Text element #
   ___   _  __      _____ _            _____    _      _                    
  / / |_| |_\ \ _  |_   _| |__   ___  |_   _|__| | ___| |_ _   _ _ __   ___ 
 / /| __| __|\ (_)   | | | '_ \ / _ \   | |/ _ \ |/ _ \ __| | | | '_ \ / _ \
@@ -34532,7 +34553,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jun 13, 2023 by MDN contributors .
-# <u>: The Unarticulated Annotation (Underline) element #
+# Element <u>: The Unarticulated Annotation (Underline) element #
   __    __      _____ _          
  / /   _\ \ _  |_   _| |__   ___ 
 / / | | |\ (_)   | | | '_ \ / _ \
@@ -34756,7 +34777,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 14, 2023 by MDN contributors .
-# <ul>: The Unordered List element #
+# Element <ul>: The Unordered List element #
   __     ___      _____ _          
  / /   _| \ \ _  |_   _| |__   ___ 
 / / | | | |\ (_)   | | | '_ \ / _ \
@@ -34948,7 +34969,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 17, 2023 by MDN contributors .
-# <var>: The Variable element #
+# Element <var>: The Variable element #
   __              __      _____ _          
  / /_   ____ _ _ _\ \ _  |_   _| |__   ___ 
 / /\ \ / / _` | '__\ (_)   | | | '_ \ / _ \
@@ -35083,7 +35104,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 7, 2023 by MDN contributors .
-# <video>: The Video Embed element #
+# Element <video>: The Video Embed element #
   __      _     _          __      _____ _          
  / /_   _(_) __| | ___  ___\ \ _  |_   _| |__   ___ 
 / /\ \ / / |/ _` |/ _ \/ _ \\ (_)   | | | '_ \ / _ \
@@ -35640,7 +35661,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 28, 2024 by MDN contributors .
-# <wbr>: The Line Break Opportunity element #
+# Element <wbr>: The Line Break Opportunity element #
   __         _        __      _____ _            _     _            
  / /_      _| |__  _ _\ \ _  |_   _| |__   ___  | |   (_)_ __   ___ 
 / /\ \ /\ / / '_ \| '__\ (_)   | | | '_ \ / _ \ | |   | | '_ \ / _ \
@@ -35746,7 +35767,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 15, 2023 by MDN contributors .
-# <xmp> #
+# Element <xmp> #
   __                    __  
  / /__  ___ __ ___  _ __\ \ 
 / / \ \/ / '_ ` _ \| '_ \\ \
@@ -35820,7 +35841,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Feb 24, 2023 by MDN contributors .
-# accesskey #
+# Global_attributes accesskey #
                              _              
   __ _  ___ ___ ___  ___ ___| | _____ _   _ 
  / _` |/ __/ __/ _ \/ __/ __| |/ / _ \ | | |
@@ -35946,7 +35967,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 27, 2023 by MDN contributors .
-# autocapitalize #
+# Global_attributes autocapitalize #
              _                        _ _        _ _         
   __ _ _   _| |_ ___   ___ __ _ _ __ (_) |_ __ _| (_)_______ 
  / _` | | | | __/ _ \ / __/ _` | '_ \| | __/ _` | | |_  / _ \
@@ -36097,7 +36118,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 2, 2024 by MDN contributors .
-# autofocus #
+# Global_attributes autofocus #
              _         __                      
   __ _ _   _| |_ ___  / _| ___   ___ _   _ ___ 
  / _` | | | | __/ _ \| |_ / _ \ / __| | | / __|
@@ -36160,7 +36181,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 20, 2023 by MDN contributors .
-# class #
+# Global_attributes class #
       _               
   ___| | __ _ ___ ___ 
  / __| |/ _` / __/ __|
@@ -36215,7 +36236,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Feb 24, 2023 by MDN contributors .
-# contenteditable #
+# Global_attributes contenteditable #
                  _             _           _ _ _        _     _      
   ___ ___  _ __ | |_ ___ _ __ | |_ ___  __| (_) |_ __ _| |__ | | ___ 
  / __/ _ \| '_ \| __/ _ \ '_ \| __/ _ \/ _` | | __/ _` | '_ \| |/ _ \
@@ -36291,7 +36312,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 8, 2024 by MDN contributors .
-# contextmenu #
+# Global_attributes contextmenu #
                  _            _                              
   ___ ___  _ __ | |_ _____  _| |_ _ __ ___   ___ _ __  _   _ 
  / __/ _ \| '_ \| __/ _ \ \/ / __| '_ ` _ \ / _ \ '_ \| | | |
@@ -36417,7 +36438,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 7, 2023 by MDN contributors .
-# data-* #
+# Global_attributes data-* #
      _       _                   
   __| | __ _| |_ __ _      __/\__
  / _` |/ _` | __/ _` |_____\    /
@@ -36520,7 +36541,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Sep 8, 2023 by MDN contributors .
-# dir #
+# Global_attributes dir #
      _ _      
   __| (_)_ __ 
  / _` | | '__|
@@ -36598,7 +36619,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Feb 24, 2023 by MDN contributors .
-# draggable #
+# Global_attributes draggable #
      _                             _     _      
   __| |_ __ __ _  __ _  __ _  __ _| |__ | | ___ 
  / _` | '__/ _` |/ _` |/ _` |/ _` | '_ \| |/ _ \
@@ -36659,7 +36680,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Mar 26, 2023 by MDN contributors .
-# enterkeyhint #
+# Global_attributes enterkeyhint #
             _            _              _     _       _   
   ___ _ __ | |_ ___ _ __| | _____ _   _| |__ (_)_ __ | |_ 
  / _ \ '_ \| __/ _ \ '__| |/ / _ \ | | | '_ \| | '_ \| __|
@@ -36735,7 +36756,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Feb 24, 2023 by MDN contributors .
-# exportparts #
+# Global_attributes exportparts #
                             _                    _       
   _____  ___ __   ___  _ __| |_ _ __   __ _ _ __| |_ ___ 
  / _ \ \/ / '_ \ / _ \| '__| __| '_ \ / _` | '__| __/ __|
@@ -36827,7 +36848,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 15, 2024 by MDN contributors .
-# hidden #
+# Global_attributes hidden #
  _     _     _     _            
 | |__ (_) __| | __| | ___ _ __  
 | '_ \| |/ _` |/ _` |/ _ \ '_ \ 
@@ -37052,7 +37073,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 1, 2023 by MDN contributors .
-# id #
+# Global_attributes id #
  _     _ 
 (_) __| |
 | |/ _` |
@@ -37145,7 +37166,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 14, 2023 by MDN contributors .
-# inert #
+# Global_attributes inert #
  _                 _   
 (_)_ __   ___ _ __| |_ 
 | | '_ \ / _ \ '__| __|
@@ -37236,7 +37257,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 10, 2023 by MDN contributors .
-# inputmode #
+# Global_attributes inputmode #
  _                   _                       _      
 (_)_ __  _ __  _   _| |_ _ __ ___   ___   __| | ___ 
 | | '_ \| '_ \| | | | __| '_ ` _ \ / _ \ / _` |/ _ \
@@ -37339,7 +37360,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jun 20, 2023 by MDN contributors .
-# is #
+# Global_attributes is #
  _     
 (_)___ 
 | / __|
@@ -37409,7 +37430,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 13, 2023 by MDN contributors .
-# itemid #
+# Global_attributes itemid #
  _ _                 _     _ 
 (_) |_ ___ _ __ ___ (_) __| |
 | | __/ _ \ '_ ` _ \| |/ _` |
@@ -37504,7 +37525,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Feb 24, 2023 by MDN contributors .
-# itemprop #
+# Global_attributes itemprop #
  _ _                                       
 (_) |_ ___ _ __ ___  _ __  _ __ ___  _ __  
 | | __/ _ \ '_ ` _ \| '_ \| '__/ _ \| '_ \ 
@@ -37928,7 +37949,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 24, 2023 by MDN contributors .
-# itemref #
+# Global_attributes itemref #
  _ _                           __ 
 (_) |_ ___ _ __ ___  _ __ ___ / _|
 | | __/ _ \ '_ ` _ \| '__/ _ \ |_ 
@@ -38020,7 +38041,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Feb 24, 2023 by MDN contributors .
-# itemscope #
+# Global_attributes itemscope #
  _ _                                          
 (_) |_ ___ _ __ ___  ___  ___ ___  _ __   ___ 
 | | __/ _ \ '_ ` _ \/ __|/ __/ _ \| '_ \ / _ \
@@ -38219,7 +38240,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jun 29, 2023 by MDN contributors .
-# itemtype #
+# Global_attributes itemtype #
  _ _                 _                    
 (_) |_ ___ _ __ ___ | |_ _   _ _ __   ___ 
 | | __/ _ \ '_ ` _ \| __| | | | '_ \ / _ \
@@ -38388,7 +38409,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 4, 2023 by MDN contributors .
-# lang #
+# Global_attributes lang #
  _                   
 | | __ _ _ __   __ _ 
 | |/ _` | '_ \ / _` |
@@ -38591,7 +38612,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 20, 2023 by MDN contributors .
-# nonce #
+# Global_attributes nonce #
                             
  _ __   ___  _ __   ___ ___ 
 | '_ \ / _ \| '_ \ / __/ _ \
@@ -38711,7 +38732,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Feb 24, 2023 by MDN contributors .
-# part #
+# Global_attributes part #
                   _   
  _ __   __ _ _ __| |_ 
 | '_ \ / _` | '__| __|
@@ -38760,7 +38781,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 12, 2024 by MDN contributors .
-# popover #
+# Global_attributes popover #
                                        
  _ __   ___  _ __   _____   _____ _ __ 
 | '_ \ / _ \| '_ \ / _ \ \ / / _ \ '__|
@@ -38844,7 +38865,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 21, 2023 by MDN contributors .
-# slot #
+# Global_attributes slot #
      _       _   
  ___| | ___ | |_ 
 / __| |/ _ \| __|
@@ -38895,7 +38916,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Aug 10, 2023 by MDN contributors .
-# spellcheck #
+# Global_attributes spellcheck #
                 _ _      _               _    
  ___ _ __   ___| | | ___| |__   ___  ___| | __
 / __| '_ \ / _ \ | |/ __| '_ \ / _ \/ __| |/ /
@@ -38964,7 +38985,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 4, 2023 by MDN contributors .
-# style #
+# Global_attributes style #
      _         _      
  ___| |_ _   _| | ___ 
 / __| __| | | | |/ _ \
@@ -39014,7 +39035,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Feb 24, 2023 by MDN contributors .
-# tabindex #
+# Global_attributes tabindex #
  _        _     _           _           
 | |_ __ _| |__ (_)_ __   __| | _____  __
 | __/ _` | '_ \| | '_ \ / _` |/ _ \ \/ /
@@ -39141,7 +39162,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 17, 2023 by MDN contributors .
-# title #
+# Global_attributes title #
  _   _ _   _      
 | |_(_) |_| | ___ 
 | __| | __| |/ _ \
@@ -39284,7 +39305,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jun 13, 2023 by MDN contributors .
-# translate #
+# Global_attributes translate #
  _                       _       _       
 | |_ _ __ __ _ _ __  ___| | __ _| |_ ___ 
 | __| '__/ _` | '_ \/ __| |/ _` | __/ _ \
@@ -39352,7 +39373,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Mar 12, 2023 by MDN contributors .
-# virtualkeyboardpolicy #
+# Global_attributes virtualkeyboardpolicy #
        _      _               _ _              _                         _ 
 __   _(_)_ __| |_ _   _  __ _| | | _____ _   _| |__   ___   __ _ _ __ __| |
 \ \ / / | '__| __| | | |/ _` | | |/ / _ \ | | | '_ \ / _ \ / _` | '__/ _` |
@@ -39415,7 +39436,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 5, 2024 by MDN contributors .
-# rel=dns-prefetch #
+# rel rel=dns-prefetch #
           _           _                                 __      _       _     
  _ __ ___| |_____  __| |_ __  ___       _ __  _ __ ___ / _| ___| |_ ___| |__  
 | '__/ _ \ |_____|/ _` | '_ \/ __|_____| '_ \| '__/ _ \ |_ / _ \ __/ __| '_ \ 
@@ -39461,7 +39482,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 16, 2023 by MDN contributors .
-# rel=manifest #
+# rel rel=manifest #
           _                             _  __           _   
  _ __ ___| |_____ _ __ ___   __ _ _ __ (_)/ _| ___  ___| |_ 
 | '__/ _ \ |_____| '_ ` _ \ / _` | '_ \| | |_ / _ \/ __| __|
@@ -39501,7 +39522,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Mar 13, 2023 by MDN contributors .
-# rel=me #
+# rel rel=me #
           _                      
  _ __ ___| |_____ _ __ ___   ___ 
 | '__/ _ \ |_____| '_ ` _ \ / _ \
@@ -39546,7 +39567,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Mar 13, 2023 by MDN contributors .
-# rel=modulepreload #
+# rel rel=modulepreload #
           _                           _       _                     _       
  _ __ ___| |_____ _ __ ___   ___   __| |_   _| | ___ _ __  _ __ ___| | ___  
 | '__/ _ \ |_____| '_ ` _ \ / _ \ / _` | | | | |/ _ \ '_ \| '__/ _ \ |/ _ \ 
@@ -39699,7 +39720,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Nov 29, 2023 by MDN contributors .
-# rel=noopener #
+# rel rel=noopener #
           _                                                    
  _ __ ___| |_____ _ __   ___   ___  _ __   ___ _ __   ___ _ __ 
 | '__/ _ \ |_____| '_ \ / _ \ / _ \| '_ \ / _ \ '_ \ / _ \ '__|
@@ -39752,7 +39773,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Feb 24, 2023 by MDN contributors .
-# rel=noreferrer #
+# rel rel=noreferrer #
           _                             __                         
  _ __ ___| |_____ _ __   ___  _ __ ___ / _| ___ _ __ _ __ ___ _ __ 
 | '__/ _ \ |_____| '_ \ / _ \| '__/ _ \ |_ / _ \ '__| '__/ _ \ '__|
@@ -39791,7 +39812,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Feb 24, 2023 by MDN contributors .
-# rel=preconnect #
+# rel rel=preconnect #
           _                                                      _   
  _ __ ___| |_____ _ __  _ __ ___  ___ ___  _ __  _ __   ___  ___| |_ 
 | '__/ _ \ |_____| '_ \| '__/ _ \/ __/ _ \| '_ \| '_ \ / _ \/ __| __|
@@ -39859,7 +39880,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 16, 2023 by MDN contributors .
-# rel=prefetch #
+# rel rel=prefetch #
           _                       __      _       _     
  _ __ ___| |_____ _ __  _ __ ___ / _| ___| |_ ___| |__  
 | '__/ _ \ |_____| '_ \| '__/ _ \ |_ / _ \ __/ __| '_ \ 
@@ -39966,7 +39987,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 16, 2023 by MDN contributors .
-# rel=preload #
+# rel rel=preload #
           _                      _                 _ 
  _ __ ___| |_____ _ __  _ __ ___| | ___   __ _  __| |
 | '__/ _ \ |_____| '_ \| '__/ _ \ |/ _ \ / _` |/ _` |
@@ -40292,7 +40313,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Nov 29, 2023 by MDN contributors .
-# rel=prerender #
+# rel rel=prerender #
           _                                         _           
  _ __ ___| |_____ _ __  _ __ ___ _ __ ___ _ __   __| | ___ _ __ 
 | '__/ _ \ |_____| '_ \| '__/ _ \ '__/ _ \ '_ \ / _` |/ _ \ '__|
@@ -40351,7 +40372,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 16, 2023 by MDN contributors .
-# <input type="button"> #
+# input <input type="button"> #
   ___                   _   
  / (_)_ __  _ __  _   _| |_ 
 / /| | '_ \| '_ \| | | | __|
@@ -40728,7 +40749,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 24, 2024 by MDN contributors .
-# <input type="checkbox"> #
+# input <input type="checkbox"> #
   ___                   _   
  / (_)_ __  _ __  _   _| |_ 
 / /| | '_ \| '_ \| | | | __|
@@ -41143,7 +41164,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 23, 2024 by MDN contributors .
-# <input type="color"> #
+# input <input type="color"> #
   ___                   _   
  / (_)_ __  _ __  _   _| |_ 
 / /| | '_ \| '_ \| | | | __|
@@ -41411,7 +41432,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 15, 2024 by MDN contributors .
-# <input type="date"> #
+# input <input type="date"> #
   ___                   _   
  / (_)_ __  _ __  _   _| |_ 
 / /| | '_ \| '_ \| | | | __|
@@ -41977,7 +41998,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 8, 2024 by MDN contributors .
-# <input type="datetime-local"> #
+# input <input type="datetime-local"> #
   ___                   _   
  / (_)_ __  _ __  _   _| |_ 
 / /| | '_ \| '_ \| | | | __|
@@ -42336,7 +42357,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 8, 2024 by MDN contributors .
-# <input type="email"> #
+# input <input type="email"> #
   ___                   _   
  / (_)_ __  _ __  _   _| |_ 
 / /| | '_ \| '_ \| | | | __|
@@ -42954,7 +42975,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 8, 2024 by MDN contributors .
-# <input type="file"> #
+# input <input type="file"> #
   ___                   _   
  / (_)_ __  _ __  _   _| |_ 
 / /| | '_ \| '_ \| | | | __|
@@ -43544,7 +43565,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 8, 2024 by MDN contributors .
-# <input type="hidden"> #
+# input <input type="hidden"> #
   ___                   _   
  / (_)_ __  _ __  _   _| |_ 
 / /| | '_ \| '_ \| | | | __|
@@ -43777,7 +43798,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 8, 2024 by MDN contributors .
-# <input type="image"> #
+# input <input type="image"> #
   ___                   _   
  / (_)_ __  _ __  _   _| |_ 
 / /| | '_ \| '_ \| | | | __|
@@ -44261,7 +44282,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Aug 29, 2023 by MDN contributors .
-# <input type="month"> #
+# input <input type="month"> #
   ___                   _   
  / (_)_ __  _ __  _   _| |_ 
 / /| | '_ \| '_ \| | | | __|
@@ -44849,7 +44870,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 8, 2024 by MDN contributors .
-# <input type="number"> #
+# input <input type="number"> #
   ___                   _   
  / (_)_ __  _ __  _   _| |_ 
 / /| | '_ \| '_ \| | | | __|
@@ -45435,7 +45456,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 8, 2024 by MDN contributors .
-# <input type="password"> #
+# input <input type="password"> #
   ___                   _   
  / (_)_ __  _ __  _   _| |_ 
 / /| | '_ \| '_ \| | | | __|
@@ -45852,7 +45873,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 8, 2024 by MDN contributors .
-# <input type="radio"> #
+# input <input type="radio"> #
   ___                   _   
  / (_)_ __  _ __  _   _| |_ 
 / /| | '_ \| '_ \| | | | __|
@@ -46261,7 +46282,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 8, 2024 by MDN contributors .
-# <input type="range"> #
+# input <input type="range"> #
   ___                   _   
  / (_)_ __  _ __  _   _| |_ 
 / /| | '_ \| '_ \| | | | __|
@@ -46730,7 +46751,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 8, 2024 by MDN contributors .
-# <input type="reset"> #
+# input <input type="reset"> #
   ___                   _   
  / (_)_ __  _ __  _   _| |_ 
 / /| | '_ \| '_ \| | | | __|
@@ -46908,7 +46929,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 24, 2024 by MDN contributors .
-# <input type="search"> #
+# input <input type="search"> #
   ___                   _   
  / (_)_ __  _ __  _   _| |_ 
 / /| | '_ \| '_ \| | | | __|
@@ -47506,7 +47527,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 8, 2024 by MDN contributors .
-# <input type="submit"> #
+# input <input type="submit"> #
   ___                   _   
  / (_)_ __  _ __  _   _| |_ 
 / /| | '_ \| '_ \| | | | __|
@@ -47821,7 +47842,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 24, 2024 by MDN contributors .
-# <input type="tel"> #
+# input <input type="tel"> #
   ___                   _     _                          _ _ _       _ _ ___  
  / (_)_ __  _ __  _   _| |_  | |_ _   _ _ __   ___ _____( | ) |_ ___| ( | ) \ 
 / /| | '_ \| '_ \| | | | __| | __| | | | '_ \ / _ \_____|V V| __/ _ \ |V V \ \
@@ -48466,7 +48487,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 8, 2024 by MDN contributors .
-# <input type="text"> #
+# input <input type="text"> #
   ___                   _   
  / (_)_ __  _ __  _   _| |_ 
 / /| | '_ \| '_ \| | | | __|
@@ -49001,7 +49022,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 8, 2024 by MDN contributors .
-# <input type="time"> #
+# input <input type="time"> #
   ___                   _   
  / (_)_ __  _ __  _   _| |_ 
 / /| | '_ \| '_ \| | | | __|
@@ -49683,7 +49704,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 8, 2024 by MDN contributors .
-# <input type="url"> #
+# input <input type="url"> #
   ___                   _   
  / (_)_ __  _ __  _   _| |_ 
 / /| | '_ \| '_ \| | | | __|
@@ -50250,7 +50271,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 8, 2024 by MDN contributors .
-# <input type="week"> #
+# input <input type="week"> #
   ___                   _   
  / (_)_ __  _ __  _   _| |_ 
 / /| | '_ \| '_ \| | | | __|
@@ -50725,7 +50746,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 8, 2024 by MDN contributors .
-# Standard metadata names #
+# meta Standard metadata names #
  ____  _                  _               _ 
 / ___|| |_ __ _ _ __   __| | __ _ _ __ __| |
 \___ \| __/ _` | '_ \ / _` |/ _` | '__/ _` |
@@ -51025,7 +51046,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Feb 1, 2024 by MDN contributors .
-# <script>: type attribute #
+# script <script>: type attribute #
   __              _       _  __      _                    
  / /___  ___ _ __(_)_ __ | |_\ \ _  | |_ _   _ _ __   ___ 
 / // __|/ __| '__| | '_ \| __|\ (_) | __| | | | '_ \ / _ \
@@ -51113,7 +51134,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 12, 2023 by MDN contributors .
-#  #
+# radio  #
 
 
 
@@ -51121,7 +51142,7 @@ This page was last modified on Dec 12, 2023 by MDN contributors .
 
 
 
-# theme-color #
+# name theme-color #
  _   _                                         _            
 | |_| |__   ___ _ __ ___   ___        ___ ___ | | ___  _ __ 
 | __| '_ \ / _ \ '_ ` _ \ / _ \_____ / __/ _ \| |/ _ \| '__|
@@ -51188,7 +51209,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 25, 2023 by MDN contributors .
-# <script type="importmap"> #
+# type <script type="importmap"> #
   __              _       _   
  / /___  ___ _ __(_)_ __ | |_ 
 / // __|/ __| '__| | '_ \| __|
@@ -51497,7 +51518,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Nov 7, 2023 by MDN contributors .
-# <script type="speculationrules"> #
+# type <script type="speculationrules"> #
   __              _       _   
  / /___  ___ _ __(_)_ __ | |_ 
 / // __|/ __| '__| | '_ \| __|

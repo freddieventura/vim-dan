@@ -105,9 +105,22 @@ Code syntax highlighting, and header highlight.
 - Documentation is only for reference items (no tutorials)
 - Pending to include api/reference/ items
 
+### Unsolved issues
+    - When tagging using `ctags -R .` on the subdirectory which has the index not deleted (./downloaded/) it will create tags also for the .html files , correct on the F5 bind
+    - Filenames that contain * are not parsed properly on the Index Parser
+        Makeshift solution : batched renamed those files at the end of indexing process , this doesnt have any effect
+
+```
+rename -f "s/ /_/g" ${DOCU_PATH}/downloaded/**/*.*
+rename "s/\*/asterisk/g" ${DOCU_PATH}/downloaded/**/*.*
+```
+    - java-specs , linking not working `E426: Tag not found: 1. Introduction` but selecting the tag manualy works
+    - tags are not included in the source package of `vim-dan` due to 2 reasons: 1) The actual directory structure of the repository does make it cumbersome implement it. 2) The tags are meant to be updated localy in case you add Highlighting marks ' (X)' on tags , they need to be re-regenerated.
+
 ## Further ideas on the way
 
 The following are ideas pending to develop within the project:
 
     - Re-write linking rules for use of `set iskeyword` , check example of `vimhelpdan`
+    - Add a dependency checker
     - Create an ebook (`.epub`, `.pdf` etc...) parser, which will recognise the lines highlighted by the reader and the notes taken. Store

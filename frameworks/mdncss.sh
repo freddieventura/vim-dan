@@ -53,27 +53,53 @@ parsing_rules(){
     echo "Last parsed on : $(date)" >> ${MAIN_TOUPDATE}
 
 
-    # Parsing index file
-    cat ${DOCU_PATH}/downloaded/CSS.html | pup -i 0 --pre '.sidebar-inner-nav' | pandoc -f html -t plain >> ${MAIN_TOUPDATE}
+# Parsing our own index for docu
+# -----------------------------------------------------------
+# This will be the linkFrom items
+measure_depth() { echo "${*#/}" | awk -F/ '{print NF}'; }
+echo "index" | figlet >> ${MAIN_TOUPDATE}
+
+
+mapfile -t files_array < <(find ${DOCU_PATH}/downloaded/ -type f -name "*" | awk '{print gsub(/\//,"/")"|"$0; }' | sort -t'|' -k1,1n -k2 | sed 's/^[^|]*|//')
+
+for file in "${files_array[@]}"; do
+
+    # If in need to calculate parent directory for hierarchy
+    parentname="$(basename "$(dirname "$file")")"
+    parentname_prev="$(basename "$(dirname "$prev_file")")"
+    if [[ ${parentname} != ${parentname_prev} ]]; then
+        echo "- ${parentname}" >> ${MAIN_TOUPDATE}
+    fi
+
+    link_from="& @${parentname}@ $(cat ${file} | pup 'article h1' | pandoc -f html -t plain)&"
+    rel_nesting_level=$(($(measure_depth ${file})-$(measure_depth ${DOCU_PATH})))
+    for (( i=rel_nesting_level; i>=0; i-- )); do
+        printf "  " >> ${MAIN_TOUPDATE}
+    done
+    echo "- ${link_from}" >> ${MAIN_TOUPDATE}
+    prev_file=${file}
+done
+# -----------------------------------------------------------
+# eof eof eof Parsing our own index for docu
+
+
+
 
     # Parsing topics (sorting by path, then alphabetically)
     mapfile -t files_array < <(find ${DOCU_PATH}/downloaded/CSS -type f -name "*" | awk '{print gsub(/\//,"/")"|"$0; }' | sort -t'|' -k1,1n -k2 | sed 's/^[^|]*|//')
 
     for file in "${files_array[@]}"; do
-        #Parsing headers
-        cat ${file} | pup -i 0 --pre 'header h1' | pandoc -f html -t plain > ${DOCU_PATH}/topic-toupdate.txt
-        cat ${file} | pup -i 0 --pre 'header h1' | pandoc -f html -t plain | figlet >> ${DOCU_PATH}/topic-toupdate.txt
 
+        # creating link_to
+        parentname="$(basename "$(dirname "$file")")"
+        link_to=$(cat ${file} | pup -i 0 --pre 'header h1' | pandoc -f html -t plain )
+        echo "# ${parentname} ${link_to} #" >> ${MAIN_TOUPDATE}  ## Actual link_to
+        echo ${link_to} | figlet >> ${MAIN_TOUPDATE}
+ 
 
         #Parsing content
-        cat ${file} | pup -i 0 --pre '#content' | pandoc -f html -t plain >> ${DOCU_PATH}/topic-toupdate.txt
-
-        sed -i '1s/^/# /; 1s/$/ #/' ${DOCU_PATH}/topic-toupdate.txt
-        cat ${DOCU_PATH}/topic-toupdate.txt >> ${MAIN_TOUPDATE}
+        cat ${file} | pup -i 0 --pre '#content' | pandoc -f html -t plain >> ${MAIN_TOUPDATE}
     done
-
-    # Deleting buffer files
-    rm ${DOCU_PATH}/topic-toupdate.txt
 }
 
 

@@ -1,4 +1,4 @@
 --langdef=mdnsvgdantags
 --langmap=mdnsvgdantags:.mdnsvgdan
 --kinddef-mdnsvgdantags=t,topic,topics
---regex-mdnsvgdantags=/^#\s([0-9A-Za-z<>*-:]*)\s#$/\1/t/
+--regex-mdnsvgdantags=/^#\s(.*)\s#(\s\(X\)){0,1}$/\1/t/

@@ -28,7 +28,6 @@ indexing_rules(){
 }
 
 parsing_rules(){
-set -x
     # Header of docu    
     echo "vim-dan" | figlet -f univers > ${MAIN_TOUPDATE}
     echo ${DOCU_NAME} | figlet >> ${MAIN_TOUPDATE}
@@ -43,10 +42,6 @@ echo "index" | figlet >> ${MAIN_TOUPDATE}
 
 
 mapfile -t files_array < <(find ${DOCU_PATH}/downloaded/ -type f -name "*" | sort)
-
-for file in "${files_array[@]}"; do
-	echo "$file"
-done
 
 
 for file in "${files_array[@]}"; do

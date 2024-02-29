@@ -15,339 +15,379 @@
 | | | | | | (_| | | | | | | | |_| |_| |_) |
 |_| |_| |_|\__,_|_| |_|_| |_|\__|\__| .__/ 
                                     |_|    
-In this article
-
--   Tutorials
--   Reference
--   Tools & resources
-
-1.  HTTP
-2.  Guides
-3.  Resources and URIs
-    1.  Identifying resources on the Web
-    2.  Data URLs
-    3.  Introduction to MIME types
-    4.  Common MIME types
-    5.  Choosing between www and non-www URLs
-4.  HTTP guide
-    1.  Basics of HTTP
-    2.  Overview of HTTP
-    3.  Evolution of HTTP
-    4.  HTTP Messages
-    5.  A typical HTTP session
-    6.  Connection management in HTTP/1.x
-    7.  Protocol upgrade mechanism
-5.  HTTP security
-    1.  Content Security Policy (CSP)
-    2.  HTTP Strict Transport Security (HSTS)
-    3.  X-Content-Type-Options
-    4.  X-Frame-Options
-    5.  X-XSS-Protection
-    6.  Mozilla web security guidelines
-    7.  Mozilla Observatory
-6.  HTTP access control (CORS)
-7.  HTTP authentication
-8.  HTTP caching
-9.  HTTP compression
-10. HTTP conditional requests
-11. HTTP content negotiation
-12. HTTP cookies
-13. HTTP range requests
-14. HTTP redirects
-15. HTTP specifications
-16. Permissions Policy
-17. References
-18. HTTP headers
-    1.   Accept
-    2.   Accept-CH
-    3.   Accept-CH-Lifetime Non-standard Deprecated
-    4.   Accept-Charset
-    5.   Accept-Encoding
-    6.   Accept-Language
-    7.   Accept-Patch
-    8.   Accept-Post
-    9.   Accept-Ranges
-    10.  Access-Control-Allow-Credentials
-    11.  Access-Control-Allow-Headers
-    12.  Access-Control-Allow-Methods
-    13.  Access-Control-Allow-Origin
-    14.  Access-Control-Expose-Headers
-    15.  Access-Control-Max-Age
-    16.  Access-Control-Request-Headers
-    17.  Access-Control-Request-Method
-    18.  Age
-    19.  Allow
-    20.  Alt-Svc
-    21.  Alt-Used
-    22.  Authorization
-    23.  Cache-Control
-    24.  Clear-Site-Data
-    25.  Connection
-    26.  Content-Disposition
-    27.  Content-DPR Non-standard Deprecated
-    28.  Content-Encoding
-    29.  Content-Language
-    30.  Content-Length
-    31.  Content-Location
-    32.  Content-Range
-    33.  Content-Security-Policy
-    34.  Content-Security-Policy-Report-Only
-    35.  Content-Type
-    36.  Cookie
-    37.  Critical-CH Experimental
-    38.  Cross-Origin-Embedder-Policy
-    39.  Cross-Origin-Opener-Policy
-    40.  Cross-Origin-Resource-Policy
-    41.  Date
-    42.  Device-Memory
-    43.  Digest Deprecated
-    44.  DNT Non-standard Deprecated
-    45.  Downlink Experimental
-    46.  DPR Non-standard Deprecated
-    47.  Early-Data Experimental
-    48.  ECT Experimental
-    49.  ETag
-    50.  Expect
-    51.  Expect-CT
-    52.  Expires
-    53.  Forwarded
-    54.  From
-    55.  Host
-    56.  If-Match
-    57.  If-Modified-Since
-    58.  If-None-Match
-    59.  If-Range
-    60.  If-Unmodified-Since
-    61.  Keep-Alive
-    62.  Large-Allocation Non-standard Deprecated
-    63.  Last-Modified
-    64.  Link
-    65.  Location
-    66.  Max-Forwards
-    67.  NEL Experimental
-    68.  Origin
-    69.  Origin-Agent-Cluster Experimental
-    70.  Permissions-Policy
-    71.  Pragma Deprecated
-    72.  Proxy-Authenticate
-    73.  Proxy-Authorization
-    74.  Range
-    75.  Referer
-    76.  Referrer-Policy
-    77.  Retry-After
-    78.  RTT Experimental
-    79.  Save-Data Experimental
-    80.  Sec-CH-Prefers-Color-Scheme Experimental
-    81.  Sec-CH-Prefers-Reduced-Motion Experimental
-    82.  Sec-CH-Prefers-Reduced-Transparency Experimental
-    83.  Sec-CH-UA Experimental
-    84.  Sec-CH-UA-Arch Experimental
-    85.  Sec-CH-UA-Bitness Experimental
-    86.  Sec-CH-UA-Full-Version Deprecated
-    87.  Sec-CH-UA-Full-Version-List Experimental
-    88.  Sec-CH-UA-Mobile Experimental
-    89.  Sec-CH-UA-Model Experimental
-    90.  Sec-CH-UA-Platform Experimental
-    91.  Sec-CH-UA-Platform-Version Experimental
-    92.  Sec-Fetch-Dest
-    93.  Sec-Fetch-Mode
-    94.  Sec-Fetch-Site
-    95.  Sec-Fetch-User
-    96.  Sec-GPC Experimental Non-standard
-    97.  Sec-Purpose
-    98.  Sec-WebSocket-Accept
-    99.  Server
-    100.  Server-Timing
-    101.  Service-Worker-Navigation-Preload
-    102.  Set-Cookie
-    103.  SourceMap
-    104.  Strict-Transport-Security
-    105.  Supports-Loading-Mode Experimental
-    106.  TE
-    107.  Timing-Allow-Origin
-    108.  Tk Non-standard Deprecated
-    109.  Trailer
-    110.  Transfer-Encoding
-    111.  Upgrade
-    112.  Upgrade-Insecure-Requests
-    113.  User-Agent
-    114.  Vary
-    115.  Via
-    116.  Viewport-Width Non-standard Deprecated
-    117.  Want-Digest Deprecated
-    118.  Warning Deprecated
-    119.  Width Non-standard Deprecated
-    120.  WWW-Authenticate
-    121.  X-Content-Type-Options
-    122.  X-DNS-Prefetch-Control Non-standard
-    123.  X-Forwarded-For Non-standard
-    124.  X-Forwarded-Host Non-standard
-    125.  X-Forwarded-Proto Non-standard
-    126.  X-Frame-Options
-    127.  X-XSS-Protection Non-standard
-19. HTTP request methods
-    1.   CONNECT
-    2.   DELETE
-    3.   GET
-    4.   HEAD
-    5.   OPTIONS
-    6.   PATCH
-    7.   POST
-    8.   PUT
-    9.   TRACE
-20. HTTP response status codes
-    1.   100 Continue
-    2.   101 Switching Protocols
-    3.   102 Processing
-    4.   103 Early Hints
-    5.   200 OK
-    6.   201 Created
-    7.   202 Accepted
-    8.   203 Non-Authoritative Information
-    9.   204 No Content
-    10.  205 Reset Content
-    11.  206 Partial Content
-    12.  207 Multi-Status
-    13.  208 Already Reported
-    14.  226 IM Used
-    15.  300 Multiple Choices
-    16.  301 Moved Permanently
-    17.  302 Found
-    18.  303 See Other
-    19.  304 Not Modified
-    20.  307 Temporary Redirect
-    21.  308 Permanent Redirect
-    22.  400 Bad Request
-    23.  401 Unauthorized
-    24.  402 Payment Required
-    25.  403 Forbidden
-    26.  404 Not Found
-    27.  405 Method Not Allowed
-    28.  406 Not Acceptable
-    29.  407 Proxy Authentication Required
-    30.  408 Request Timeout
-    31.  409 Conflict
-    32.  410 Gone
-    33.  411 Length Required
-    34.  412 Precondition Failed
-    35.  413 Content Too Large
-    36.  414 URI Too Long
-    37.  415 Unsupported Media Type
-    38.  416 Range Not Satisfiable
-    39.  417 Expectation Failed
-    40.  418 I'm a teapot
-    41.  421 Misdirected Request
-    42.  422 Unprocessable Content
-    43.  423 Locked
-    44.  424 Failed Dependency
-    45.  425 Too Early
-    46.  426 Upgrade Required
-    47.  428 Precondition Required
-    48.  429 Too Many Requests
-    49.  431 Request Header Fields Too Large
-    50.  451 Unavailable For Legal Reasons
-    51.  500 Internal Server Error
-    52.  501 Not Implemented
-    53.  502 Bad Gateway
-    54.  503 Service Unavailable
-    55.  504 Gateway Timeout
-    56.  505 HTTP Version Not Supported
-    57.  506 Variant Also Negotiates
-    58.  507 Insufficient Storage
-    59.  508 Loop Detected
-    60.  510 Not Extended
-    61.  511 Network Authentication Required
-21. CSP directives
-    1.   CSP source values
-    2.   CSP: base-uri
-    3.   CSP: block-all-mixed-content Deprecated
-    4.   CSP: child-src
-    5.   CSP: connect-src
-    6.   CSP: default-src
-    7.   CSP: font-src
-    8.   CSP: form-action
-    9.   CSP: frame-ancestors
-    10.  CSP: frame-src
-    11.  CSP: img-src
-    12.  CSP: manifest-src
-    13.  CSP: media-src
-    14.  CSP: object-src
-    15.  CSP: plugin-types Non-standard Deprecated
-    16.  CSP: prefetch-src Non-standard Deprecated
-    17.  CSP: referrer Non-standard Deprecated
-    18.  CSP: report-to
-    19.  CSP: report-uri Deprecated
-    20.  CSP: require-trusted-types-for Experimental
-    21.  CSP: sandbox
-    22.  CSP: script-src
-    23.  CSP: script-src-attr
-    24.  CSP: script-src-elem
-    25.  CSP: style-src
-    26.  CSP: style-src-attr
-    27.  CSP: style-src-elem
-    28.  CSP: trusted-types Experimental
-    29.  CSP: upgrade-insecure-requests
-    30.  CSP: worker-src
-22. CORS errors
-    1.  Reason: CORS disabled
-    2.  Reason: CORS header 'Access-Control-Allow-Origin' does not match
-        'xyz'
-    3.  Reason: CORS header 'Access-Control-Allow-Origin' missing
-    4.  Reason: CORS header 'Origin' cannot be added
-    5.  Reason: CORS preflight channel did not succeed
-    6.  Reason: CORS request did not succeed
-    7.  Reason: CORS request external redirect not allowed
-    8.  Reason: CORS request not HTTP
-    9.  Reason: Credential is not supported if the CORS header
-        'Access-Control-Allow-Origin' is '*'
-    10. Reason: Did not find method in CORS header
-        'Access-Control-Allow-Methods'
-    11. Reason: expected 'true' in CORS header
-        'Access-Control-Allow-Credentials'
-    12. Reason: invalid token 'xyz' in CORS header
-        'Access-Control-Allow-Headers'
-    13. Reason: invalid token 'xyz' in CORS header
-        'Access-Control-Allow-Methods'
-    14. Reason: missing token 'xyz' in CORS header
-        'Access-Control-Allow-Headers' from CORS preflight channel
-    15. Reason: Multiple CORS header 'Access-Control-Allow-Origin' not
-        allowed
-23. Permissions-Policy directives
-    1.  Permissions-Policy: accelerometer Experimental
-    2.  Permissions-Policy: ambient-light-sensor Experimental
-    3.  Permissions-Policy: autoplay Experimental
-    4.  Permissions-Policy: battery Experimental
-    5.  Permissions-Policy: camera
-    6.  Permissions-Policy: display-capture
-    7.  Permissions-Policy: document-domain Experimental
-    8.  Permissions-Policy: encrypted-media Experimental
-    9.  Permissions-Policy: execution-while-not-rendered Experimental
-    10. Permissions-Policy: execution-while-out-of-viewport Experimental
-    11. Permissions-Policy: fullscreen
-    12. Permissions-Policy: gamepad Experimental
-    13. Permissions-Policy: geolocation
-    14. Permissions-Policy: gyroscope Experimental
-    15. Permissions-Policy: hid Experimental
-    16. Permissions-Policy: identity-credentials-get Experimental
-    17. Permissions-Policy: idle-detection Experimental
-    18. Permissions-Policy: local-fonts Experimental
-    19. Permissions-Policy: magnetometer Experimental
-    20. Permissions-Policy: microphone
-    21. Permissions-Policy: midi Experimental
-    22. Permissions-Policy: otp-credentials Experimental
-    23. Permissions-Policy: payment Experimental
-    24. Permissions-Policy: picture-in-picture Experimental
-    25. Permissions-Policy: publickey-credentials-create Experimental
-    26. Permissions-Policy: publickey-credentials-get
-    27. Permissions-Policy: screen-wake-lock Experimental
-    28. Permissions-Policy: serial Experimental
-    29. Permissions-Policy: speaker-selection Experimental
-    30. Permissions-Policy: storage-access Experimental
-    31. Permissions-Policy: usb Experimental
-    32. Permissions-Policy: web-share
-    33. Permissions-Policy: window-management Experimental
-    34. Permissions-Policy: xr-spatial-tracking Experimental
-# HTTP authentication #
+Documentation indexed from : https://developer.mozilla.org/en-US/docs/Web/HTTP 
+Last parsed on : Thu Feb 29 06:43:42 PM GMT 2024
+ _           _           
+(_)_ __   __| | _____  __
+| | '_ \ / _` |/ _ \ \/ /
+| | | | | (_| |  __/>  < 
+|_|_| |_|\__,_|\___/_/\_\
+                         
+- downloaded
+      - & @downloaded@ Accessibility&
+      - & @downloaded@ Web APIs&
+      - & @downloaded@ CSS: Cascading Style Sheets&
+      - & @downloaded@ Demos of open web technologies&
+      - & @downloaded@ Event reference&
+      - & @downloaded@ EXSLT&
+      - & @downloaded@ Developer guides&
+      - & @downloaded@ HTML: HyperText Markup Language&
+      - & @downloaded@ HTTP&
+      - & @downloaded@ JavaScript&
+      - & @downloaded@ Web app manifests&
+      - & @downloaded@ MathML&
+      - & @downloaded@ Web media technologies&
+      - & @downloaded@ Web performance&
+      - & @downloaded@ Privacy on the web&
+      - & @downloaded@ Progressive web apps&
+      - & @downloaded@ Security on the web&
+      - & @downloaded@ SVG: Scalable Vector Graphics&
+      - & @downloaded@ XML: Extensible Markup Language&
+      - & @downloaded@ XPath&
+      - & @downloaded@ XSLT: Extensible Stylesheet Language Transformations&
+- HTTP
+        - & @HTTP@ HTTP authentication&
+        - & @HTTP@ Basics of HTTP&
+        - & @HTTP@ Browser detection using the user agent&
+        - & @HTTP@ HTTP caching&
+        - & @HTTP@ HTTP Client hints&
+        - & @HTTP@ Compression in HTTP&
+        - & @HTTP@ HTTP conditional requests&
+        - & @HTTP@ Connection management in HTTP/1.x&
+        - & @HTTP@ Content negotiation&
+        - & @HTTP@ Using HTTP cookies&
+        - & @HTTP@ Cross-Origin Resource Sharing (CORS)&
+        - & @HTTP@ Cross-Origin Resource Policy (CORP)&
+        - & @HTTP@ Content Security Policy (CSP)&
+        - & @HTTP@ HTTP headers&
+        - & @HTTP@ HTTP Messages&
+        - & @HTTP@ HTTP request methods&
+        - & @HTTP@ Network Error Logging&
+        - & @HTTP@ An overview of HTTP&
+        - & @HTTP@ Permissions Policy&
+        - & @HTTP@ Protocol upgrade mechanism&
+        - & @HTTP@ Proxy servers and tunneling&
+        - & @HTTP@ HTTP range requests&
+        - & @HTTP@ Redirections in HTTP&
+        - & @HTTP@ HTTP resources and specifications&
+        - & @HTTP@ Resources and URIs&
+        - & @HTTP@ A typical HTTP session&
+        - & @HTTP@ HTTP response status codes&
+- Privacy
+        - & @Privacy@ Firefox tracking protection&
+        - & @Privacy@ Cookies Having Independent Partitioned State (CHIPS)&
+        - & @Privacy@ Redirect tracking protection&
+        - & @Privacy@ State Partitioning&
+        - & @Privacy@ Storage access policy: Block cookies from trackers&
+- Basics_of_HTTP
+          - & @Basics_of_HTTP@ Choosing between www and non-www URLs&
+          - & @Basics_of_HTTP@ Data URLs&
+          - & @Basics_of_HTTP@ Evolution of HTTP&
+          - & @Basics_of_HTTP@ Identifying resources on the Web&
+          - & @Basics_of_HTTP@ MIME types (IANA media types)&
+          - & @Basics_of_HTTP@ MIME types (IANA media types)&
+          - & @Basics_of_HTTP@ Resource URLs&
+- Content_negotiation
+          - & @Content_negotiation@ List of default Accept values&
+- CORS
+          - & @CORS@ CORS errors&
+- Headers
+          - & @Headers@ Accept-Charset&
+          - & @Headers@ Accept-CH&
+          - & @Headers@ Accept-CH-Lifetime&
+          - & @Headers@ Accept-Encoding&
+          - & @Headers@ Accept&
+          - & @Headers@ Accept-Language&
+          - & @Headers@ Accept-Patch&
+          - & @Headers@ Accept-Post&
+          - & @Headers@ Accept-Ranges&
+          - & @Headers@ Access-Control-Allow-Credentials&
+          - & @Headers@ Access-Control-Allow-Headers&
+          - & @Headers@ Access-Control-Allow-Methods&
+          - & @Headers@ Access-Control-Allow-Origin&
+          - & @Headers@ Access-Control-Expose-Headers&
+          - & @Headers@ Access-Control-Max-Age&
+          - & @Headers@ Access-Control-Request-Headers&
+          - & @Headers@ Access-Control-Request-Method&
+          - & @Headers@ Age&
+          - & @Headers@ Allow&
+          - & @Headers@ Alt-Svc&
+          - & @Headers@ Alt-Used&
+          - & @Headers@ Authorization&
+          - & @Headers@ Cache-Control&
+          - & @Headers@ Clear-Site-Data&
+          - & @Headers@ Connection&
+          - & @Headers@ Content-Disposition&
+          - & @Headers@ Content-DPR&
+          - & @Headers@ Content-Encoding&
+          - & @Headers@ Content-Language&
+          - & @Headers@ Content-Length&
+          - & @Headers@ Content-Location&
+          - & @Headers@ Content-Range&
+          - & @Headers@ Content-Security-Policy&
+          - & @Headers@ Content-Security-Policy-Report-Only&
+          - & @Headers@ Content-Type&
+          - & @Headers@ Cookie&
+          - & @Headers@ Critical-CH&
+          - & @Headers@ Cross-Origin-Embedder-Policy&
+          - & @Headers@ Cross-Origin-Opener-Policy&
+          - & @Headers@ Cross-Origin-Resource-Policy&
+          - & @Headers@ Date&
+          - & @Headers@ Device-Memory&
+          - & @Headers@ Digest&
+          - & @Headers@ DNT&
+          - & @Headers@ Downlink&
+          - & @Headers@ DPR&
+          - & @Headers@ Early-Data&
+          - & @Headers@ ECT&
+          - & @Headers@ ETag&
+          - & @Headers@ Expect-CT&
+          - & @Headers@ Expect&
+          - & @Headers@ Expires&
+          - & @Headers@ Forwarded&
+          - & @Headers@ From&
+          - & @Headers@ Host&
+          - & @Headers@ If-Match&
+          - & @Headers@ If-Modified-Since&
+          - & @Headers@ If-None-Match&
+          - & @Headers@ If-Range&
+          - & @Headers@ If-Unmodified-Since&
+          - & @Headers@ Keep-Alive&
+          - & @Headers@ Large-Allocation&
+          - & @Headers@ Last-Modified&
+          - & @Headers@ Link&
+          - & @Headers@ Location&
+          - & @Headers@ Max-Forwards&
+          - & @Headers@ NEL&
+          - & @Headers@ Origin-Agent-Cluster&
+          - & @Headers@ Origin&
+          - & @Headers@ Permissions-Policy&
+          - & @Headers@ Pragma&
+          - & @Headers@ Proxy-Authenticate&
+          - & @Headers@ Proxy-Authorization&
+          - & @Headers@ Range&
+          - & @Headers@ Referer&
+          - & @Headers@ Referrer-Policy&
+          - & @Headers@ Retry-After&
+          - & @Headers@ RTT&
+          - & @Headers@ Save-Data&
+          - & @Headers@ Sec-CH-Prefers-Color-Scheme&
+          - & @Headers@ Sec-CH-Prefers-Reduced-Motion&
+          - & @Headers@ Sec-CH-Prefers-Reduced-Transparency&
+          - & @Headers@ Sec-CH-UA-Arch&
+          - & @Headers@ Sec-CH-UA-Bitness&
+          - & @Headers@ Sec-CH-UA-Full-Version&
+          - & @Headers@ Sec-CH-UA-Full-Version-List&
+          - & @Headers@ Sec-CH-UA&
+          - & @Headers@ Sec-CH-UA-Mobile&
+          - & @Headers@ Sec-CH-UA-Model&
+          - & @Headers@ Sec-CH-UA-Platform&
+          - & @Headers@ Sec-CH-UA-Platform-Version&
+          - & @Headers@ Sec-Fetch-Dest&
+          - & @Headers@ Sec-Fetch-Mode&
+          - & @Headers@ Sec-Fetch-Site&
+          - & @Headers@ Sec-Fetch-User&
+          - & @Headers@ Sec-GPC&
+          - & @Headers@ Sec-Purpose&
+          - & @Headers@ Sec-WebSocket-Accept&
+          - & @Headers@ Server&
+          - & @Headers@ Server-Timing&
+          - & @Headers@ Service-Worker-Navigation-Preload&
+          - & @Headers@ Set-Cookie&
+          - & @Headers@ SourceMap&
+          - & @Headers@ Strict-Transport-Security&
+          - & @Headers@ Supports-Loading-Mode&
+          - & @Headers@ TE&
+          - & @Headers@ Timing-Allow-Origin&
+          - & @Headers@ Tk&
+          - & @Headers@ Trailer&
+          - & @Headers@ Transfer-Encoding&
+          - & @Headers@ Upgrade&
+          - & @Headers@ Upgrade-Insecure-Requests&
+          - & @Headers@ User-Agent&
+          - & @Headers@ Vary&
+          - & @Headers@ Via&
+          - & @Headers@ Viewport-Width&
+          - & @Headers@ Want-Digest&
+          - & @Headers@ Warning&
+          - & @Headers@ Width&
+          - & @Headers@ WWW-Authenticate&
+          - & @Headers@ X-Content-Type-Options&
+          - & @Headers@ X-DNS-Prefetch-Control&
+          - & @Headers@ X-Forwarded-For&
+          - & @Headers@ X-Forwarded-Host&
+          - & @Headers@ X-Forwarded-Proto&
+          - & @Headers@ X-Frame-Options&
+          - & @Headers@ X-XSS-Protection&
+- Methods
+          - & @Methods@ CONNECT&
+          - & @Methods@ DELETE&
+          - & @Methods@ GET&
+          - & @Methods@ HEAD&
+          - & @Methods@ OPTIONS&
+          - & @Methods@ PATCH&
+          - & @Methods@ POST&
+          - & @Methods@ PUT&
+          - & @Methods@ TRACE&
+- Proxy_servers_and_tunneling
+          - & @Proxy_servers_and_tunneling@ Proxy Auto-Configuration (PAC) file&
+- Status
+          - & @Status@ 100 Continue&
+          - & @Status@ 101 Switching Protocols&
+          - & @Status@ 102 Processing&
+          - & @Status@ 103 Early Hints&
+          - & @Status@ 200 OK&
+          - & @Status@ 201 Created&
+          - & @Status@ 202 Accepted&
+          - & @Status@ 203 Non-Authoritative Information&
+          - & @Status@ 204 No Content&
+          - & @Status@ 205 Reset Content&
+          - & @Status@ 206 Partial Content&
+          - & @Status@ 207 Multi-Status&
+          - & @Status@ 208 Already Reported&
+          - & @Status@ 226 IM Used&
+          - & @Status@ 300 Multiple Choices&
+          - & @Status@ 301 Moved Permanently&
+          - & @Status@ 302 Found&
+          - & @Status@ 303 See Other&
+          - & @Status@ 304 Not Modified&
+          - & @Status@ 307 Temporary Redirect&
+          - & @Status@ 308 Permanent Redirect&
+          - & @Status@ 400 Bad Request&
+          - & @Status@ 401 Unauthorized&
+          - & @Status@ 402 Payment Required&
+          - & @Status@ 403 Forbidden&
+          - & @Status@ 404 Not Found&
+          - & @Status@ 405 Method Not Allowed&
+          - & @Status@ 406 Not Acceptable&
+          - & @Status@ 407 Proxy Authentication Required&
+          - & @Status@ 408 Request Timeout&
+          - & @Status@ 409 Conflict&
+          - & @Status@ 410 Gone&
+          - & @Status@ 411 Length Required&
+          - & @Status@ 412 Precondition Failed&
+          - & @Status@ 413 Content Too Large&
+          - & @Status@ 414 URI Too Long&
+          - & @Status@ 415 Unsupported Media Type&
+          - & @Status@ 416 Range Not Satisfiable&
+          - & @Status@ 417 Expectation Failed&
+          - & @Status@ 418 I'm a teapot&
+          - & @Status@ 421 Misdirected Request&
+          - & @Status@ 422 Unprocessable Content&
+          - & @Status@ 423 Locked&
+          - & @Status@ 424 Failed Dependency&
+          - & @Status@ 425 Too Early&
+          - & @Status@ 426 Upgrade Required&
+          - & @Status@ 428 Precondition Required&
+          - & @Status@ 429 Too Many Requests&
+          - & @Status@ 431 Request Header Fields Too Large&
+          - & @Status@ 451 Unavailable For Legal Reasons&
+          - & @Status@ 500 Internal Server Error&
+          - & @Status@ 501 Not Implemented&
+          - & @Status@ 502 Bad Gateway&
+          - & @Status@ 503 Service Unavailable&
+          - & @Status@ 504 Gateway Timeout&
+          - & @Status@ 505 HTTP Version Not Supported&
+          - & @Status@ 506 Variant Also Negotiates&
+          - & @Status@ 507 Insufficient Storage&
+          - & @Status@ 508 Loop Detected&
+          - & @Status@ 510 Not Extended&
+          - & @Status@ 511 Network Authentication Required&
+- Storage_Access_Policy
+          - & @Storage_Access_Policy@ Errors&
+- MIME_types
+            - & @MIME_types@ Common MIME types&
+- Errors
+            - & @Errors@ Reason: CORS header 'Access-Control-Allow-Origin' does not match 'xyz'&
+            - & @Errors@ Reason: CORS request did not succeed&
+            - & @Errors@ Reason: CORS disabled&
+            - & @Errors@ Reason: CORS request external redirect not allowed&
+            - & @Errors@ Reason: invalid token 'xyz' in CORS header 'Access-Control-Allow-Headers'&
+            - & @Errors@ Reason: invalid token 'xyz' in CORS header 'Access-Control-Allow-Methods'&
+            - & @Errors@ Reason: Did not find method in CORS header 'Access-Control-Allow-Methods'&
+            - & @Errors@ Reason: expected 'true' in CORS header 'Access-Control-Allow-Credentials'&
+            - & @Errors@ Reason: missing token 'xyz' in CORS header 'Access-Control-Allow-Headers' from CORS preflight channel&
+            - & @Errors@ Reason: CORS header 'Access-Control-Allow-Origin' missing&
+            - & @Errors@ Reason: Multiple CORS header 'Access-Control-Allow-Origin' not allowed&
+            - & @Errors@ Reason: Credential is not supported if the CORS header 'Access-Control-Allow-Origin' is '*'&
+            - & @Errors@ Reason: CORS header 'Origin' cannot be added&
+            - & @Errors@ Reason: CORS preflight channel did not succeed&
+            - & @Errors@ Reason: CORS request not HTTP&
+- Content-Security-Policy
+            - & @Content-Security-Policy@ CSP: base-uri&
+            - & @Content-Security-Policy@ CSP: block-all-mixed-content&
+            - & @Content-Security-Policy@ CSP: child-src&
+            - & @Content-Security-Policy@ CSP: connect-src&
+            - & @Content-Security-Policy@ CSP: default-src&
+            - & @Content-Security-Policy@ CSP: font-src&
+            - & @Content-Security-Policy@ CSP: form-action&
+            - & @Content-Security-Policy@ CSP: frame-ancestors&
+            - & @Content-Security-Policy@ CSP: frame-src&
+            - & @Content-Security-Policy@ CSP: img-src&
+            - & @Content-Security-Policy@ CSP: manifest-src&
+            - & @Content-Security-Policy@ CSP: media-src&
+            - & @Content-Security-Policy@ CSP: object-src&
+            - & @Content-Security-Policy@ CSP: plugin-types&
+            - & @Content-Security-Policy@ CSP: prefetch-src&
+            - & @Content-Security-Policy@ CSP: referrer&
+            - & @Content-Security-Policy@ CSP: report-to&
+            - & @Content-Security-Policy@ CSP: report-uri&
+            - & @Content-Security-Policy@ CSP: require-trusted-types-for&
+            - & @Content-Security-Policy@ CSP: sandbox&
+            - & @Content-Security-Policy@ CSP: script-src-attr&
+            - & @Content-Security-Policy@ CSP: script-src-elem&
+            - & @Content-Security-Policy@ CSP: script-src&
+            - & @Content-Security-Policy@ CSP source values&
+            - & @Content-Security-Policy@ CSP: style-src-attr&
+            - & @Content-Security-Policy@ CSP: style-src-elem&
+            - & @Content-Security-Policy@ CSP: style-src&
+            - & @Content-Security-Policy@ CSP: trusted-types&
+            - & @Content-Security-Policy@ CSP: upgrade-insecure-requests&
+            - & @Content-Security-Policy@ CSP: worker-src&
+- Permissions-Policy
+            - & @Permissions-Policy@ Permissions-Policy: accelerometer&
+            - & @Permissions-Policy@ Permissions-Policy: ambient-light-sensor&
+            - & @Permissions-Policy@ Permissions-Policy: autoplay&
+            - & @Permissions-Policy@ Permissions-Policy: battery&
+            - & @Permissions-Policy@ Permissions-Policy: camera&
+            - & @Permissions-Policy@ Permissions-Policy: display-capture&
+            - & @Permissions-Policy@ Permissions-Policy: document-domain&
+            - & @Permissions-Policy@ Permissions-Policy: encrypted-media&
+            - & @Permissions-Policy@ Permissions-Policy: execution-while-not-rendered&
+            - & @Permissions-Policy@ Permissions-Policy: execution-while-out-of-viewport&
+            - & @Permissions-Policy@ Permissions-Policy: fullscreen&
+            - & @Permissions-Policy@ Permissions-Policy: gamepad&
+            - & @Permissions-Policy@ Permissions-Policy: geolocation&
+            - & @Permissions-Policy@ Permissions-Policy: gyroscope&
+            - & @Permissions-Policy@ Permissions-Policy: hid&
+            - & @Permissions-Policy@ Permissions-Policy: identity-credentials-get&
+            - & @Permissions-Policy@ Permissions-Policy: idle-detection&
+            - & @Permissions-Policy@ Permissions-Policy: local-fonts&
+            - & @Permissions-Policy@ Permissions-Policy: magnetometer&
+            - & @Permissions-Policy@ Permissions-Policy: microphone&
+            - & @Permissions-Policy@ Permissions-Policy: midi&
+            - & @Permissions-Policy@ Permissions-Policy: otp-credentials&
+            - & @Permissions-Policy@ Permissions-Policy: payment&
+            - & @Permissions-Policy@ Permissions-Policy: picture-in-picture&
+            - & @Permissions-Policy@ Permissions-Policy: publickey-credentials-create&
+            - & @Permissions-Policy@ Permissions-Policy: publickey-credentials-get&
+            - & @Permissions-Policy@ Permissions-Policy: screen-wake-lock&
+            - & @Permissions-Policy@ Permissions-Policy: serial&
+            - & @Permissions-Policy@ Permissions-Policy: speaker-selection&
+            - & @Permissions-Policy@ Permissions-Policy: storage-access&
+            - & @Permissions-Policy@ Permissions-Policy: usb&
+            - & @Permissions-Policy@ Permissions-Policy: web-share&
+            - & @Permissions-Policy@ Permissions-Policy: window-management&
+            - & @Permissions-Policy@ Permissions-Policy: xr-spatial-tracking&
+- User-Agent
+            - & @User-Agent@ Firefox user agent string reference&
+- Errors
+            - & @Errors@ Blocked: All storage access requests&
+            - & @Errors@ Blocked: Custom cookie permission&
+            - & @Errors@ Blocked: All third-party storage access requests&
+            - & @Errors@ Blocked: Storage access requests from trackers&
+            - & @Errors@ Partitioned: All third-party storage access requests&
+# HTTP HTTP authentication #
  _   _ _____ _____ ____  
 | | | |_   _|_   _|  _ \ 
 | |_| | | |   | | | |_) |
@@ -622,7 +662,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 20, 2023 by MDN contributors .
-# Basics of HTTP #
+# HTTP Basics of HTTP #
  ____            _                   __   _   _ _____ _____ ____  
 | __ )  __ _ ___(_) ___ ___    ___  / _| | | | |_   _|_   _|  _ \ 
 |  _ \ / _` / __| |/ __/ __|  / _ \| |_  | |_| | | |   | | | |_) |
@@ -728,7 +768,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Browser detection using the user agent #
+# HTTP Browser detection using the user agent #
  ____                                  
 | __ ) _ __ _____      _____  ___ _ __ 
 |  _ \| '__/ _ \ \ /\ / / __|/ _ \ '__|
@@ -1237,7 +1277,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 8, 2024 by MDN contributors .
-# HTTP caching #
+# HTTP HTTP caching #
  _   _ _____ _____ ____                   _     _             
 | | | |_   _|_   _|  _ \    ___ __ _  ___| |__ (_)_ __   __ _ 
 | |_| | | |   | | | |_) |  / __/ _` |/ __| '_ \| | '_ \ / _` |
@@ -2215,7 +2255,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 4, 2023 by MDN contributors .
-# HTTP Client hints #
+# HTTP HTTP Client hints #
  _   _ _____ _____ ____     ____ _ _            _     _     _       _       
 | | | |_   _|_   _|  _ \   / ___| (_) ___ _ __ | |_  | |__ (_)_ __ | |_ ___ 
 | |_| | | |   | | | |_) | | |   | | |/ _ \ '_ \| __| | '_ \| | '_ \| __/ __|
@@ -2429,7 +2469,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 17, 2024 by MDN contributors .
-# Compression in HTTP #
+# HTTP Compression in HTTP #
   ____                                        _               _       
  / ___|___  _ __ ___  _ __  _ __ ___  ___ ___(_) ___  _ __   (_)_ __  
 | |   / _ \| '_ ` _ \| '_ \| '__/ _ \/ __/ __| |/ _ \| '_ \  | | '_ \ 
@@ -2583,7 +2623,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on May 10, 2023 by MDN contributors .
-# HTTP conditional requests #
+# HTTP HTTP conditional requests #
  _   _ _____ _____ ____                        _ _ _   _                   _ 
 | | | |_   _|_   _|  _ \    ___ ___  _ __   __| (_) |_(_) ___  _ __   __ _| |
 | |_| | | |   | | | |_) |  / __/ _ \| '_ \ / _` | | __| |/ _ \| '_ \ / _` | |
@@ -2896,7 +2936,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 10, 2024 by MDN contributors .
-# Connection management in HTTP/1.x #
+# HTTP Connection management in HTTP/1.x #
   ____                            _   _             
  / ___|___  _ __  _ __   ___  ___| |_(_) ___  _ __  
 | |   / _ \| '_ \| '_ \ / _ \/ __| __| |/ _ \| '_ \ 
@@ -3099,7 +3139,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on May 10, 2023 by MDN contributors .
-# Content negotiation #
+# HTTP Content negotiation #
   ____            _             _   
  / ___|___  _ __ | |_ ___ _ __ | |_ 
 | |   / _ \| '_ \| __/ _ \ '_ \| __|
@@ -3360,7 +3400,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Using HTTP cookies #
+# HTTP Using HTTP cookies #
  _   _     _               _   _ _____ _____ ____  
 | | | |___(_)_ __   __ _  | | | |_   _|_   _|  _ \ 
 | | | / __| | '_ \ / _` | | |_| | | |   | | | |_) |
@@ -3794,7 +3834,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 20, 2024 by MDN contributors .
-# Cross-Origin Resource Sharing (CORS) #
+# HTTP Cross-Origin Resource Sharing (CORS) #
   ____                          ___       _       _       
  / ___|_ __ ___  ___ ___       / _ \ _ __(_) __ _(_)_ __  
 | |   | '__/ _ \/ __/ __|_____| | | | '__| |/ _` | | '_ \ 
@@ -4559,7 +4599,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 19, 2023 by MDN contributors .
-# Cross-Origin Resource Policy (CORP) #
+# HTTP Cross-Origin Resource Policy (CORP) #
   ____                          ___       _       _       
  / ___|_ __ ___  ___ ___       / _ \ _ __(_) __ _(_)_ __  
 | |   | '__/ _ \/ __/ __|_____| | | | '__| |/ _` | | '_ \ 
@@ -4690,7 +4730,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on May 10, 2023 by MDN contributors .
-# Content Security Policy (CSP) #
+# HTTP Content Security Policy (CSP) #
   ____            _             _     ____                       _ _         
  / ___|___  _ __ | |_ ___ _ __ | |_  / ___|  ___  ___ _   _ _ __(_) |_ _   _ 
 | |   / _ \| '_ \| __/ _ \ '_ \| __| \___ \ / _ \/ __| | | | '__| | __| | | |
@@ -5055,7 +5095,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 7, 2023 by MDN contributors .
-# HTTP headers #
+# HTTP HTTP headers #
  _   _ _____ _____ ____    _                    _               
 | | | |_   _|_   _|  _ \  | |__   ___  __ _  __| | ___ _ __ ___ 
 | |_| | | |   | | | |_) | | '_ \ / _ \/ _` |/ _` |/ _ \ '__/ __|
@@ -5851,7 +5891,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 19, 2023 by MDN contributors .
-# HTTP Messages #
+# HTTP HTTP Messages #
  _   _ _____ _____ ____    __  __                                     
 | | | |_   _|_   _|  _ \  |  \/  | ___  ___ ___  __ _  __ _  ___  ___ 
 | |_| | | |   | | | |_) | | |\/| |/ _ \/ __/ __|/ _` |/ _` |/ _ \/ __|
@@ -6076,7 +6116,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 22, 2024 by MDN contributors .
-# HTTP request methods #
+# HTTP HTTP request methods #
  _   _ _____ _____ ____                                   _   
 | | | |_   _|_   _|  _ \   _ __ ___  __ _ _   _  ___  ___| |_ 
 | |_| | | |   | | | |_) | | '__/ _ \/ _` | | | |/ _ \/ __| __|
@@ -6189,7 +6229,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Network Error Logging #
+# HTTP Network Error Logging #
  _   _      _                      _      _____                     
 | \ | | ___| |___      _____  _ __| | __ | ____|_ __ _ __ ___  _ __ 
 |  \| |/ _ \ __\ \ /\ / / _ \| '__| |/ / |  _| | '__| '__/ _ \| '__|
@@ -6432,7 +6472,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 24, 2023 by MDN contributors .
-# An overview of HTTP #
+# HTTP An overview of HTTP #
     _                                      _                        __ 
    / \   _ __     _____   _____ _ ____   _(_) _____      __   ___  / _|
   / _ \ | '_ \   / _ \ \ / / _ \ '__\ \ / / |/ _ \ \ /\ / /  / _ \| |_ 
@@ -6774,7 +6814,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 16, 2023 by MDN contributors .
-# Permissions Policy #
+# HTTP Permissions Policy #
  ____                     _         _                 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___ 
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|
@@ -7132,7 +7172,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 26, 2023 by MDN contributors .
-# Protocol upgrade mechanism #
+# HTTP Protocol upgrade mechanism #
  ____            _                  _                                   _      
 |  _ \ _ __ ___ | |_ ___   ___ ___ | |  _   _ _ __   __ _ _ __ __ _  __| | ___ 
 | |_) | '__/ _ \| __/ _ \ / __/ _ \| | | | | | '_ \ / _` | '__/ _` |/ _` |/ _ \
@@ -7388,7 +7428,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 16, 2023 by MDN contributors .
-# Proxy servers and tunneling #
+# HTTP Proxy servers and tunneling #
  ____                                                         
 |  _ \ _ __ _____  ___   _   ___  ___ _ ____   _____ _ __ ___ 
 | |_) | '__/ _ \ \/ / | | | / __|/ _ \ '__\ \ / / _ \ '__/ __|
@@ -7539,7 +7579,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Sep 27, 2023 by MDN contributors .
-# HTTP range requests #
+# HTTP HTTP range requests #
  _   _ _____ _____ ____                               
 | | | |_   _|_   _|  _ \   _ __ __ _ _ __   __ _  ___ 
 | |_| | | |   | | | |_) | | '__/ _` | '_ \ / _` |/ _ \
@@ -7729,7 +7769,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Aug 25, 2023 by MDN contributors .
-# Redirections in HTTP #
+# HTTP Redirections in HTTP #
  ____          _ _               _   _                   _       
 |  _ \ ___  __| (_)_ __ ___  ___| |_(_) ___  _ __  ___  (_)_ __  
 | |_) / _ \/ _` | | '__/ _ \/ __| __| |/ _ \| '_ \/ __| | | '_ \ 
@@ -8049,7 +8089,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 5, 2023 by MDN contributors .
-# HTTP resources and specifications #
+# HTTP HTTP resources and specifications #
  _   _ _____ _____ ____                                                
 | | | |_   _|_   _|  _ \   _ __ ___  ___  ___  _   _ _ __ ___ ___  ___ 
 | |_| | | |   | | | |_) | | '__/ _ \/ __|/ _ \| | | | '__/ __/ _ \/ __|
@@ -8131,7 +8171,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 11, 2023 by MDN contributors .
-# Resources and URIs #
+# HTTP Resources and URIs #
  ____                                                           _ 
 |  _ \ ___  ___  ___  _   _ _ __ ___ ___  ___    __ _ _ __   __| |
 | |_) / _ \/ __|/ _ \| | | | '__/ __/ _ \/ __|  / _` | '_ \ / _` |
@@ -8184,7 +8224,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# A typical HTTP session #
+# HTTP A typical HTTP session #
     _      _               _           _   _   _ _____ _____ ____  
    / \    | |_ _   _ _ __ (_) ___ __ _| | | | | |_   _|_   _|  _ \ 
   / _ \   | __| | | | '_ \| |/ __/ _` | | | |_| | | |   | | | |_) |
@@ -8407,7 +8447,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 18, 2024 by MDN contributors .
-# HTTP response status codes #
+# HTTP HTTP response status codes #
  _   _ _____ _____ ____                                             
 | | | |_   _|_   _|  _ \   _ __ ___  ___ _ __   ___  _ __  ___  ___ 
 | |_| | | |   | | | |_) | | '__/ _ \/ __| '_ \ / _ \| '_ \/ __|/ _ \
@@ -8854,7 +8894,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Nov 3, 2023 by MDN contributors .
-# Choosing between www and non-www URLs #
+# Basics_of_HTTP Choosing between www and non-www URLs #
   ____ _                     _             
  / ___| |__   ___   ___  ___(_)_ __   __ _ 
 | |   | '_ \ / _ \ / _ \/ __| | '_ \ / _` |
@@ -8997,7 +9037,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Aug 14, 2023 by MDN contributors .
-# Data URLs #
+# Basics_of_HTTP Data URLs #
  ____        _          _   _ ____  _         
 |  _ \  __ _| |_ __ _  | | | |  _ \| |    ___ 
 | | | |/ _` | __/ _` | | | | | |_) | |   / __|
@@ -9194,7 +9234,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Aug 29, 2023 by MDN contributors .
-# Evolution of HTTP #
+# Basics_of_HTTP Evolution of HTTP #
  _____            _       _   _                      __ 
 | ____|_   _____ | |_   _| |_(_) ___  _ __     ___  / _|
 |  _| \ \ / / _ \| | | | | __| |/ _ \| '_ \   / _ \| |_ 
@@ -9549,7 +9589,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Identifying resources on the Web #
+# Basics_of_HTTP Identifying resources on the Web #
  ___    _            _   _  __       _             
 |_ _|__| | ___ _ __ | |_(_)/ _|_   _(_)_ __   __ _ 
  | |/ _` |/ _ \ '_ \| __| | |_| | | | | '_ \ / _` |
@@ -9742,7 +9782,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 25, 2023 by MDN contributors .
-# MIME types (IANA media types) #
+# Basics_of_HTTP MIME types (IANA media types) #
  __  __ ___ __  __ _____   _                         
 |  \/  |_ _|  \/  | ____| | |_ _   _ _ __   ___  ___ 
 | |\/| || || |\/| |  _|   | __| | | | '_ \ / _ \/ __|
@@ -10219,7 +10259,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 18, 2023 by MDN contributors .
-# MIME types (IANA media types) #
+# Basics_of_HTTP MIME types (IANA media types) #
  __  __ ___ __  __ _____   _                         
 |  \/  |_ _|  \/  | ____| | |_ _   _ _ __   ___  ___ 
 | |\/| || || |\/| |  _|   | __| | | | '_ \ / _ \/ __|
@@ -10696,7 +10736,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 18, 2023 by MDN contributors .
-# Resource URLs #
+# Basics_of_HTTP Resource URLs #
  ____                                      _   _ ____  _         
 |  _ \ ___  ___  ___  _   _ _ __ ___ ___  | | | |  _ \| |    ___ 
 | |_) / _ \/ __|/ _ \| | | | '__/ __/ _ \ | | | | |_) | |   / __|
@@ -10815,7 +10855,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 25, 2023 by MDN contributors .
-# List of default Accept values #
+# Content_negotiation List of default Accept values #
  _     _     _            __       _       __             _ _   
 | |   (_)___| |_    ___  / _|   __| | ___ / _| __ _ _   _| | |_ 
 | |   | / __| __|  / _ \| |_   / _` |/ _ \ |_ / _` | | | | | __|
@@ -10934,7 +10974,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 19, 2023 by MDN contributors .
-# CORS errors #
+# CORS CORS errors #
   ____ ___  ____  ____                                 
  / ___/ _ \|  _ \/ ___|    ___ _ __ _ __ ___  _ __ ___ 
 | |  | | | | |_) \___ \   / _ \ '__| '__/ _ \| '__/ __|
@@ -11037,7 +11077,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 15, 2023 by MDN contributors .
-# Accept-Charset #
+# Headers Accept-Charset #
     _                      _         ____ _                         _   
    / \   ___ ___ ___ _ __ | |_      / ___| |__   __ _ _ __ ___  ___| |_ 
   / _ \ / __/ __/ _ \ '_ \| __|____| |   | '_ \ / _` | '__/ __|/ _ \ __|
@@ -11082,7 +11122,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Accept-CH #
+# Headers Accept-CH #
     _                      _         ____ _   _ 
    / \   ___ ___ ___ _ __ | |_      / ___| | | |
   / _ \ / __/ __/ _ \ '_ \| __|____| |   | |_| |
@@ -11150,7 +11190,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Accept-CH-Lifetime #
+# Headers Accept-CH-Lifetime #
     _                      _         ____ _   _       _     _  __      _   _ 
    / \   ___ ___ ___ _ __ | |_      / ___| | | |     | |   (_)/ _| ___| |_(_)
   / _ \ / __/ __/ _ \ '_ \| __|____| |   | |_| |_____| |   | | |_ / _ \ __| |
@@ -11229,7 +11269,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Accept-Encoding #
+# Headers Accept-Encoding #
     _                      _        _____                     _ _             
    / \   ___ ___ ___ _ __ | |_     | ____|_ __   ___ ___   __| (_)_ __   __ _ 
   / _ \ / __/ __/ _ \ '_ \| __|____|  _| | '_ \ / __/ _ \ / _` | | '_ \ / _` |
@@ -11367,7 +11407,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Accept #
+# Headers Accept #
     _                      _   
    / \   ___ ___ ___ _ __ | |_ 
   / _ \ / __/ __/ _ \ '_ \| __|
@@ -11466,7 +11506,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Accept-Language #
+# Headers Accept-Language #
     _                      _        _                                        
    / \   ___ ___ ___ _ __ | |_     | |    __ _ _ __   __ _ _   _  __ _  __ _ 
   / _ \ / __/ __/ _ \ '_ \| __|____| |   / _` | '_ \ / _` | | | |/ _` |/ _` |
@@ -11585,7 +11625,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Accept-Patch #
+# Headers Accept-Patch #
     _                      _        ____       _       _     
    / \   ___ ___ ___ _ __ | |_     |  _ \ __ _| |_ ___| |__  
   / _ \ / __/ __/ _ \ '_ \| __|____| |_) / _` | __/ __| '_ \ 
@@ -11670,7 +11710,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Accept-Post #
+# Headers Accept-Post #
     _                      _        ____           _   
    / \   ___ ___ ___ _ __ | |_     |  _ \ ___  ___| |_ 
   / _ \ / __/ __/ _ \ '_ \| __|____| |_) / _ \/ __| __|
@@ -11752,7 +11792,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Accept-Ranges #
+# Headers Accept-Ranges #
     _                      _        ____                             
    / \   ___ ___ ___ _ __ | |_     |  _ \ __ _ _ __   __ _  ___  ___ 
   / _ \ / __/ __/ _ \ '_ \| __|____| |_) / _` | '_ \ / _` |/ _ \/ __|
@@ -11833,7 +11873,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jun 4, 2023 by MDN contributors .
-# Access-Control-Allow-Credentials #
+# Headers Access-Control-Allow-Credentials #
     _                                ____            _             _       
    / \   ___ ___ ___  ___ ___       / ___|___  _ __ | |_ _ __ ___ | |      
   / _ \ / __/ __/ _ \/ __/ __|_____| |   / _ \| '_ \| __| '__/ _ \| |_____ 
@@ -11956,7 +11996,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 16, 2023 by MDN contributors .
-# Access-Control-Allow-Headers #
+# Headers Access-Control-Allow-Headers #
     _                                ____            _             _       
    / \   ___ ___ ___  ___ ___       / ___|___  _ __ | |_ _ __ ___ | |      
   / _ \ / __/ __/ _ \/ __/ __|_____| |   / _ \| '_ \| __| '__/ _ \| |_____ 
@@ -12116,7 +12156,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Access-Control-Allow-Methods #
+# Headers Access-Control-Allow-Methods #
     _                                ____            _             _       
    / \   ___ ___ ___  ___ ___       / ___|___  _ __ | |_ _ __ ___ | |      
   / _ \ / __/ __/ _ \/ __/ __|_____| |   / _ \| '_ \| __| '__/ _ \| |_____ 
@@ -12198,7 +12238,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 12, 2024 by MDN contributors .
-# Access-Control-Allow-Origin #
+# Headers Access-Control-Allow-Origin #
     _                                ____            _             _       
    / \   ___ ___ ___  ___ ___       / ___|___  _ __ | |_ _ __ ___ | |      
   / _ \ / __/ __/ _ \/ __/ __|_____| |   / _ \| '_ \| __| '__/ _ \| |_____ 
@@ -12325,7 +12365,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Access-Control-Expose-Headers #
+# Headers Access-Control-Expose-Headers #
     _                                ____            _             _       
    / \   ___ ___ ___  ___ ___       / ___|___  _ __ | |_ _ __ ___ | |      
   / _ \ / __/ __/ _ \/ __/ __|_____| |   / _ \| '_ \| __| '__/ _ \| |_____ 
@@ -12432,7 +12472,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jun 23, 2023 by MDN contributors .
-# Access-Control-Max-Age #
+# Headers Access-Control-Max-Age #
     _                                ____            _             _       
    / \   ___ ___ ___  ___ ___       / ___|___  _ __ | |_ _ __ ___ | |      
   / _ \ / __/ __/ _ \/ __/ __|_____| |   / _ \| '_ \| __| '__/ _ \| |_____ 
@@ -12510,7 +12550,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Access-Control-Request-Headers #
+# Headers Access-Control-Request-Headers #
     _                                ____            _             _       
    / \   ___ ___ ___  ___ ___       / ___|___  _ __ | |_ _ __ ___ | |      
   / _ \ / __/ __/ _ \/ __/ __|_____| |   / _ \| '_ \| __| '__/ _ \| |_____ 
@@ -12584,7 +12624,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 16, 2023 by MDN contributors .
-# Access-Control-Request-Method #
+# Headers Access-Control-Request-Method #
     _                                ____            _             _       
    / \   ___ ___ ___  ___ ___       / ___|___  _ __ | |_ _ __ ___ | |      
   / _ \ / __/ __/ _ \/ __/ __|_____| |   / _ \| '_ \| __| '__/ _ \| |_____ 
@@ -12657,7 +12697,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Age #
+# Headers Age #
     _              
    / \   __ _  ___ 
   / _ \ / _` |/ _ \
@@ -12727,7 +12767,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Allow #
+# Headers Allow #
     _    _ _               
    / \  | | | _____      __
   / _ \ | | |/ _ \ \ /\ / /
@@ -12791,7 +12831,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Alt-Svc #
+# Headers Alt-Svc #
     _    _ _       ____           
    / \  | | |_    / ___|_   _____ 
   / _ \ | | __|___\___ \ \ / / __|
@@ -12891,7 +12931,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Alt-Used #
+# Headers Alt-Used #
     _    _ _        _   _              _ 
    / \  | | |_     | | | |___  ___  __| |
   / _ \ | | __|____| | | / __|/ _ \/ _` |
@@ -12949,7 +12989,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 19, 2023 by MDN contributors .
-# Authorization #
+# Headers Authorization #
     _         _   _                _          _   _             
    / \  _   _| |_| |__   ___  _ __(_)______ _| |_(_) ___  _ __  
   / _ \| | | | __| '_ \ / _ \| '__| |_  / _` | __| |/ _ \| '_ \ 
@@ -13162,7 +13202,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Aug 29, 2023 by MDN contributors .
-# Cache-Control #
+# Headers Cache-Control #
   ____           _                 ____            _             _ 
  / ___|__ _  ___| |__   ___       / ___|___  _ __ | |_ _ __ ___ | |
 | |   / _` |/ __| '_ \ / _ \_____| |   / _ \| '_ \| __| '__/ _ \| |
@@ -13791,7 +13831,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 23, 2024 by MDN contributors .
-# Clear-Site-Data #
+# Headers Clear-Site-Data #
   ____ _                     ____  _ _             ____        _        
  / ___| | ___  __ _ _ __    / ___|(_) |_ ___      |  _ \  __ _| |_ __ _ 
 | |   | |/ _ \/ _` | '__|___\___ \| | __/ _ \_____| | | |/ _` | __/ _` |
@@ -13940,7 +13980,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Aug 10, 2023 by MDN contributors .
-# Connection #
+# Headers Connection #
   ____                            _   _             
  / ___|___  _ __  _ __   ___  ___| |_(_) ___  _ __  
 | |   / _ \| '_ \| '_ \ / _ \/ __| __| |/ _ \| '_ \ 
@@ -14018,7 +14058,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Content-Disposition #
+# Headers Content-Disposition #
   ____            _             _        ____  _                     _ _   _ 
  / ___|___  _ __ | |_ ___ _ __ | |_     |  _ \(_)___ _ __   ___  ___(_) |_(_)
 | |   / _ \| '_ \| __/ _ \ '_ \| __|____| | | | / __| '_ \ / _ \/ __| | __| |
@@ -14216,7 +14256,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 16, 2023 by MDN contributors .
-# Content-DPR #
+# Headers Content-DPR #
   ____            _             _        ____  ____  ____  
  / ___|___  _ __ | |_ ___ _ __ | |_     |  _ \|  _ \|  _ \ 
 | |   / _ \| '_ \| __/ _ \ '_ \| __|____| | | | |_) | |_) |
@@ -14311,7 +14351,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 10, 2023 by MDN contributors .
-# Content-Encoding #
+# Headers Content-Encoding #
   ____            _             _        _____                     _ _       
  / ___|___  _ __ | |_ ___ _ __ | |_     | ____|_ __   ___ ___   __| (_)_ __  
 | |   / _ \| '_ \| __/ _ \ '_ \| __|____|  _| | '_ \ / __/ _ \ / _` | | '_ \ 
@@ -14440,7 +14480,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Content-Language #
+# Headers Content-Language #
   ____            _             _        _                                  
  / ___|___  _ __ | |_ ___ _ __ | |_     | |    __ _ _ __   __ _ _   _  __ _ 
 | |   / _ \| '_ \| __/ _ \ '_ \| __|____| |   / _` | '_ \ / _` | | | |/ _` |
@@ -14562,7 +14602,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 11, 2023 by MDN contributors .
-# Content-Length #
+# Headers Content-Length #
   ____            _             _        _                     _   _     
  / ___|___  _ __ | |_ ___ _ __ | |_     | |    ___ _ __   __ _| |_| |__  
 | |   / _ \| '_ \| __/ _ \ '_ \| __|____| |   / _ \ '_ \ / _` | __| '_ \ 
@@ -14620,7 +14660,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Content-Location #
+# Headers Content-Location #
   ____            _             _        _                    _   _       
  / ___|___  _ __ | |_ ___ _ __ | |_     | |    ___   ___ __ _| |_(_) ___  
 | |   / _ \| '_ \| __/ _ \ '_ \| __|____| |   / _ \ / __/ _` | __| |/ _ \ 
@@ -14787,7 +14827,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 25, 2023 by MDN contributors .
-# Content-Range #
+# Headers Content-Range #
   ____            _             _        ____                        
  / ___|___  _ __ | |_ ___ _ __ | |_     |  _ \ __ _ _ __   __ _  ___ 
 | |   / _ \| '_ \| __/ _ \ '_ \| __|____| |_) / _` | '_ \ / _` |/ _ \
@@ -14871,7 +14911,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Content-Security-Policy #
+# Headers Content-Security-Policy #
   ____            _             _       ____                       _ _         
  / ___|___  _ __ | |_ ___ _ __ | |_    / ___|  ___  ___ _   _ _ __(_) |_ _   _ 
 | |   / _ \| '_ \| __/ _ \ '_ \| __|___\___ \ / _ \/ __| | | | '__| | __| | | |
@@ -15282,7 +15322,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 26, 2023 by MDN contributors .
-# Content-Security-Policy-Report-Only #
+# Headers Content-Security-Policy-Report-Only #
   ____            _             _       ____                       _ _         
  / ___|___  _ __ | |_ ___ _ __ | |_    / ___|  ___  ___ _   _ _ __(_) |_ _   _ 
 | |   / _ \| '_ \| __/ _ \ '_ \| __|___\___ \ / _ \/ __| | | | '__| | __| | | |
@@ -15488,7 +15528,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 12, 2023 by MDN contributors .
-# Content-Type #
+# Headers Content-Type #
   ____            _             _      _____                 
  / ___|___  _ __ | |_ ___ _ __ | |_   |_   _|   _ _ __   ___ 
 | |   / _ \| '_ \| __/ _ \ '_ \| __|____| || | | | '_ \ / _ \
@@ -15627,7 +15667,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Cookie #
+# Headers Cookie #
   ____            _    _      
  / ___|___   ___ | | _(_) ___ 
 | |   / _ \ / _ \| |/ / |/ _ \
@@ -15699,7 +15739,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Critical-CH #
+# Headers Critical-CH #
   ____      _ _   _           _        ____ _   _ 
  / ___|_ __(_) |_(_) ___ __ _| |      / ___| | | |
 | |   | '__| | __| |/ __/ _` | |_____| |   | |_| |
@@ -15823,7 +15863,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 10, 2023 by MDN contributors .
-# Cross-Origin-Embedder-Policy #
+# Headers Cross-Origin-Embedder-Policy #
   ____                          ___       _       _             _____ 
  / ___|_ __ ___  ___ ___       / _ \ _ __(_) __ _(_)_ __       | ____|
 | |   | '__/ _ \/ __/ __|_____| | | | '__| |/ _` | | '_ \ _____|  _|  
@@ -15954,7 +15994,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 9, 2023 by MDN contributors .
-# Cross-Origin-Opener-Policy #
+# Headers Cross-Origin-Opener-Policy #
   ____                          ___       _       _              ___        
  / ___|_ __ ___  ___ ___       / _ \ _ __(_) __ _(_)_ __        / _ \ _ __  
 | |   | '__/ _ \/ __/ __|_____| | | | '__| |/ _` | | '_ \ _____| | | | '_ \ 
@@ -16075,7 +16115,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Cross-Origin-Resource-Policy #
+# Headers Cross-Origin-Resource-Policy #
   ____                          ___       _       _             ____           
  / ___|_ __ ___  ___ ___       / _ \ _ __(_) __ _(_)_ __       |  _ \ ___  ___ 
 | |   | '__/ _ \/ __/ __|_____| | | | '__| |/ _` | | '_ \ _____| |_) / _ \/ __|
@@ -16146,7 +16186,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Aug 2, 2023 by MDN contributors .
-# Date #
+# Headers Date #
  ____        _       
 |  _ \  __ _| |_ ___ 
 | | | |/ _` | __/ _ \
@@ -16251,7 +16291,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Device-Memory #
+# Headers Device-Memory #
  ____             _                __  __                                 
 |  _ \  _____   _(_) ___ ___      |  \/  | ___ _ __ ___   ___  _ __ _   _ 
 | | | |/ _ \ \ / / |/ __/ _ \_____| |\/| |/ _ \ '_ ` _ \ / _ \| '__| | | |
@@ -16354,7 +16394,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 10, 2023 by MDN contributors .
-# Digest #
+# Headers Digest #
  ____  _                 _   
 |  _ \(_) __ _  ___  ___| |_ 
 | | | | |/ _` |/ _ \/ __| __|
@@ -16459,7 +16499,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jun 5, 2023 by MDN contributors .
-# DNT #
+# Headers DNT #
  ____  _   _ _____ 
 |  _ \| \ | |_   _|
 | | | |  \| | | |  
@@ -16557,7 +16597,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Nov 10, 2023 by MDN contributors .
-# Downlink #
+# Headers Downlink #
  ____                      _ _       _    
 |  _ \  _____      ___ __ | (_)_ __ | | __
 | | | |/ _ \ \ /\ / / '_ \| | | '_ \| |/ /
@@ -16656,7 +16696,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 10, 2023 by MDN contributors .
-# DPR #
+# Headers DPR #
  ____  ____  ____  
 |  _ \|  _ \|  _ \ 
 | | | | |_) | |_) |
@@ -16776,7 +16816,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 10, 2023 by MDN contributors .
-# Early-Data #
+# Headers Early-Data #
  _____           _             ____        _        
 | ____|__ _ _ __| |_   _      |  _ \  __ _| |_ __ _ 
 |  _| / _` | '__| | | | |_____| | | |/ _` | __/ _` |
@@ -16839,7 +16879,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# ECT #
+# Headers ECT #
  _____ ____ _____ 
 | ____/ ___|_   _|
 |  _|| |     | |  
@@ -16942,7 +16982,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 10, 2023 by MDN contributors .
-# ETag #
+# Headers ETag #
  _____ _____           
 | ____|_   _|_ _  __ _ 
 |  _|   | |/ _` |/ _` |
@@ -17077,7 +17117,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Aug 29, 2023 by MDN contributors .
-# Expect-CT #
+# Headers Expect-CT #
  _____                      _         ____ _____ 
 | ____|_  ___ __   ___  ___| |_      / ___|_   _|
 |  _| \ \/ / '_ \ / _ \/ __| __|____| |     | |  
@@ -17224,7 +17264,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on May 6, 2023 by MDN contributors .
-# Expect #
+# Headers Expect #
  _____                      _   
 | ____|_  ___ __   ___  ___| |_ 
 |  _| \ \/ / '_ \ / _ \/ __| __|
@@ -17322,7 +17362,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Expires #
+# Headers Expires #
  _____            _               
 | ____|_  ___ __ (_)_ __ ___  ___ 
 |  _| \ \/ / '_ \| | '__/ _ \/ __|
@@ -17393,7 +17433,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Forwarded #
+# Headers Forwarded #
  _____                                _          _ 
 |  ___|__  _ ____      ____ _ _ __ __| | ___  __| |
 | |_ / _ \| '__\ \ /\ / / _` | '__/ _` |/ _ \/ _` |
@@ -17530,7 +17570,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 24, 2023 by MDN contributors .
-# From #
+# Headers From #
  _____                    
 |  ___| __ ___  _ __ ___  
 | |_ | '__/ _ \| '_ ` _ \ 
@@ -17601,7 +17641,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Host #
+# Headers Host #
  _   _           _   
 | | | | ___  ___| |_ 
 | |_| |/ _ \/ __| __|
@@ -17676,7 +17716,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# If-Match #
+# Headers If-Match #
  ___  __       __  __       _       _     
 |_ _|/ _|     |  \/  | __ _| |_ ___| |__  
  | || |_ _____| |\/| |/ _` | __/ __| '_ \ 
@@ -17780,7 +17820,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Aug 29, 2023 by MDN contributors .
-# If-Modified-Since #
+# Headers If-Modified-Since #
  ___  __       __  __           _ _  __ _          _      ____  _            
 |_ _|/ _|     |  \/  | ___   __| (_)/ _(_) ___  __| |    / ___|(_)_ __   ___ 
  | || |_ _____| |\/| |/ _ \ / _` | | |_| |/ _ \/ _` |____\___ \| | '_ \ / __|
@@ -17895,7 +17935,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# If-None-Match #
+# Headers If-None-Match #
  ___  __       _   _                        __  __       _       _     
 |_ _|/ _|     | \ | | ___  _ __   ___      |  \/  | __ _| |_ ___| |__  
  | || |_ _____|  \| |/ _ \| '_ \ / _ \_____| |\/| |/ _` | __/ __| '_ \ 
@@ -18011,7 +18051,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Aug 29, 2023 by MDN contributors .
-# If-Range #
+# Headers If-Range #
  ___  __       ____                        
 |_ _|/ _|     |  _ \ __ _ _ __   __ _  ___ 
  | || |_ _____| |_) / _` | '_ \ / _` |/ _ \
@@ -18130,7 +18170,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# If-Unmodified-Since #
+# Headers If-Unmodified-Since #
  ___  __       _   _                           _ _  __ _          _      ____  
 |_ _|/ _|     | | | |_ __  _ __ ___   ___   __| (_)/ _(_) ___  __| |    / ___| 
  | || |_ _____| | | | '_ \| '_ ` _ \ / _ \ / _` | | |_| |/ _ \/ _` |____\___ \ 
@@ -18253,7 +18293,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Keep-Alive #
+# Headers Keep-Alive #
  _  __                       _    _ _           
 | |/ /___  ___ _ __         / \  | (_)_   _____ 
 | ' // _ \/ _ \ '_ \ _____ / _ \ | | \ \ / / _ \
@@ -18352,7 +18392,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 11, 2023 by MDN contributors .
-# Large-Allocation #
+# Headers Large-Allocation #
  _                                 _    _ _                 _   _             
 | |    __ _ _ __ __ _  ___        / \  | | | ___   ___ __ _| |_(_) ___  _ __  
 | |   / _` | '__/ _` |/ _ \_____ / _ \ | | |/ _ \ / __/ _` | __| |/ _ \| '_ \ 
@@ -18489,7 +18529,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Last-Modified #
+# Headers Last-Modified #
  _              _        __  __           _ _  __ _          _ 
 | |    __ _ ___| |_     |  \/  | ___   __| (_)/ _(_) ___  __| |
 | |   / _` / __| __|____| |\/| |/ _ \ / _` | | |_| |/ _ \/ _` |
@@ -18594,7 +18634,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Link #
+# Headers Link #
  _     _       _    
 | |   (_)_ __ | | __
 | |   | | '_ \| |/ /
@@ -18687,7 +18727,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Nov 23, 2023 by MDN contributors .
-# Location #
+# Headers Location #
  _                    _   _             
 | |    ___   ___ __ _| |_(_) ___  _ __  
 | |   / _ \ / __/ _` | __| |/ _ \| '_ \ 
@@ -18776,7 +18816,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Max-Forwards #
+# Headers Max-Forwards #
  __  __                 _____                                _     
 |  \/  | __ ___  __    |  ___|__  _ ____      ____ _ _ __ __| |___ 
 | |\/| |/ _` \ \/ /____| |_ / _ \| '__\ \ /\ / / _` | '__/ _` / __|
@@ -18841,7 +18881,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# NEL #
+# Headers NEL #
  _   _ _____ _     
 | \ | | ____| |    
 |  \| |  _| | |    
@@ -18894,7 +18934,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Origin-Agent-Cluster #
+# Headers Origin-Agent-Cluster #
   ___       _       _               _                    _         ____ _ 
  / _ \ _ __(_) __ _(_)_ __         / \   __ _  ___ _ __ | |_      / ___| |
 | | | | '__| |/ _` | | '_ \ _____ / _ \ / _` |/ _ \ '_ \| __|____| |   | |
@@ -19035,7 +19075,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 2, 2023 by MDN contributors .
-# Origin #
+# Headers Origin #
   ___       _       _       
  / _ \ _ __(_) __ _(_)_ __  
 | | | | '__| |/ _` | | '_ \ 
@@ -19168,7 +19208,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Permissions-Policy #
+# Headers Permissions-Policy #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -19635,7 +19675,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 26, 2023 by MDN contributors .
-# Pragma #
+# Headers Pragma #
  ____                                  
 |  _ \ _ __ __ _  __ _ _ __ ___   __ _ 
 | |_) | '__/ _` |/ _` | '_ ` _ \ / _` |
@@ -19718,7 +19758,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Proxy-Authenticate #
+# Headers Proxy-Authenticate #
  ____                              _         _   _                _   _      
 |  _ \ _ __ _____  ___   _        / \  _   _| |_| |__   ___ _ __ | |_(_) ___ 
 | |_) | '__/ _ \ \/ / | | |_____ / _ \| | | | __| '_ \ / _ \ '_ \| __| |/ __|
@@ -19804,7 +19844,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Proxy-Authorization #
+# Headers Proxy-Authorization #
  ____                              _         _   _                _          
 |  _ \ _ __ _____  ___   _        / \  _   _| |_| |__   ___  _ __(_)______ _ 
 | |_) | '__/ _ \ \/ / | | |_____ / _ \| | | | __| '_ \ / _ \| '__| |_  / _` |
@@ -19889,7 +19929,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Range #
+# Headers Range #
  ____                        
 |  _ \ __ _ _ __   __ _  ___ 
 | |_) / _` | '_ \ / _` |/ _ \
@@ -20050,7 +20090,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Nov 28, 2023 by MDN contributors .
-# Referer #
+# Headers Referer #
  ____       __                    
 |  _ \ ___ / _| ___ _ __ ___ _ __ 
 | |_) / _ \ |_ / _ \ '__/ _ \ '__|
@@ -20145,7 +20185,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Referrer-Policy #
+# Headers Referrer-Policy #
  ____       __                              ____       _ _            
 |  _ \ ___ / _| ___ _ __ _ __ ___ _ __     |  _ \ ___ | (_) ___ _   _ 
 | |_) / _ \ |_ / _ \ '__| '__/ _ \ '__|____| |_) / _ \| | |/ __| | | |
@@ -20403,7 +20443,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Retry-After #
+# Headers Retry-After #
  ____      _                      _     __ _            
 |  _ \ ___| |_ _ __ _   _        / \   / _| |_ ___ _ __ 
 | |_) / _ \ __| '__| | | |_____ / _ \ | |_| __/ _ \ '__|
@@ -20493,7 +20533,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# RTT #
+# Headers RTT #
  ____ _____ _____ 
 |  _ \_   _|_   _|
 | |_) || |   | |  
@@ -20593,7 +20633,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 10, 2023 by MDN contributors .
-# Save-Data #
+# Headers Save-Data #
  ____                        ____        _        
 / ___|  __ ___   _____      |  _ \  __ _| |_ __ _ 
 \___ \ / _` \ \ / / _ \_____| | | |/ _` | __/ _` |
@@ -20731,7 +20771,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 10, 2023 by MDN contributors .
-# Sec-CH-Prefers-Color-Scheme #
+# Headers Sec-CH-Prefers-Color-Scheme #
  ____                  ____ _   _       ____            __                     
 / ___|  ___  ___      / ___| | | |     |  _ \ _ __ ___ / _| ___ _ __ ___       
 \___ \ / _ \/ __|____| |   | |_| |_____| |_) | '__/ _ \ |_ / _ \ '__/ __|_____ 
@@ -20883,7 +20923,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 10, 2023 by MDN contributors .
-# Sec-CH-Prefers-Reduced-Motion #
+# Headers Sec-CH-Prefers-Reduced-Motion #
  ____                  ____ _   _       ____            __                     
 / ___|  ___  ___      / ___| | | |     |  _ \ _ __ ___ / _| ___ _ __ ___       
 \___ \ / _ \/ __|____| |   | |_| |_____| |_) | '__/ _ \ |_ / _ \ '__/ __|_____ 
@@ -21017,7 +21057,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 10, 2023 by MDN contributors .
-# Sec-CH-Prefers-Reduced-Transparency #
+# Headers Sec-CH-Prefers-Reduced-Transparency #
  ____                  ____ _   _       ____            __                     
 / ___|  ___  ___      / ___| | | |     |  _ \ _ __ ___ / _| ___ _ __ ___       
 \___ \ / _ \/ __|____| |   | |_| |_____| |_) | '__/ _ \ |_ / _ \ '__/ __|_____ 
@@ -21154,7 +21194,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 10, 2023 by MDN contributors .
-# Sec-CH-UA-Arch #
+# Headers Sec-CH-UA-Arch #
  ____                  ____ _   _       _   _   _           _             
 / ___|  ___  ___      / ___| | | |     | | | | / \         / \   _ __ ___ 
 \___ \ / _ \/ __|____| |   | |_| |_____| | | |/ _ \ _____ / _ \ | '__/ __|
@@ -21261,7 +21301,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 10, 2023 by MDN contributors .
-# Sec-CH-UA-Bitness #
+# Headers Sec-CH-UA-Bitness #
  ____                  ____ _   _       _   _   _         ____  _ _         
 / ___|  ___  ___      / ___| | | |     | | | | / \       | __ )(_) |_ _ __  
 \___ \ / _ \/ __|____| |   | |_| |_____| | | |/ _ \ _____|  _ \| | __| '_ \ 
@@ -21367,7 +21407,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 10, 2023 by MDN contributors .
-# Sec-CH-UA-Full-Version #
+# Headers Sec-CH-UA-Full-Version #
  ____                  ____ _   _       _   _   _         _____      _ _       
 / ___|  ___  ___      / ___| | | |     | | | | / \       |  ___|   _| | |      
 \___ \ / _ \/ __|____| |   | |_| |_____| | | |/ _ \ _____| |_ | | | | | |_____ 
@@ -21473,7 +21513,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 10, 2023 by MDN contributors .
-# Sec-CH-UA-Full-Version-List #
+# Headers Sec-CH-UA-Full-Version-List #
  ____                  ____ _   _       _   _   _         _____      _ _       
 / ___|  ___  ___      / ___| | | |     | | | | / \       |  ___|   _| | |      
 \___ \ / _ \/ __|____| |   | |_| |_____| | | |/ _ \ _____| |_ | | | | | |_____ 
@@ -21606,7 +21646,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 10, 2023 by MDN contributors .
-# Sec-CH-UA #
+# Headers Sec-CH-UA #
  ____                  ____ _   _       _   _   _    
 / ___|  ___  ___      / ___| | | |     | | | | / \   
 \___ \ / _ \/ __|____| |   | |_| |_____| | | |/ _ \  
@@ -21744,7 +21784,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 10, 2023 by MDN contributors .
-# Sec-CH-UA-Mobile #
+# Headers Sec-CH-UA-Mobile #
  ____                  ____ _   _       _   _   _         __  __       _     _ 
 / ___|  ___  ___      / ___| | | |     | | | | / \       |  \/  | ___ | |__ (_)
 \___ \ / _ \/ __|____| |   | |_| |_____| | | |/ _ \ _____| |\/| |/ _ \| '_ \| |
@@ -21844,7 +21884,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 10, 2023 by MDN contributors .
-# Sec-CH-UA-Model #
+# Headers Sec-CH-UA-Model #
  ____                  ____ _   _       _   _   _         __  __           _ 
 / ___|  ___  ___      / ___| | | |     | | | | / \       |  \/  | ___   __| |
 \___ \ / _ \/ __|____| |   | |_| |_____| | | |/ _ \ _____| |\/| |/ _ \ / _` |
@@ -21945,7 +21985,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 10, 2023 by MDN contributors .
-# Sec-CH-UA-Platform #
+# Headers Sec-CH-UA-Platform #
  ____                  ____ _   _       _   _   _         ____  _       _   
 / ___|  ___  ___      / ___| | | |     | | | | / \       |  _ \| | __ _| |_ 
 \___ \ / _ \/ __|____| |   | |_| |_____| | | |/ _ \ _____| |_) | |/ _` | __|
@@ -22039,7 +22079,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 10, 2023 by MDN contributors .
-# Sec-CH-UA-Platform-Version #
+# Headers Sec-CH-UA-Platform-Version #
  ____                  ____ _   _       _   _   _         ____  _       _   
 / ___|  ___  ___      / ___| | | |     | | | | / \       |  _ \| | __ _| |_ 
 \___ \ / _ \/ __|____| |   | |_| |_____| | | |/ _ \ _____| |_) | |/ _` | __|
@@ -22145,7 +22185,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 10, 2023 by MDN contributors .
-# Sec-Fetch-Dest #
+# Headers Sec-Fetch-Dest #
  ____                 _____    _       _           ____            _   
 / ___|  ___  ___     |  ___|__| |_ ___| |__       |  _ \  ___  ___| |_ 
 \___ \ / _ \/ __|____| |_ / _ \ __/ __| '_ \ _____| | | |/ _ \/ __| __|
@@ -22356,7 +22396,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 6, 2024 by MDN contributors .
-# Sec-Fetch-Mode #
+# Headers Sec-Fetch-Mode #
  ____                 _____    _       _           __  __           _      
 / ___|  ___  ___     |  ___|__| |_ ___| |__       |  \/  | ___   __| | ___ 
 \___ \ / _ \/ __|____| |_ / _ \ __/ __| '_ \ _____| |\/| |/ _ \ / _` |/ _ \
@@ -22474,7 +22514,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 25, 2023 by MDN contributors .
-# Sec-Fetch-Site #
+# Headers Sec-Fetch-Site #
  ____                 _____    _       _          ____  _ _       
 / ___|  ___  ___     |  ___|__| |_ ___| |__      / ___|(_) |_ ___ 
 \___ \ / _ \/ __|____| |_ / _ \ __/ __| '_ \ ____\___ \| | __/ _ \
@@ -22599,7 +22639,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 25, 2023 by MDN contributors .
-# Sec-Fetch-User #
+# Headers Sec-Fetch-User #
  ____                 _____    _       _           _   _               
 / ___|  ___  ___     |  ___|__| |_ ___| |__       | | | |___  ___ _ __ 
 \___ \ / _ \/ __|____| |_ / _ \ __/ __| '_ \ _____| | | / __|/ _ \ '__|
@@ -22679,7 +22719,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 25, 2023 by MDN contributors .
-# Sec-GPC #
+# Headers Sec-GPC #
  ____                  ____ ____   ____ 
 / ___|  ___  ___      / ___|  _ \ / ___|
 \___ \ / _ \/ __|____| |  _| |_) | |    
@@ -22770,7 +22810,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Nov 14, 2023 by MDN contributors .
-# Sec-Purpose #
+# Headers Sec-Purpose #
  ____                 ____                                  
 / ___|  ___  ___     |  _ \ _   _ _ __ _ __   ___  ___  ___ 
 \___ \ / _ \/ __|____| |_) | | | | '__| '_ \ / _ \/ __|/ _ \
@@ -22883,7 +22923,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jun 28, 2023 by MDN contributors .
-# Sec-WebSocket-Accept #
+# Headers Sec-WebSocket-Accept #
  ____              __        __   _    ____             _        _        
 / ___|  ___  ___   \ \      / /__| |__/ ___|  ___   ___| | _____| |_      
 \___ \ / _ \/ __|___\ \ /\ / / _ \ '_ \___ \ / _ \ / __| |/ / _ \ __|____ 
@@ -22955,7 +22995,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Server #
+# Headers Server #
  ____                           
 / ___|  ___ _ ____   _____ _ __ 
 \___ \ / _ \ '__\ \ / / _ \ '__|
@@ -23029,7 +23069,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Server-Timing #
+# Headers Server-Timing #
  ____                              _____ _           _             
 / ___|  ___ _ ____   _____ _ __   |_   _(_)_ __ ___ (_)_ __   __ _ 
 \___ \ / _ \ '__\ \ / / _ \ '__|____| | | | '_ ` _ \| | '_ \ / _` |
@@ -23139,7 +23179,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on May 17, 2023 by MDN contributors .
-# Service-Worker-Navigation-Preload #
+# Headers Service-Worker-Navigation-Preload #
  ____                  _             __        __         _                  
 / ___|  ___ _ ____   _(_) ___ ___    \ \      / /__  _ __| | _____ _ __      
 \___ \ / _ \ '__\ \ / / |/ __/ _ \____\ \ /\ / / _ \| '__| |/ / _ \ '__|____ 
@@ -23233,7 +23273,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Set-Cookie #
+# Headers Set-Cookie #
  ____       _         ____            _    _      
 / ___|  ___| |_      / ___|___   ___ | | _(_) ___ 
 \___ \ / _ \ __|____| |   / _ \ / _ \| |/ / |/ _ \
@@ -23557,7 +23597,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 10, 2024 by MDN contributors .
-# SourceMap #
+# Headers SourceMap #
  ____                           __  __             
 / ___|  ___  _   _ _ __ ___ ___|  \/  | __ _ _ __  
 \___ \ / _ \| | | | '__/ __/ _ \ |\/| |/ _` | '_ \ 
@@ -23623,7 +23663,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Strict-Transport-Security #
+# Headers Strict-Transport-Security #
  ____  _        _      _      _____                                     _   
 / ___|| |_ _ __(_) ___| |_   |_   _| __ __ _ _ __  ___ _ __   ___  _ __| |_ 
 \___ \| __| '__| |/ __| __|____| || '__/ _` | '_ \/ __| '_ \ / _ \| '__| __|
@@ -23800,7 +23840,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on May 10, 2023 by MDN contributors .
-# Supports-Loading-Mode #
+# Headers Supports-Loading-Mode #
  ____                               _             _                    _ _ 
 / ___| _   _ _ __  _ __   ___  _ __| |_ ___      | |    ___   __ _  __| (_)
 \___ \| | | | '_ \| '_ \ / _ \| '__| __/ __|_____| |   / _ \ / _` |/ _` | |
@@ -23865,7 +23905,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 10, 2023 by MDN contributors .
-# TE #
+# Headers TE #
  _____ _____ 
 |_   _| ____|
   | | |  _|  
@@ -23960,7 +24000,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Timing-Allow-Origin #
+# Headers Timing-Allow-Origin #
  _____ _           _                     _    _ _                     ___  
 |_   _(_)_ __ ___ (_)_ __   __ _        / \  | | | _____      __     / _ \ 
   | | | | '_ ` _ \| | '_ \ / _` |_____ / _ \ | | |/ _ \ \ /\ / /____| | | |
@@ -24048,7 +24088,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Tk #
+# Headers Tk #
  _____ _    
 |_   _| | __
   | | | |/ /
@@ -24179,7 +24219,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Nov 10, 2023 by MDN contributors .
-# Trailer #
+# Headers Trailer #
  _____          _ _           
 |_   _| __ __ _(_) | ___ _ __ 
   | || '__/ _` | | |/ _ \ '__|
@@ -24279,7 +24319,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Transfer-Encoding #
+# Headers Transfer-Encoding #
  _____                     __                _____                     _ _ 
 |_   _| __ __ _ _ __  ___ / _| ___ _ __     | ____|_ __   ___ ___   __| (_)
   | || '__/ _` | '_ \/ __| |_ / _ \ '__|____|  _| | '_ \ / __/ _ \ / _` | |
@@ -24422,7 +24462,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Upgrade #
+# Headers Upgrade #
  _   _                           _      
 | | | |_ __   __ _ _ __ __ _  __| | ___ 
 | | | | '_ \ / _` | '__/ _` |/ _` |/ _ \
@@ -24563,7 +24603,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 25, 2023 by MDN contributors .
-# Upgrade-Insecure-Requests #
+# Headers Upgrade-Insecure-Requests #
  _   _                           _           ___                           
 | | | |_ __   __ _ _ __ __ _  __| | ___     |_ _|_ __  ___  ___  ___ _   _ 
 | | | | '_ \ / _` | '__/ _` |/ _` |/ _ \_____| || '_ \/ __|/ _ \/ __| | | |
@@ -24643,7 +24683,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# User-Agent #
+# Headers User-Agent #
  _   _                      _                    _   
 | | | |___  ___ _ __       / \   __ _  ___ _ __ | |_ 
 | | | / __|/ _ \ '__|____ / _ \ / _` |/ _ \ '_ \| __|
@@ -24811,7 +24851,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Vary #
+# Headers Vary #
 __     __               
 \ \   / /_ _ _ __ _   _ 
  \ \ / / _` | '__| | | |
@@ -24887,7 +24927,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Via #
+# Headers Via #
 __     ___       
 \ \   / (_) __ _ 
  \ \ / /| |/ _` |
@@ -24968,7 +25008,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Viewport-Width #
+# Headers Viewport-Width #
 __     ___                                _     __        ___     _ _   _     
 \ \   / (_) _____      ___ __   ___  _ __| |_   \ \      / (_) __| | |_| |__  
  \ \ / /| |/ _ \ \ /\ / / '_ \ / _ \| '__| __|___\ \ /\ / /| |/ _` | __| '_ \ 
@@ -25079,7 +25119,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 10, 2023 by MDN contributors .
-# Want-Digest #
+# Headers Want-Digest #
 __        __          _        ____  _                 _   
 \ \      / /_ _ _ __ | |_     |  _ \(_) __ _  ___  ___| |_ 
  \ \ /\ / / _` | '_ \| __|____| | | | |/ _` |/ _ \/ __| __|
@@ -25234,7 +25274,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jun 5, 2023 by MDN contributors .
-# Warning #
+# Headers Warning #
 __        __               _             
 \ \      / /_ _ _ __ _ __ (_)_ __   __ _ 
  \ \ /\ / / _` | '__| '_ \| | '_ \ / _` |
@@ -25352,7 +25392,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Aug 3, 2023 by MDN contributors .
-# Width #
+# Headers Width #
 __        ___     _ _   _     
 \ \      / (_) __| | |_| |__  
  \ \ /\ / /| |/ _` | __| '_ \ 
@@ -25465,7 +25505,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 10, 2023 by MDN contributors .
-# WWW-Authenticate #
+# Headers WWW-Authenticate #
 __        ____        ____        __      _         _   _                _   _ 
 \ \      / /\ \      / /\ \      / /     / \  _   _| |_| |__   ___ _ __ | |_(_)
  \ \ /\ / /  \ \ /\ / /  \ \ /\ / /____ / _ \| | | | __| '_ \ / _ \ '_ \| __| |
@@ -25838,7 +25878,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Sep 14, 2023 by MDN contributors .
-# X-Content-Type-Options #
+# Headers X-Content-Type-Options #
 __  __      ____            _             _      _____                       
 \ \/ /     / ___|___  _ __ | |_ ___ _ __ | |_   |_   _|   _ _ __   ___       
  \  /_____| |   / _ \| '_ \| __/ _ \ '_ \| __|____| || | | | '_ \ / _ \_____ 
@@ -25935,7 +25975,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on May 10, 2023 by MDN contributors .
-# X-DNS-Prefetch-Control #
+# Headers X-DNS-Prefetch-Control #
 __  __     ____  _   _ ____        ____            __      _       _           
 \ \/ /    |  _ \| \ | / ___|      |  _ \ _ __ ___ / _| ___| |_ ___| |__        
  \  /_____| | | |  \| \___ \ _____| |_) | '__/ _ \ |_ / _ \ __/ __| '_ \ _____ 
@@ -26080,7 +26120,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# X-Forwarded-For #
+# Headers X-Forwarded-For #
 __  __     _____                                _          _       _____     
 \ \/ /    |  ___|__  _ ____      ____ _ _ __ __| | ___  __| |     |  ___|__  
  \  /_____| |_ / _ \| '__\ \ /\ / / _` | '__/ _` |/ _ \/ _` |_____| |_ / _ \ 
@@ -26266,7 +26306,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 24, 2023 by MDN contributors .
-# X-Forwarded-Host #
+# Headers X-Forwarded-Host #
 __  __     _____                                _          _       _   _       
 \ \/ /    |  ___|__  _ ____      ____ _ _ __ __| | ___  __| |     | | | | ___  
  \  /_____| |_ / _ \| '__\ \ /\ / / _` | '__/ _` |/ _ \/ _` |_____| |_| |/ _ \ 
@@ -26333,7 +26373,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 20, 2023 by MDN contributors .
-# X-Forwarded-Proto #
+# Headers X-Forwarded-Proto #
 __  __     _____                                _          _       ____       
 \ \/ /    |  ___|__  _ ____      ____ _ _ __ __| | ___  __| |     |  _ \ _ __ 
  \  /_____| |_ / _ \| '__\ \ /\ / / _` | '__/ _` |/ _ \/ _` |_____| |_) | '__|
@@ -26412,7 +26452,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# X-Frame-Options #
+# Headers X-Frame-Options #
 __  __     _____                                ___        _   _             
 \ \/ /    |  ___| __ __ _ _ __ ___   ___       / _ \ _ __ | |_(_) ___  _ __  
  \  /_____| |_ | '__/ _` | '_ ` _ \ / _ \_____| | | | '_ \| __| |/ _ \| '_ \ 
@@ -26599,7 +26639,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 12, 2023 by MDN contributors .
-# X-XSS-Protection #
+# Headers X-XSS-Protection #
 __  __   __  ______ ____        ____            _            _   _             
 \ \/ /   \ \/ / ___/ ___|      |  _ \ _ __ ___ | |_ ___  ___| |_(_) ___  _ __  
  \  /_____\  /\___ \___ \ _____| |_) | '__/ _ \| __/ _ \/ __| __| |/ _ \| '_ \ 
@@ -26755,7 +26795,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 25, 2023 by MDN contributors .
-# CONNECT #
+# Methods CONNECT #
   ____ ___  _   _ _   _ _____ ____ _____ 
  / ___/ _ \| \ | | \ | | ____/ ___|_   _|
 | |  | | | |  \| |  \| |  _|| |     | |  
@@ -26831,7 +26871,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Sep 27, 2023 by MDN contributors .
-# DELETE #
+# Methods DELETE #
  ____  _____ _     _____ _____ _____ 
 |  _ \| ____| |   | ____|_   _| ____|
 | | | |  _| | |   |  _|   | | |  _|  
@@ -26917,7 +26957,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# GET #
+# Methods GET #
   ____ _____ _____ 
  / ___| ____|_   _|
 | |  _|  _|   | |  
@@ -26980,7 +27020,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# HEAD #
+# Methods HEAD #
  _   _ _____    _    ____  
 | | | | ____|  / \  |  _ \ 
 | |_| |  _|   / _ \ | | | |
@@ -27047,7 +27087,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# OPTIONS #
+# Methods OPTIONS #
   ___  ____ _____ ___ ___  _   _ ____  
  / _ \|  _ \_   _|_ _/ _ \| \ | / ___| 
 | | | | |_) || |  | | | | |  \| \___ \ 
@@ -27194,7 +27234,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 12, 2024 by MDN contributors .
-# PATCH #
+# Methods PATCH #
  ____   _  _____ ____ _   _ 
 |  _ \ / \|_   _/ ___| | | |
 | |_) / _ \ | || |   | |_| |
@@ -27299,7 +27339,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 19, 2023 by MDN contributors .
-# POST #
+# Methods POST #
  ____   ___  ____ _____ 
 |  _ \ / _ \/ ___|_   _|
 | |_) | | | \___ \ | |  
@@ -27423,7 +27463,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 16, 2023 by MDN contributors .
-# PUT #
+# Methods PUT #
  ____  _   _ _____ 
 |  _ \| | | |_   _|
 | |_) | | | | | |  
@@ -27519,7 +27559,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# TRACE #
+# Methods TRACE #
  _____ ____      _    ____ _____ 
 |_   _|  _ \    / \  / ___| ____|
   | | | |_) |  / _ \| |   |  _|  
@@ -27585,7 +27625,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 12, 2024 by MDN contributors .
-# Proxy Auto-Configuration (PAC) file #
+# Proxy_servers_and_tunneling Proxy Auto-Configuration (PAC) file #
  ____                      
 |  _ \ _ __ _____  ___   _ 
 | |_) | '__/ _ \ \/ / | | |
@@ -28492,7 +28532,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 25, 2023 by MDN contributors .
-# 100 Continue #
+# Status 100 Continue #
  _  ___   ___     ____            _   _                  
 / |/ _ \ / _ \   / ___|___  _ __ | |_(_)_ __  _   _  ___ 
 | | | | | | | | | |   / _ \| '_ \| __| | '_ \| | | |/ _ \
@@ -28544,7 +28584,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 101 Switching Protocols #
+# Status 101 Switching Protocols #
  _  ___  _   ____          _ _       _     _             
 / |/ _ \/ | / ___|_      _(_) |_ ___| |__ (_)_ __   __ _ 
 | | | | | | \___ \ \ /\ / / | __/ __| '_ \| | '_ \ / _` |
@@ -28609,7 +28649,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 102 Processing #
+# Status 102 Processing #
  _  ___ ____    ____                              _             
 / |/ _ \___ \  |  _ \ _ __ ___   ___ ___  ___ ___(_)_ __   __ _ 
 | | | | |__) | | |_) | '__/ _ \ / __/ _ \/ __/ __| | '_ \ / _` |
@@ -28664,7 +28704,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 25, 2023 by MDN contributors .
-# 103 Early Hints #
+# Status 103 Early Hints #
  _  ___ _____   _____           _         _   _ _       _       
 / |/ _ \___ /  | ____|__ _ _ __| |_   _  | | | (_)_ __ | |_ ___ 
 | | | | ||_ \  |  _| / _` | '__| | | | | | |_| | | '_ \| __/ __|
@@ -28841,7 +28881,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 28, 2024 by MDN contributors .
-# 200 OK #
+# Status 200 OK #
  ____   ___   ___     ___  _  __
 |___ \ / _ \ / _ \   / _ \| |/ /
   __) | | | | | | | | | | | ' / 
@@ -28902,7 +28942,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 201 Created #
+# Status 201 Created #
  ____   ___  _    ____                _           _ 
 |___ \ / _ \/ |  / ___|_ __ ___  __ _| |_ ___  __| |
   __) | | | | | | |   | '__/ _ \/ _` | __/ _ \/ _` |
@@ -28955,7 +28995,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 202 Accepted #
+# Status 202 Accepted #
  ____   ___ ____       _                      _           _ 
 |___ \ / _ \___ \     / \   ___ ___ ___ _ __ | |_ ___  __| |
   __) | | | |__) |   / _ \ / __/ __/ _ \ '_ \| __/ _ \/ _` |
@@ -29004,7 +29044,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 203 Non-Authoritative Information #
+# Status 203 Non-Authoritative Information #
  ____   ___ _____ 
 |___ \ / _ \___ / 
   __) | | | ||_ \ 
@@ -29066,7 +29106,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 204 No Content #
+# Status 204 No Content #
  ____   ___  _  _     _   _          ____            _             _   
 |___ \ / _ \| || |   | \ | | ___    / ___|___  _ __ | |_ ___ _ __ | |_ 
   __) | | | | || |_  |  \| |/ _ \  | |   / _ \| '_ \| __/ _ \ '_ \| __|
@@ -29135,7 +29175,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 205 Reset Content #
+# Status 205 Reset Content #
  ____   ___  ____    ____                _   
 |___ \ / _ \| ___|  |  _ \ ___  ___  ___| |_ 
   __) | | | |___ \  | |_) / _ \/ __|/ _ \ __|
@@ -29188,7 +29228,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 206 Partial Content #
+# Status 206 Partial Content #
  ____   ___   __     ____            _   _       _ 
 |___ \ / _ \ / /_   |  _ \ __ _ _ __| |_(_) __ _| |
   __) | | | | '_ \  | |_) / _` | '__| __| |/ _` | |
@@ -29288,7 +29328,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 207 Multi-Status #
+# Status 207 Multi-Status #
  ____   ___ _____   __  __       _ _   _      ____  _        _             
 |___ \ / _ \___  | |  \/  |_   _| | |_(_)    / ___|| |_ __ _| |_ _   _ ___ 
   __) | | | | / /  | |\/| | | | | | __| |____\___ \| __/ _` | __| | | / __|
@@ -29374,7 +29414,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 25, 2023 by MDN contributors .
-# 208 Already Reported #
+# Status 208 Already Reported #
  ____   ___   ___       _    _                    _       
 |___ \ / _ \ ( _ )     / \  | |_ __ ___  __ _  __| |_   _ 
   __) | | | |/ _ \    / _ \ | | '__/ _ \/ _` |/ _` | | | |
@@ -29476,7 +29516,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 25, 2023 by MDN contributors .
-# 226 IM Used #
+# Status 226 IM Used #
  ____  ____   __     ___ __  __   _   _              _ 
 |___ \|___ \ / /_   |_ _|  \/  | | | | |___  ___  __| |
   __) | __) | '_ \   | || |\/| | | | | / __|/ _ \/ _` |
@@ -29528,7 +29568,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 25, 2023 by MDN contributors .
-# 300 Multiple Choices #
+# Status 300 Multiple Choices #
  _____  ___   ___    __  __       _ _   _       _      
 |___ / / _ \ / _ \  |  \/  |_   _| | |_(_)_ __ | | ___ 
   |_ \| | | | | | | | |\/| | | | | | __| | '_ \| |/ _ \
@@ -29582,7 +29622,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 301 Moved Permanently #
+# Status 301 Moved Permanently #
  _____  ___  _   __  __                    _ 
 |___ / / _ \/ | |  \/  | _____   _____  __| |
   |_ \| | | | | | |\/| |/ _ \ \ / / _ \/ _` |
@@ -29661,7 +29701,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 302 Found #
+# Status 302 Found #
  _____  ___ ____    _____                     _ 
 |___ / / _ \___ \  |  ___|__  _   _ _ __   __| |
   |_ \| | | |__) | | |_ / _ \| | | | '_ \ / _` |
@@ -29727,7 +29767,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 303 See Other #
+# Status 303 See Other #
  _____  ___ _____   ____               ___  _   _               
 |___ / / _ \___ /  / ___|  ___  ___   / _ \| |_| |__   ___ _ __ 
   |_ \| | | ||_ \  \___ \ / _ \/ _ \ | | | | __| '_ \ / _ \ '__|
@@ -29780,7 +29820,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 304 Not Modified #
+# Status 304 Not Modified #
  _____  ___  _  _     _   _       _     __  __           _ _  __ _          _ 
 |___ / / _ \| || |   | \ | | ___ | |_  |  \/  | ___   __| (_)/ _(_) ___  __| |
   |_ \| | | | || |_  |  \| |/ _ \| __| | |\/| |/ _ \ / _` | | |_| |/ _ \/ _` |
@@ -29903,7 +29943,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Nov 21, 2023 by MDN contributors .
-# 307 Temporary Redirect #
+# Status 307 Temporary Redirect #
  _____  ___ _____   _____                                               
 |___ / / _ \___  | |_   _|__ _ __ ___  _ __   ___  _ __ __ _ _ __ _   _ 
   |_ \| | | | / /    | |/ _ \ '_ ` _ \| '_ \ / _ \| '__/ _` | '__| | | |
@@ -29974,7 +30014,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 308 Permanent Redirect #
+# Status 308 Permanent Redirect #
  _____  ___   ___    ____                                            _   
 |___ / / _ \ ( _ )  |  _ \ ___ _ __ _ __ ___   __ _ _ __   ___ _ __ | |_ 
   |_ \| | | |/ _ \  | |_) / _ \ '__| '_ ` _ \ / _` | '_ \ / _ \ '_ \| __|
@@ -30041,7 +30081,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 400 Bad Request #
+# Status 400 Bad Request #
  _  _    ___   ___    ____            _   ____                            _   
 | || |  / _ \ / _ \  | __ )  __ _  __| | |  _ \ ___  __ _ _   _  ___  ___| |_ 
 | || |_| | | | | | | |  _ \ / _` |/ _` | | |_) / _ \/ _` | | | |/ _ \/ __| __|
@@ -30087,7 +30127,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 401 Unauthorized #
+# Status 401 Unauthorized #
  _  _    ___  _   _   _                   _   _                _             _ 
 | || |  / _ \/ | | | | |_ __   __ _ _   _| |_| |__   ___  _ __(_)_______  __| |
 | || |_| | | | | | | | | '_ \ / _` | | | | __| '_ \ / _ \| '__| |_  / _ \/ _` |
@@ -30155,7 +30195,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 402 Payment Required #
+# Status 402 Payment Required #
  _  _    ___ ____    ____                                  _   
 | || |  / _ \___ \  |  _ \ __ _ _   _ _ __ ___   ___ _ __ | |_ 
 | || |_| | | |__) | | |_) / _` | | | | '_ ` _ \ / _ \ '_ \| __|
@@ -30225,7 +30265,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 403 Forbidden #
+# Status 403 Forbidden #
  _  _    ___ _____   _____          _     _     _     _            
 | || |  / _ \___ /  |  ___|__  _ __| |__ (_) __| | __| | ___ _ __  
 | || |_| | | ||_ \  | |_ / _ \| '__| '_ \| |/ _` |/ _` |/ _ \ '_ \ 
@@ -30283,7 +30323,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 404 Not Found #
+# Status 404 Not Found #
  _  _    ___  _  _     _   _       _     _____                     _ 
 | || |  / _ \| || |   | \ | | ___ | |_  |  ___|__  _   _ _ __   __| |
 | || |_| | | | || |_  |  \| |/ _ \| __| | |_ / _ \| | | | '_ \ / _` |
@@ -30350,7 +30390,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 25, 2023 by MDN contributors .
-# 405 Method Not Allowed #
+# Status 405 Method Not Allowed #
  _  _    ___  ____    __  __      _   _               _   _   _       _   
 | || |  / _ \| ___|  |  \/  | ___| |_| |__   ___   __| | | \ | | ___ | |_ 
 | || |_| | | |___ \  | |\/| |/ _ \ __| '_ \ / _ \ / _` | |  \| |/ _ \| __|
@@ -30405,7 +30445,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 406 Not Acceptable #
+# Status 406 Not Acceptable #
  _  _    ___   __     _   _       _   
 | || |  / _ \ / /_   | \ | | ___ | |_ 
 | || |_| | | | '_ \  |  \| |/ _ \| __|
@@ -30479,7 +30519,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 407 Proxy Authentication Required #
+# Status 407 Proxy Authentication Required #
  _  _    ___ _____   ____                      
 | || |  / _ \___  | |  _ \ _ __ _____  ___   _ 
 | || |_| | | | / /  | |_) | '__/ _ \ \/ / | | |
@@ -30555,7 +30595,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 408 Request Timeout #
+# Status 408 Request Timeout #
  _  _    ___   ___    ____                            _   
 | || |  / _ \ ( _ )  |  _ \ ___  __ _ _   _  ___  ___| |_ 
 | || |_| | | |/ _ \  | |_) / _ \/ _` | | | |/ _ \/ __| __|
@@ -30616,7 +30656,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 409 Conflict #
+# Status 409 Conflict #
  _  _    ___   ___     ____             __ _ _      _   
 | || |  / _ \ / _ \   / ___|___  _ __  / _| (_) ___| |_ 
 | || |_| | | | (_) | | |   / _ \| '_ \| |_| | |/ __| __|
@@ -30667,7 +30707,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 410 Gone #
+# Status 410 Gone #
  _  _   _  ___     ____                  
 | || | / |/ _ \   / ___| ___  _ __   ___ 
 | || |_| | | | | | |  _ / _ \| '_ \ / _ \
@@ -30720,7 +30760,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 411 Length Required #
+# Status 411 Length Required #
  _  _   _ _   _                     _   _     
 | || | / / | | |    ___ _ __   __ _| |_| |__  
 | || |_| | | | |   / _ \ '_ \ / _` | __| '_ \ 
@@ -30774,7 +30814,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 412 Precondition Failed #
+# Status 412 Precondition Failed #
  _  _   _ ____    ____                               _ _ _   _             
 | || | / |___ \  |  _ \ _ __ ___  ___ ___  _ __   __| (_) |_(_) ___  _ __  
 | || |_| | __) | | |_) | '__/ _ \/ __/ _ \| '_ \ / _` | | __| |/ _ \| '_ \ 
@@ -30867,7 +30907,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 413 Content Too Large #
+# Status 413 Content Too Large #
  _  _   _ _____    ____            _             _     _____           
 | || | / |___ /   / ___|___  _ __ | |_ ___ _ __ | |_  |_   _|__   ___  
 | || |_| | |_ \  | |   / _ \| '_ \| __/ _ \ '_ \| __|   | |/ _ \ / _ \ 
@@ -30919,7 +30959,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 414 URI Too Long #
+# Status 414 URI Too Long #
  _  _   _ _  _     _   _ ____  ___   _____             _                      
 | || | / | || |   | | | |  _ \|_ _| |_   _|__   ___   | |    ___  _ __   __ _ 
 | || |_| | || |_  | | | | |_) || |    | |/ _ \ / _ \  | |   / _ \| '_ \ / _` |
@@ -30970,7 +31010,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 415 Unsupported Media Type #
+# Status 415 Unsupported Media Type #
  _  _   _ ____    _   _                                        _           _ 
 | || | / | ___|  | | | |_ __  ___ _   _ _ __  _ __   ___  _ __| |_ ___  __| |
 | || |_| |___ \  | | | | '_ \/ __| | | | '_ \| '_ \ / _ \| '__| __/ _ \/ _` |
@@ -31023,7 +31063,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 416 Range Not Satisfiable #
+# Status 416 Range Not Satisfiable #
  _  _   _  __     ____                          _   _       _   
 | || | / |/ /_   |  _ \ __ _ _ __   __ _  ___  | \ | | ___ | |_ 
 | || |_| | '_ \  | |_) / _` | '_ \ / _` |/ _ \ |  \| |/ _ \| __|
@@ -31088,7 +31128,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 417 Expectation Failed #
+# Status 417 Expectation Failed #
  _  _   _ _____   _____                      _        _   _             
 | || | / |___  | | ____|_  ___ __   ___  ___| |_ __ _| |_(_) ___  _ __  
 | || |_| |  / /  |  _| \ \/ / '_ \ / _ \/ __| __/ _` | __| |/ _ \| '_ \ 
@@ -31138,7 +31178,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 418 I'm a teapot #
+# Status 418 I'm a teapot #
  _  _   _  ___    ___ _                     _                         _   
 | || | / |( _ )  |_ _( )_ __ ___     __ _  | |_ ___  __ _ _ __   ___ | |_ 
 | || |_| |/ _ \   | ||/| '_ ` _ \   / _` | | __/ _ \/ _` | '_ \ / _ \| __|
@@ -31190,7 +31230,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 421 Misdirected Request #
+# Status 421 Misdirected Request #
  _  _  ____  _   __  __ _         _ _               _           _ 
 | || ||___ \/ | |  \/  (_)___  __| (_)_ __ ___  ___| |_ ___  __| |
 | || |_ __) | | | |\/| | / __|/ _` | | '__/ _ \/ __| __/ _ \/ _` |
@@ -31235,7 +31275,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 5, 2023 by MDN contributors .
-# 422 Unprocessable Content #
+# Status 422 Unprocessable Content #
  _  _  ____  ____  
 | || ||___ \|___ \ 
 | || |_ __) | __) |
@@ -31288,7 +31328,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 423 Locked #
+# Status 423 Locked #
  _  _  ____  _____   _               _            _ 
 | || ||___ \|___ /  | |    ___   ___| | _____  __| |
 | || |_ __) | |_ \  | |   / _ \ / __| |/ / _ \/ _` |
@@ -31347,7 +31387,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 5, 2023 by MDN contributors .
-# 424 Failed Dependency #
+# Status 424 Failed Dependency #
  _  _  ____  _  _     _____     _ _          _ 
 | || ||___ \| || |   |  ___|_ _(_) | ___  __| |
 | || |_ __) | || |_  | |_ / _` | | |/ _ \/ _` |
@@ -31401,7 +31441,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 7, 2023 by MDN contributors .
-# 425 Too Early #
+# Status 425 Too Early #
  _  _  ____  ____    _____             _____           _       
 | || ||___ \| ___|  |_   _|__   ___   | ____|__ _ _ __| |_   _ 
 | || |_ __) |___ \    | |/ _ \ / _ \  |  _| / _` | '__| | | | |
@@ -31444,7 +31484,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 426 Upgrade Required #
+# Status 426 Upgrade Required #
  _  _  ____   __     _   _                           _      
 | || ||___ \ / /_   | | | |_ __   __ _ _ __ __ _  __| | ___ 
 | || |_ __) | '_ \  | | | | '_ \ / _` | '__/ _` |/ _` |/ _ \
@@ -31509,7 +31549,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 428 Precondition Required #
+# Status 428 Precondition Required #
  _  _  ____  ___    ____                               _ _ _   _             
 | || ||___ \( _ )  |  _ \ _ __ ___  ___ ___  _ __   __| (_) |_(_) ___  _ __  
 | || |_ __) / _ \  | |_) | '__/ _ \/ __/ _ \| '_ \ / _` | | __| |/ _ \| '_ \ 
@@ -31564,7 +31604,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 429 Too Many Requests #
+# Status 429 Too Many Requests #
  _  _  ____   ___    _____             __  __                   
 | || ||___ \ / _ \  |_   _|__   ___   |  \/  | __ _ _ __  _   _ 
 | || |_ __) | (_) |   | |/ _ \ / _ \  | |\/| |/ _` | '_ \| | | |
@@ -31624,7 +31664,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 431 Request Header Fields Too Large #
+# Status 431 Request Header Fields Too Large #
  _  _  _____ _   ____                            _   
 | || ||___ // | |  _ \ ___  __ _ _   _  ___  ___| |_ 
 | || |_ |_ \| | | |_) / _ \/ _` | | | |/ _ \/ __| __|
@@ -31691,7 +31731,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 451 Unavailable For Legal Reasons #
+# Status 451 Unavailable For Legal Reasons #
  _  _  ____  _   _   _                        _ _       _     _      
 | || || ___|/ | | | | |_ __   __ ___   ____ _(_) | __ _| |__ | | ___ 
 | || ||___ \| | | | | | '_ \ / _` \ \ / / _` | | |/ _` | '_ \| |/ _ \
@@ -31784,7 +31824,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 500 Internal Server Error #
+# Status 500 Internal Server Error #
  ____   ___   ___    ___       _                        _ 
 | ___| / _ \ / _ \  |_ _|_ __ | |_ ___ _ __ _ __   __ _| |
 |___ \| | | | | | |  | || '_ \| __/ _ \ '__| '_ \ / _` | |
@@ -31843,7 +31883,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 501 Not Implemented #
+# Status 501 Not Implemented #
  ____   ___  _   _   _       _   
 | ___| / _ \/ | | \ | | ___ | |_ 
 |___ \| | | | | |  \| |/ _ \| __|
@@ -31910,7 +31950,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 502 Bad Gateway #
+# Status 502 Bad Gateway #
  ____   ___ ____    ____            _ 
 | ___| / _ \___ \  | __ )  __ _  __| |
 |___ \| | | |__) | |  _ \ / _` |/ _` |
@@ -31968,7 +32008,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 503 Service Unavailable #
+# Status 503 Service Unavailable #
  ____   ___ _____   ____                  _          
 | ___| / _ \___ /  / ___|  ___ _ ____   _(_) ___ ___ 
 |___ \| | | ||_ \  \___ \ / _ \ '__\ \ / / |/ __/ _ \
@@ -32034,7 +32074,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 504 Gateway Timeout #
+# Status 504 Gateway Timeout #
  ____   ___  _  _      ____       _                           
 | ___| / _ \| || |    / ___| __ _| |_ _____      ____ _ _   _ 
 |___ \| | | | || |_  | |  _ / _` | __/ _ \ \ /\ / / _` | | | |
@@ -32093,7 +32133,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 505 HTTP Version Not Supported #
+# Status 505 HTTP Version Not Supported #
  ____   ___  ____    _   _ _____ _____ ____  
 | ___| / _ \| ___|  | | | |_   _|_   _|  _ \ 
 |___ \| | | |___ \  | |_| | | |   | | | |_) |
@@ -32147,7 +32187,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 506 Variant Also Negotiates #
+# Status 506 Variant Also Negotiates #
  ____   ___   __    __     __         _             _        _    _           
 | ___| / _ \ / /_   \ \   / /_ _ _ __(_) __ _ _ __ | |_     / \  | |___  ___  
 |___ \| | | | '_ \   \ \ / / _` | '__| |/ _` | '_ \| __|   / _ \ | / __|/ _ \ 
@@ -32197,7 +32237,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 507 Insufficient Storage #
+# Status 507 Insufficient Storage #
  ____   ___ _____   ___                  __  __ _      _            _   
 | ___| / _ \___  | |_ _|_ __  ___ _   _ / _|/ _(_) ___(_) ___ _ __ | |_ 
 |___ \| | | | / /   | || '_ \/ __| | | | |_| |_| |/ __| |/ _ \ '_ \| __|
@@ -32245,7 +32285,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 508 Loop Detected #
+# Status 508 Loop Detected #
  ____   ___   ___    _                      
 | ___| / _ \ ( _ )  | |    ___   ___  _ __  
 |___ \| | | |/ _ \  | |   / _ \ / _ \| '_ \ 
@@ -32293,7 +32333,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 510 Not Extended #
+# Status 510 Not Extended #
  ____  _  ___    _   _       _     _____      _                 _          _ 
 | ___|/ |/ _ \  | \ | | ___ | |_  | ____|_  _| |_ ___ _ __   __| | ___  __| |
 |___ \| | | | | |  \| |/ _ \| __| |  _| \ \/ / __/ _ \ '_ \ / _` |/ _ \/ _` |
@@ -32337,7 +32377,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# 511 Network Authentication Required #
+# Status 511 Network Authentication Required #
  ____  _ _   _   _      _                      _    
 | ___|/ / | | \ | | ___| |___      _____  _ __| | __
 |___ \| | | |  \| |/ _ \ __\ \ /\ / / _ \| '__| |/ /
@@ -32398,7 +32438,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Common MIME types #
+# MIME_types Common MIME types #
   ____                                        __  __ ___ __  __ _____ 
  / ___|___  _ __ ___  _ __ ___   ___  _ __   |  \/  |_ _|  \/  | ____|
 | |   / _ \| '_ ` _ \| '_ ` _ \ / _ \| '_ \  | |\/| || || |\/| |  _|  
@@ -32514,7 +32554,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jan 9, 2024 by MDN contributors .
-# Reason: CORS header 'Access-Control-Allow-Origin' does not match 'xyz' #
+# Errors Reason: CORS header 'Access-Control-Allow-Origin' does not match 'xyz' #
  ____                                 ____ ___  ____  ____  
 |  _ \ ___  __ _ ___  ___  _ __  _   / ___/ _ \|  _ \/ ___| 
 | |_) / _ \/ _` / __|/ _ \| '_ \(_) | |  | | | | |_) \___ \ 
@@ -32604,7 +32644,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 25, 2023 by MDN contributors .
-# Reason: CORS request did not succeed #
+# Errors Reason: CORS request did not succeed #
  ____                                 ____ ___  ____  ____  
 |  _ \ ___  __ _ ___  ___  _ __  _   / ___/ _ \|  _ \/ ___| 
 | |_) / _ \/ _` / __|/ _ \| '_ \(_) | |  | | | | |_) \___ \ 
@@ -32666,7 +32706,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Sep 11, 2023 by MDN contributors .
-# Reason: CORS disabled #
+# Errors Reason: CORS disabled #
  ____                                 ____ ___  ____  ____  
 |  _ \ ___  __ _ ___  ___  _ __  _   / ___/ _ \|  _ \/ ___| 
 | |_) / _ \/ _` / __|/ _ \| '_ \(_) | |  | | | | |_) \___ \ 
@@ -32710,7 +32750,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Reason: CORS request external redirect not allowed #
+# Errors Reason: CORS request external redirect not allowed #
  ____                                 ____ ___  ____  ____  
 |  _ \ ___  __ _ ___  ___  _ __  _   / ___/ _ \|  _ \/ ___| 
 | |_) / _ \/ _` / __|/ _ \| '_ \(_) | |  | | | | |_) \___ \ 
@@ -32771,7 +32811,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Reason: invalid token 'xyz' in CORS header 'Access-Control-Allow-Headers' #
+# Errors Reason: invalid token 'xyz' in CORS header 'Access-Control-Allow-Headers' #
  ____                                _                 _ _     _ 
 |  _ \ ___  __ _ ___  ___  _ __  _  (_)_ ____   ____ _| (_) __| |
 | |_) / _ \/ _` / __|/ _ \| '_ \(_) | | '_ \ \ / / _` | | |/ _` |
@@ -32842,7 +32882,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Reason: invalid token 'xyz' in CORS header 'Access-Control-Allow-Methods' #
+# Errors Reason: invalid token 'xyz' in CORS header 'Access-Control-Allow-Methods' #
  ____                                _                 _ _     _ 
 |  _ \ ___  __ _ ___  ___  _ __  _  (_)_ ____   ____ _| (_) __| |
 | |_) / _ \/ _` / __|/ _ \| '_ \(_) | | '_ \ \ / / _` | | |/ _` |
@@ -32913,7 +32953,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Reason: Did not find method in CORS header 'Access-Control-Allow-Methods' #
+# Errors Reason: Did not find method in CORS header 'Access-Control-Allow-Methods' #
  ____                                ____  _     _               _   
 |  _ \ ___  __ _ ___  ___  _ __  _  |  _ \(_) __| |  _ __   ___ | |_ 
 | |_) / _ \/ _` / __|/ _ \| '_ \(_) | | | | |/ _` | | '_ \ / _ \| __|
@@ -32991,7 +33031,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 14, 2023 by MDN contributors .
-# Reason: expected 'true' in CORS header 'Access-Control-Allow-Credentials' #
+# Errors Reason: expected 'true' in CORS header 'Access-Control-Allow-Credentials' #
  ____                                                          _           _ 
 |  _ \ ___  __ _ ___  ___  _ __  _    _____  ___ __   ___  ___| |_ ___  __| |
 | |_) / _ \/ _` / __|/ _ \| '_ \(_)  / _ \ \/ / '_ \ / _ \/ __| __/ _ \/ _` |
@@ -33068,7 +33108,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 16, 2023 by MDN contributors .
-# Reason: missing token 'xyz' in CORS header 'Access-Control-Allow-Headers' from CORS preflight channel #
+# Errors Reason: missing token 'xyz' in CORS header 'Access-Control-Allow-Headers' from CORS preflight channel #
  ____                                          _         _             
 |  _ \ ___  __ _ ___  ___  _ __  _   _ __ ___ (_)___ ___(_)_ __   __ _ 
 | |_) / _ \/ _` / __|/ _ \| '_ \(_) | '_ ` _ \| / __/ __| | '_ \ / _` |
@@ -33147,7 +33187,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on May 3, 2023 by MDN contributors .
-# Reason: CORS header 'Access-Control-Allow-Origin' missing #
+# Errors Reason: CORS header 'Access-Control-Allow-Origin' missing #
  ____                                 ____ ___  ____  ____  
 |  _ \ ___  __ _ ___  ___  _ __  _   / ___/ _ \|  _ \/ ___| 
 | |_) / _ \/ _` / __|/ _ \| '_ \(_) | |  | | | | |_) \___ \ 
@@ -33260,7 +33300,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 25, 2023 by MDN contributors .
-# Reason: Multiple CORS header 'Access-Control-Allow-Origin' not allowed #
+# Errors Reason: Multiple CORS header 'Access-Control-Allow-Origin' not allowed #
  ____                                __  __       _ _   _       _      
 |  _ \ ___  __ _ ___  ___  _ __  _  |  \/  |_   _| | |_(_)_ __ | | ___ 
 | |_) / _ \/ _` / __|/ _ \| '_ \(_) | |\/| | | | | | __| | '_ \| |/ _ \
@@ -33323,7 +33363,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Reason: Credential is not supported if the CORS header 'Access-Control-Allow-Origin' is '*' #
+# Errors Reason: Credential is not supported if the CORS header 'Access-Control-Allow-Origin' is '*' #
  ____                              
 |  _ \ ___  __ _ ___  ___  _ __  _ 
 | |_) / _ \/ _` / __|/ _ \| '_ \(_)
@@ -33407,7 +33447,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 16, 2023 by MDN contributors .
-# Reason: CORS header 'Origin' cannot be added #
+# Errors Reason: CORS header 'Origin' cannot be added #
  ____                                 ____ ___  ____  ____  
 |  _ \ ___  __ _ ___  ___  _ __  _   / ___/ _ \|  _ \/ ___| 
 | |_) / _ \/ _` / __|/ _ \| '_ \(_) | |  | | | | |_) \___ \ 
@@ -33455,7 +33495,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Reason: CORS preflight channel did not succeed #
+# Errors Reason: CORS preflight channel did not succeed #
  ____                                 ____ ___  ____  ____  
 |  _ \ ___  __ _ ___  ___  _ __  _   / ___/ _ \|  _ \/ ___| 
 | |_) / _ \/ _` / __|/ _ \| '_ \(_) | |  | | | | |_) \___ \ 
@@ -33506,7 +33546,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Reason: CORS request not HTTP #
+# Errors Reason: CORS request not HTTP #
  ____                                 ____ ___  ____  ____  
 |  _ \ ___  __ _ ___  ___  _ __  _   / ___/ _ \|  _ \/ ___| 
 | |_) / _ \/ _` / __|/ _ \| '_ \(_) | |  | | | | |_) \___ \ 
@@ -33578,7 +33618,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 16, 2023 by MDN contributors .
-# CSP: base-uri #
+# Content-Security-Policy CSP: base-uri #
   ____ ____  ____      _                                     _ 
  / ___/ ___||  _ \ _  | |__   __ _ ___  ___       _   _ _ __(_)
 | |   \___ \| |_) (_) | '_ \ / _` / __|/ _ \_____| | | | '__| |
@@ -33683,7 +33723,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 25, 2023 by MDN contributors .
-# CSP: block-all-mixed-content #
+# Content-Security-Policy CSP: block-all-mixed-content #
   ____ ____  ____    
  / ___/ ___||  _ \ _ 
 | |   \___ \| |_) (_)
@@ -33776,7 +33816,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# CSP: child-src #
+# Content-Security-Policy CSP: child-src #
   ____ ____  ____           _     _ _     _                    
  / ___/ ___||  _ \ _    ___| |__ (_) | __| |      ___ _ __ ___ 
 | |   \___ \| |_) (_)  / __| '_ \| | |/ _` |_____/ __| '__/ __|
@@ -33862,7 +33902,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# CSP: connect-src #
+# Content-Security-Policy CSP: connect-src #
   ____ ____  ____                                      _                     
  / ___/ ___||  _ \ _    ___ ___  _ __  _ __   ___  ___| |_      ___ _ __ ___ 
 | |   \___ \| |_) (_)  / __/ _ \| '_ \| '_ \ / _ \/ __| __|____/ __| '__/ __|
@@ -33972,7 +34012,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 16, 2023 by MDN contributors .
-# CSP: default-src #
+# Content-Security-Policy CSP: default-src #
   ____ ____  ____          _       __             _ _                     
  / ___/ ___||  _ \ _    __| | ___ / _| __ _ _   _| | |_      ___ _ __ ___ 
 | |   \___ \| |_) (_)  / _` |/ _ \ |_ / _` | | | | | __|____/ __| '__/ __|
@@ -34085,7 +34125,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# CSP: font-src #
+# Content-Security-Policy CSP: font-src #
   ____ ____  ____       __             _                     
  / ___/ ___||  _ \ _   / _| ___  _ __ | |_      ___ _ __ ___ 
 | |   \___ \| |_) (_) | |_ / _ \| '_ \| __|____/ __| '__/ __|
@@ -34172,7 +34212,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# CSP: form-action #
+# Content-Security-Policy CSP: form-action #
   ____ ____  ____    
  / ___/ ___||  _ \ _ 
 | |   \___ \| |_) (_)
@@ -34288,7 +34328,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 25, 2023 by MDN contributors .
-# CSP: frame-ancestors #
+# Content-Security-Policy CSP: frame-ancestors #
   ____ ____  ____    
  / ___/ ___||  _ \ _ 
 | |   \___ \| |_) (_)
@@ -34435,7 +34475,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on May 19, 2023 by MDN contributors .
-# CSP: frame-src #
+# Content-Security-Policy CSP: frame-src #
   ____ ____  ____       __                                             
  / ___/ ___||  _ \ _   / _|_ __ __ _ _ __ ___   ___       ___ _ __ ___ 
 | |   \___ \| |_) (_) | |_| '__/ _` | '_ ` _ \ / _ \_____/ __| '__/ __|
@@ -34520,7 +34560,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# CSP: img-src #
+# Content-Security-Policy CSP: img-src #
   ____ ____  ____      _                                    
  / ___/ ___||  _ \ _  (_)_ __ ___   __ _       ___ _ __ ___ 
 | |   \___ \| |_) (_) | | '_ ` _ \ / _` |_____/ __| '__/ __|
@@ -34599,7 +34639,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# CSP: manifest-src #
+# Content-Security-Policy CSP: manifest-src #
   ____ ____  ____    
  / ___/ ___||  _ \ _ 
 | |   \___ \| |_) (_)
@@ -34685,7 +34725,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# CSP: media-src #
+# Content-Security-Policy CSP: media-src #
   ____ ____  ____                         _ _                          
  / ___/ ___||  _ \ _   _ __ ___   ___  __| (_) __ _       ___ _ __ ___ 
 | |   \___ \| |_) (_) | '_ ` _ \ / _ \/ _` | |/ _` |_____/ __| '__/ __|
@@ -34770,7 +34810,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# CSP: object-src #
+# Content-Security-Policy CSP: object-src #
   ____ ____  ____            _     _           _                     
  / ___/ ___||  _ \ _    ___ | |__ (_) ___  ___| |_      ___ _ __ ___ 
 | |   \___ \| |_) (_)  / _ \| '_ \| |/ _ \/ __| __|____/ __| '__/ __|
@@ -34861,7 +34901,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on May 19, 2023 by MDN contributors .
-# CSP: plugin-types #
+# Content-Security-Policy CSP: plugin-types #
   ____ ____  ____    
  / ___/ ___||  _ \ _ 
 | |   \___ \| |_) (_)
@@ -34956,7 +34996,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on May 19, 2023 by MDN contributors .
-# CSP: prefetch-src #
+# Content-Security-Policy CSP: prefetch-src #
   ____ ____  ____    
  / ___/ ___||  _ \ _ 
 | |   \___ \| |_) (_)
@@ -35055,7 +35095,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 19, 2023 by MDN contributors .
-# CSP: referrer #
+# Content-Security-Policy CSP: referrer #
   ____ ____  ____                __                         
  / ___/ ___||  _ \ _   _ __ ___ / _| ___ _ __ _ __ ___ _ __ 
 | |   \___ \| |_) (_) | '__/ _ \ |_ / _ \ '__| '__/ _ \ '__|
@@ -35152,7 +35192,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# CSP: report-to #
+# Content-Security-Policy CSP: report-to #
   ____ ____  ____                                _        _        
  / ___/ ___||  _ \ _   _ __ ___ _ __   ___  _ __| |_     | |_ ___  
 | |   \___ \| |_) (_) | '__/ _ \ '_ \ / _ \| '__| __|____| __/ _ \ 
@@ -35248,7 +35288,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# CSP: report-uri #
+# Content-Security-Policy CSP: report-uri #
   ____ ____  ____                                _                   _ 
  / ___/ ___||  _ \ _   _ __ ___ _ __   ___  _ __| |_      _   _ _ __(_)
 | |   \___ \| |_) (_) | '__/ _ \ '_ \ / _ \| '__| __|____| | | | '__| |
@@ -35385,7 +35425,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# CSP: require-trusted-types-for #
+# Content-Security-Policy CSP: require-trusted-types-for #
   ____ ____  ____    
  / ___/ ___||  _ \ _ 
 | |   \___ \| |_) (_)
@@ -35487,7 +35527,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 25, 2023 by MDN contributors .
-# CSP: sandbox #
+# Content-Security-Policy CSP: sandbox #
   ____ ____  ____                          _ _               
  / ___/ ___||  _ \ _   ___  __ _ _ __   __| | |__   _____  __
 | |   \___ \| |_) (_) / __|/ _` | '_ \ / _` | '_ \ / _ \ \/ /
@@ -35635,7 +35675,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# CSP: script-src-attr #
+# Content-Security-Policy CSP: script-src-attr #
   ____ ____  ____    
  / ___/ ___||  _ \ _ 
 | |   \___ \| |_) (_)
@@ -35745,7 +35785,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# CSP: script-src-elem #
+# Content-Security-Policy CSP: script-src-elem #
   ____ ____  ____    
  / ___/ ___||  _ \ _ 
 | |   \___ \| |_) (_)
@@ -35847,7 +35887,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# CSP: script-src #
+# Content-Security-Policy CSP: script-src #
   ____ ____  ____                    _       _                     
  / ___/ ___||  _ \ _   ___  ___ _ __(_)_ __ | |_      ___ _ __ ___ 
 | |   \___ \| |_) (_) / __|/ __| '__| | '_ \| __|____/ __| '__/ __|
@@ -36194,7 +36234,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 19, 2023 by MDN contributors .
-# CSP source values #
+# Content-Security-Policy CSP source values #
   ____ ____  ____                                 
  / ___/ ___||  _ \   ___  ___  _   _ _ __ ___ ___ 
 | |   \___ \| |_) | / __|/ _ \| | | | '__/ __/ _ \
@@ -36380,7 +36420,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Dec 26, 2023 by MDN contributors .
-# CSP: style-src-attr #
+# Content-Security-Policy CSP: style-src-attr #
   ____ ____  ____    
  / ___/ ___||  _ \ _ 
 | |   \___ \| |_) (_)
@@ -36504,7 +36544,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 10, 2023 by MDN contributors .
-# CSP: style-src-elem #
+# Content-Security-Policy CSP: style-src-elem #
   ____ ____  ____    
  / ___/ ___||  _ \ _ 
 | |   \___ \| |_) (_)
@@ -36624,7 +36664,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# CSP: style-src #
+# Content-Security-Policy CSP: style-src #
   ____ ____  ____          _         _                         
  / ___/ ___||  _ \ _   ___| |_ _   _| | ___       ___ _ __ ___ 
 | |   \___ \| |_) (_) / __| __| | | | |/ _ \_____/ __| '__/ __|
@@ -36837,7 +36877,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Aug 28, 2023 by MDN contributors .
-# CSP: trusted-types #
+# Content-Security-Policy CSP: trusted-types #
   ____ ____  ____    
  / ___/ ___||  _ \ _ 
 | |   \___ \| |_) (_)
@@ -36938,7 +36978,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Oct 25, 2023 by MDN contributors .
-# CSP: upgrade-insecure-requests #
+# Content-Security-Policy CSP: upgrade-insecure-requests #
   ____ ____  ____    
  / ___/ ___||  _ \ _ 
 | |   \___ \| |_) (_)
@@ -37074,7 +37114,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on May 10, 2023 by MDN contributors .
-# CSP: worker-src #
+# Content-Security-Policy CSP: worker-src #
   ____ ____  ____                         _                               
  / ___/ ___||  _ \ _  __      _____  _ __| | _____ _ __      ___ _ __ ___ 
 | |   \___ \| |_) (_) \ \ /\ / / _ \| '__| |/ / _ \ '__|____/ __| '__/ __|
@@ -37158,7 +37198,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Permissions-Policy: accelerometer #
+# Permissions-Policy Permissions-Policy: accelerometer #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -37235,7 +37275,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Permissions-Policy: ambient-light-sensor #
+# Permissions-Policy Permissions-Policy: ambient-light-sensor #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -37319,7 +37359,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Permissions-Policy: autoplay #
+# Permissions-Policy Permissions-Policy: autoplay #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -37394,7 +37434,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Permissions-Policy: battery #
+# Permissions-Policy Permissions-Policy: battery #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -37469,7 +37509,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Permissions-Policy: camera #
+# Permissions-Policy Permissions-Policy: camera #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -37535,7 +37575,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Permissions-Policy: display-capture #
+# Permissions-Policy Permissions-Policy: display-capture #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -37610,7 +37650,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Permissions-Policy: document-domain #
+# Permissions-Policy Permissions-Policy: document-domain #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -37692,7 +37732,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Permissions-Policy: encrypted-media #
+# Permissions-Policy Permissions-Policy: encrypted-media #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -37775,7 +37815,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Permissions-Policy: execution-while-not-rendered #
+# Permissions-Policy Permissions-Policy: execution-while-not-rendered #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -37861,7 +37901,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Permissions-Policy: execution-while-out-of-viewport #
+# Permissions-Policy Permissions-Policy: execution-while-out-of-viewport #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -37952,7 +37992,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Permissions-Policy: fullscreen #
+# Permissions-Policy Permissions-Policy: fullscreen #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -38061,7 +38101,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Permissions-Policy: gamepad #
+# Permissions-Policy Permissions-Policy: gamepad #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -38165,7 +38205,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Permissions-Policy: geolocation #
+# Permissions-Policy Permissions-Policy: geolocation #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -38271,7 +38311,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Permissions-Policy: gyroscope #
+# Permissions-Policy Permissions-Policy: gyroscope #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -38342,7 +38382,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Permissions-Policy: hid #
+# Permissions-Policy Permissions-Policy: hid #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -38422,7 +38462,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Permissions-Policy: identity-credentials-get #
+# Permissions-Policy Permissions-Policy: identity-credentials-get #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -38506,7 +38546,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Permissions-Policy: idle-detection #
+# Permissions-Policy Permissions-Policy: idle-detection #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -38587,7 +38627,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Permissions-Policy: local-fonts #
+# Permissions-Policy Permissions-Policy: local-fonts #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -38659,7 +38699,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Permissions-Policy: magnetometer #
+# Permissions-Policy Permissions-Policy: magnetometer #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -38736,7 +38776,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Permissions-Policy: microphone #
+# Permissions-Policy Permissions-Policy: microphone #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -38802,7 +38842,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Permissions-Policy: midi #
+# Permissions-Policy Permissions-Policy: midi #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -38872,7 +38912,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Permissions-Policy: otp-credentials #
+# Permissions-Policy Permissions-Policy: otp-credentials #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -38953,7 +38993,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 24, 2023 by MDN contributors .
-# Permissions-Policy: payment #
+# Permissions-Policy Permissions-Policy: payment #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -39023,7 +39063,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Permissions-Policy: picture-in-picture #
+# Permissions-Policy Permissions-Policy: picture-in-picture #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -39106,7 +39146,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Permissions-Policy: publickey-credentials-create #
+# Permissions-Policy Permissions-Policy: publickey-credentials-create #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -39193,7 +39233,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Jul 19, 2023 by MDN contributors .
-# Permissions-Policy: publickey-credentials-get #
+# Permissions-Policy Permissions-Policy: publickey-credentials-get #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -39276,7 +39316,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Nov 10, 2023 by MDN contributors .
-# Permissions-Policy: screen-wake-lock #
+# Permissions-Policy Permissions-Policy: screen-wake-lock #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -39360,7 +39400,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Permissions-Policy: serial #
+# Permissions-Policy Permissions-Policy: serial #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -39432,7 +39472,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Permissions-Policy: speaker-selection #
+# Permissions-Policy Permissions-Policy: speaker-selection #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -39521,7 +39561,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Permissions-Policy: storage-access #
+# Permissions-Policy Permissions-Policy: storage-access #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -39604,7 +39644,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on May 16, 2023 by MDN contributors .
-# Permissions-Policy: usb #
+# Permissions-Policy Permissions-Policy: usb #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -39682,7 +39722,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Permissions-Policy: web-share #
+# Permissions-Policy Permissions-Policy: web-share #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -39750,7 +39790,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Permissions-Policy: window-management #
+# Permissions-Policy Permissions-Policy: window-management #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -39836,7 +39876,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Nov 2, 2023 by MDN contributors .
-# Permissions-Policy: xr-spatial-tracking #
+# Permissions-Policy Permissions-Policy: xr-spatial-tracking #
  ____                     _         _                       ____       _ _ 
 |  _ \ ___ _ __ _ __ ___ (_)___ ___(_) ___  _ __  ___      |  _ \ ___ | (_)
 | |_) / _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|_____| |_) / _ \| | |
@@ -39926,7 +39966,7 @@ Found a content problem with this page?
 Want to get more involved? Learn how to contribute .
 
 This page was last modified on Apr 10, 2023 by MDN contributors .
-# Firefox user agent string reference #
+# User-Agent Firefox user agent string reference #
  _____ _           __                                 
 |  ___(_)_ __ ___ / _| _____  __  _   _ ___  ___ _ __ 
 | |_  | | '__/ _ \ |_ / _ \ \/ / | | | / __|/ _ \ '__|

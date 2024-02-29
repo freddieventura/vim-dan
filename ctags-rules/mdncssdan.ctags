@@ -1,5 +1,4 @@
 --langdef=mdncssdantags
 --langmap=mdncssdantags:.mdncssdan
 --kinddef-mdncssdantags=t,topic,topics
---regex-mdncssdantags=/^#\s(\S{0,2}\w.*)\s#$/\1/t/
 --regex-mdncssdantags=/^#\s(.*)\s#(\s\(X\)){0,1}$/\1/t/

@@ -88,9 +88,9 @@ hi def link danReturns Question
 " ---------------------------------------------------------
 "  If there is some code of a certain programming language
 "  embedded in the docu
-#syn include @danJava syntax/java.vim
-#unlet b:current_syntax
-#
-#syn region javaScript start=/\n\{3,}/ end=/^Previous Next$/me=e-4 contains=@danJava
+"syn include @danJava syntax/java.vim
+"unlet b:current_syntax
+"
+"syn region javaScript start=/\n\{3,}/ end=/^Previous Next$/me=e-4 contains=@danJava
 " EOF EOF EOF EMBEDDING CODE
 " ---------------------------------------------------------
