@@ -69,7 +69,83 @@ hi def link danListMarker Statement
 " ---------------------------------------------------------
 " EOF EOF EOF EOF BASIC DAN SYNTAX ITEMS
 
+" KEYWORDS
+" ---------------------------------------------------------
+"  Repeated keywords for the docu
+"  Check for Newline starting words ocurrence with
+"  cat main.${framework}dan | grep -o -E '^\w+' | sort | uniq -c | sort -nr
 
+"syn match danMykeyword 
+"hi def link danMykeyword Question
+
+syn match danMykeyword "^See also$"
+hi def link danMykeyword Question
+
+syn match danMykeyword "^Examples$"
+hi def link danMykeyword Question
+
+syn match danMykeyword "^Specifications$"
+hi def link danMykeyword Question
+
+syn match danMykeyword "^Syntax$"
+hi def link danMykeyword Question
+
+syn match danMykeyword "^Formal syntax$"
+hi def link danMykeyword Question
+
+syn match danMykeyword "^Description$"
+hi def link danMykeyword Question
+
+syn match danParameters "^Parameters$"
+hi def link danParameters Comment
+
+syn match danAttributes "^Attributes$"
+hi def link danAttributes CursorLine 
+
+syn match danUsagenot "^Usage notes$"
+hi def link danUsagenot Underlined
+
+syn match danDirectives "^Directives$"
+hi def link danDirectives Underlined
+
+syn match danTechsum "^Technical summary$"
+hi def link danTechsum Underlined
+
+syn match danReturnval "^Return value$"
+hi def link danReturnval Underlined
+
+syn match danExceptions "^Exceptions$"
+hi def link danExceptions WarningMsg
+
+syn match danInstanceProp "^Instance properties$"
+hi def link danInstanceProp CursorLine
+
+syn match danInstanceMeth "^Instance methods$"
+hi def link danInstanceMeth CursorLine
+
+syn match danConstructor "^Constructor$"
+hi def link danConstructor WarningMsg 
+
+syn match danEvents "^Events$"
+hi def link danEvents Special
+
+syn match danValues "^Values$"
+hi def link danValues TabLine
+
+syn keyword danMykeyword Optional 
+hi def link danMykeyword Question
+
+syn keyword danExperimental Experimental
+hi def link danExperimental Comment
+
+syn keyword danNonstand Non-standard
+hi def link danNonstand Comment
+
+syn keyword danDeprecated Deprecated
+hi def link danDeprecated WarningMsg
+" Question , Nontext , LineNr , WarningMsg , Colorcolumn
+" ---------------------------------------------------------
+" EOF EOF EOF EOF KEYWORDS
 
 
 " EMBEDDING CODE
@@ -77,10 +153,28 @@ hi def link danListMarker Statement
 "  If there is some code of a certain programming language
 "  embedded in the docu
 "" JS Code
-" TODO
-"syn include @nodejsdanJavaScript syntax/javascript.vim
-"unlet b:current_syntax
-"
-"syn region javaScript start=/[\.:]$\n\n\s\{4}/ms=s+5 end=/.$\n\n^\S/me=e-4 contains=@nodejsdanJavaScript
+syn include @danJavaScript syntax/javascript.vim
+unlet b:current_syntax
+
+syn region JavaScript start=/^js$\n\n^\s\{4,}\S/ms=s+5 keepend end=/\S$\n\n\S/me=s-1 contains=@danJavaScript
+
+"" CSS Code
+syn include @danCss syntax/css.vim
+unlet b:current_syntax
+
+syn region Css start=/^css$\n\n^\s\{4,}\S/ms=s+5 keepend end=/\S$\n\n\S/me=s-1 contains=@danCss
+
+"" HTML Code
+syn include @danHtml syntax/html.vim
+unlet b:current_syntax
+
+syn region Html start=/^html$\n\n^\s\{4,}\S/ms=s+5 keepend end=/\S$\n\n\S/me=s-1 contains=@danHtml
+
+"" JSON Code
+syn include @danJson syntax/json.vim
+unlet b:current_syntax
+
+syn region Json start=/^json$\n\n^\s\{4,}\S/ms=s+5 keepend end=/\S$\n\n\S/me=s-1 contains=@danJson
+
 " EOF EOF EOF EMBEDDING CODE
 " ---------------------------------------------------------

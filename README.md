@@ -121,6 +121,7 @@ rename "s/\*/asterisk/g" ${DOCU_PATH}/downloaded/**/*.*
 
 The following are ideas pending to develop within the project:
 
+    - Syntax rules for java- maxforlive and apps-script
     - Re-write linking rules for use of `set iskeyword` , check example of `vimhelpdan`
     - Add a dependency checker
     - Create an ebook (`.epub`, `.pdf` etc...) parser, which will recognise the lines highlighted by the reader and the notes taken. Store
