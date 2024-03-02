@@ -74,7 +74,7 @@ updating_vim() {
     cp ${CURRENT_DIR}/ft-detection/${DOCU_NAME}dan.vim  ${VIM_RTP_DIR}/ftdetect/
     [ ! -d "${VIM_RTP_DIR}/after/ftplugin" ] && mkdir -p "${VIM_RTP_DIR}/after/ftplugin"
         # If there is own linking-rules then copy them, otherwise use default
-        if [ -e ${CURRENT_DIR}/linking-rules/${DOCU_NAME} ]; then
+        if [ -e ${CURRENT_DIR}/linking-rules/${DOCU_NAME}dan.vim ]; then
             cp ${CURRENT_DIR}/linking-rules/${DOCU_NAME}dan.vim ${VIM_RTP_DIR}/after/ftplugin/${DOCU_NAME}dan.vim
         else
             cp ${CURRENT_DIR}/linking-rules/defaultdan.vim  ${VIM_RTP_DIR}/after/ftplugin/${DOCU_NAME}dan.vim

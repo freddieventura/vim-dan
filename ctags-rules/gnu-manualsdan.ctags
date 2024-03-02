@@ -1,0 +1,4 @@
+--langdef=gnumanualsdantags
+--langmap=gnumanualsdantags:.gnu-manualsdan
+--kinddef-gnumanualsdantags=t,topic,topics
+--regex-gnumanualsdantags=/^#\s(.*)\s#(\s\(X\)){0,1}$/\1/t/
