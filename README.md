@@ -20,6 +20,14 @@ The framework documentation can be periodically updated according to their publi
 The project aims for the simplicity of `vim`'s functionality, aiming to extend the use **plain-text** , **syntax highlight** and **tags** navigation in a similar fashion to [vim-help-files](https://vimhelp.org/) , analogous to the usage of `filetype = help'.
 
 
+## Actual usage
+
+Note the following usage points:
+
+    - When highlighting a line with "(X)" on a tag, you have to reload the tags for the file (Pressing F5 or running ctags again)
+
+
+
 ## Dependencies
 
 ```
@@ -50,6 +58,17 @@ But everyone is free to participate in the project, if you like the way it works
 Below you can find a guide on how to start your own **DAN Documentation** for a new framework.
 Also any suggestions on how to improve the already existing source are more than welcomed.
 
+## Useful vim remappings on
+To make your life easier I have set the following
+
+```
+nnoremap <C-l> :normal $a (X)<Esc>
+
+noremap <F5> :call dan#Refreshloclist()<CR>:!ctags -R ./ 2>/dev/null<CR>
+```
+
+Meaning pressing `Ctrl` + `l` will create a highlight mark '(X)' at the end of the line
+While pressing `<F5>` will create a `location-list` that will displays those *highlighted* lines, also refreshing tags. Pressing additinonaly will refresh such a location list
 
 ## Processes of creating a DAN Documentation
 
@@ -121,6 +140,15 @@ rename "s/\*/asterisk/g" ${DOCU_PATH}/downloaded/**/*.*
 
 The following are ideas pending to develop within the project:
 
+    - Create an online documentation repository , so it can be easily checked by something like
+    Simple to use in a one-liner , 
+ ```
+curl https://vim-dan.io/nodejs | vim
+ ``` 
+    It should contain somehow syntax rules, tags and linking rules
+    - Analogously to the last documentation parsers `./manpagesdeb` , find a way to categorize the files when parsing , doing an associative array for (Topic => File) , then create an Array that for each element (each Topic) is an object that has the actual attributes of the Topic (such as isAMethod , Parentof, ChildOf etc...) , to the documentation can be automatically generated (both index files and content files)
+        (For this point there may have the need of migrating to an actual programming language such as nodejs)
+    - Create an improved way to update the documentation when in use of (X) , such as locate the lines that have (X) ocurrence and place it in that new updated file , report the lines that dont have correspondence.
     - Syntax rules for java- maxforlive and apps-script
     - Re-write linking rules for use of `set iskeyword` , check example of `vimhelpdan`
     - Add a dependency checker

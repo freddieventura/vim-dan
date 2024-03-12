@@ -10,6 +10,7 @@ perfom_install(){
     perform_patch
     updating_tags
     updating_vim
+    install_autoload
 }
 perfom_update(){
     echo "Updating vim-dan ${DOCU_NAME} on ${DOCU_PATH}/ ..."
@@ -18,6 +19,7 @@ perfom_update(){
     perform_patch
     updating_tags
     updating_vim
+    install_autoload
 }
 
 perfom_index(){
@@ -31,6 +33,7 @@ perfom_parse(){
     perform_patch
     updating_tags
     updating_vim
+    install_autoload
 }
 perfom_remove(){
     echo "Removing vim-dan ${DOCU_NAME} off ${DOCU_PATH}/ ..."
@@ -38,10 +41,17 @@ perfom_remove(){
     rm ${VIM_RTP_DIR}/ftdetect/${DOCU_NAME}dan.vim 
     rm ${VIM_RTP_DIR}/after/ftplugin/${DOCU_NAME}dan.vim 
     rm ${VIM_RTP_DIR}/syntax/${DOCU_NAME}dan.vim 
+    rm ${CURRENT_DIR}/autoload/dan.vim 
 }
 delete_index() {
     echo "Deleting previous Index ..."
     rm -r ${DOCU_PATH}/downloaded
+}
+install_autoload() {
+    if [ -e ${VIM_RTP_DIR}/autoload/dan.vim ]; then
+        echo "Installing autoload ..."
+        cp ${CURRENT_DIR}/autoload/dan.vim ${DOCU_NAME}dan ${VIM_RTP_DIR}/autoload/
+    fi
 }
 ## EOF EOF EOFF USER TRIGGERED ACTIONS
 ## ------------------------------------
