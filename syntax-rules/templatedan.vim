@@ -38,25 +38,22 @@ hi def link danLinkFromParentName Ignore
 
 " Links to
 syn match danLinktoEntry "^#\s.*\s#$" contains=danLinktoHash
-syn match danLinktoEntryXed "^#\s.*\s#\s(X)$" contains=danLinktoHash
+syn match danLinktoEntryXed "^#\s.*\s#\%(\s(X)\)\{,1}$" contains=danLinktoHash,danX
 syn match danLinktoHash contained "#" conceal
 
 hi def link danLinktoHash Ignore
 hi def link danLinktoEntry String
 hi def link danLinktoEntryXed String
 
+" (X) Annotation
+syn match danX "(X)"
 
-" (X) and (K) Annotation
-syn match danXonline "(X)"
-syn match danKonline "(K)"
-
-hi def link danXonline StatusLineTerm
-hi def link danKonline SpellRare
+hi def link danX StatusLineTerm
 
 " Method links
-syn match danMethodLink "-   [A-Za-z_]*\w\+\.[A-Za-z_]*\w\+(.*$"hs=s+4 contains=danXonline,danKonline,danLinktoHash
-syn match danProperty "\([A-Za-z_\[\]]*\w\+\.\)\+[A-Za-z_\[\]]\+\w\+.*$" contains=danXonline,danKonline,danLinktoHash
-syn match danMethod "\([A-Za-z_\[\]]*\w\+\.\)*[A-Za-z_\[\]]*\w\+(.*$" contains=danXonline,danKonline,danLinktoHash
+syn match danMethodLink "-   [A-Za-z_]*\w\+\.[A-Za-z_]*\w\+(.*$"hs=s+4 contains=danX,danLinktoHash
+syn match danProperty "\([A-Za-z_\[\]]*\w\+\.\)\+[A-Za-z_\[\]]\+\w\+.*$" contains=danX,danLinktoHash
+syn match danMethod "\([A-Za-z_\[\]]*\w\+\.\)*[A-Za-z_\[\]]*\w\+(.*$" contains=danX,danLinktoHash
 hi def link danMethodLink	Identifier
 hi def link danMethod Identifier
 hi def link danProperty Statement
@@ -78,6 +75,9 @@ hi def link danListMarker Statement
 "syn match danMykeyword 
 
 "hi def link danMykeyword Question
+
+"syn match danValues "^Values\%(\s(X)\)\{,1}$" contains=danX
+"hi def link danValues TabLine
 
 " Question , Nontext , LineNr , WarningMsg , Colorcolumn
 " ---------------------------------------------------------

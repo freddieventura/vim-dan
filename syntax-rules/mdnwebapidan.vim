@@ -22,7 +22,7 @@ if has("conceal")
 endif
 
 " Links from
-syn region danLinkfromEntry start="&" end="&" contains=danLinkfromAmper,danLinkFromParentName oneline
+syn region danLinkfromEntry start="&" end="&" contains=danLinkfromAmper,danLinkFromParentName,danX oneline
 
 if has("conceal")
   syn match danLinkfromAmper contained "&" conceal
@@ -39,7 +39,7 @@ hi def link danLinkFromParentName Ignore
 
 " Links to
 syn match danLinktoEntry "^#\s.*\s#$" contains=danLinktoHash
-syn match danLinktoEntryXed "^#\s.*\s#\s(X)$" contains=danLinktoHash
+syn match danLinktoEntryXed "^#\s.*\s#\%(\s(X)\)\{,1}$" contains=danLinktoHash,danX
 syn match danLinktoHash contained "#" conceal
 
 hi def link danLinktoHash Ignore
@@ -47,17 +47,15 @@ hi def link danLinktoEntry String
 hi def link danLinktoEntryXed String
 
 
-" (X) and (K) Annotation
-syn match danXonline "(X)"
-syn match danKonline "(K)"
+" (X) Annotation
+syn match danX "(X)"
 
-hi def link danXonline StatusLineTerm
-hi def link danKonline SpellRare
+hi def link danX StatusLineTerm
 
 " Method links
-syn match danMethodLink "-   [A-Za-z_]*\w\+\.[A-Za-z_]*\w\+(.*$"hs=s+4 contains=danXonline,danKonline,danLinktoHash
-syn match danProperty "\([A-Za-z_\[\]]*\w\+\.\)\+[A-Za-z_\[\]]\+\w\+.*$" contains=danXonline,danKonline,danLinktoHash
-syn match danMethod "\([A-Za-z_\[\]]*\w\+\.\)*[A-Za-z_\[\]]*\w\+(.*$" contains=danXonline,danKonline,danLinktoHash
+syn match danMethodLink "-   [A-Za-z_]*\w\+\.[A-Za-z_]*\w\+(.*$"hs=s+4 contains=danX,danLinktoHash
+syn match danProperty "\([A-Za-z_\[\]]*\w\+\.\)\+[A-Za-z_\[\]]\+\w\+.*$" contains=danX,danLinktoHash
+syn match danMethod "\([A-Za-z_\[\]]*\w\+\.\)*[A-Za-z_\[\]]*\w\+(.*$" contains=danX,danLinktoHash
 hi def link danMethodLink	Identifier
 hi def link danMethod Identifier
 hi def link danProperty Statement
@@ -78,58 +76,58 @@ hi def link danListMarker Statement
 "syn match danMykeyword 
 "hi def link danMykeyword Question
 
-syn match danMykeyword "^See also$"
+syn match danMykeyword "^See also\%(\s(X)\)\{,1}$" contains=danX
 hi def link danMykeyword Question
 
-syn match danMykeyword "^Examples$"
+syn match danMykeyword "^Examples\%(\s(X)\)\{,1}$" contains=danX
 hi def link danMykeyword Question
 
-syn match danMykeyword "^Specifications$"
+syn match danMykeyword "^Specifications\%(\s(X)\)\{,1}$" contains=danX
 hi def link danMykeyword Question
 
-syn match danMykeyword "^Syntax$"
+syn match danMykeyword "^Syntax\%(\s(X)\)\{,1}$" contains=danX
 hi def link danMykeyword Question
 
-syn match danMykeyword "^Formal syntax$"
+syn match danMykeyword "^Formal syntax\%(\s(X)\)\{,1}$" contains=danX
 hi def link danMykeyword Question
 
-syn match danMykeyword "^Description$"
+syn match danMykeyword "^Description\%(\s(X)\)\{,1}$" contains=danX
 hi def link danMykeyword Question
 
-syn match danParameters "^Parameters$"
+syn match danParameters "^Parameters\%(\s(X)\)\{,1}$" contains=danX
 hi def link danParameters Comment
 
-syn match danAttributes "^Attributes$"
+syn match danAttributes "^Attributes\%(\s(X)\)\{,1}$" contains=danX
 hi def link danAttributes CursorLine 
 
-syn match danUsagenot "^Usage notes$"
+syn match danUsagenot "^Usage notes\%(\s(X)\)\{,1}$" contains=danX
 hi def link danUsagenot Underlined
 
-syn match danDirectives "^Directives$"
+syn match danDirectives "^Directives\%(\s(X)\)\{,1}$" contains=danX
 hi def link danDirectives Underlined
 
-syn match danTechsum "^Technical summary$"
+syn match danTechsum "^Technical summary\%(\s(X)\)\{,1}$" contains=danX
 hi def link danTechsum Underlined
 
-syn match danReturnval "^Return value$"
+syn match danReturnval "^Return value\%(\s(X)\)\{,1}$" contains=danX
 hi def link danReturnval Underlined
 
-syn match danExceptions "^Exceptions$"
+syn match danExceptions "^Exceptions\%(\s(X)\)\{,1}$" contains=danX
 hi def link danExceptions WarningMsg
 
-syn match danInstanceProp "^Instance properties$"
+syn match danInstanceProp "^Instance properties\%(\s(X)\)\{,1}$" contains=danX
 hi def link danInstanceProp CursorLine
 
-syn match danInstanceMeth "^Instance methods$"
+syn match danInstanceMeth "^Instance methods\%(\s(X)\)\{,1}$" contains=danX
 hi def link danInstanceMeth CursorLine
 
-syn match danConstructor "^Constructor$"
+syn match danConstructor "^Constructor\%(\s(X)\)\{,1}$" contains=danX
 hi def link danConstructor WarningMsg 
 
-syn match danEvents "^Events$"
+syn match danEvents "^Events\%(\s(X)\)\{,1}$" contains=danX
 hi def link danEvents Special
 
-syn match danValues "^Values$"
+syn match danValues "^Values\%(\s(X)\)\{,1}$" contains=danX
 hi def link danValues TabLine
 
 syn keyword danMykeyword Optional 

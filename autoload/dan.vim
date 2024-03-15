@@ -3,7 +3,7 @@ vim9script
 # File with some funtions to use on vim-dan
 # main.docudan
 # Set it to refresh tags and highlighted notes such as
-# noremap <F5> :call dan#Refreshloclist()<CR>:!ctags -R ./ 2>/dev/null<CR>
+# noremap <F5> :call dan#Refreshloclist()<CR>:silent! ctags -R ./ 2>/dev/null<CR>
 
 
 # Close tab of the loclist that belongs to currentBuffer
@@ -62,6 +62,9 @@ enddef
 # Opening the location list in a new tab maintaining the syntax highlighting
 # -----------------------------------------------
 export def Openloclist()
+    # Saving current Tab we are in
+    var currTab = tabpagenr()
+
 	# Saving the current filetype
     var myFiletype = &filetype
 
@@ -71,6 +74,12 @@ export def Openloclist()
     execute 'set ft=' .. myFiletype
     set foldmethod=manual
     set foldcolumn=0
+
+    # Concealing (X)
+    execute 'syn match danX "(X)" conceal'
+
+    # Returning to the previous tab
+    exec ":" .. currTab .. " tabnext"
 enddef
 # -----------------------------------------------
 

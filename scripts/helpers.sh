@@ -6,7 +6,7 @@
 perfom_install(){
     [ ! -d "${DOCU_PATH}" ] && mkdir -p "${DOCU_PATH}"
     echo "Installing vim-dan ${DOCU_NAME} into ${DOCU_PATH}/ ..."
-    cp $CURRENT_DIR/ready-docus/main.${DOCU_NAME}dan ${DOCU_PATH}/main.${DOCU_NAME}dan-toupdate
+    cp $CURRENT_DIR/ready-docus/main.${DOCU_NAME}dan ${DOCU_PATH}/main-toupdate.${DOCU_NAME}dan
     perform_patch
     updating_tags
     updating_vim
@@ -50,7 +50,7 @@ delete_index() {
 install_autoload() {
     if [ -e ${VIM_RTP_DIR}/autoload/dan.vim ]; then
         echo "Installing autoload ..."
-        cp ${CURRENT_DIR}/autoload/dan.vim ${DOCU_NAME}dan ${VIM_RTP_DIR}/autoload/
+        cp ${CURRENT_DIR}/autoload/dan.vim ${VIM_RTP_DIR}/autoload/
     fi
 }
 ## EOF EOF EOFF USER TRIGGERED ACTIONS

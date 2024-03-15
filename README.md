@@ -58,17 +58,38 @@ But everyone is free to participate in the project, if you like the way it works
 Below you can find a guide on how to start your own **DAN Documentation** for a new framework.
 Also any suggestions on how to improve the already existing source are more than welcomed.
 
-## Useful vim remappings on
+## vimrc Additions
 To make your life easier I have set the following
 
 ```
-nnoremap <C-l> :normal $a (X)<Esc>
+# VIM-DAN FUNCTIONALITIES
+# ----------------------------------
+nnoremap <C-i> :normal $a (X)<Esc>
 
-noremap <F5> :call dan#Refreshloclist()<CR>:!ctags -R ./ 2>/dev/null<CR>
+noremap <F4> :ToggleXConceal<CR>
+noremap <F5> :call dan#Refreshloclist()<CR>:silent! !ctags -R ./ 2>/dev/null<CR>:redraw!<CR>:silent! tag<CR>
+
+command! ToggleXConceal call ToggleXConceal(g:xConceal)
+
+g:xConceal = 0
+def ToggleXConceal(xConceal: number): void
+    if (xConceal == 1)
+        syn match danX "(X)"
+        g:xConceal = 0
+    elseif (xConceal == 0)
+        syn match danX "(X)" conceal
+        g:xConceal = 1
+    else
+        echo 'ERROR ON XConceal Toggle'
+    endif
+enddef
+# ----------------------------------
+#eof eof eof eof eof VIM-DAN FUNCTIONALITIES
 ```
 
-Meaning pressing `Ctrl` + `l` will create a highlight mark '(X)' at the end of the line
+Meaning pressing `Ctrl` + `i` will create a highlight mark '(X)' at the end of the line
 While pressing `<F5>` will create a `location-list` that will displays those *highlighted* lines, also refreshing tags. Pressing additinonaly will refresh such a location list
+Pressing '<F4>' will conceal (hide) those marks. In the location list Marks are hidden by default.
 
 ## Processes of creating a DAN Documentation
 
@@ -149,7 +170,15 @@ curl https://vim-dan.io/nodejs | vim
     - Analogously to the last documentation parsers `./manpagesdeb` , find a way to categorize the files when parsing , doing an associative array for (Topic => File) , then create an Array that for each element (each Topic) is an object that has the actual attributes of the Topic (such as isAMethod , Parentof, ChildOf etc...) , to the documentation can be automatically generated (both index files and content files)
         (For this point there may have the need of migrating to an actual programming language such as nodejs)
     - Create an improved way to update the documentation when in use of (X) , such as locate the lines that have (X) ocurrence and place it in that new updated file , report the lines that dont have correspondence.
+    - unmap insert modes and other modification modes and ways to access them
+```
+noremap i <Nop>
+noremap o <Nop>
+noremap r <Nop>
+noremap R <Nop>
+noremap A <Nop>
+```
     - Syntax rules for java- maxforlive and apps-script
-    - Re-write linking rules for use of `set iskeyword` , check example of `vimhelpdan`
+    - Bundle this repo as a vim plugin
     - Add a dependency checker
     - Create an ebook (`.epub`, `.pdf` etc...) parser, which will recognise the lines highlighted by the reader and the notes taken. Store
