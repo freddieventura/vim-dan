@@ -101,7 +101,6 @@ parsing_rules(){
     echo "Last parsed on : $(date)" >> ${MAIN_TOUPDATE}
 
 
-set -x
 mapfile -t files_array < <(find ${DOCU_PATH}/downloaded -name *.html | sort )
 for file in "${files_array[@]}"; do
     ## Creating an associative array with the links_from (links_to) and their filename

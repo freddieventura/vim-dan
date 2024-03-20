@@ -79,7 +79,20 @@ hi def link danListMarker Statement
 "syn match danValues "^Values\%(\s(X)\)\{,1}$" contains=danX
 "hi def link danValues TabLine
 
-" Question , Nontext , LineNr , WarningMsg , Colorcolumn
+" Under normal colour scheme 
+" term=                                             ,  Bold       ,underline 
+" ctermfg= Green     , DarkBlue , DarkYellow, Red   ,  White      ,darkmagenta
+" ctermbg=                                          ,  Darkgray    , 
+"           Question , Nontext , LineNr , WarningMsg , Colorcolumn,Underlined
+"            Type
+" term=                                    , bold               , underline
+" ctermfg=  darkmagenta,  blue ,  cyan     ,         ,Darkyellow, 
+" ctermbg=
+"           PreProc ,  Comment , Identifier, Ignore , Statement, CursorLine
+" term=     Darkmagenta , Bold
+" ctermfg= 
+" ctermbg=  underline  , Lightgray
+"           Underlined, StatusLine. 
 " ---------------------------------------------------------
 " EOF EOF EOF EOF KEYWORDS
 

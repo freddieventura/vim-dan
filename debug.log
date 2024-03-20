@@ -1,0 +1,367 @@
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/documentation.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ About this documentation &'
++ echo '- & @downloaded@ About this documentation &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/assert.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Assert &'
++ echo '- & @downloaded@ Assert &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/async_hooks.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Async hooks &'
++ echo '- & @downloaded@ Async hooks &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/async_context.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Asynchronous context tracking &'
++ echo '- & @downloaded@ Asynchronous context tracking &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/buffer.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Buffer &'
++ echo '- & @downloaded@ Buffer &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/addons.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ C++ addons &'
++ echo '- & @downloaded@ C++ addons &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/embedding.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ C++ embedder API &'
++ echo '- & @downloaded@ C++ embedder API &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/child_process.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Child process &'
++ echo '- & @downloaded@ Child process &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/cluster.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Cluster &'
++ echo '- & @downloaded@ Cluster &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/cli.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Command-line API &'
++ echo '- & @downloaded@ Command-line API &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/console.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Console &'
++ echo '- & @downloaded@ Console &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/corepack.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Corepack &'
++ echo '- & @downloaded@ Corepack &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/crypto.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Crypto &'
++ echo '- & @downloaded@ Crypto &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/debugger.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Debugger &'
++ echo '- & @downloaded@ Debugger &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/deprecations.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Deprecated APIs &'
++ echo '- & @downloaded@ Deprecated APIs &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/report.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Diagnostic report &'
++ echo '- & @downloaded@ Diagnostic report &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/diagnostics_channel.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Diagnostics Channel &'
++ echo '- & @downloaded@ Diagnostics Channel &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/dns.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ DNS &'
++ echo '- & @downloaded@ DNS &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/domain.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Domain &'
++ echo '- & @downloaded@ Domain &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/errors.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Errors &'
++ echo '- & @downloaded@ Errors &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/events.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Events &'
++ echo '- & @downloaded@ Events &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/fs.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ File system &'
++ echo '- & @downloaded@ File system &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/globals.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Global objects &'
++ echo '- & @downloaded@ Global objects &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/http.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ HTTP &'
++ echo '- & @downloaded@ HTTP &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/http2.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ HTTP/2 &'
++ echo '- & @downloaded@ HTTP/2 &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/https.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ HTTPS &'
++ echo '- & @downloaded@ HTTPS &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/inspector.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Inspector &'
++ echo '- & @downloaded@ Inspector &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/intl.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Internationalization support &'
++ echo '- & @downloaded@ Internationalization support &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/modules.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Modules: CommonJS modules &'
++ echo '- & @downloaded@ Modules: CommonJS modules &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/esm.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Modules: ECMAScript modules &'
++ echo '- & @downloaded@ Modules: ECMAScript modules &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/module.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Modules:  node:module API &'
++ echo '- & @downloaded@ Modules:  node:module API &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/packages.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Modules: Packages &'
++ echo '- & @downloaded@ Modules: Packages &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/net.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Net &'
++ echo '- & @downloaded@ Net &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/n-api.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Node-API &'
++ echo '- & @downloaded@ Node-API &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/os.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ OS &'
++ echo '- & @downloaded@ OS &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/path.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Path &'
++ echo '- & @downloaded@ Path &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/perf_hooks.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Performance measurement APIs &'
++ echo '- & @downloaded@ Performance measurement APIs &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/permissions.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Permissions &'
++ echo '- & @downloaded@ Permissions &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/process.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Process &'
++ echo '- & @downloaded@ Process &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/punycode.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Punycode &'
++ echo '- & @downloaded@ Punycode &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/querystring.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Query string &'
++ echo '- & @downloaded@ Query string &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/readline.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Readline &'
++ echo '- & @downloaded@ Readline &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/repl.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ REPL &'
++ echo '- & @downloaded@ REPL &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/stream.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Stream [src] &'
++ echo '- & @downloaded@ Stream [src] &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/string_decoder.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ String decoder &'
++ echo '- & @downloaded@ String decoder &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/test.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Test runner &'
++ echo '- & @downloaded@ Test runner &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/timers.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Timers &'
++ echo '- & @downloaded@ Timers &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/tls.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ TLS (SSL) &'
++ echo '- & @downloaded@ TLS (SSL) &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/tracing.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Trace events &'
++ echo '- & @downloaded@ Trace events &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/tty.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ TTY &'
++ echo '- & @downloaded@ TTY &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/dgram.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ UDP/datagram sockets &'
++ echo '- & @downloaded@ UDP/datagram sockets &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/url.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ URL &'
++ echo '- & @downloaded@ URL &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/synopsis.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Usage and example &'
++ echo '- & @downloaded@ Usage and example &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/util.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Util &'
++ echo '- & @downloaded@ Util &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/v8.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ V8 &'
++ echo '- & @downloaded@ V8 &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/vm.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ VM (executing JavaScript) &'
++ echo '- & @downloaded@ VM (executing JavaScript) &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/wasi.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ WebAssembly System Interface (WASI) &'
++ echo '- & @downloaded@ WebAssembly System Interface (WASI) &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/webcrypto.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Web Crypto API &'
++ echo '- & @downloaded@ Web Crypto API &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/webstreams.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Web Streams API &'
++ echo '- & @downloaded@ Web Streams API &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/worker_threads.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Worker threads &'
++ echo '- & @downloaded@ Worker threads &'
++ for key in "${sorted_links_to_paths[@]}"
++++ dirname /home/fakuve/downloads/vim-dan-original/nodejs/downloaded/zlib.html
+++ basename /home/fakuve/downloads/vim-dan-original/nodejs/downloaded
++ parentname=downloaded
++ link_from='& @downloaded@ Zlib &'
++ echo '- & @downloaded@ Zlib &'
++ set +x

@@ -112,6 +112,9 @@ hi def link danTechsum Underlined
 syn match danReturnval "^Return value\%(\s(X)\)\{,1}$" contains=danX
 hi def link danReturnval Underlined
 
+syn match danValue "^Value\%(\s(X)\)\{,1}$" contains=danX
+hi def link danValue Underlined
+
 syn match danExceptions "^Exceptions\%(\s(X)\)\{,1}$" contains=danX
 hi def link danExceptions WarningMsg
 
@@ -129,6 +132,12 @@ hi def link danEvents Special
 
 syn match danValues "^Values\%(\s(X)\)\{,1}$" contains=danX
 hi def link danValues TabLine
+
+syn match danValues "^Interfaces\%(\s(X)\)\{,1}$" contains=danX
+hi def link danValues TabLine
+
+syn keyword danInherits inherits
+hi def link danInherits Underlined
 
 syn keyword danMykeyword Optional 
 hi def link danMykeyword Question

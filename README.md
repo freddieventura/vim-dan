@@ -161,6 +161,11 @@ rename "s/\*/asterisk/g" ${DOCU_PATH}/downloaded/**/*.*
 
 The following are ideas pending to develop within the project:
 
+    - Create other layer of in-line highlighting , appart of (X) , do (K) for a finer more to stand out note for this:
+        - create its mark mapping (K) (twice press Ctrl + p + p ?)
+        - create its ctags regex positive lokaround
+        - create its syntaxs patterns skips
+        - create its own loc-list mechanisms
     - Create an online documentation repository , so it can be easily checked by something like
     Simple to use in a one-liner , 
  ```
