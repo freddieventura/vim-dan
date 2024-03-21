@@ -12060,7 +12060,7 @@ The  'disconnect' event is emitted after calling the
 longer possible to send or receive messages, and the
  subprocess.connected property is  false .
 
-Event:  'error'# (X)
+Event:  'error'#
 
 -    err <Error> The error.
 
@@ -46185,7 +46185,7 @@ Table of contents
             -    Http2Session and sockets
             -   Event:  'close'
             -   Event:  'connect'
-            -   Event:  'error' (X)
+            -   Event:  'error'
             -   Event:  'frameError'
             -   Event:  'goaway'
             -   Event:  'localSettings'

@@ -1,0 +1,4 @@
+--langdef=nodeexpressdantags
+--langmap=nodeexpressdantags:.node-expressdan
+--kinddef-nodeexpressdantags=t,topic,topics
+--regex-nodeexpressdantags=/^#\s(.*)\s#(\s\(X\)){0,1}$/\1/t/

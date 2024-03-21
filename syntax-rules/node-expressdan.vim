@@ -72,31 +72,11 @@ hi def link danListMarker Statement
 "  cat main.${framework}dan | grep -o -E '^\w+' | sort | uniq -c | sort -nr
 
 "syn match danMykeyword 
+
 "hi def link danMykeyword Question
 
-
 "syn match danValues "^Values\%(\s(X)\)\{,1}$" contains=danX
-
-syn match danHistory "^History$"
-hi def link danHistory Type
-
-syn match danStability "^Stability: \d"
-hi def link danStability Type
-
-syn match danAdded "^Added in:.*$"
-hi def link danAdded Type
-
-syn match danEvent "Event:.*\%(\s(X)\)\{,1}$"he=s+5 contains=danX,danMethodLink,danProperty,danMethod,danLinktoHash
-hi def link danEvent Underlined 
-
-syn match danExtends "Extends:.*\%(\s(X)\)\{,1}$"he=s+7 contains=danX,danMethodLink,danProperty,danMethod
-hi def link danExtends Comment
-
-syn match danClass "Class:.*\%(\s(X)\)\{,1}$"he=s+5 contains=danX,danLinktoHash
-hi def link danClass CursorLine 
-
-syn match danReturn "Returns:.*\%(\s(X)\)\{,1}$"he=s+8 contains=danX
-hi def link danReturn Underlined
+"hi def link danValues TabLine
 
 " Under normal colour scheme 
 " term=                                             ,  Bold       ,underline 
