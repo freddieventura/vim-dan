@@ -1,48 +1,49 @@
-" Author: freddieventura
-" File related to vim-dan linking rules
-" so in files with the extension .${framework_name}dan
-"      Upon locating in certain navigation areas
-"      You can press Ctrl + ] and move around topics/signatures/etc
-" Check https://github.com/freddieventura/vim-dan for more info
-" 
-" This is an snippet to start file-specific linking rules
-" Use this snippet as a template for defining file-specific linking rules
-"
-" In order to customize the file follow this instructions
-"       - Name it ${framework_name}.dan
-"       - Place it in vim-dan/linking-rules/
-"       - Peform the following Substitution :46,$s/Spec/${framework_name}/g
-"       - Modify only two lines in the following document 
-"           - matchingPatternList
-"               This corresponds to the patterns that recognises that there is 
-"               a link in that line.
-"           - trimPatternList
-"               Out of the previous line match , the pattern that will be
-"               trimmed out of the string, after this trimming the resulting
-"               string will be searched as a tag
-"
-" For instance if you want to match lines like the following ones
-"    - somethingSomething(pepe)
-"    - someotherstuff(luis)
-" matchingPatternList will recognise the whitespaces , the dash , the
-" whitespace and the rest of the string till the line break
-"    var matchingPatternList = ['\s*-\s\+.*$']
-" trimPatternList will recognise that whitespaces , that dash and the first
-" whitespace
-"    var trimPatternList = ['\s*-\s\+', '\s(X)']
-"    (remember we add '\s(X)' to skip the pattern of our highlighted lines on documentation
+vim9script
+# Author: freddieventura
+# File related to vim-dan linking rules
+# so in files with the extension .${framework_name}dan
+#      Upon locating in certain navigation areas
+#      You can press Ctrl + ] and move around topics/signatures/etc
+# Check https://github.com/freddieventura/vim-dan for more info
+# 
+# This is an snippet to start file-specific linking rules
+# Use this snippet as a template for defining file-specific linking rules
+#
+# In order to customize the file follow this instructions
+#       - Name it ${framework_name}.dan
+#       - Place it in vim-dan/linking-rules/
+#       - Peform the following Substitution :46,$s/Spec/${framework_name}/g
+#       - Modify only two lines in the following document 
+#           - matchingPatternList
+#               This corresponds to the patterns that recognises that there is 
+#               a link in that line.
+#           - trimPatternList
+#               Out of the previous line match , the pattern that will be
+#               trimmed out of the string, after this trimming the resulting
+#               string will be searched as a tag
+#
+# For instance if you want to match lines like the following ones
+#    - somethingSomething(pepe)
+#    - someotherstuff(luis)
+# matchingPatternList will recognise the whitespaces , the dash , the
+# whitespace and the rest of the string till the line break
+#    var matchingPatternList = ['\s*-\s\+.*$']
+# trimPatternList will recognise that whitespaces , that dash and the first
+# whitespace
+#    var trimPatternList = ['\s*-\s\+', '\s(X)']
+#    (remember we add '\s(X)' to skip the pattern of our highlighted lines on documentation
 
-" Setting iskeyword to
+# Setting iskeyword to
 set iskeyword=!-~,^*,^\|,^\",192-255
 
-" Understanding Linkto functionality
-" In vim-dan documents there are a bunch of
-"   - & link from &
-"  That refer to
-"   - # link to # 
-"  (been link from and link to the same)
-"  You just need to locate the cursor on top of the line
-"   with the linkFrom and press Ctrl + ]
+# Understanding Linkto functionality
+# In vim-dan documents there are a bunch of
+#   - & link from &
+#  That refer to
+#   - # link to # 
+#  (been link from and link to the same)
+#  You just need to locate the cursor on top of the line
+#   with the linkFrom and press Ctrl + ]
 command! GotoLinkto call GotoLinktoFn()
 command! IsLineLinkto call IsLineLinktoFn()
 command! GotoJavaapiLinkto call GotoJavaapiLinktoFn()
@@ -103,3 +104,26 @@ def! GotoJavaapiLinktoFn(): void
 
     execute "tag " .. myString
 enddef
+
+# VIM-DAN FUNCTIONALITIES
+# ----------------------------------
+nnoremap <C-p> :normal $a (X)<Esc>
+noremap <F4> :ToggleXConceal<CR>
+noremap <F5> :call dan#Refreshloclist()<CR>:silent! !ctags -R ./ 2>/dev/null<CR>:redraw!<CR>:silent! tag<CR>
+
+command! ToggleXConceal call ToggleXConceal(g:xConceal)
+
+g:xConceal = 0
+def ToggleXConceal(xConceal: number): void
+    if (xConceal == 1)
+        syn match danX "(X)"
+        g:xConceal = 0
+    elseif (xConceal == 0)
+        syn match danX "(X)" conceal
+        g:xConceal = 1
+    else
+        echo 'ERROR ON XConceal Toggle'
+    endif
+enddef
+# ----------------------------------
+#eof eof eof eof eof VIM-DAN FUNCTIONALITIES
