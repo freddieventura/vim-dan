@@ -1,0 +1,4 @@
+--langdef=jsreactdantags
+--langmap=jsreactdantags:.js-reactdan
+--kinddef-jsreactdantags=t,topic,topics
+--regex-jsreactdantags=/^#\s(.*)\s#(\s\(X\)){0,1}$/\1/t/
