@@ -25,10 +25,10 @@ syn region danLinkfromEntry start="&" end="&" contains=danLinkfromAmper,danLinkF
 
 if has("conceal")
   syn match danLinkfromAmper contained "&" conceal
-  syn match danLinkFromParentName contained "@\w*@" conceal
+  syn match danLinkFromParentName contained "@[-./[:alnum:]_~]*@" conceal
 else
   syn match danLinkfromAmper contained "&"
-  syn match danLinkFromParentName contained "@\w*@"
+  syn match danLinkFromParentName contained "@[-./[:alnum:]_~]*@"
 endif
 
 

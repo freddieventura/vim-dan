@@ -1,0 +1,4 @@
+--langdef=winpwshdantags
+--langmap=winpwshdantags:.win-pwshdan
+--kinddef-winpwshdantags=t,topic,topics
+--regex-winpwshdantags=/^#\s(.*)\s#(\s\(X\)){0,1}$/\1/t/

@@ -1,0 +1,4 @@
+--langdef=reactnativedantags
+--langmap=reactnativedantags:.react-nativedan
+--kinddef-reactnativedantags=t,topic,topics
+--regex-reactnativedantags=/^#\s(.*)\s#(\s\(X\)){0,1}$/\1/t/

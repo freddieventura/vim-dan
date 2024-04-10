@@ -25,10 +25,10 @@ syn region danLinkfromEntry start="&" end="&" contains=danLinkfromAmper,danLinkF
 
 if has("conceal")
   syn match danLinkfromAmper contained "&" conceal
-  syn match danLinkFromParentName contained "@\w*@" conceal
+  syn match danLinkFromParentName contained "@[-./[:alnum:]_~]*@" conceal
 else
   syn match danLinkfromAmper contained "&"
-  syn match danLinkFromParentName contained "@\w*@"
+  syn match danLinkFromParentName contained "@[-./[:alnum:]_~]*@"
 endif
 
 
@@ -78,6 +78,21 @@ hi def link danListMarker Statement
 "syn match danValues "^Values\%(\s(X)\)\{,1}$" contains=danX
 "hi def link danValues TabLine
 
+syn match danReference "^Reference \%(\s(X)\)\{,1}$" contains=danX
+hi def link danReference TabLine
+
+syn match danParameters "^Parameters \%(\s(X)\)\{,1}$" contains=danX
+hi def link danParameters TabLine
+
+syn match danReturns "^Returns \%(\s(X)\)\{,1}$" contains=danX
+hi def link danReturns TabLine
+
+syn match danUsage "^Usage \%(\s(X)\)\{,1}$" contains=danX
+hi def link danUsage TabLine
+
+syn match danCaveats "^Caveats \%(\s(X)\)\{,1}$" contains=danX
+hi def link danCaveats TabLine
+
 " Under normal colour scheme 
 " term=                                             ,  Bold       ,underline 
 " ctermfg= Green     , DarkBlue , DarkYellow, Red   ,  White      ,darkmagenta
@@ -104,6 +119,6 @@ hi def link danListMarker Statement
 syn include @danJavaScript syntax/javascript.vim
 unlet b:current_syntax
 
-syn region javaScript start=/[\.:]$\n\n\s\{4}/ms=s+5 keepend end=/.$\n\n^\S/me=e-4 contains=@danJavaScript
+syn region javaScript start=/[\.:]$\n\n\s\{4,}/ms=s+5 keepend end=/.$\n\n^\S/me=e-4 contains=@danJavaScript
 " EOF EOF EOF EMBEDDING CODE
 " ---------------------------------------------------------

@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 # DECLARING VARIABLES AND PROCESSING ARGS
 # -------------------------------------
 # (do not touch)
@@ -10,20 +11,21 @@ DOCU_PATH="$1"
 shift
 DOCU_NAME=$(basename ${0} '.sh')
 MAIN_TOUPDATE="${DOCU_PATH}/main-toupdate.${DOCU_NAME}dan"
-DOWNLOAD_LINK="https://reactnative.dev/"
+DOWNLOAD_LINK="https://react.dev/"
 # -------------------------------------
 # eof eof eof DECLARING VARIABLES AND PROCESSING ARGS
+
 
 
 indexing_rules(){
     if [ ! -d "${DOCU_PATH}/downloaded" ]; then
         mkdir -p "${DOCU_PATH}/downloaded"
     fi
-
     wget \
-    `##tBasic Startup Options` \
+    `## Basic Startup Options` \
       --execute robots=off \
     `## Loggin and Input File Options` \
+      -o ${DOCU_PATH}/wget.log \
     `## Download Options` \
       --timestamping \
     `## Directory Options` \
@@ -35,50 +37,63 @@ indexing_rules(){
     `## HTTPS Options` \
       --no-check-certificate \
     `## Recursive Retrieval Options` \
-      --recursive --level=4 \
+      --recursive --level=2 \
     `## Recursive Accept/Reject Options` \
       --no-parent \
-      --reject '*.webp,*.mp4,*.ico,*.gif,*.jpg,*.svg,*.js,*json,*.css,*.png,*.xml,*.txt' \
-      --page-requisites \
+      --exclude-directories="next,next/*,category,category/*" \
+      --reject '*.webp,*.woff2,image?*,*.ico,*.jpg,*.svg,*.js,*json,*.css,*.png,*.xml,*.txt' \
       ${DOWNLOAD_LINK}
 
-## Preparing documents
-find ${DOCU_PATH}/downloaded/ -mindepth 1 -maxdepth 1 ! -name "docs" -exec rm -rf {} \;
-find ${DOCU_PATH}/downloaded/docs -type d -mindepth 1 -maxdepth 1 ! -name "the-new-architecture" -exec rm -rf {} \;
-mv ${DOCU_PATH}/downloaded/docs/* ${DOCU_PATH}/downloaded/
-rmdir ${DOCU_PATH}/downloaded/docs
+## Preparing files for processing
+## -----------------------------
+echo "Preparing the files for processing ..."
+
+# Removing every directory that is not learn and reference , and leaving all .html on the main dir
+find ${DOCU_PATH}/downloaded/ -mindepth 1 -maxdepth 1 ! \( -name "*.html" -o -name "learn" -o -name "reference" \) -exec rm -rf {} \;
 
 
+
+## eof eof eof Preparing files for processing
+## -----------------------------
+      
 }
 
 parsing_rules(){
+    # Header of docu    
     echo "vim-dan" | figlet -f univers > ${MAIN_TOUPDATE}
     echo ${DOCU_NAME} | figlet >> ${MAIN_TOUPDATE}
     echo "Documentation indexed from : ${DOWNLOAD_LINK} " >> ${MAIN_TOUPDATE}
     echo "Last parsed on : $(date)" >> ${MAIN_TOUPDATE}
 
 
-mapfile -t files_array < <(find ${DOCU_PATH}/downloaded -name *.html | sort )
+## MULTI-FILE PARSING
+## Parsing into an associative array, each topic link and its path
+## With this we can :
+##      - Create an ordered automated index linkFrom
+##      - Append each topic content with a linkTo and a figlet header
+
+mapfile -t files_array < <(find ${DOCU_PATH}/downloaded -name *.html )
 for file in "${files_array[@]}"; do
     ## Creating an associative array with the links_from (links_to) and their filename
     # Declare an associative array
-    declare -A links_to_paths
+    declare -A paths_linkto
 
     # Use process substitution to run both find commands simultaneously
     while IFS= read -r key && IFS= read -r value <&3; do
     # Assign the key-value pair to the associative array
-    links_to_paths["$key"]="$value"
-    done < <(cat ${file} |pup -i 0 --pre 'header' | pandoc -f html -t plain ) \
-       3< <(echo ${file})
+    paths_linkto["$key"]="$value"
+done < <(echo ${file} )\
+       3< <(cat ${file} | pup -i 0 --pre "main article h1" | pandoc -f html -t plain | sed 's/\[\]//g')
     
 done
 
 ## We need to order the documentation according to the linksFrom
 ## Ordering the keys in a new Array
-mapfile -t sorted_links_to_paths < <(printf "%s\n" "${!links_to_paths[@]}" | sort -t = -k 1)
+mapfile -t sorted_paths_array < <(printf "%s\n" "${!paths_linkto[@]}" | awk '{print gsub(/\//,"/")"|"$0; }' | sort -t'|' -k1,1n -k2 | sed 's/^[^|]*|//')
 ## Remember after this anytime we access the array
 ## We need to Iterate through each member of the array that correspond to the sorted keys
 ## When in need to retrieve the files , use the associative array
+
 
 # Parsing our own index for docu
 # -----------------------------------------------------------
@@ -87,9 +102,18 @@ echo "index" | figlet >> ${MAIN_TOUPDATE}
 
 
 ## We need to Iterate through each member of the array that correspond to the sorted keys
-for key in "${sorted_links_to_paths[@]}"; do
-    link_from="& ${key} &"
-    echo "- ${link_from}" >> ${MAIN_TOUPDATE}
+for path in "${sorted_paths_array[@]}"; do
+
+    parentname="$(basename "$(dirname ${path})")"
+    parentname_prev="$(basename "$(dirname "$prev_file")")"
+
+    if [[ ${parentname} != ${parentname_prev} ]]; then
+        echo "- ${parentname}" >> ${MAIN_TOUPDATE}
+    fi
+
+    link_from="& @${parentname}@ ${paths_linkto[${path}]} &"
+    echo "    - ${link_from}" >> ${MAIN_TOUPDATE}
+    prev_file=${path}
 done
 
 # -----------------------------------------------------------
@@ -100,23 +124,21 @@ echo "" >> ${MAIN_TOUPDATE}  ## ADDING A LINE BREAK
 # Parsing each manpage
 # -----------------------------------------------------------
 ## We need to Iterate through each member of the array that correspond to the sorted keys
-for key in "${sorted_links_to_paths[@]}"; do
+for path in "${sorted_paths_array[@]}"; do
     ## Creating Link_to
-    echo "# ${key} #" >> ${MAIN_TOUPDATE} 
-    echo ${key} | figlet  >> ${MAIN_TOUPDATE} 
+    parentname="$(basename "$(dirname ${path})")"
+    echo "# ${parentname} ${paths_linkto[${path}]} #" >> ${MAIN_TOUPDATE}
+    echo ${paths_linkto[${path}]} | figlet  >> ${MAIN_TOUPDATE}
 
     ## When in need to retrieve the files , use the associative array
-    ## getting the nav
-    cat ${links_to_paths[${key}]} | pup -i 0 --pre 'ul.table-of-contents'| pandoc -f html -t plain  >> ${MAIN_TOUPDATE} 
-    ## getting the article
-    cat ${links_to_paths[${key}]} | pup -i 0 --pre 'div.theme-doc-markdown'| pandoc -f html -t plain  >> ${MAIN_TOUPDATE} 
+    cat ${path} | pup -i 0 --pre 'main article' | pandoc -f html -t plain >> ${MAIN_TOUPDATE}
     echo "" >> ${MAIN_TOUPDATE}  ## ADDING A LINE BREAK
 done
 
-## Final Corrections
-sed -i "s/$(echo -ne '\u200b')//g" ${MAIN_TOUPDATE}
-sed -i 's/\[\]//g' ${MAIN_TOUPDATE}
-
+    ## Cleaning out some residual lines
+#    sed -i '/^$/{:a;N;s/\n$//;ta}' ${MAIN_TOUPDATE}
+    sed -i 's/\[\]//g' ${MAIN_TOUPDATE}
+#    sed -i '/^\[\] \[\]$/d' ${MAIN_TOUPDATE}
 }
 
 
