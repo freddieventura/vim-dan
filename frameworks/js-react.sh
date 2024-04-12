@@ -25,7 +25,7 @@ indexing_rules(){
     `## Basic Startup Options` \
       --execute robots=off \
     `## Loggin and Input File Options` \
-      -o ${DOCU_PATH}/wget.log \
+     ## -o ${DOCU_PATH}/wget.log \
     `## Download Options` \
       --timestamping \
     `## Directory Options` \

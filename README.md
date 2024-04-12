@@ -189,3 +189,4 @@ noremap A <Nop>
     - Add a dependency checker
     - Create an ebook (`.epub`, `.pdf` etc...) parser, which will recognise the lines highlighted by the reader and the notes taken. Store
     - Create a tool that automatically index a website and parses all the relative links within the same host, it dumps all plaintext in a single file with the Directory of links_from at the Index on top of the page and the links_to , working from within any anchor html parsed, on those create a link_from
+

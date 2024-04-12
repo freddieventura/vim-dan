@@ -11,7 +11,7 @@ DOCU_PATH="$1"
 shift
 DOCU_NAME=$(basename ${0} '.sh')
 MAIN_TOUPDATE="${DOCU_PATH}/main-toupdate.${DOCU_NAME}dan"
-DOWNLOAD_LINK="https://github.com/MicrosoftDocs/PowerShell-Docs"
+DOWNLOAD_LINK=""
 # -------------------------------------
 # eof eof eof DECLARING VARIABLES AND PROCESSING ARGS
 
@@ -22,22 +22,59 @@ indexing_rules(){
         mkdir -p "${DOCU_PATH}/downloaded"
     fi
 
-git clone ${DOWNLOAD_LINK} ${DOCU_PATH}/downloaded
+url_array=(
+https://learn.microsoft.com/en-us/windows/win32/debug/system-error-codes--0-499-
+https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands
+)
+
+for url in "${url_array[@]}"; do
+    wget \
+    `## Basic Startup Options` \
+      --execute robots=off \
+    `## Loggin and Input File Options` \
+      -o ${DOCU_PATH}/wget.log \
+    `## Download Options` \
+      --timestamping \
+    `## Directory Options` \
+      --directory-prefix=${DOCU_PATH}/downloaded \
+      -nH \
+    `## HTTP Options` \
+      --user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59" \
+      --adjust-extension \
+    `## HTTPS Options` \
+      --no-check-certificate \
+    `## Recursive Retrieval Options` \
+      --recursive --level=2 \
+    `## Recursive Accept/Reject Options` \
+      --no-parent \
+      --exclude-directories="next,next/*,category,category/*" \
+      --reject '*.webp,*.woff2,image?*,*.ico,*.jpg,*.svg,*.js,*json,*.css,*.png,*.xml,*.txt' \
+      ${url}
+done 
+
+mv ${DOCU_PATH}/downloaded/en-us/windows/win32/debug ${DOCU_PATH}/downloaded/
+mv ${DOCU_PATH}/downloaded/en-us/windows-server/administration/windows-commands ${DOCU_PATH}/downloaded/
+
+wget https://www.groovypost.com/howto/windows-10-keyboard-shortcuts/ -O ${DOCU_PATH}/downloaded/windows10-keyboard-shortcuts.html
+
+git clone https://github.com/MicrosoftDocs/PowerShell-Docs ${DOCU_PATH}/downloaded
+
 
 ## Preparing files for processing
 ## -----------------------------
 echo "Preparing the files for processing ..."
-# Removing every directory that is not ./reference , moving it one level down
-find ${DOCU_PATH}/downloaded/ -mindepth 1 -maxdepth 1 ! -name "reference" -exec rm -rf {} \;
+
+set -x
+# Removing every directory that is not ./reference "debug" 
+find ${DOCU_PATH}/downloaded/ -mindepth 1 -maxdepth 1 ! \( -name "reference" -o -name "debug" -o -name "windows-commands" -o -name "windows10-keyboard-shortcuts.html" \) -exec rm -rf {} \;
+# Removing every file in reference that is not .md
+find ${DOCU_PATH}/downloaded/reference -type f -not -name "*.md" -exec rm {} \;
+# Moving Reference one level down
 mv ${DOCU_PATH}/downloaded/reference/* ${DOCU_PATH}/downloaded/
 
-# Removing every directory that is not 7.5 and docs-conceptual
-find ${DOCU_PATH}/downloaded/ -mindepth 1 -maxdepth 1 ! \( -name "7.5" -o -name "docs-conceptual" \) -exec rm -rf {} \;
 
-# Removing every file that is not .md
-find ${DOCU_PATH}/downloaded/ -type f -not -name "*.md" -exec rm {} \;
-
-
+# Removing every directory that is not 7.5 , docs-conceptual , debug, administration
+find ${DOCU_PATH}/downloaded/ -mindepth 1 -maxdepth 1 ! \( -name "7.5" -o -name "docs-conceptual" -o -name "debug" -o -name "windows-commands" -o -name "windows10-keyboard-shortcuts.html" \) -exec rm -rf {} \;
 ## eof eof eof Preparing files for processing
 ## -----------------------------
 
@@ -47,28 +84,67 @@ parsing_rules(){
     # Header of docu    
     echo "vim-dan" | figlet -f univers > ${MAIN_TOUPDATE}
     echo ${DOCU_NAME} | figlet >> ${MAIN_TOUPDATE}
-    echo "Documentation indexed from : ${DOWNLOAD_LINK} " >> ${MAIN_TOUPDATE}
+    echo "Documentation indexed from : " >> ${MAIN_TOUPDATE}
+    echo " - https://github.com/MicrosoftDocs/PowerShell-Docs" >> ${MAIN_TOUPDATE}
+    echo " - https://learn.microsoft.com/en-us/windows/win32/debug/system-error-codes--0-499-" >> ${MAIN_TOUPDATE}
+    echo " - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands" >> ${MAIN_TOUPDATE}
+    echo " - https://www.groovypost.com/howto/windows-10-keyboard-shortcuts/" >> ${MAIN_TOUPDATE}
     echo "Last parsed on : $(date)" >> ${MAIN_TOUPDATE}
 
 
-## MULTI-FILE PARSING
-## Parsing into an associative array, each topic link and its path
+## MULTI-FILE PARSING WITH MULTI-RULE
+## Parsing into an associative array each title and path
 ## With this we can :
 ##      - Create an ordered automated index linkFrom
 ##      - Append each topic content with a linkTo and a figlet header
+##
+## Also there are different parsing rules (multi-rule)
+##      - Meaning they will be applied to each file sequencially
+##      - Upon one parsing rule returning non-zero, that parsed title will be added 
 
-mapfile -t files_array < <(find ${DOCU_PATH}/downloaded -name "*.md" )
+mapfile -t files_array < <(find ${DOCU_PATH}/downloaded -type f )
+
+
+## First create the title array
+title_array=()
 for file in "${files_array[@]}"; do
-    ## Creating an associative array with the links_from (links_to) and their filename
-    # Declare an associative array
-    declare -A paths_linkto
 
-    # Use process substitution to run both find commands simultaneously
-    while IFS= read -r key && IFS= read -r value <&3; do
-    # Assign the key-value pair to the associative array
-    paths_linkto["$key"]="$value"
-    done < <(echo ${file} ) \
-       3< <(basename ${file} | cut -f 1 -d '.')
+    # (Multi-rule) Parsing functions , add as many as you want
+    f1() { pup -i 0 --pre 'div .content h1' | pandoc -f html -t plain; }
+    f2() { pup -i 0 --pre 'header h1' | pandoc -f html -t plain; }
+    title_parsing_array=(f1 f2)
+
+    found_selector=""
+    for title_parsing in "${title_parsing_array[@]}"; do
+        title=$("$title_parsing" < "$file")
+        if [ -n "$title" ]; then
+            found_selector=true
+            break
+        fi
+    done
+
+    # Default case for parsing , if none of the rules return a non-zero string
+    if [ -z "$found_selector" ]; then
+       title=$(basename "$file" | cut -f 1 -d '.')
+    fi
+
+    # Append the value of title to the title_array
+    title_array+=("$title")
+done
+
+
+## Creating an associative array to map titles to file paths
+
+
+declare -A paths_linkto
+
+# Iterate through the indices of 'files_array'
+for index in "${!files_array[@]}"; do
+    file="${files_array[$index]}"
+    title="${title_array[$index]}"
+
+    # Assign the key-value pair to the associative array 'paths_linkto'
+    paths_linkto["$file"]="$title"
 done
 
 
@@ -107,7 +183,8 @@ done
 
 echo "" >> ${MAIN_TOUPDATE}  ## ADDING A LINE BREAK
 
-# Parsing each manpage
+set -x
+# Parsing and appending content , using Multi-rule
 # -----------------------------------------------------------
 ## We need to Iterate through each member of the array that correspond to the sorted keys
 for path in "${sorted_paths_array[@]}"; do
@@ -116,9 +193,31 @@ for path in "${sorted_paths_array[@]}"; do
     echo "# ${parentname} ${paths_linkto[${path}]} #" >> ${MAIN_TOUPDATE}
     echo ${paths_linkto[${path}]} | figlet  >> ${MAIN_TOUPDATE}
 
+    # (Multi-rule) Parsing functions , add as many as you want
+    f1() { pup -i 0 --pre 'div .content' | pandoc -f html -t plain; }
+    f2() { pup -i 0 --pre 'div.post-cont-out' | pandoc -f html -t plain; }
+    content_parsing_array=(f1 f2)
+
+    found_selector=""
+    content_dump=$(mktemp)
+    for content_parsing in "${content_parsing_array[@]}"; do
+        "$content_parsing" < "$path" > "$content_dump"
+        if [ 1 -lt $(stat -c %s "${content_dump}") ];then
+            found_selector=true
+            break
+        fi
+    done
+
+    # Default case for parsing , if none of the rules return a non-zero string
+    if [ -z "$found_selector" ]; then
+       cat ${path} | pandoc -f markdown -t plain > "$content_dump"
+    fi
+
     ## Retrieving content of the files, removing the yaml
-    cat ${path} | pandoc -f markdown -t plain >> ${MAIN_TOUPDATE}
+    cat "${content_dump}" >> ${MAIN_TOUPDATE}
     echo "" >> ${MAIN_TOUPDATE}  ## ADDING A LINE BREAK
+
+    rm "$content_dump"
 done
 
 }
