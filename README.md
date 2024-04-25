@@ -146,7 +146,7 @@ Code syntax highlighting, and header highlight.
 - Pending to include api/reference/ items
 
 ### Unsolved issues
-    - When tagging using `ctags -R .` on the subdirectory which has the index not deleted (./downloaded/) it will create tags also for the .html files , correct on the F5 bind
+    - Make that upon installation , the script will set on `./autoload/dan.vim` , `var VIMDAN_DIR` as the one on `./vim-dan.sh`
     - Filenames that contain * are not parsed properly on the Index Parser
         Makeshift solution : batched renamed those files at the end of indexing process , this doesnt have any effect
 

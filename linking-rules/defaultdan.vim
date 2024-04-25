@@ -52,7 +52,7 @@ enddef
 # ----------------------------------
 nnoremap <C-p> :normal $a (X)<Esc>
 noremap <F4> :ToggleXConceal<CR>
-noremap <F5> :call dan#Refreshloclist()<CR>:silent! !ctags -R ./ 2>/dev/null<CR>:redraw!<CR>:silent! tag<CR>
+noremap <F5> :call dan#Refreshloclist()<CR>:call dan#UpdateTags()<CR>:redraw!<CR>:silent! tag<CR>
 
 command! ToggleXConceal call ToggleXConceal(g:xConceal)
 

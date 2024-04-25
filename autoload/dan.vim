@@ -5,6 +5,7 @@ vim9script
 # Set it to refresh tags and highlighted notes such as
 # noremap <F5> :call dan#Refreshloclist()<CR>:silent! ctags -R ./ 2>/dev/null<CR>
 
+var VIMDAN_DIR = "/home/fakuve/baul-documents/vim-dan"
 
 # Close tab of the loclist that belongs to currentBuffer
 export def Closeloclist()
@@ -90,5 +91,20 @@ export def Refreshloclist()
     Newloclist()
     Customloclist()
     Openloclist()
+enddef
+# -----------------------------------------------
+
+
+# Updating tags for the current opened vim-dan main file
+# -----------------------------------------------
+#  We need to direct ctags to the right file within the right
+#  documentation dir
+export def UpdateTags()
+    # Trimming dan.vim , out of filename
+    var DOCU_NAME = matchstr(expand('%'), '.*\(dan.vim\)\@=')
+
+
+    # Equivalent to :silent! !ctags ${VIMDAN_DIR}/${DOCU_NAME}/main.${DOCU_NAME}.dan 2>/dev/null
+    execute 'silent! !ctags' .. VIMDAN_DIR .. '/' .. DOCU_NAME .. '/main.' .. DOCU_NAME .. 'dan 2>/dev/null'
 enddef
 # -----------------------------------------------
