@@ -104,6 +104,6 @@ export def UpdateTags()
     var DOCU_NAME = matchstr(expand('%'), '\(main\.\)\@<=.*\(dan\)\@=')
 
     # Equivalent to :silent! !ctags ${VIMDAN_DIR}/${DOCU_NAME}/main.${DOCU_NAME}.dan -f ${VIMDAN_DIR}/${DOCU_NAME}/tags  2>/dev/null
-    execute 'silent! !ctags ' .. VIMDAN_DIR .. '/' .. DOCU_NAME .. '/main.' .. DOCU_NAME .. 'dan -f ' .. VIMDAN_DIR .. '/' .. DOCU_NAME .. 'tags 2>/dev/null'
+    execute 'silent! !ctags -f ' .. VIMDAN_DIR .. '/' .. DOCU_NAME .. '/tags ' .. VIMDAN_DIR .. '/' .. DOCU_NAME .. '/main.' .. DOCU_NAME .. 'dan 2>/dev/null'
 enddef
 # -----------------------------------------------
