@@ -16,8 +16,16 @@ export def Closeloclist()
     for winInfo in winInfoList
         if ( winInfo.loclist == 1 )
             ## Extracting filename from quickfix_title
-            var loclistFilename = matchstr(winInfo.variables.quickfix_title, '[^.[:space:]]\+\.[^.[:space:]]\+$')
+            ## Title is gonna be something like
+            ## "    lvimgrep! / (X)$/ cheatsheet.tmux.not"
+            ##                        -------------------
+            ##                      Matching against this
+            var loclistFilename = matchstr(winInfo.variables.quickfix_title, '[^[:space:]]\+$')
+            echo currentBufname
             if (loclistFilename == currentBufname)
+                ## Remember <tabnr> is 1 based ,
+                ##     whereas getwininfo()[0] is 0 based
+                ## :<tabnr> tabnext , is also 1 based
                 exec ":" .. winInfo.tabnr .. " tabnext"
                 q!
             endif
@@ -35,7 +43,7 @@ export def Newloclist()
 	set switchbuf+=usetab,newtab
 
 	# Creating the qfList
-    lvimgrep! / (X)$/ %
+    silent lvimgrep! / (X)$/ %
 enddef
 # -----------------------------------------------
 
@@ -105,5 +113,21 @@ export def UpdateTags()
 
     # Equivalent to :silent! !ctags ${VIMDAN_DIR}/${DOCU_NAME}/main.${DOCU_NAME}.dan -f ${VIMDAN_DIR}/${DOCU_NAME}/tags  2>/dev/null
     execute 'silent! !ctags -f ' .. VIMDAN_DIR .. '/' .. DOCU_NAME .. '/tags ' .. VIMDAN_DIR .. '/' .. DOCU_NAME .. '/main.' .. DOCU_NAME .. 'dan 2>/dev/null'
+enddef
+# -----------------------------------------------
+
+
+# Concealing (X)
+# -----------------------------------------------
+export def ToggleXConceal(xConceal: number): void
+    if (xConceal == 1)
+        syn match danX "(X)"
+        g:xConceal = 0
+    elseif (xConceal == 0)
+        syn match danX "(X)" conceal
+        g:xConceal = 1
+    else
+        echo 'ERROR ON XConceal Toggle'
+    endif
 enddef
 # -----------------------------------------------

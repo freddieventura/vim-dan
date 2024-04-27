@@ -59,32 +59,14 @@ Below you can find a guide on how to start your own **DAN Documentation** for a 
 Also any suggestions on how to improve the already existing source are more than welcomed.
 
 ## vimrc Additions
-To make your life easier I have set the following
 
+To achieve the full potential of this plugin add the following on your .vimrc
 ```
-# VIM-DAN FUNCTIONALITIES
+# VIM-DAN FUNCTIONALITIES on .vimrc
 # ----------------------------------
-nnoremap <C-i> :normal $a (X)<Esc>
-
-noremap <F4> :ToggleXConceal<CR>
-noremap <F5> :call dan#Refreshloclist()<CR>:silent! !ctags -R ./ 2>/dev/null<CR>:redraw!<CR>:silent! tag<CR>
-
-command! ToggleXConceal call ToggleXConceal(g:xConceal)
-
 g:xConceal = 0
-def ToggleXConceal(xConceal: number): void
-    if (xConceal == 1)
-        syn match danX "(X)"
-        g:xConceal = 0
-    elseif (xConceal == 0)
-        syn match danX "(X)" conceal
-        g:xConceal = 1
-    else
-        echo 'ERROR ON XConceal Toggle'
-    endif
-enddef
 # ----------------------------------
-#eof eof eof eof eof VIM-DAN FUNCTIONALITIES
+# eof eof eof eof eof VIM-DAN FUNCTIONALITIES on .vimrc
 ```
 
 Meaning pressing `Ctrl` + `i` will create a highlight mark '(X)' at the end of the line

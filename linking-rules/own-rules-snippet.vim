@@ -105,25 +105,15 @@ def GotoSpecLinktoFn(): void
     execute "tag " .. myString
 enddef
 
+
 # VIM-DAN FUNCTIONALITIES
 # ----------------------------------
 nnoremap <C-p> :normal $a (X)<Esc>
+
 noremap <F4> :ToggleXConceal<CR>
+
 noremap <F5> :call dan#Refreshloclist()<CR>:call dan#UpdateTags()<CR>:redraw!<CR>:silent! tag<CR>
 
-command! ToggleXConceal call ToggleXConceal(g:xConceal)
-
-g:xConceal = 0
-def ToggleXConceal(xConceal: number): void
-    if (xConceal == 1)
-        syn match danX "(X)"
-        g:xConceal = 0
-    elseif (xConceal == 0)
-        syn match danX "(X)" conceal
-        g:xConceal = 1
-    else
-        echo 'ERROR ON XConceal Toggle'
-    endif
-enddef
+command! ToggleXConceal call dan#ToggleXConceal(g:xConceal)
 # ----------------------------------
 #eof eof eof eof eof VIM-DAN FUNCTIONALITIES
