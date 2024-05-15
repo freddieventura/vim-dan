@@ -1,0 +1,4 @@
+--langdef=wiresharkdantags
+--langmap=wiresharkdantags:.wiresharkdan
+--kinddef-wiresharkdantags=t,topic,topics
+--regex-wiresharkdantags=/^#\s(.*)\s#(\s\(X\)){0,1}$/\1/t/

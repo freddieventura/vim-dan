@@ -123,6 +123,11 @@ Code syntax highlighting, and header highlight.
 
 ## Limitation on current docus
 
+### CDP
+- Create https://developer.chrome.com/docs/devtools/
+### win-pwsh
+- Pending pages like https://learn.microsoft.com/en-us/powershell/module/nettcpip
+
 ### apps-script
 - Documentation is only for reference items (no tutorials)
 - Pending to include api/reference/ items

@@ -6,7 +6,15 @@
 perfom_install(){
     [ ! -d "${DOCU_PATH}" ] && mkdir -p "${DOCU_PATH}"
     echo "Installing vim-dan ${DOCU_NAME} into ${DOCU_PATH}/ ..."
-    cp $CURRENT_DIR/ready-docus/main.${DOCU_NAME}dan ${DOCU_PATH}/main-toupdate.${DOCU_NAME}dan
+
+    # If the file is compressed extract
+    if [ -e "$CURRENT_DIR"/ready-docus/main."${DOCU_NAME}dan.bz2" ]; then
+        echo "There is compression file"
+        bunzip2 -kc "$CURRENT_DIR"/ready-docus/main."${DOCU_NAME}dan.bz2" > ${DOCU_PATH}/main-toupdate.${DOCU_NAME}dan
+    else 
+        cp $CURRENT_DIR/ready-docus/main.${DOCU_NAME}dan ${DOCU_PATH}/main-toupdate.${DOCU_NAME}dan
+        echo " there is no"
+    fi
     perform_patch
     updating_tags
     updating_vim

@@ -78,6 +78,22 @@ hi def link danListMarker Statement
 "syn match danValues "^Values\%(\s(X)\)\{,1}$" contains=danX
 "hi def link danValues TabLine
 
+syn match danSignature "^Signature:\%(\s(X)\)\{,1}$" contains=danX
+hi def link danSignature Tabline
+
+syn match danReturns "^Returns:\%(\s(X)\)\{,1}$" contains=danX
+hi def link danReturns Tabline
+
+syn match danParameters "^Parameters\%(\s(X)\)\{,1}$" contains=danX
+hi def link danParameters Tabline
+
+syn match danExample "^Example\%(\s(X)\)\{,1}$" contains=danX
+hi def link danExample Tabline
+
+syn match danRemarks "^Remarks\%(\s(X)\)\{,1}$" contains=danX
+hi def link danRemarks Tabline
+
+
 " Under normal colour scheme 
 " term=                                             ,  Bold       ,underline 
 " ctermfg= Green     , DarkBlue , DarkYellow, Red   ,  White      ,darkmagenta
