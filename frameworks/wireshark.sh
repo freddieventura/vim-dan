@@ -50,6 +50,37 @@ for DOWNLOAD_LINK in "${DOWNLOAD_LINKS[@]}"; do
       ${DOWNLOAD_LINK}
 done 
 
+
+
+##  Modifying documents
+#  As later on the files are gonna be sorted alphabetically by path
+#       and on the following path we have got
+# "${DOCU_PATH}/downloaded/wireshark.org/docs/wsdg_html_chunked/"
+#    we have got the following naming convention files that
+#  ${DOCU_PATH}/downloaded/wireshark.org/docs/wsdg_html_chunked/ChTestRun.html
+#      corresponding to 13.13._Listing And Running
+#  ${DOCU_PATH}/downloaded/wireshark.org/docs/wsdg_html_chunked/ChToolsBash.html
+#      coressponding to 4.8_bash
+#   If sorted this way it will be parsed desorderly
+#
+#   Solution , modify filename
+
+mapfile -t files_array < <(find "${DOCU_PATH}/downloaded/wireshark.org/docs/wsdg_html_chunked/" -type f -name "*.html" )
+for file in "${files_array[@]}"; do
+    new_name=$(cat "$file" | pup 'div.navheader tbody tr:first-child' | pandoc -f html -t plain | sed 's/ /_/g; s/\./-/g; s/[^[:alnum:]_-]//g' )
+    dir_name=$(dirname "$file")
+    mv "$file" $dir_name/$new_name.html
+done
+
+mapfile -t files_array < <(find "${DOCU_PATH}/downloaded/wireshark.org/docs/wsug_html_chunked/" -type f -name "*.html" )
+for file in "${files_array[@]}"; do
+    new_name=$(cat "$file" | pup 'div.navheader tbody tr:first-child' | pandoc -f html -t plain | sed 's/ /_/g; s/\./-/g; s/[^[:alnum:]_-]//g' )
+    dir_name=$(dirname "$file")
+    mv "$file" $dir_name/$new_name.html
+done
+
+
+
 ## *jpg,*png,*gif
 #      --wait-second=3 \
 #      --waitretry=3 \
@@ -97,20 +128,16 @@ mapfile -t files_array < <(find "${DOCU_PATH}/downloaded" -type f \
     ! -path "${DOCU_PATH}/downloaded/wireshark.org/docs/index.html" \
     -name "*.html" \) )
 
-## JUST FOR DEBUGGING
-##for file in "${files_array[@]}"; do
-##    echo ${file}
-##done
 
 ## First create the title array
 title_array=()
 for file in "${files_array[@]}"; do
 
     # (Multi-rule) Parsing functions , add as many as you want
-    f1() { pup -i 0 --pre 'div.navheader tbody tr:first-child' | pandoc -f html -t plain; }
-    f2() { pup -i 0 --pre 'div#header h1' | pandoc -f html -t plain; }
-    f3() { pup -i 0 --pre 'div.main-container section section h2' | pandoc -f html -t plain; }
-    f4() { pup -i 0 --pre 'header h1' | pandoc -f html -t plain; }
+    f1() { pup -i 0 --pre 'div.navheader tbody tr:first-child' | pandoc -f html -t plain |sed "s/$(echo -ne '\u200b')//g"; }
+    f2() { pup -i 0 --pre 'div#header h1' | pandoc -f html -t plain | sed "s/$(echo -ne '\u200b')//g"; }
+    f3() { pup -i 0 --pre 'div.main-container section section h2' | pandoc -f html -t plain | sed "s/$(echo -ne '\u200b')//g"; }
+    f4() { pup -i 0 --pre 'header h1' | pandoc -f html -t plain | sed "s/$(echo -ne '\u200b')//g"; }
     title_parsing_array=(f1 f2 f3 f4)
 
     found_selector=""
@@ -155,9 +182,11 @@ mapfile -t sorted_paths_array < <(printf "%s\n" "${!paths_linkto[@]}" | awk '{pr
 ## We need to Iterate through each member of the array that correspond to the sorted keys
 ## When in need to retrieve the files , use the associative array
 
+## JUST FOR DEBUGGING
+for file in "${sorted_paths_array[@]}"; do
+    echo ${file}
+done
 
-# Parsing our own index for docu
-# -----------------------------------------------------------
 # This will be the linkFrom items
 echo "index" | figlet >> ${MAIN_TOUPDATE}
 
@@ -193,10 +222,10 @@ for path in "${sorted_paths_array[@]}"; do
     echo ${paths_linkto[${path}]} | figlet  >> ${MAIN_TOUPDATE}
 
     # (Multi-rule) Parsing functions , add as many as you want
-    f1() { pup -i 0 --pre 'div.section' | pandoc -f html -t plain; }
-    f2() { pup -i 0 --pre 'body.manpage' | pandoc -f html -t plain; }
-    f3() { pup -i 0 --pre 'div.main-container section section' | pandoc -f html -t plain; }
-    f4() { pup -i 0 --pre 'main' | pandoc -f html -t plain; }
+    f1() { pup -i 0 --pre 'div.section' | pandoc -f html -t plain | sed "s/$(echo -ne '\u200b')//g"; }
+    f2() { pup -i 0 --pre 'body.manpage' | pandoc -f html -t plain | sed "s/$(echo -ne '\u200b')//g"; }
+    f3() { pup -i 0 --pre 'div.main-container section section' | pandoc -f html -t plain | sed "s/$(echo -ne '\u200b')//g"; }
+    f4() { pup -i 0 --pre 'main' | pandoc -f html -t plain | sed "s/$(echo -ne '\u200b')//g"; }
     content_parsing_array=(f1 f2 f3 f4)
 
     found_selector=""
@@ -214,8 +243,8 @@ for path in "${sorted_paths_array[@]}"; do
        cat ${path} | pandoc -f markdown -t plain > "$content_dump"
     fi
 
-    ## Retrieving content of the files, removing the yaml
-    cat "${content_dump}" >> ${MAIN_TOUPDATE}
+    ## Retrieving content of the files, removing Discussion lines
+    cat "${content_dump}" | sed '/^Discussion$/d' >> ${MAIN_TOUPDATE}
     echo "" >> ${MAIN_TOUPDATE}  ## ADDING A LINE BREAK
 
     rm "$content_dump"

@@ -78,6 +78,43 @@ hi def link danListMarker Statement
 "syn match danValues "^Values\%(\s(X)\)\{,1}$" contains=danX
 "hi def link danValues TabLine
 
+syn match danExampleT "^ Example traffic\%(\s(X)\)\{,1}$" contains=danX
+hi def link danExampleT Question
+
+syn match danExampleCF "^ Example capture file\%(\s(X)\)\{,1}$" contains=danX
+hi def link danExampleCF Question
+
+syn match danExamples "^ Examples\%(\s(X)\)\{,1}$" contains=danX
+hi def link danExamples Question
+
+syn match danExternalL "^ External links\%(\s(X)\)\{,1}$" contains=danX
+hi def link danExternalL Question
+
+syn match danProtocolFun "^ Protocol Functions\%(\s(X)\)\{,1}$" contains=danX
+hi def link danProtocolFun Special
+
+syn match danProtocolDep "^ Protocol dependencies\%(\s(X)\)\{,1}$" contains=danX
+hi def link danProtocolDep WarningMsg
+
+syn match danCaptureFil "^ Capture Filter\%(\s(X)\)\{,1}$" contains=danX
+hi def link danCaptureFil Comment
+
+syn match danDisplayFil "^ Display Filter\%(\s(X)\)\{,1}$" contains=danX
+hi def link danDisplayFil TabLine
+
+syn match danHistory "^ History\%(\s(X)\)\{,1}$" contains=danX
+hi def link danHistory CursorLine
+
+syn match danPreferenceSet "^ Preference Settings\%(\s(X)\)\{,1}$" contains=danX
+hi def link danPreferenceSet TabLine
+
+syn match danReturns "^ Returns\%(\s(X)\)\{,1}$" contains=danX
+hi def link danReturns Underlined
+
+syn match danArguments "^ Arguments\%(\s(X)\)\{,1}$" contains=danX
+hi def link danArguments CursorLineNr
+
+set nofoldenable
 " Under normal colour scheme 
 " term=                                             ,  Bold       ,underline 
 " ctermfg= Green     , DarkBlue , DarkYellow, Red   ,  White      ,darkmagenta
