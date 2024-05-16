@@ -122,6 +122,7 @@ mapfile -t files_array < <(find "${DOCU_PATH}/downloaded" -type f \
     ! -path "${DOCU_PATH}/downloaded/wireshark.org/docs/wsug_html.html" \
     ! -path "${DOCU_PATH}/downloaded/wireshark.org/docs/wsug_html_chunked.html" \
     ! -path "${DOCU_PATH}/downloaded/wireshark.org/docs/dfref" \
+    ! -path "${DOCU_PATH}/downloaded/wireshark.org/docs/dfref/index.html" \
     ! -path "${DOCU_PATH}/downloaded/wireshark.org/docs/relnotes" \
     ! -path "${DOCU_PATH}/downloaded/wireshark.org/docs/relnotes/*" \
     ! -path "${DOCU_PATH}/downloaded/wireshark.org/docs/man-pages.html" \
@@ -240,7 +241,7 @@ for path in "${sorted_paths_array[@]}"; do
 
     # Default case for parsing , if none of the rules return a non-zero string
     if [ -z "$found_selector" ]; then
-       cat ${path} | pandoc -f markdown -t plain > "$content_dump"
+       cat ${path} | pandoc -f html -t plain > "$content_dump"
     fi
 
     ## Retrieving content of the files, removing Discussion lines
