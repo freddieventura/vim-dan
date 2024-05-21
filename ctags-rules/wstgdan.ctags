@@ -1,0 +1,4 @@
+--langdef=wstgdantags
+--langmap=wstgdantags:.wstgdan
+--kinddef-wstgdantags=t,topic,topics
+--regex-wstgdantags=/^#\s(.*)\s#(\s\(X\)){0,1}$/\1/t/
