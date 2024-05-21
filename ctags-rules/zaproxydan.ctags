@@ -1,0 +1,4 @@
+--langdef=zaproxydantags
+--langmap=zaproxydantags:.zaproxydan
+--kinddef-zaproxydantags=t,topic,topics
+--regex-zaproxydantags=/^#\s(.*)\s#(\s\(X\)){0,1}$/\1/t/

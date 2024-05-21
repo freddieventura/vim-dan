@@ -163,6 +163,7 @@ done
 ## Creating an associative array to map titles to file paths
 
 
+set -x
 declare -A paths_linkto
 
 # Iterate through the indices of 'files_array'
@@ -182,6 +183,8 @@ mapfile -t sorted_paths_array < <(printf "%s\n" "${!paths_linkto[@]}" | awk '{pr
 ## Remember after this anytime we access the array
 ## We need to Iterate through each member of the array that correspond to the sorted keys
 ## When in need to retrieve the files , use the associative array
+
+set +x
 
 ## JUST FOR DEBUGGING
 for file in "${sorted_paths_array[@]}"; do
@@ -212,7 +215,6 @@ done
 
 echo "" >> ${MAIN_TOUPDATE}  ## ADDING A LINE BREAK
 
-set -x
 # Parsing and appending content , using Multi-rule
 # -----------------------------------------------------------
 ## We need to Iterate through each member of the array that correspond to the sorted keys
