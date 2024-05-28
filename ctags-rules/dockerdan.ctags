@@ -1,0 +1,4 @@
+--langdef=dockerdantags
+--langmap=dockerdantags:.dockerdan
+--kinddef-dockerdantags=t,topic,topics
+--regex-dockerdantags=/^#\s(.*)\s#(\s\(X\)){0,1}$/\1/t/
