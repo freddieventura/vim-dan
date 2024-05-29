@@ -75,6 +75,24 @@ hi def link danListMarker Statement
 
 "hi def link danMykeyword Question
 
+syn match danNew "^New\%(\s(X)\)\{,1}$" contains=danX
+hi def link danNew Special
+
+syn match danUpgrades "^Upgrades\%(\s(X)\)\{,1}$" contains=danX
+hi def link danUpgrades Underlined
+
+syn match danDescription "^Description\%(\s(X)\)\{,1}$" contains=danX
+hi def link danDescription TabLine
+
+syn match danExamples "^Examples\%(\s(X)\)\{,1}$" contains=danX
+hi def link danExamples Question
+
+syn match danOptions "^Options\%(\s(X)\)\{,1}$" contains=danX
+hi def link danOptions Comment
+
+syn match danPrerequisites "^Prerequisites\%(\s(X)\)\{,1}$" contains=danX
+hi def link danPrerequisites WarningMsg
+
 "syn match danValues "^Values\%(\s(X)\)\{,1}$" contains=danX
 "hi def link danValues TabLine
 

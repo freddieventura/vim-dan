@@ -4,7 +4,7 @@
 ## ------------------------------------
 ## Modify accordingly
 
-VIMDAN_DIR="/mnt/c/Users/fakuve/Downloads/vim-dan-original"
+VIMDAN_DIR="${HOME}/baul-documents/vim-dan"
 VIM_RTP_DIR="${HOME}/.vim"
 
 ## EOF EOF EOF USER DEFINED OPTIONS
