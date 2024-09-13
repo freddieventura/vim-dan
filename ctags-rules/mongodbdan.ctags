@@ -1,0 +1,4 @@
+--langdef=mongodbdantags
+--langmap=mongodbdantags:.mongodbdan
+--kinddef-mongodbdantags=t,topic,topics
+--regex-mongodbdantags=/^#\s(.*)\s#(\s\(X\)){0,1}$/\1/t/

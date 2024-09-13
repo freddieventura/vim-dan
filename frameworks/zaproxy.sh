@@ -210,7 +210,6 @@ done
 
 echo "" >> ${MAIN_TOUPDATE}  ## ADDING A LINE BREAK
 
-set -x
 # Parsing and appending content , using Multi-rule
 # -----------------------------------------------------------
 ## We need to Iterate through each member of the array that correspond to the sorted keys

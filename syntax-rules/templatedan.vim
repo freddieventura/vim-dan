@@ -25,10 +25,10 @@ syn region danLinkfromEntry start="&" end="&" contains=danLinkfromAmper,danLinkF
 
 if has("conceal")
   syn match danLinkfromAmper contained "&" conceal
-  syn match danLinkFromParentName contained "@[-./[:alnum:]_~]*@" conceal
+  syn match danLinkFromParentName contained "@[-./[:alnum:]_~)]*@" conceal
 else
   syn match danLinkfromAmper contained "&"
-  syn match danLinkFromParentName contained "@[-./[:alnum:]_~]*@"
+  syn match danLinkFromParentName contained "@[-./[:alnum:]_~)]*@"
 endif
 
 
@@ -61,6 +61,10 @@ hi def link danProperty Statement
 " Lists
 syn match danListMarker "\%(\t\| \{0,4\}\)[-*+]\%(\s\+\S\)\@=" contains=danMethod,danProperty,danEvent,danClass
 hi def link danListMarker Statement
+
+set tabstop=2
+set shiftwidth=2
+set expandtab
 " ---------------------------------------------------------
 " EOF EOF EOF EOF BASIC DAN SYNTAX ITEMS
 

@@ -1,0 +1,4 @@
+--langdef=googleapidantags
+--langmap=googleapidantags:.googleapidan
+--kinddef-googleapidantags=t,topic,topics
+--regex-googleapidantags=/^#\s(.*)\s#(\s\(X\)){0,1}$/\1/t/

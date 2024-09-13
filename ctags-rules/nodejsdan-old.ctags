@@ -1,6 +1,0 @@
---langdef=nodejsdantags
---langmap=nodejsdantags:.nodejsdan
---kinddef-nodejsdantags=c,class,classes
---kinddef-nodejsdantags=t,topic,topics
---regex-nodejsdantags=/^Class: (.*)#/\1/c
---regex-nodejsdantags=/^(.*)#(\s\(X\)){0,1}$/\1/t

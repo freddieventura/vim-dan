@@ -19,6 +19,7 @@ The framework documentation can be periodically updated according to their publi
 
 The project aims for the simplicity of `vim`'s functionality, aiming to extend the use **plain-text** , **syntax highlight** and **tags** navigation in a similar fashion to [vim-help-files](https://vimhelp.org/) , analogous to the usage of `filetype = help'.
 
+Note!! Since googleapidan , there is algorithm that parses each location and topic and does the Index and Link Automaticaly, all the new frameworks should follow this for simplicity.
 
 ## Actual usage
 
@@ -57,6 +58,7 @@ But everyone is free to participate in the project, if you like the way it works
 
 Below you can find a guide on how to start your own **DAN Documentation** for a new framework.
 Also any suggestions on how to improve the already existing source are more than welcomed.
+
 
 ## vimrc Additions
 
