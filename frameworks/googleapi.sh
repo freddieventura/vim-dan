@@ -28,6 +28,7 @@ https://developers.google.com/sites
 https://developers.google.com/slides
 https://developers.google.com/tasks
 https://developers.google.com/vault
+https://cloud.google.com/docs/
 )
 #DOWNLOAD_LINK=""
 # -------------------------------------
@@ -65,6 +66,9 @@ for DOWNLOAD_LINK in "${DOWNLOAD_LINKS[@]}"; do
       --page-requisites \
       ${DOWNLOAD_LINK}
 done 
+
+mv ${DOCU_PATH}/downloaded/cloud.google.com ${DOCU_PATH}/downloaded/developers.google.com/
+
 
 ## Modifying documents
 
@@ -308,6 +312,7 @@ for file in "${files_array[@]}"; do
     fi
 
     ## Copying the rolling directory hierarcy
+    unset prev_dirs_array
     prev_dirs_array=("${dirs_array[@]}")
 
 done 
