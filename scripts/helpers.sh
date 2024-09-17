@@ -165,3 +165,154 @@ find_same_name_sibling_directory() {
 }
 ## EOF EOF EOF FUNCTIONS TO BE USED ON INDEXING/PARSING
 ## ------------------------------------
+
+
+
+estimate_docu_weight() {
+## Data for indexing, estimating bytes per file
+#--------------------
+# There are two methods to estimate the aproximated bytes of the documentation.
+#   - calculate an html to plaintext ratio , multiply it by number of files
+#   - calculate a html_headroom for one file (so the HTML boiler plate
+#       that is gonna appear always in each files.
+#       The rest should be pure plain text.
+#       Get this headroom for the number of files (total_headroom)
+#       and substract it to the total size in html
+#   Both methods are wrong, it is best the firstone
+
+## Number below may not be representative due to disparity of text on files
+
+
+mapfile -t files_array < <(find "${DOCU_PATH}/downloaded" -type f -name "*.html" | sort -V)
+
+# Get plaintext size
+plaintext_size=$(cat "${files_array[0]}" | pup -i 0 --pre 'article div.devsite-article-body' | pandoc -f html -t plain --wrap=none | wc -c)
+
+# Get HTML file size
+html_size=$(stat -c%s "${files_array[0]}")
+
+html_headroom=$((${html_size} - ${plaintext_size}))
+
+echo "HTML headroom: ${html_headroom}"
+
+# get the total number of html files
+num_files=$(find "${DOCU_PATH}/downloaded" -maxdepth 1 -type f -name "*.html" | wc -l)
+
+echo "number of html files: ${num_files}"
+
+total_headroom=$((${html_headroom} * ${num_files}))
+echo "Total Headroom: ${total_headroom}"
+
+html_size=$(du -sb "${DOCU_PATH}/downloaded" | awk '{print $1}')
+echo "html size: ${html_size}"
+
+bytes_total_docu=$((${html_size} - ${total_headroom}))
+
+#$(echo "scale=2; $total_html_size * $plaintext_html_ratio" | bc)
+
+
+### Calculate the plaintext-to-HTML size ratio (use bc for float division)
+##plaintext_html_ratio=$(echo "scale=4; $plaintext_size / $html_size" | bc)
+##
+##echo ${plaintext_html_ratio}
+##echo "Plaintext to HTML ratio: ${plaintext_html_ratio}"
+
+### get the total number of html files
+##num_files=$(find "${docu_path}/downloaded" -maxdepth 1 -type f -name "*.html" | wc -l)
+##
+##echo "number of html files: ${num_files}"
+##
+### Estimate total plaintext size across all HTML files
+##total_html_size=$(find "${DOCU_PATH}/downloaded" -maxdepth 1 -type f -name "*.html" -exec stat -c%s {} + | awk '{s+=$1} END {print s}')
+
+# Estimate total plaintext size across all files
+#bytes_total_docu=$(echo "scale=2; $total_html_size * $plaintext_html_ratio" | bc)
+# Convert total plaintext bytes to megabytes
+bytes_total_docu_mb=$(echo "scale=2; $bytes_total_docu / 1048576" | bc)
+
+echo "Total documentation bytes (estimated plaintext): ${bytes_total_docu} bytes"
+echo "Total documentation size (estimated plaintext) in MB: ${bytes_total_docu_mb} MB"
+}
+
+
+
+## Splitting documentation in different parts of even size
+##
+## This algorithm will give me the filename for the splits of even size
+## and the size of each split , for a certain number of splits given
+
+## We will be assuming that the documentation is sorted and is
+## gonna be parsed sorted alphabetically
+
+get_split_files(){
+
+no_splits=$1
+path=$2
+
+html_size=$(du -sb "${path}/" | awk '{print $1}')
+
+mapfile -t files_array < <(find "${path}/" -type f -name "*.html" | sort -V )
+acumulated_size=0
+chunk_size=$((${html_size} / ${no_splits}))
+split_count=0
+
+for file in "${files_array[@]}"; do
+    current_filesize=$(stat -c%s "${file}")
+    acumulated_size=$((${acumulated_size} + ${current_filesize}))
+
+    if [[ ${acumulated_size} -gt ${chunk_size} ]]; then
+        split_count=$((${split_count} + 1))
+        echo "Split no: ${split_count} split at file: ${file}"
+        acumulated_size=0
+        if [[ $((${split_count} + 1)) -eq ${no_splits} ]]; then
+            break
+        fi
+    fi
+done
+
+}
+
+#get_split_files 3 "${DOCU_PATH}/downloaded" ""
+
+
+
+
+# Similar to previousone , but we will truncate the find to 
+# file_start
+# file_finnish
+get_split_files_partial(){
+
+no_splits=$1
+path=$2
+file_start=$3
+file_finnish=$3
+
+html_size=$(du -sb "${path}/" | awk '{print $1}')
+
+mapfile -t files_array < <(
+    find "${path}/" -type f -name "*.html" | sort -V | \
+    sed -n "/$file_start/,/$file_finnish/p"
+)
+acumulated_size=0
+chunk_size=$((${html_size} / ${no_splits}))
+split_count=0
+
+for file in "${files_array[@]}"; do
+    current_filesize=$(stat -c%s "${file}")
+    acumulated_size=$((${acumulated_size} + ${current_filesize}))
+
+    if [[ ${acumulated_size} -gt ${chunk_size} ]]; then
+        split_count=$((${split_count} + 1))
+        echo "Split no: ${split_count} split at file: ${file}"
+        acumulated_size=0
+        if [[ $((${split_count} + 1)) -eq ${no_splits} ]]; then
+            break
+        fi
+    fi
+done
+
+}
+
+
+#get_split_files 3 "${DOCU_PATH}/downloaded" "${DOCU_PATH}/downloaded/cloud.google.com-)java-)docs.html" "${DOCU_PATH}/downloaded/cloud.google.com-)java-)getting-started-)session-handling-with-firestore.html"
+

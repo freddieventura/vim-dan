@@ -29,6 +29,7 @@ https://developers.google.com/slides
 https://developers.google.com/tasks
 https://developers.google.com/vault
 https://cloud.google.com/docs/
+https://cloud.google.com/sdk/
 )
 #DOWNLOAD_LINK=""
 # -------------------------------------
