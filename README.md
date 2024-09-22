@@ -27,8 +27,6 @@
 
 ## Visual desmonstration
 
-
-[![asciicast](https://asciinema.org/a/oL956IhemufusT8nQC4j8yY9t.svg)](https://asciinema.org/a/oL956IhemufusT8nQC4j8yY9t)
 <a href="https://asciinema.org/a/oL956IhemufusT8nQC4j8yY9t" target="_blank"><img src="https://asciinema.org/a/oL956IhemufusT8nQC4j8yY9t.svg" /></a>
 
 ## Installation for users
@@ -57,6 +55,7 @@ VIM_RTP_DIR="${HOME}/.vim"
 vim local_path/vim-dan/mdnjs/main.mdnjsdan
 ```
 
+<a href="https://asciinema.org/a/L3xY4GkGxvQ4YfBwSsyQkxAzv" target="_blank"><img src="https://asciinema.org/a/oL956IhemufusT8nQC4j8yY9t.svg" /></a>
 
 ## Updating your local documents
 
