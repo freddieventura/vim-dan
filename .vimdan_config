@@ -1,0 +1,2 @@
+VIMDAN_DIR="${HOME}/baul-documents/vim-dan"
+VIM_RTP_DIR="${HOME}/.vim"

@@ -28,17 +28,23 @@
 ## Visual desmonstration
 
 
+[![asciicast](https://asciinema.org/a/oL956IhemufusT8nQC4j8yY9t.svg)](https://asciinema.org/a/oL956IhemufusT8nQC4j8yY9t)
 
 ## Installation for users
 
-Say you want to download the Mozilla MDN Web Docs for Javascript
+Say you want to download the Mozilla MDN Web Docs for Javascript, (assuming you are in a Debian based machine)
 
 ```
+# Install dependencies
+sudo apt install universal-ctags vim -y
 git clone https://github.com/freddieventura/vim-dan
 cd vim-dan
-# Modify VIMDAN_DIR, to be the installation directory for the documentation
-# Modify VIM_RTP_DIR in case yours is different to the default
-vim vim-dan.sh
+
+# Create your installation file , set your own installation path
+vim ./vimdan_config
+
+VIMDAN_DIR="${HOME}/mydocus/vim-dan"
+VIM_RTP_DIR="${HOME}/.vim"
 
 # List all the frameworks available
 ./vim-dan.sh

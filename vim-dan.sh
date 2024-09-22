@@ -1,17 +1,5 @@
 #!/bin/bash
 
-## USER DEFINED OPTIONS
-## ------------------------------------
-## Modify accordingly
-
-## VIMDAN_DIR="${HOME}/baul-documents/vim-dan"
-## VIM_RTP_DIR="${HOME}/.vim"
-
-## EOF EOF EOF USER DEFINED OPTIONS
-## ------------------------------------
-
-
-
 ## Sourcing files
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 

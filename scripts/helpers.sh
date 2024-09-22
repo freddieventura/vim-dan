@@ -7,13 +7,17 @@ perform_install(){
     [ ! -d "${DOCU_PATH}" ] && mkdir -p "${DOCU_PATH}"
     echo "Installing vim-dan ${DOCU_NAME} into ${DOCU_PATH}/ ..."
 
+    # If installation directory doesnt exist create
+    if [ -e "$DOCU_PATH" ]; then
+        mkdir -p $DOCU_PATH
+    fi
+
     # If the file is compressed extract
     if [ -e "$CURRENT_DIR"/ready-docus/main."${DOCU_NAME}dan.bz2" ]; then
         echo "There is compression file"
         bunzip2 -kc "$CURRENT_DIR"/ready-docus/main."${DOCU_NAME}dan.bz2" > ${DOCU_PATH}/main-toupdate.${DOCU_NAME}dan
     else 
         cp $CURRENT_DIR/ready-docus/main.${DOCU_NAME}dan ${DOCU_PATH}/main-toupdate.${DOCU_NAME}dan
-        echo " there is no"
     fi
     perform_patch
     updating_tags
@@ -62,8 +66,9 @@ delete_index() {
     rm -r ${DOCU_PATH}/downloaded
 }
 install_autoload() {
-    if [ -e ${VIM_RTP_DIR}/autoload/dan.vim ]; then
+    if [ ! -f ${VIM_RTP_DIR}/autoload/dan.vim ]; then
         echo "Installing autoload ..."
+        [ ! -d ${VIM_RTP_DIR}/autoload ] && mkdir -p ${VIM_RTP_DIR}/autoload 
         cp ${CURRENT_DIR}/autoload/dan.vim ${VIM_RTP_DIR}/autoload/
     fi
 }
@@ -89,7 +94,7 @@ perform_patch(){
 updating_tags() {
     echo "Updating the tag file..."
     ctags --options=NONE --options=${CURRENT_DIR}/ctags-rules/${DOCU_NAME}dan.ctags --tag-relative=always -f ${DOCU_PATH}/tags ${MAIN_FILE} 
-    [ ! -d "${HOME}/c.tags.d" ] && mkdir -p "${HOME}/c.tags.d"
+    [ ! -d "${HOME}/.ctags.d" ] && mkdir -p "${HOME}/.ctags.d"
     cp ${CURRENT_DIR}/ctags-rules/${DOCU_NAME}dan.ctags ${HOME}/.ctags.d/
 }
 updating_vim() {
