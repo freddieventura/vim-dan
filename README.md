@@ -29,6 +29,7 @@
 
 
 [![asciicast](https://asciinema.org/a/oL956IhemufusT8nQC4j8yY9t.svg)](https://asciinema.org/a/oL956IhemufusT8nQC4j8yY9t)
+<a href="https://asciinema.org/a/oL956IhemufusT8nQC4j8yY9t" target="_blank"><img src="https://asciinema.org/a/oL956IhemufusT8nQC4j8yY9t.svg" /></a>
 
 ## Installation for users
 
