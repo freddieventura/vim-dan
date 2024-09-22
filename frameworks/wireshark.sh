@@ -49,10 +49,11 @@ for DOWNLOAD_LINK in "${DOWNLOAD_LINKS[@]}"; do
       --page-requisites \
       ${DOWNLOAD_LINK}
 done 
+}
 
 
+arranging_rules() {
 
-##  Modifying documents
 #  As later on the files are gonna be sorted alphabetically by path
 #       and on the following path we have got
 # "${DOCU_PATH}/downloaded/wireshark.org/docs/wsdg_html_chunked/"
@@ -78,16 +79,6 @@ for file in "${files_array[@]}"; do
     dir_name=$(dirname "$file")
     mv "$file" $dir_name/$new_name.html
 done
-
-
-
-## *jpg,*png,*gif
-#      --wait-second=3 \
-#      --waitretry=3 \
-#      --random-wait \
-
-
-##      -nH \
 
 }
 
@@ -259,7 +250,7 @@ done
 ## PARSING ARGUMENTS
 ## ------------------------------------
 # (do not touch)
-while getopts ":ip" opt; do
+while getopts ":ipa" opt; do
     case ${opt} in
         i)
             indexing_rules
@@ -267,11 +258,15 @@ while getopts ":ip" opt; do
         p)
             parsing_rules
             ;;
+        a)
+            arranging_rules
+            ;;
         h | *)
-            echo "Usage: $0 [-i] [-p] [-h] "
+            echo "Usage: $0 [-i] [-p] [-a] [-h] "
             echo "Options:"
             echo "  -i  Indexing"
             echo "  -p  Parsing"
+            echo "  -a  Arranging"
             echo "  -h  Help"
             exit 0
             ;;
@@ -279,3 +274,4 @@ while getopts ":ip" opt; do
 done
 ## EOF EOF EOF PARSING ARGUMENTS
 ## ------------------------------------
+

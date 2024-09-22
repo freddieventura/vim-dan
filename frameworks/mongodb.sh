@@ -49,8 +49,12 @@ for DOWNLOAD_LINK in "${DOWNLOAD_LINKS[@]}"; do
       ${DOWNLOAD_LINK}
 done 
 
-## Modifying documents
+}
 
+arranging_rules() {
+
+## RENAME LONE INDEX.HTML
+## ------------------------------------------------------------------------
 ## Rename lone index.html to subdir folder and place this file a level down
 ## For instance
 ## www.zaproxy.org/docs/alerts/
@@ -67,6 +71,8 @@ for file in "${files_array[@]}"; do
     mv ${file} "$dirname/../$parent.$ext";
 done
 
+## EOF EOF EOF RENAME LONE INDEX.HTML
+## ------------------------------------------------------------------------
 
 
 ## Search on a dir, place the files nested in a subdir, on the dir below
@@ -137,8 +143,9 @@ done
 find "${DOCU_PATH}/downloaded/www.mongodb.com/docs/" -type d -empty -delete
 
 
-
 }
+
+
 
 parsing_rules(){
     # Header of docu    
@@ -293,7 +300,7 @@ done
 ## PARSING ARGUMENTS
 ## ------------------------------------
 # (do not touch)
-while getopts ":ip" opt; do
+while getopts ":ipa" opt; do
     case ${opt} in
         i)
             indexing_rules
@@ -301,11 +308,15 @@ while getopts ":ip" opt; do
         p)
             parsing_rules
             ;;
+        a)
+            arranging_rules
+            ;;
         h | *)
-            echo "Usage: $0 [-i] [-p] [-h] "
+            echo "Usage: $0 [-i] [-p] [-a] [-h] "
             echo "Options:"
             echo "  -i  Indexing"
             echo "  -p  Parsing"
+            echo "  -a  Arranging"
             echo "  -h  Help"
             exit 0
             ;;

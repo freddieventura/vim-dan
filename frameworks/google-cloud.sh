@@ -24,56 +24,50 @@ indexing_rules(){
         mkdir -p "${DOCU_PATH}/downloaded"
     fi
 
-##for DOWNLOAD_LINK in "${DOWNLOAD_LINKS[@]}"; do
-##    wget \
-##    `##tBasic Startup Options` \
-##      --execute robots=off \
-##    `## Loggin and Input File Options` \
-##      -o ./wget.log \
-##    `## Download Options` \
-##      --timestamping \
-##    `## Directory Options` \
-##      --directory-prefix=${DOCU_PATH}/downloaded \
-##    `## HTTP Options` \
-##      --user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59" \
-##      --adjust-extension \
-##    `## HTTPS Options` \
-##      --no-check-certificate \
-##    `## Recursive Retrieval Options` \
-##      --recursive --level=4 \
-##    `## Recursive Accept/Reject Options` \
-##      --no-parent \
-##      --reject-regex '.*?hel=.*|.*?hl=.*' \
-##      --reject '*.pdf,*.woff,*.woff2,*.ttf,*.png,*.webp,*.mp4,*.ico,*.svg,*.js,*json,*.css,*.xml,*.txt' \
-##      --page-requisites \
-##      ${DOWNLOAD_LINK}
-##done 
+for DOWNLOAD_LINK in "${DOWNLOAD_LINKS[@]}"; do
+    wget \
+    `##tBasic Startup Options` \
+      --execute robots=off \
+    `## Loggin and Input File Options` \
+      -o ./wget.log \
+    `## Download Options` \
+      --timestamping \
+      --restrict-file-names=windows \
+    `## Directory Options` \
+      --directory-prefix=${DOCU_PATH}/downloaded \
+    `## HTTP Options` \
+      --user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59" \
+      --adjust-extension \
+    `## HTTPS Options` \
+      --no-check-certificate \
+    `## Recursive Retrieval Options` \
+      --recursive --level=4 \
+    `## Recursive Accept/Reject Options` \
+      --no-parent \
+      --reject-regex '.*?hel=.*|.*?hl=.*' \
+      --reject '*.pdf,*.woff,*.woff2,*.ttf,*.png,*.webp,*.mp4,*.ico,*.svg,*.js,*json,*.css,*.xml,*.txt' \
+      --page-requisites \
+      ${DOWNLOAD_LINK}
+done 
 
+
+}
+
+
+arranging_rules() {
 
 ## Making a backup
 cp -r "${DOCU_PATH}/downloaded" "${DOCU_PATH}/downloaded-bk"
 
+## Moving down the host directory
 mv "${DOCU_PATH}/downloaded/cloud.google.com/"* "${DOCU_PATH}/downloaded/"
-
-## Modifying documents
-
-# Delete all the files that have a ? such as 
-#./downloaded-bk/cloud.google.com/architecture?category=storage.html
-find "${DOCU_PATH}/downloaded/" -type f -name '*\?*' -exec rm -f {} +
-
-# Delete all the files maxdepth 2 (direct children), as they are not explicative
-# And dont share the same html structure
-#./downloaded/cloud.google.com/databricks.html
-#./downloaded/cloud.google.com/livestream.html
-find "${DOCU_PATH}/downloaded/" -maxdepth 1 -type f -exec rm -f {} +
-
-
+rmdir "${DOCU_PATH}/downloaded/cloud.google.com"
 
 
 # Find all the directories that have either a ./docs/ subdir or ./docs.html , the rest delete them
-
+# ---------------------------------------------------------------------------
 # Path to the parent directory
-PARENT_DIR="${DOCU_PATH}/downloaded/cloud.google.com"
+PARENT_DIR="${DOCU_PATH}/downloaded/"
 
 # Find all subdirectories
 find "$PARENT_DIR" -mindepth 1 -maxdepth 1 -type d | while read -r DIR; do
@@ -85,8 +79,10 @@ find "$PARENT_DIR" -mindepth 1 -maxdepth 1 -type d | while read -r DIR; do
         rm -rf "$DIR"
     fi
 done
+# ---------------------------------------------------------------------------
 
-
+## RENAME LONE INDEX.HTML
+## ------------------------------------------------------------------------
 ## Rename lone index.html to subdir folder and place this file a level down
 ## For instance
 ## www.zaproxy.org/docs/alerts/
@@ -103,10 +99,16 @@ for file in "${files_array[@]}"; do
     mv ${file} "$dirname/../$parent.$ext";
 done
 
+## EOF EOF EOF RENAME LONE INDEX.HTML
+## ------------------------------------------------------------------------
+
 
 # Remove the files that are at depth 1 (they have been generated)
 find "${DOCU_PATH}/downloaded/" -maxdepth 1 -type f -exec rm -f {} +
 
+
+## DEESTRUCTURING THE DIRECTORY TREE
+## ------------------------------------------------------------------------
 ## Search on a dir, place the files nested in a subdir, on the dir below
 ## Rename them to ${subdir}file.ext
 
@@ -133,13 +135,14 @@ for i in {1..15}; do
     done
 
 done
-# eof eof eof De-estructure all the directory hierarchy
 
-
-
-
+# Pruning off the empty directories
 find "${DOCU_PATH}/downloaded/" -type d -empty -delete
-rm -r "${DOCU_PATH}/downloaded/cloud.google.com"
+## EOF EOF EOF DEESTRUCTURING THE DIRECTORY TREE
+## ------------------------------------------------------------------------
+
+
+
 rm "${DOCU_PATH}/downloaded/cloud.google.com.html"
 
 
@@ -336,9 +339,6 @@ for file in "${files_array[@]}"; do
 done 
 
 
-
-
-
 echo "" >> ${MAIN_TOUPDATE}  ## ADDING A LINE BREAK
 
 # Parsing and appending content , using Multi-rule
@@ -384,20 +384,13 @@ for path in "${files_array[@]}"; do
 done
 
 
-
-
-
-
-
-
-
 }
 
 
 ## PARSING ARGUMENTS
 ## ------------------------------------
 # (do not touch)
-while getopts ":ip" opt; do
+while getopts ":ipa" opt; do
     case ${opt} in
         i)
             indexing_rules
@@ -405,11 +398,15 @@ while getopts ":ip" opt; do
         p)
             parsing_rules
             ;;
+        a)
+            arranging_rules
+            ;;
         h | *)
-            echo "Usage: $0 [-i] [-p] [-h] "
+            echo "Usage: $0 [-i] [-p] [-a] [-h] "
             echo "Options:"
             echo "  -i  Indexing"
             echo "  -p  Parsing"
+            echo "  -a  Arranging"
             echo "  -h  Help"
             exit 0
             ;;

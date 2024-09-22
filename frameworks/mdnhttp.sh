@@ -108,7 +108,7 @@ done
 ## PARSING ARGUMENTS
 ## ------------------------------------
 # (do not touch)
-while getopts ":ip" opt; do
+while getopts ":ipa" opt; do
     case ${opt} in
         i)
             indexing_rules
@@ -116,11 +116,15 @@ while getopts ":ip" opt; do
         p)
             parsing_rules
             ;;
+        a)
+            arranging_rules
+            ;;
         h | *)
-            echo "Usage: $0 [-i] [-p] [-h] "
+            echo "Usage: $0 [-i] [-p] [-a] [-h] "
             echo "Options:"
             echo "  -i  Indexing"
             echo "  -p  Parsing"
+            echo "  -a  Arranging"
             echo "  -h  Help"
             exit 0
             ;;

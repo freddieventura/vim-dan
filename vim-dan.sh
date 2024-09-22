@@ -70,22 +70,25 @@ MAIN_TOUPDATE="${DOCU_PATH}/main-toupdate.${DOCU_NAME}dan"
 
 ## PARSING ARGUMENTS
 ## ------------------------------------
-while getopts ":iupxrdth" opt; do
+while getopts ":iupxradth" opt; do
     case ${opt} in
         i)
-            perfom_install
+            perform_install
             ;;
         u)
-            perfom_update
+            perform_update
             ;;
         p)
-            perfom_parse
+            perform_parse
             ;;
         x)
-            perfom_index
+            perform_index
             ;;
         r)
-            perfom_remove
+            perform_remove
+            ;;
+        a)
+            perform_arrange
             ;;
         t)
             updating_tags
@@ -94,7 +97,7 @@ while getopts ":iupxrdth" opt; do
             delete_index
             ;;
         h | *)
-            echo "Usage: $0 [FRAMEWORK] [-i] [-u] [-p] [-x] [-r] [-t] [-d] [-h]"
+            echo "Usage: $0 [FRAMEWORK] [-i] [-u] [-p] [-x] [-r] [-t] [-d] [-h] [-a]"
             echo "Options:"
             echo "  -i  Install Docu"
             echo "  -u  Update Docu"
@@ -103,6 +106,7 @@ while getopts ":iupxrdth" opt; do
             echo "  -r  Remove Docu"
             echo "  -t  Updating Tags"
             echo "  -d  Delete Index"
+            echo "  -a  Arraging Docu files"
             echo "  -h  Help"
             exit 0
             ;;

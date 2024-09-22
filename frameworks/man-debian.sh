@@ -43,6 +43,9 @@ indexing_rules(){
       --page-requisites \
       ${DOWNLOAD_LINK}
       
+}
+
+arranging_rules() {
 
     ## Removing duplicates and other clutter
     find ${DOCU_PATH}/downloaded -not -path "${DOCU_PATH}/downloaded/bookworm/*" -delete
@@ -78,6 +81,9 @@ done
 # EOF EOF EOF ALGORITHM TO DELETE SAME HEADER FILES
 # -------------------------------------------------
 
+
+## ALGORITHM TO SPLIT DOCU
+# -------------------------------------------------
     ## Because this documentation is really big
     ## Need to split files into different docu sections
             ##    Section 1: 0-9  and A to E
@@ -96,6 +102,9 @@ done
     mv ${DOCU_PATH}/downloaded/bookworm/[P-Tp-t]* ${DOCU_PATH}/../man-debiant/downloaded/
     [ ! -d "${DOCU_PATH}/../man-debianz/downloaded/" ] && mkdir -p "${DOCU_PATH}/../man-debianz/downloaded/"
     mv ${DOCU_PATH}/downloaded/bookworm/[U-Zu-z]* ${DOCU_PATH}/../man-debianz/downloaded/
+## EOF EOF EOF ALGORITHM TO SPLIT DOCU
+# -------------------------------------------------
+
 }
 
 parsing_rules(){
@@ -153,11 +162,10 @@ done
 }
 
 
-
 ## PARSING ARGUMENTS
 ## ------------------------------------
 # (do not touch)
-while getopts ":ip" opt; do
+while getopts ":ipa" opt; do
     case ${opt} in
         i)
             indexing_rules
@@ -165,11 +173,15 @@ while getopts ":ip" opt; do
         p)
             parsing_rules
             ;;
+        a)
+            arranging_rules
+            ;;
         h | *)
-            echo "Usage: $0 [-i] [-p] [-h] "
+            echo "Usage: $0 [-i] [-p] [-a] [-h] "
             echo "Options:"
             echo "  -i  Indexing"
             echo "  -p  Parsing"
+            echo "  -a  Arranging"
             echo "  -h  Help"
             exit 0
             ;;

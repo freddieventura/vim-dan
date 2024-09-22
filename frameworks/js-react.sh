@@ -43,20 +43,20 @@ indexing_rules(){
       --exclude-directories="next,next/*,category,category/*" \
       --reject '*.webp,*.woff2,image?*,*.ico,*.jpg,*.svg,*.js,*json,*.css,*.png,*.xml,*.txt' \
       ${DOWNLOAD_LINK}
+}
 
-## Preparing files for processing
-## -----------------------------
-echo "Preparing the files for processing ..."
+arranging_rules() {
+
+## Making a backup
+cp -r "${DOCU_PATH}/downloaded" "${DOCU_PATH}/downloaded-bk"
+ 
 
 # Removing every directory that is not learn and reference , and leaving all .html on the main dir
 find ${DOCU_PATH}/downloaded/ -mindepth 1 -maxdepth 1 ! \( -name "*.html" -o -name "learn" -o -name "reference" \) -exec rm -rf {} \;
 
-
-
-## eof eof eof Preparing files for processing
-## -----------------------------
-      
 }
+
+     
 
 parsing_rules(){
     # Header of docu    
@@ -145,7 +145,7 @@ done
 ## PARSING ARGUMENTS
 ## ------------------------------------
 # (do not touch)
-while getopts ":ip" opt; do
+while getopts ":ipa" opt; do
     case ${opt} in
         i)
             indexing_rules
@@ -153,11 +153,15 @@ while getopts ":ip" opt; do
         p)
             parsing_rules
             ;;
+        a)
+            arranging_rules
+            ;;
         h | *)
-            echo "Usage: $0 [-i] [-p] [-h] "
+            echo "Usage: $0 [-i] [-p] [-a] [-h] "
             echo "Options:"
             echo "  -i  Indexing"
             echo "  -p  Parsing"
+            echo "  -a  Arranging"
             echo "  -h  Help"
             exit 0
             ;;

@@ -3,7 +3,7 @@
 
 ## USER TRIGGERED ACTIONS
 ## ------------------------------------
-perfom_install(){
+perform_install(){
     [ ! -d "${DOCU_PATH}" ] && mkdir -p "${DOCU_PATH}"
     echo "Installing vim-dan ${DOCU_NAME} into ${DOCU_PATH}/ ..."
 
@@ -20,7 +20,7 @@ perfom_install(){
     updating_vim
     install_autoload
 }
-perfom_update(){
+perform_update(){
     echo "Updating vim-dan ${DOCU_NAME} on ${DOCU_PATH}/ ..."
     echo "Note!! . In order for this to have any effect you previously should have updated the repository"
     cp $CURRENT_DIR/ready-docus/main.${DOCU_NAME}dan ${DOCU_PATH}/main.${DOCU_NAME}dan-toupdate
@@ -30,12 +30,12 @@ perfom_update(){
     install_autoload
 }
 
-perfom_index(){
+perform_index(){
     echo "Indexing vim-dan ${DOCU_NAME} on ${DOCU_PATH}/ ..."
     ${CURRENT_DIR}/frameworks/${DOCU_NAME}.sh ${DOCU_PATH} "-i"
 }
 
-perfom_parse(){
+perform_parse(){
     echo "Parsing vim-dan ${DOCU_NAME} on ${DOCU_PATH}/ ..."
     ${CURRENT_DIR}/frameworks/${DOCU_NAME}.sh ${DOCU_PATH} "-p"
     perform_patch
@@ -43,7 +43,13 @@ perfom_parse(){
     updating_vim
     install_autoload
 }
-perfom_remove(){
+
+perform_arrange(){
+    echo "Arranging vim-dan ${DOCU_NAME} files on ${DOCU_PATH}/ ..."
+    ${CURRENT_DIR}/frameworks/${DOCU_NAME}.sh ${DOCU_PATH} "-a"
+}
+
+perform_remove(){
     echo "Removing vim-dan ${DOCU_NAME} off ${DOCU_PATH}/ ..."
     rm -r ${DOCU_PATH}
     rm ${VIM_RTP_DIR}/ftdetect/${DOCU_NAME}dan.vim 
@@ -315,4 +321,187 @@ done
 
 
 #get_split_files 3 "${DOCU_PATH}/downloaded" "${DOCU_PATH}/downloaded/cloud.google.com-)java-)docs.html" "${DOCU_PATH}/downloaded/cloud.google.com-)java-)getting-started-)session-handling-with-firestore.html"
+
+
+
+# Snippets functions not to be executed !!
+# They are just snippets used on the codebase
+indexing_snippets() {
+    echo 'Function not to execute' # Dont delete this line
+
+
+
+}
+
+arranging_snippets() {
+    echo 'Function not to execute' # Dont delete this line
+
+## Making a backup
+cp -r "${DOCU_PATH}/downloaded" "${DOCU_PATH}/downloaded-bk"
+
+## Moving down the host directory
+mv "${DOCU_PATH}/downloaded/cloud.google.com/"* "${DOCU_PATH}/downloaded/"
+
+
+# Find all the directories that have either a ./docs/ subdir or ./docs.html , the rest delete them
+# ---------------------------------------------------------------------------
+# Path to the parent directory
+PARENT_DIR="${DOCU_PATH}/downloaded/"
+
+# Find all subdirectories
+find "$PARENT_DIR" -mindepth 1 -maxdepth 1 -type d | while read -r DIR; do
+    # Check if the directory contains 'docs' or 'docs.html'
+    if ! find "$DIR" -type d -name "docs" -print -quit | grep -q '.' &&
+       ! find "$DIR" -type f -name "docs.html" -print -quit | grep -q '.'; then
+        # If neither 'docs' nor 'docs.html' is found, delete the directory
+        echo "Deleting directory: $DIR"
+        rm -rf "$DIR"
+    fi
+done
+# ---------------------------------------------------------------------------
+
+
+
+
+
+
+rename -f "s/ /_/g" ${DOCU_PATH}/downloaded/**/*.*
+rename "s/\*/asterisk/g" ${DOCU_PATH}/downloaded/**/*.*
+
+# Removing non-exFAT compatible filename files 
+#      not needed if index has --restrict-file-names=windows 
+find ./ -type f -regex "\(.*\?.*\|.*\%.*\)" -exec rm {} \;
+
+
+
+## Removing duplicates and other clutter
+find ${DOCU_PATH}/downloaded -not -path "${DOCU_PATH}/downloaded/bookworm/*" -delete
+find ${DOCU_PATH}/downloaded -type f -name 'index.html' -delete
+
+## Removing other languages other than english
+find . -type f \( -name "*.html" ! -name "*en.html" \) -exec rm {} \;
+find ${DOCU_PATH}/downloaded -type f \( -name "*.html" ! -name "*en.html" \) -exec rm {} \;
+
+
+
+## RENAME LONE INDEX.HTML
+## ------------------------------------------------------------------------
+## Rename lone index.html to subdir folder and place this file a level down
+## For instance
+## www.zaproxy.org/docs/alerts/
+## www.zaproxy.org/docs/alerts/0/index.html
+## should become
+## www.zaproxy.org/docs/alerts/0.html
+
+
+mapfile -t files_array < <(find "${DOCU_PATH}/downloaded/" -type f -name "index.html")
+for file in "${files_array[@]}"; do
+    parent="$(basename "$(dirname ${file})")"
+    dirname=$(dirname ${file})
+    ext=${file##*.}
+    mv ${file} "$dirname/../$parent.$ext";
+done
+
+## EOF EOF EOF RENAME LONE INDEX.HTML
+## ------------------------------------------------------------------------
+
+## DEESTRUCTURING THE DIRECTORY TREE
+## ------------------------------------------------------------------------
+## Search on a dir, place the files nested in a subdir, on the dir below
+## Rename them to ${subdir}file.ext
+
+## For instance check in
+## www.zaproxy.org/docs/desktop/addons/
+##
+## there is gonna be files such as 
+## www.zaproxy.org/docs/desktop/addons/access-control-testing/contextoptions.html
+##
+## make it 
+## www.zaproxy.org/docs/desktop/addons/access-control-testing-contextoptions.html
+
+
+
+# De-estructure all the directory hierarchy
+for i in {1..15}; do
+
+    mapfile -t files_array < <(find "${DOCU_PATH}/downloaded" -mindepth 2 -type f)
+
+    for file in "${files_array[@]}"; do
+        parent="$(basename "$(dirname ${file})")"
+        dirname=$(dirname ${file})
+        mv ${file} "$dirname/../"${parent}"-)$(basename ${file})";
+    done
+
+done
+
+# Pruning off the empty directories
+find "${DOCU_PATH}/downloaded/" -type d -empty -delete
+## EOF EOF EOF DEESTRUCTURING THE DIRECTORY TREE
+## ------------------------------------------------------------------------
+
+
+
+
+
+# ALGORITHM TO DELETE SAME HEADER FILES
+# -------------------------------------------------
+for dir in "$DOCU_PATH"/downloaded/bookworm/*/; do
+    mapfile -td '' files < <(find "$dir" -type f -name '*' -print0)
+
+    if (( "${#files[@]}" > 1 )); then
+        for file in "${files[@]}"; do
+
+            title=$(pup .head-ltitle < "$file")
+
+            for fileb in "${files[@]}"; do
+                if [[ $file != "$fileb" ]]; then
+
+                    if [[ $title == "$(pup .head-ltitle < "$fileb")" ]]; then
+                        printf 'progname: Removing Duplicate: %s\n' "$fileb"
+                        rm -f -- "$fileb"
+                    fi
+                fi
+            done
+        done
+    fi
+done
+# EOF EOF EOF ALGORITHM TO DELETE SAME HEADER FILES
+# -------------------------------------------------
+
+
+
+
+## ALGORITHM TO SPLIT DOCU
+# -------------------------------------------------
+    ## Because this documentation is really big
+    ## Need to split files into different docu sections
+            ##    Section 1: 0-9  and A to E
+            ##    Section 2: F to J
+            ##    Section 3: K to O
+            ##    Section 4: P to T
+            ##    Section 5: U to Z
+    echo "Splitting files into different docu sections ..."
+    [ ! -d "${DOCU_PATH}/../man-debiane/downloaded/" ] && mkdir -p "${DOCU_PATH}/../man-debiane/downloaded/"
+    mv ${DOCU_PATH}/downloaded/bookworm/[0-9A-Ea-e]* ${DOCU_PATH}/../man-debiane/downloaded/
+    [ ! -d "${DOCU_PATH}/../man-debianj/downloaded/" ] && mkdir -p "${DOCU_PATH}/../man-debianj/downloaded/"
+    mv ${DOCU_PATH}/downloaded/bookworm/[F-Jf-j]* ${DOCU_PATH}/../man-debianj/downloaded/
+    [ ! -d "${DOCU_PATH}/../man-debiano/downloaded/" ] && mkdir -p "${DOCU_PATH}/../man-debiano/downloaded/"
+    mv ${DOCU_PATH}/downloaded/bookworm/[K-Ok-o]* ${DOCU_PATH}/../man-debiano/downloaded/
+    [ ! -d "${DOCU_PATH}/../man-debiant/downloaded/" ] && mkdir -p "${DOCU_PATH}/../man-debiant/downloaded/"
+    mv ${DOCU_PATH}/downloaded/bookworm/[P-Tp-t]* ${DOCU_PATH}/../man-debiant/downloaded/
+    [ ! -d "${DOCU_PATH}/../man-debianz/downloaded/" ] && mkdir -p "${DOCU_PATH}/../man-debianz/downloaded/"
+    mv ${DOCU_PATH}/downloaded/bookworm/[U-Zu-z]* ${DOCU_PATH}/../man-debianz/downloaded/
+## EOF EOF EOF ALGORITHM TO SPLIT DOCU
+# -------------------------------------------------
+
+
+
+}
+
+parsing_snippets() {
+    echo 'Function not to execute' # Dont delete this line
+
+    sed -e '/^\[\]$/d' \
+
+}
 

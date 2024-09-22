@@ -42,14 +42,18 @@ indexing_rules(){
       --page-requisites \
       ${DOWNLOAD_LINK}
 
+}
+
+arranging_rules() {
+
 ## Preparing documents
 find ${DOCU_PATH}/downloaded/ -mindepth 1 -maxdepth 1 ! -name "docs" -exec rm -rf {} \;
 find ${DOCU_PATH}/downloaded/docs -type d -mindepth 1 -maxdepth 1 ! -name "the-new-architecture" -exec rm -rf {} \;
 mv ${DOCU_PATH}/downloaded/docs/* ${DOCU_PATH}/downloaded/
 rmdir ${DOCU_PATH}/downloaded/docs
 
-
 }
+
 
 parsing_rules(){
     echo "vim-dan" | figlet -f univers > ${MAIN_TOUPDATE}
@@ -123,7 +127,7 @@ sed -i 's/\[\]//g' ${MAIN_TOUPDATE}
 ## PARSING ARGUMENTS
 ## ------------------------------------
 # (do not touch)
-while getopts ":ip" opt; do
+while getopts ":ipa" opt; do
     case ${opt} in
         i)
             indexing_rules
@@ -131,11 +135,15 @@ while getopts ":ip" opt; do
         p)
             parsing_rules
             ;;
+        a)
+            arranging_rules
+            ;;
         h | *)
-            echo "Usage: $0 [-i] [-p] [-h] "
+            echo "Usage: $0 [-i] [-p] [-a] [-h] "
             echo "Options:"
             echo "  -i  Indexing"
             echo "  -p  Parsing"
+            echo "  -a  Arranging"
             echo "  -h  Help"
             exit 0
             ;;

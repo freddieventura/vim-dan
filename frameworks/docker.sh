@@ -48,8 +48,9 @@ for DOWNLOAD_LINK in "${DOWNLOAD_LINKS[@]}"; do
       ${DOWNLOAD_LINK}
 done 
 
+}
 
-## Modifying documents
+arranging_rules() {
 
 ## Rename lone index.html to subdir folder and place this file a level down
 ## For instance
@@ -108,8 +109,9 @@ done
 find "${DOCU_PATH}/downloaded/" -type d -empty -delete
 
 
-
 }
+
+
 
 parsing_rules(){
     # Header of docu    
@@ -263,7 +265,7 @@ done
 ## PARSING ARGUMENTS
 ## ------------------------------------
 # (do not touch)
-while getopts ":ip" opt; do
+while getopts ":ipa" opt; do
     case ${opt} in
         i)
             indexing_rules
@@ -271,11 +273,15 @@ while getopts ":ip" opt; do
         p)
             parsing_rules
             ;;
+        a)
+            arranging_rules
+            ;;
         h | *)
-            echo "Usage: $0 [-i] [-p] [-h] "
+            echo "Usage: $0 [-i] [-p] [-a] [-h] "
             echo "Options:"
             echo "  -i  Indexing"
             echo "  -p  Parsing"
+            echo "  -a  Arranging"
             echo "  -h  Help"
             exit 0
             ;;

@@ -48,6 +48,9 @@ for DOWNLOAD_LINK in "${DOWNLOAD_LINKS[@]}"; do
       ${DOWNLOAD_LINK}
 done 
 
+}
+
+arranging_rules() {
 
 
 ##  Modifying documents
@@ -63,19 +66,19 @@ done
 #
 #   Solution , modify filename
 
-##mapfile -t files_array < <(find "${DOCU_PATH}/downloaded/wireshark.org/docs/wsdg_html_chunked/" -type f -name "*.html" )
-##for file in "${files_array[@]}"; do
-##    new_name=$(cat "$file" | pup 'div.navheader tbody tr:first-child' | pandoc -f html -t plain | sed 's/ /_/g; s/\./-/g; s/[^[:alnum:]_-]//g' )
-##    dir_name=$(dirname "$file")
-##    mv "$file" $dir_name/$new_name.html
-##done
-##
-##mapfile -t files_array < <(find "${DOCU_PATH}/downloaded/wireshark.org/docs/wsug_html_chunked/" -type f -name "*.html" )
-##for file in "${files_array[@]}"; do
-##    new_name=$(cat "$file" | pup 'div.navheader tbody tr:first-child' | pandoc -f html -t plain | sed 's/ /_/g; s/\./-/g; s/[^[:alnum:]_-]//g' )
-##    dir_name=$(dirname "$file")
-##    mv "$file" $dir_name/$new_name.html
-##done
+mapfile -t files_array < <(find "${DOCU_PATH}/downloaded/wireshark.org/docs/wsdg_html_chunked/" -type f -name "*.html" )
+for file in "${files_array[@]}"; do
+    new_name=$(cat "$file" | pup 'div.navheader tbody tr:first-child' | pandoc -f html -t plain | sed 's/ /_/g; s/\./-/g; s/[^[:alnum:]_-]//g' )
+    dir_name=$(dirname "$file")
+    mv "$file" $dir_name/$new_name.html
+done
+
+mapfile -t files_array < <(find "${DOCU_PATH}/downloaded/wireshark.org/docs/wsug_html_chunked/" -type f -name "*.html" )
+for file in "${files_array[@]}"; do
+    new_name=$(cat "$file" | pup 'div.navheader tbody tr:first-child' | pandoc -f html -t plain | sed 's/ /_/g; s/\./-/g; s/[^[:alnum:]_-]//g' )
+    dir_name=$(dirname "$file")
+    mv "$file" $dir_name/$new_name.html
+done
 
 
 
@@ -236,7 +239,7 @@ done
 ## PARSING ARGUMENTS
 ## ------------------------------------
 # (do not touch)
-while getopts ":ip" opt; do
+while getopts ":ipa" opt; do
     case ${opt} in
         i)
             indexing_rules
@@ -244,11 +247,15 @@ while getopts ":ip" opt; do
         p)
             parsing_rules
             ;;
+        a)
+            arranging_rules
+            ;;
         h | *)
-            echo "Usage: $0 [-i] [-p] [-h] "
+            echo "Usage: $0 [-i] [-p] [-a] [-h] "
             echo "Options:"
             echo "  -i  Indexing"
             echo "  -p  Parsing"
+            echo "  -a  Arranging"
             echo "  -h  Help"
             exit 0
             ;;
