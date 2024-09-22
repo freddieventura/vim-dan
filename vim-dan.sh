@@ -4,8 +4,8 @@
 ## ------------------------------------
 ## Modify accordingly
 
-VIMDAN_DIR="${HOME}/baul-documents/vim-dan"
-VIM_RTP_DIR="${HOME}/.vim"
+## VIMDAN_DIR="${HOME}/baul-documents/vim-dan"
+## VIM_RTP_DIR="${HOME}/.vim"
 
 ## EOF EOF EOF USER DEFINED OPTIONS
 ## ------------------------------------
@@ -16,6 +16,11 @@ VIM_RTP_DIR="${HOME}/.vim"
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 source "$CURRENT_DIR/scripts/helpers.sh"
+
+# Source the user config if it exists
+if [[ -f "${CURRENT_DIR}/.vimdan_config" ]]; then
+    source "${CURRENT_DIR}/.vimdan_config"
+fi
 
 
 ## PARSING FRAMEWORK ARGUMENT
