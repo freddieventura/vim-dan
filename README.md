@@ -295,6 +295,9 @@ Some documentations come form a single file, or really few files, and you want t
 This comes with an increase of complexity in the linking-rules too , as you wont be making your index, but will be relying as well on regularities on the text, yet other regexes which vim has to understand as link_from. `./linking-rules/nodejsdan.vim`
 
 
+### Tucked-docus
+
+These are documents that have been parsed which the author may reserve its rights to be distributed, thus the documents are not been present at the `ready-docus` section, but you can process them localy if you own the original resources
 
 ## Future additions
 
@@ -306,6 +309,23 @@ This comes with an increase of complexity in the linking-rules too , as you wont
 
 
 ## Current Issues
+
+
+### chmdan
+- This is a framework that should act as a template for all the same filetypes
+It has been adapted, but it is not behaving properly
+linkFrom to linkTo are not working due to need to modify
+```
+export def UpdateTags()
+```
+
+It would need an actual big codebase refactor
+At the moment just scroll manually
+
+- As using same framework.sh , the title parsing rules vary among files, the body may too (although is pretty much `pup 'body'`
+
+- Problem with the same .extdan for different files. If syntax highlighting is different (such as book embed different programming languages , you wont be able to do syntax highlight)
+
 
 ### win-pwsh
 - Pending pages like https://learn.microsoft.com/en-us/powershell/module/nettcpip

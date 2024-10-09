@@ -366,7 +366,8 @@ done
 # ---------------------------------------------------------------------------
 
 
-
+# Remove the files that are at depth 1 (they are not explicative)
+find "${DOCU_PATH}/downloaded/" -maxdepth 1 -type f -exec rm -f {} +
 
 
 

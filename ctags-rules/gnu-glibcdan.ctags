@@ -1,0 +1,4 @@
+--langdef=gnuglibcdantags
+--langmap=gnuglibcdantags:.gnu-glibcdan
+--kinddef-gnuglibcdantags=t,topic,topics
+--regex-gnuglibcdantags=/^#\s(.*)\s#(\s\(X\)){0,1}$/\1/t/

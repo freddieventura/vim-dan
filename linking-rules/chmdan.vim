@@ -7,16 +7,21 @@ vim9script
 # Check https://github.com/freddieventura/vim-dan for more info
 
 # Setting iskeyword to
-set iskeyword=-,!-~,^*,^\|,^\",192-255
+set iskeyword=!-~,^*,^\|,^\",192-255
 
-# Understanding Linkto functionality
+# New linkto functionality
 # In vim-dan documents there are a bunch of
-#   - & link from &
+#   - & @link_from@ link_string &
 #  That refer to
-#   - # link to # 
-#  (been link from and link to the same)
+#   - # link_to # 
+#  (been link_from and link_to the same)
 #  You just need to locate the cursor on top of the line
 #   with the linkFrom and press Ctrl + ]
+#
+#   The syntax is conealing @link_from@ from the user so it can only see
+#   link_string
+#   Basically link_from is now a unique identifier
+
 command! GotoLinkto call GotoLinktoFn()
 command! IsLineLinkto call IsLineLinktoFn()
 nnoremap <expr> <C-]>  IsLineLinktoFn() ? ':GotoLinkto<CR>' :  '<C-]>'
@@ -34,16 +39,8 @@ def GotoLinktoFn(): void
     var myString = getline('.')
 
     # If there is a keyword enclosed in between &keyword& goto there
-    if match(myString, '&.*&') != -1
-        # Some patterns to be filtered on the link_from
-        # This filters out the ats at & @parentName@ linkFrom &
-        var patternList = ['@\(\w*\)\@=', '@\(\w*\)\@=']
-        for patternI in patternList
-            if match(myString, patternI) != -1
-                myString = substitute(myString, patternI, '', '')
-            endif
-        endfor
-        execute "tag " .. matchstr(myString, '&\@<=.*&\@=')
+    if match(myString, '@.*@') != -1
+        execute "tag " .. matchstr(myString, '@\@<=.*@\@=')
     else
     endif
 enddef
@@ -60,3 +57,4 @@ noremap <F5> :call dan#Refreshloclist()<CR>:call dan#UpdateTags()<CR>:redraw!<CR
 command! ToggleXConceal call dan#ToggleXConceal(g:xConceal)
 # ----------------------------------
 #eof eof eof eof eof VIM-DAN FUNCTIONALITIES
+

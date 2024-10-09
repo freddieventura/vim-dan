@@ -12,7 +12,7 @@ shift
 DOCU_NAME=$(basename ${0} '.sh')
 MAIN_TOUPDATE="${DOCU_PATH}/main-toupdate.${DOCU_NAME}dan"
 DOWNLOAD_LINKS=(
-https://www.mongodb.com/
+https://developers.google.com/
 )
 # -------------------------------------
 # eof eof eof DECLARING VARIABLES AND PROCESSING ARGS
@@ -26,28 +26,27 @@ indexing_rules(){
 
 ## 1st) Run a spider the whole website to get a list will all the links
 
-##declare -a links_files
-##for DOWNLOAD_LINK in "${DOWNLOAD_LINKS[@]}"; do
-##    links_file=$(echo "${DOWNLOAD_LINK}" | sed 's/[<>:"\/\\|?*]/_/g')
-##    links_files+=("${links_file}")
-##    wget \
-##    `## Basic Startup Options` \
-##      --execute robots=off \
-##    `## Loggin and Input File Options` \
-##      --force-html \
-##    `## Download Options` \
-##      --spider \
-##    `## Directory Options` \
-##    `## HTTP Options` \
-##      --user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59" \
-##    `## HTTPS Options` \
-##      --no-check-certificate \
-##    `## Recursive Retrieval Options` \
-##      --recursive --level=inf \
-##      --delete-after \
-##    `## Recursive Accept/Reject Options` \
-##      "${DOWNLOAD_LINK}" 2>&1 | grep '^--' | awk '{print $3}' > "${DOCU_PATH}/${links_file}.txt"
-##done
+for DOWNLOAD_LINK in "${DOWNLOAD_LINKS[@]}"; do
+    ntfs_filename=$(echo "${DOWNLOAD_LINK}" | sed 's/[<>:"\/\\|?*]/_/g')
+
+    wget \
+    `## Basic Startup Options` \
+      --execute robots=off \
+    `## Loggin and Input File Options` \
+      --force-html \
+    `## Download Options` \
+      --spider \
+    `## Directory Options` \
+    `## HTTP Options` \
+      --user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59" \
+    `## HTTPS Options` \
+      --no-check-certificate \
+    `## Recursive Retrieval Options` \
+      --recursive --level=inf \
+      --delete-after \
+    `## Recursive Accept/Reject Options` \
+      "${DOWNLOAD_LINK}" 2>&1 | grep '^--' | awk '{print $3}' > "${DOCU_PATH}/${ntfs_filename}.txt"
+done
 
 ##      --wait=3 \
 ##      --random-wait \
@@ -55,52 +54,36 @@ indexing_rules(){
 
 ## 2nd) Filter those links taking off undesired files
 
-#for links_file in "${links_files[@]}"; do
-
-links_file="https___www.mongodb.com"
-
-    ## Making a backup
-    cp "${DOCU_PATH}/${links_file}.txt" "${DOCU_PATH}/${links_file}-bk.txt"
-
-    ## Removing different hosts
-    # I have found that with --spider some different hosts links are been leaked 
-    # despite no -H specified , filtering that
-    common_host=$(sed -n 's|^\(https://[^/]*\).*|\1|p' "${DOCU_PATH}/${links_file}.txt" | sort | uniq -c | sort -nr | head -n 1 | awk '{print $2}')
-    sed -i "\|${common_host}|!d" "${DOCU_PATH}/${links_file}.txt"
-
-    ## Removing duplicates
-    sort "${DOCU_PATH}/${links_file}.txt" | uniq > temp_file.txt && mv temp_file.txt "${DOCU_PATH}/${links_file}.txt"
-
-    ## Clean urls with query strings (the ones with ? and %)
-    sed -i "/\?\|&\|\%/d" "${DOCU_PATH}/${links_file}.txt"
-    
-    ## Keep only  - non-extension urls (they are html)
-    ##            - .html 
-    sed -n -i -E '/\/[^.\/]+$|\/.*\.html$/p' "${DOCU_PATH}/${links_file}.txt"
-
-    ## We transform the files to csv
-    ## Using 9 as not to collide with exit status of wget
-    sed -i 's/$/,-1/' "${DOCU_PATH}/${links_file}.txt"
-    sed -i '1s/^/url,exit_status\n/' "${DOCU_PATH}/${links_file}.txt"
-    mv "${DOCU_PATH}/${links_file}.txt" "${DOCU_PATH}/${links_file}.csv"
-
-#done
+## 3rd) Perform the Index given the link-list.txt
 
 
-## 3rd) Perform the Index given the files_links.csv
+for DOWNLOAD_LINK in "${DOWNLOAD_LINKS[@]}"; do
+    wget \
+    `##tBasic Startup Options` \
+      --execute robots=off \
+    `## Loggin and Input File Options` \
+      --rejected-log=${DOCU_PATH}/rejected.log \
+    `## Download Options` \
+      --timestamping \
+      --restrict-file-names=windows \
+    `## Directory Options` \
+      --nH \
+      --directory-prefix=${DOCU_PATH}/downloaded \
+    `## HTTP Options` \
+      --user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59" \
+      --adjust-extension \
+    `## HTTPS Options` \
+      --no-check-certificate \
+    `## Recursive Retrieval Options` \
+      --recursive --level=inf \
+    `## Recursive Accept/Reject Options` \
+      --no-parent \
+      --reject-regex '.*?hel=.*|.*?hl=.*' \
+      --reject '*.pdf,*.woff,*.woff2,*.ttf,*.png,*.webp,*.mp4,*.ico,*.svg,*.js,*json,*.css,*.xml,*.txt' \
+      --page-requisites \
+      ${DOWNLOAD_LINK}
+done 
 
-
-## Some of this indexes are huge , would take days even weeks to process
-## We can reduce this by splitting the task into 4 wget processes that wont collide
-##      - The firstone can start from the top row
-##      - Secondone can start from the bottom row
-##      - Thirdone starting from half entry onwards 
-##      - Fourthone starting from half entry backwards
-##  Each process will record in their own files_links.csv 
-##      - Upon successfully downloading a file , second columnd ,1
-##       i.e :
-##             - https://shopify.dev/tools/cli,1
-##             - https://shopify.dev/tutorials/refund-shipping-duties,0
 
 }
 

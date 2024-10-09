@@ -42,7 +42,7 @@ for DOWNLOAD_LINK in "${DOWNLOAD_LINKS[@]}"; do
     `## HTTPS Options` \
       --no-check-certificate \
     `## Recursive Retrieval Options` \
-      --recursive --level=4 \
+      --recursive --level=inf \
     `## Recursive Accept/Reject Options` \
       --no-parent \
       --reject-regex '.*?hel=.*|.*?hl=.*' \

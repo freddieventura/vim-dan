@@ -41,7 +41,7 @@ for DOWNLOAD_LINK in "${DOWNLOAD_LINKS[@]}"; do
     `## HTTPS Options` \
       --no-check-certificate \
     `## Recursive Retrieval Options` \
-      --recursive --level=4 \
+      --recursive --level=inf \
     `## Recursive Accept/Reject Options` \
       --no-parent \
       --reject-regex '.*?hel=.*|.*?hl=.*' \
@@ -64,7 +64,7 @@ mv "${DOCU_PATH}/downloaded/cloud.google.com/"* "${DOCU_PATH}/downloaded/"
 rmdir "${DOCU_PATH}/downloaded/cloud.google.com"
 
 
-# Find all the directories that have either a ./docs/ subdir or ./docs.html , the rest delete them
+# Find all the directories that have either a ./docs/ subdir or ./docs.html , /reference , /api , the rest delete them
 # ---------------------------------------------------------------------------
 # Path to the parent directory
 PARENT_DIR="${DOCU_PATH}/downloaded/"

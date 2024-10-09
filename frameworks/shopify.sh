@@ -12,7 +12,7 @@ shift
 DOCU_NAME=$(basename ${0} '.sh')
 MAIN_TOUPDATE="${DOCU_PATH}/main-toupdate.${DOCU_NAME}dan"
 DOWNLOAD_LINKS=(
-https://www.mongodb.com/
+https://developers.google.com/
 )
 # -------------------------------------
 # eof eof eof DECLARING VARIABLES AND PROCESSING ARGS
@@ -26,28 +26,28 @@ indexing_rules(){
 
 ## 1st) Run a spider the whole website to get a list will all the links
 
-##declare -a links_files
-##for DOWNLOAD_LINK in "${DOWNLOAD_LINKS[@]}"; do
-##    links_file=$(echo "${DOWNLOAD_LINK}" | sed 's/[<>:"\/\\|?*]/_/g')
-##    links_files+=("${links_file}")
-##    wget \
-##    `## Basic Startup Options` \
-##      --execute robots=off \
-##    `## Loggin and Input File Options` \
-##      --force-html \
-##    `## Download Options` \
-##      --spider \
-##    `## Directory Options` \
-##    `## HTTP Options` \
-##      --user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59" \
-##    `## HTTPS Options` \
-##      --no-check-certificate \
-##    `## Recursive Retrieval Options` \
-##      --recursive --level=inf \
-##      --delete-after \
-##    `## Recursive Accept/Reject Options` \
-##      "${DOWNLOAD_LINK}" 2>&1 | grep '^--' | awk '{print $3}' > "${DOCU_PATH}/${links_file}.txt"
-##done
+declare -a links_files
+for DOWNLOAD_LINK in "${DOWNLOAD_LINKS[@]}"; do
+    links_file=$(echo "${DOWNLOAD_LINK}" | sed 's/[<>:"\/\\|?*]/_/g')
+    links_files+=("${links_file}")
+    wget \
+    `## Basic Startup Options` \
+      --execute robots=off \
+    `## Loggin and Input File Options` \
+      --force-html \
+    `## Download Options` \
+      --spider \
+    `## Directory Options` \
+    `## HTTP Options` \
+      --user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59" \
+    `## HTTPS Options` \
+      --no-check-certificate \
+    `## Recursive Retrieval Options` \
+      --recursive --level=inf \
+      --delete-after \
+    `## Recursive Accept/Reject Options` \
+      "${DOWNLOAD_LINK}" 2>&1 | grep '^--' | awk '{print $3}' > "${DOCU_PATH}/${links_file}.txt"
+done
 
 ##      --wait=3 \
 ##      --random-wait \
@@ -55,21 +55,19 @@ indexing_rules(){
 
 ## 2nd) Filter those links taking off undesired files
 
-#for links_file in "${links_files[@]}"; do
+for links_file in "${links_files[@]}"; do
 
+DOCU_PATH="."
+##links_file="https___shopify.dev.txt"
 links_file="https___www.mongodb.com"
-
-    ## Making a backup
-    cp "${DOCU_PATH}/${links_file}.txt" "${DOCU_PATH}/${links_file}-bk.txt"
-
-    ## Removing different hosts
-    # I have found that with --spider some different hosts links are been leaked 
-    # despite no -H specified , filtering that
-    common_host=$(sed -n 's|^\(https://[^/]*\).*|\1|p' "${DOCU_PATH}/${links_file}.txt" | sort | uniq -c | sort -nr | head -n 1 | awk '{print $2}')
-    sed -i "\|${common_host}|!d" "${DOCU_PATH}/${links_file}.txt"
 
     ## Removing duplicates
     sort "${DOCU_PATH}/${links_file}.txt" | uniq > temp_file.txt && mv temp_file.txt "${DOCU_PATH}/${links_file}.txt"
+
+    # Remove from other hosts links
+    ## Despite no span hosts wget gives you some clutter
+    common_host=$(sed -n 's|^\(https://[^/]*\).*|\1|p' "${DOCU_PATH}/${links_file}.txt" | sort | uniq -c | sort -nr | head -n 1 | awk '{print $2}')
+    sed -i "\\|${common_host}|! d" "${DOCU_PATH}/${links_file}.txt"
 
     ## Clean urls with query strings (the ones with ? and %)
     sed -i "/\?\|&\|\%/d" "${DOCU_PATH}/${links_file}.txt"
@@ -84,7 +82,7 @@ links_file="https___www.mongodb.com"
     sed -i '1s/^/url,exit_status\n/' "${DOCU_PATH}/${links_file}.txt"
     mv "${DOCU_PATH}/${links_file}.txt" "${DOCU_PATH}/${links_file}.csv"
 
-#done
+done
 
 
 ## 3rd) Perform the Index given the files_links.csv
@@ -101,6 +99,101 @@ links_file="https___www.mongodb.com"
 ##       i.e :
 ##             - https://shopify.dev/tools/cli,1
 ##             - https://shopify.dev/tutorials/refund-shipping-duties,0
+
+
+concurrent_index() {
+
+## It will perform wget download of a file_list.csv
+## This file_list is of the form url,downloaded
+##       i.e :
+##             - https://shopify.dev/tools/cli,1
+##             - https://shopify.dev/tutorials/refund-shipping-duties,0
+##  First parameter no_splits
+##  Second parameter this_split
+##  Third parameter master_split_ip
+##  Fourth parameter dump_chunks_size
+##  
+##  The algorithm separates the file_list.csv , into a no of splits no_splits 
+##      They have to be even
+##              If one split this process will download from top to bottom from the first file
+##
+##              If two splits         Direction        , StartingFile
+##                  - this_split=1  from top to bottom , first file
+##                  - this_split=2  from bottom to top ,  last file
+##
+##              If no_splits=4
+##                  - this_split=1  from top to bottom , first file
+##                  - this_split=2  from bottom to top ,  last file
+##                  - this_split=3  from top to bottom ,  file no 1/2 of length
+##                  - this_split=4  from bottom to top ,  file no 1/2 of length
+##
+## This algorithm is designed this way so we can add more hosts without having to start the process again
+##      For instance if you decide to start the index with no_splits=1 , 
+##          then after some hours you decide to add otherone, you will be able to and wont collide
+##
+##       The same if you want to grow from no_splits=2 to no_splits=4 , etc...
+##
+## Understanding that this_split=1 , is the master_split
+##      This process will guide all the indexing process, gathering eventually
+## This concurrent download can be monitored manually.
+## Meaning a sysadmin will monitor each process, stopping them manually
+##
+## Although if specified with master_split_ip , each slave_split (all except split_no=1) will
+##      report their state of their download to master_split , and when colliding , process will stop
+## If specified dump_chunks_size , then that slave_split , will halt the download as soon as its stored space has reached that chunk_size , and will transfer it to master_split .
+##       As soon as it is transfered that chunk, the download will resume
+       
+
+    declare -a urls
+    declare -a is_downloaded
+
+    # Read the CSV file
+    while IFS=',' read -r url downloaded; do
+        # Skip the header
+        if [[ "$url" != "url" ]]; then
+            # Add values to arrays
+            urls+=("$url")
+            is_downloaded+=("$downloaded")
+        fi
+    done < "${DOCU_PATH}/${links_file}.csv"
+
+
+    for (( i = 0 ; ${i} <= ${#url[@]} ; i++ )); do
+
+
+    done
+
+
+for DOWNLOAD_LINK in "${DOWNLOAD_LINKS[@]}"; do
+    wget \
+    `##tBasic Startup Options` \
+      --execute robots=off \
+    `## Loggin and Input File Options` \
+      --rejected-log=${DOCU_PATH}/rejected.log \
+    `## Download Options` \
+      --timestamping \
+      --restrict-file-names=windows \
+    `## Directory Options` \
+      --nH \
+      --directory-prefix=${DOCU_PATH}/downloaded \
+    `## HTTP Options` \
+      --user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59" \
+      --adjust-extension \
+    `## HTTPS Options` \
+      --no-check-certificate \
+    `## Recursive Retrieval Options` \
+      --recursive --level=inf \
+    `## Recursive Accept/Reject Options` \
+      --no-parent \
+      --reject-regex '.*?hel=.*|.*?hl=.*' \
+      --reject '*.pdf,*.woff,*.woff2,*.ttf,*.png,*.webp,*.mp4,*.ico,*.svg,*.js,*json,*.css,*.xml,*.txt' \
+      --page-requisites \
+      ${DOWNLOAD_LINK}
+done 
+
+
+
+}
 
 }
 

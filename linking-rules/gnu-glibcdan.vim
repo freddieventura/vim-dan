@@ -7,7 +7,7 @@ vim9script
 # Check https://github.com/freddieventura/vim-dan for more info
 
 # Setting iskeyword to
-set iskeyword=-,!-~,^*,^\|,^\",192-255
+set iskeyword=!-~,^*,^\|,^\",192-255
 
 # Understanding Linkto functionality
 # In vim-dan documents there are a bunch of
