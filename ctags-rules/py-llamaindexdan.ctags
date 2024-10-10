@@ -1,0 +1,4 @@
+--langdef=pyllamaindexdantags
+--langmap=pyllamaindexdantags:.py-llamaindexdan
+--kinddef-pyllamaindexdantags=t,topic,topics
+--regex-pyllamaindexdantags=/^#\s(.*)\s#(\s\(X\)){0,1}$/\1/t/

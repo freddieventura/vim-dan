@@ -1,0 +1,4 @@
+--langdef=tsllamaindexdantags
+--langmap=tsllamaindexdantags:.ts-llamaindexdan
+--kinddef-tsllamaindexdantags=t,topic,topics
+--regex-tsllamaindexdantags=/^#\s(.*)\s#(\s\(X\)){0,1}$/\1/t/

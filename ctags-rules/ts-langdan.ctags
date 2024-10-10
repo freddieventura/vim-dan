@@ -1,0 +1,4 @@
+--langdef=tslangdantags
+--langmap=tslangdantags:.ts-langdan
+--kinddef-tslangdantags=t,topic,topics
+--regex-tslangdantags=/^#\s(.*)\s#(\s\(X\)){0,1}$/\1/t/
