@@ -127,7 +127,7 @@ title_array=()
 for file in "${files_array[@]}"; do
 
     # (Multi-rule) Parsing functions , add as many as you want
-    f1() { pup -i 0 --pre 'header h1' | pandoc -f html -t plain | sed ':a;N;$!ba;s/\n/ /g';}
+    f1() { pup -i 0 --pre 'h1' | pandoc -f html -t plain | sed 's/[[:space:]]\+¶//g' | sed ':a;N;$!ba;s/\n/ /g';}
     title_parsing_array=(f1)
 
     found_selector=""

@@ -1,0 +1,4 @@
+--langdef=eclimdantags
+--langmap=eclimdantags:.eclimdan
+--kinddef-eclimdantags=t,topic,topics
+--regex-eclimdantags=/^#\s(.*)\s#(\s\(X\)){0,1}$/\1/t/
