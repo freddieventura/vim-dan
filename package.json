@@ -1,0 +1,23 @@
+{
+  "name": "vim-dan",
+  "version": "1.0.0",
+  "description": "```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freddieventura/vim-dan.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/freddieventura/vim-dan/issues"
+  },
+  "homepage": "https://github.com/freddieventura/vim-dan#readme",
+  "dependencies": {
+    "puppeteer-core": "^23.5.3"
+  }
+}
