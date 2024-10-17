@@ -26,7 +26,6 @@ indexing_rules(){
     `## Download Options` \
       --timestamping \
     `## Directory Options` \
-      -nH --cut-dirs=2 \
       --directory-prefix=${DOCU_PATH}/downloaded \
     `## HTTP Options` \
       --user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59" \
@@ -50,11 +49,11 @@ cp -r ${DOCU_PATH}/downloaded ${DOCU_PATH}/downloaded-bk
 
 
 ## Unesting Documentation
-mv ${DOCU_PATH}/downloaded/docs.oracle.com/javase/tutorial/* ${DOCU_PATH}/downloaded/
-rm -r ${DOCU_PATH}/downloaded/docs.oracle.com/
-
-## Removing first level files
-find "${DOCU_PATH}/downloaded/" -maxdepth 1 -type f -delete
+##mv ${DOCU_PATH}/downloaded/docs.oracle.com/javase/tutorial/* ${DOCU_PATH}/downloaded/
+##rm -r ${DOCU_PATH}/downloaded/docs.oracle.com/
+##
+#### Removing first level files
+##find "${DOCU_PATH}/downloaded/" -maxdepth 1 -type f -delete
 
 
 ## Modifying documents
@@ -184,14 +183,14 @@ for index in "${!files_array[@]}"; do
 done
 
 
-#for file in "${files_array[@]}"; do
-#    echo "file : ${file}" >&2 ## DEBUGGING
-#done
-#
-#
-#for path in "${paths_linkto[@]}"; do
-#    echo "path : ${path}" >&2 ## DEBUGGING
-#done
+##for file in "${files_array[@]}"; do
+##    echo "file : ${file}" >&2 ## DEBUGGING
+##done
+##
+##
+##for path in "${paths_linkto[@]}"; do
+##    echo "path : ${path}" >&2 ## DEBUGGING
+##done
 
 
 # This will be the linkFrom items
@@ -205,23 +204,22 @@ for file in "${files_array[@]}"; do
     ## Splitting the dirs from the filename , putting all of them into dirs_array
     remaining_file="${filename}"
 
-#echo "filename : ${filename}" >&2 ## DEBUGGING
-#echo "remaining_file : ${remaining_file}" >&2 ## DEBUGGING
+##echo "filename : ${filename}" >&2 ## DEBUGGING
+##echo "remaining_file : ${remaining_file}" >&2 ## DEBUGGING
 
     for ((i=0; i< 25; i++)); do
         if [[ "$remaining_file" =~ ([^\)]+)-\)(.+) ]]; then
             dirs_array[i]="${BASH_REMATCH[1]}"
             remaining_file="${BASH_REMATCH[2]}"
 
-#echo "dirs_array : ${dirs_array[@]}" >&2 ## DEBUGGING
-#echo "reimaining_file : ${reimaining_file}" >&2 ## DEBUGGING
-#read -p "Press enter to continue to the next step..."
         else
             dirs_array[i]="${remaining_file}"
             break
         fi
     done
 
+##echo "dirs_array : ${dirs_array[@]}" >&2 ## DEBUGGING
+##read -p "Press enter to continue to the next step..." ## DEBUGGING
 
     ## In order to create from this
     ##"workspace-)cse-)reference-)wrap"
@@ -323,7 +321,7 @@ for file in "${files_array[@]}"; do
     ## Copying the rolling directory hierarcy
     unset prev_dirs_array
     prev_dirs_array=("${dirs_array[@]}")
-
+    unset dirs_array
 done
 
 

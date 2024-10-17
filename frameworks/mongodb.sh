@@ -430,7 +430,7 @@ for file in "${files_array[@]}"; do
     ## Copying the rolling directory hierarcy
     unset prev_dirs_array
     prev_dirs_array=("${dirs_array[@]}")
-
+    unset dirs_array
 done 
 
 
