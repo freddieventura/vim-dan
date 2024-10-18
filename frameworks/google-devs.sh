@@ -277,7 +277,6 @@ for file in "${files_array[@]}"; do
     title_array+=("$title")
 done
 
-
 ## Creating an associative array to map titles to file paths
 
 
@@ -293,15 +292,29 @@ for index in "${!files_array[@]}"; do
 done
 
 
+##for file in "${files_array[@]}"; do
+##    echo "file : ${file}" >&2 ## DEBUGGING
+##done
+##
+##
+##for path in "${paths_linkto[@]}"; do
+##    echo "path : ${path}" >&2 ## DEBUGGING
+##done
+
+
 # This will be the linkFrom items
 echo "index" | figlet >> ${MAIN_TOUPDATE}
+
 
 # Populate dirs_array with space-separated strings
 for file in "${files_array[@]}"; do
 
-    filename=$(basename  "${file}" .html)
+    filename=$(basename  "${file}")
     ## Splitting the dirs from the filename , putting all of them into dirs_array
     remaining_file="${filename}"
+
+##echo "filename : ${filename}" >&2 ## DEBUGGING
+
     for ((i=0; i< 25; i++)); do
         if [[ "$remaining_file" =~ ([^\)]+)-\)(.+) ]]; then
             dirs_array[i]="${BASH_REMATCH[1]}"
@@ -312,6 +325,8 @@ for file in "${files_array[@]}"; do
         fi
     done
 
+#echo "exiting and processing file"
+##echo "Exiting dirs_array : ${dirs_array[@]}" >&2 ## DEBUGGING
 
     ## In order to create from this
     ##"workspace-)cse-)reference-)wrap"
@@ -328,93 +343,118 @@ for file in "${files_array[@]}"; do
     ##        - docs
     ##            -release-notes
     ##
-    ## We need to check dirs_array member by member and see what is the indentation 
+    ## We need to check dirs_array member by member and see what is the indentation
     ## index in which the directory structure differs
-    ## 
     ##
-    ## and at that level create a new bullet point
-    ## for instance in between
-    ## "workspace-)cse-)reference-)wrap-private-key"
-    ## "workspace-)events-)docs-)release-notes"
-    ## It differs at level 1 (assuming nesting_index_differ is based 0)
+    ##
+    ## defining dirs_arrays
+    ## defining prev_dirs_array
+    ##      Comparing them we calculate
+    ##      first_discrepancy_level 
+    ##          the nesting level at which dirst_array and prev_dirs_array differ
+    ##
+    ## for instance          
+    ##     prev_dirst_array=( "workspace" "cse" "reference" "wrap-private-key") 
+    ##     dirs_array=( "workspace" "events" "docs" "release-notes") 
+    ##     first_discrepancy_level=2
+    ## knowing that file_nesting_level will be determined by length of dirs_array
+    ##   file_nesting_level=${#dirs_array[@]} 
+    ##
+    ## And having 3 printing expressions
+    ##
+    ##
+    ## # printing indentation tabs for a certain current_nesting_level
+    ## for ((i=1 ; i<=${current_nesting_level}; i++)); do
+    ##     for ((j=1; j<${i}; j++)); do
+    ##         echo -ne "\t" >> ${MAIN_TOUPDATE}
+    ##     done
+    ## done
+    ##
+    ## # printing a linkto bulletpoint
+    ## echo -ne "- & @${filename}@ ${paths_linkto[${file}]} &\n" >> ${MAIN_TOUPDATE}
+    ##
+    ## # printing a subdir bullet point
+    ## echo -ne "- ${dirs_array[(${current_nesting_level})]}\n" >> ${MAIN_TOUPDATE}
+    ##
+    ## Iterating on the filelist
+    ##     calculate first_discrepancy_level for each dirs_array in compare with prev_dirs_array
+    ## Then for each file we will need to be iterating on each current_nesting_level
+    ## # Provided that file_nesting_level=${#dirs_array[@]}
+    ##      we iterate from first_discrepancy_level to file_nesting_level
+    ##      setting each iteration as current_nesting_level
+    ##      Starting from current_nesting_level=first_discrepancy_level
+    ##      # printing indetation tabs for a certain current_nesting_level
+    ##          if indentantion_nesting_level -eq to file_nesting_level
+    ##          then we 
+    ##          # printing a linkto bulletpoint
+    ##          otherwise
+    ##          # printing a subdir bullet point
+    ## Note: Base of index variables
+    ##  first_discrepancy_level , base 0
+    ##  file_nesting_level , base 1 , (converting to base 0)
+
 
 
     # Compare elements
-    
+
     for ((i=0; i<${#dirs_array[@]}; i++)); do
         if [ "${dirs_array[$i]}" != "${prev_dirs_array[$i]}" ]; then
-            nesting_index_differ=${i}
+            first_discrepancy_level=${i}
             break
         fi
     done
 
-    ## Creating index bullet point
-    
-    ## Checking if it is not the first file found
-    if [[ ${#prev_dirs_array} -gt 0 ]]; then
+##echo "prev_dirs_array : ${prev_dirs_array}" >&2 ## DEBUGGING
+##echo "prev_dirs_array length : ${#prev_dirs_array[@]}" >&2 ## DEBUGGING
+##echo "dirs_array : ${dirs_array}" >&2 ## DEBUGGING
+##echo "first_discrepancy_level : ${first_discrepancy_level}" >&2 ## DEBUGGING
 
 
-        if [[ ${nesting_index_differ} -ne $((${#dirs_array[@]} - 1)) ]]; then
-            for ((i=(${nesting_index_differ}+1); i<=${#dirs_array[@]}; i++)); do
-
-                ## print tab for each level after one
-                for ((j=1; j<${i}; j++)); do
-                    echo -ne "\t" >> ${MAIN_TOUPDATE}
-                done
-                ## If its the lastone nesting level (file) print the whole file name
-                if [[ $i -eq $((${#dirs_array[@]})) ]]; then
-                    echo -ne "- & @${filename}@ ${paths_linkto[${file}]} &\n" >> ${MAIN_TOUPDATE}
-                ## If not print the directory
-                else
-                    echo -ne "- ${dirs_array[(i - 1)]}\n" >> ${MAIN_TOUPDATE}
-                fi
-
-            done
-        else    ## Case that we differ on the last nesting level (ergo filename)
-
-            ## Iterating on each nesting level
-            for ((i=1; i<=${#dirs_array[@]}; i++)); do
-                ## If its the lastone nesting level (file) print the whole file name
-                if [[ $i -eq $((${#dirs_array[@]})) ]]; then
-                    echo -ne "- & @${filename}@ ${paths_linkto[${file}]} &\n" >> ${MAIN_TOUPDATE}
-                ## If not add indentation
-                else 
-                    for ((j=1; j<${i}; j++)); do
-                        echo -ne "\t" >> ${MAIN_TOUPDATE}
-                    done
-                fi
-            done
+    # For the rest we will need to be iterating on each current_nesting_level
+    # Provided that file_nesting_level=${#dirs_array[@]}
+    file_nesting_level=${#dirs_array[@]}
+    # converting to base 0
+    file_nesting_level=$((file_nesting_level - 1))
 
 
-        fi 
+    # we iterate from first_discrepancy_level to file_nesting_level
+    # setting each iteration as current_nesting_level
+    for ((current_nesting_level=${first_discrepancy_level} ; current_nesting_level<=${file_nesting_level}; current_nesting_level++)); do
 
 
-    ## Case that is the first file found
-    else 
-        
-        ## Iterating on each nesting level
-        for ((i=1; i<=${#dirs_array[@]}; i++)); do
-
-            ## print tab for each level after one
-            for ((j=1; j<${i}; j++)); do
+    # printing indetation tabs for a certain current_nesting_level
+        # printing indentation tabs for a certain current_nesting_level
+        for ((i=0 ; i<=${current_nesting_level}; i++)); do
+            for ((j=0; j<${i}; j++)); do
                 echo -ne "\t" >> ${MAIN_TOUPDATE}
             done
-            ## If its the lastone nesting level (file) print the whole file name
-            if [[ $i -eq $((${#dirs_array[@]})) ]]; then
-                echo -ne "- & @${filename}@ ${paths_linkto[${file}]} &\n" >> ${MAIN_TOUPDATE}
-            ## If not print the directory
-            else
-                echo -ne "- ${dirs_array[(i - 1)]}\n" >> ${MAIN_TOUPDATE}
-            fi
         done
 
-    fi
+##echo "file_nesting_level : ${file_nesting_level}" >&2 ## DEBUGGING
+##echo "current_nesting_level : ${current_nesting_level}" >&2 ## DEBUGGING
+##read -p "Press enter to continue to the next step..." ## DEBUGGING
 
-    ## Copying the rolling directory hierarcy
+
+
+        # if indentantion_nesting_level -eq to file_nesting_level
+        # then we print the linkto bulletpoint
+        # otherwise we print the subdir bulletpoint
+            if [[ ${current_nesting_level} -eq ${file_nesting_level} ]]; then
+            # printing a linkto bulletpoint
+            echo -ne "- & @${filename}@ ${paths_linkto[${file}]} &\n" >> ${MAIN_TOUPDATE}
+        else
+            # printing a subdir bullet point
+#echo "dirs_array[${current_nesting_level}] : ${dirs_array[(${current_nesting_level})]}" >&2 ## DEBUGGING
+            echo -ne "- ${dirs_array[(${current_nesting_level})]}\n" >> ${MAIN_TOUPDATE}
+        fi
+    done
+
+        
+    ## Settings arrays for a new file iteration
     unset prev_dirs_array
     prev_dirs_array=("${dirs_array[@]}")
     unset dirs_array
-done 
+done
 
 
 echo "" >> ${MAIN_TOUPDATE}  ## ADDING A LINE BREAK
