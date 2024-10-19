@@ -26,7 +26,6 @@ indexing_rules(){
     `## Download Options` \
       --timestamping \
     `## Directory Options` \
-      -nH --cut-dirs=6 \
       --directory-prefix=${DOCU_PATH}/downloaded \
     `## HTTP Options` \
       --user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59" \
@@ -34,98 +33,336 @@ indexing_rules(){
     `## HTTPS Options` \
       --no-check-certificate \
     `## Recursive Retrieval Options` \
-      --recursive --level=4 \
+      --recursive --level=inf \
     `## Recursive Accept/Reject Options` \
       --no-parent \
-      --reject '*mp4,*.gif,*.svg,*.js,*json,*.css,*.png,*.xml,*.txt' \
+      --reject '*.java,*.sql,*.jar,*.jpg,*.zip,*.GIF,*mp4,*.gif,*.svg,*.js,*json,*.css,*.PNG,*.png,*.xml,*.txt' \
       --page-requisites \
       ${DOWNLOAD_LINK}
 }
 
-parsing_rules(){
 
+arranging_rules(){
+
+## Making a backup
+#cp -r ${DOCU_PATH}/downloaded ${DOCU_PATH}/downloaded-bk
+#
+#
+### Unnesting the files
+#cp -r ${DOCU_PATH}/downloaded/docs.oracle.com/en/java/javase/17/docs/api/* ${DOCU_PATH}/downloaded/
+#rm -r ${DOCU_PATH}/downloaded/docs.oracle.com/
+
+
+
+## DEESTRUCTURING THE DIRECTORY TREE
+## ------------------------------------------------------------------------
+## Search on a dir, place the files nested in a subdir, on the dir below
+## Rename them to ${subdir}file.ext
+
+## For instance check in
+## www.zaproxy.org/docs/desktop/addons/
+##
+## there is gonna be files such as
+## www.zaproxy.org/docs/desktop/addons/access-control-testing/contextoptions.html
+##
+## make it
+## www.zaproxy.org/docs/desktop/addons/access-control-testing-contextoptions.html
+
+
+
+# De-estructure all the directory hierarchy
+for i in {1..15}; do
+
+    mapfile -t files_array < <(find "${DOCU_PATH}/downloaded" -mindepth 2 -type f)
+
+    for file in "${files_array[@]}"; do
+        parent="$(basename "$(dirname ${file})")"
+        dirname=$(dirname ${file})
+        mv ${file} "$dirname/../"${parent}"-)$(basename ${file})";
+    done
+
+done
+
+# Pruning off the empty directories
+find "${DOCU_PATH}/downloaded/" -type d -empty -delete
+## EOF EOF EOF DEESTRUCTURING THE DIRECTORY TREE
+## ------------------------------------------------------------------------
+}
+
+
+parsing_rules(){
+    # Header of docu    
     echo "vim-dan" | figlet -f univers > ${MAIN_TOUPDATE}
     echo ${DOCU_NAME} | figlet >> ${MAIN_TOUPDATE}
-    echo "Documentation indexed from : ${DOWNLOAD_LINK} " >> ${MAIN_TOUPDATE}
+    echo "Documentation indexed from :" >> ${MAIN_TOUPDATE}
+    echo " - ${DOWNLOAD_LINK} " >> ${MAIN_TOUPDATE}
     echo "Last parsed on : $(date)" >> ${MAIN_TOUPDATE}
 
-    # 1) Parsing the Package Index
-    # This is a bullet list with all the link_from
-    echo "Package Index" | figlet >> ${MAIN_TOUPDATE}
-    mapfile -t link_from_array < <(cat ${DOCU_PATH}/downloaded/overview-tree.html | pup -i 0 --pre 'div.header li' | pandoc -f html -t plain | sed 's/ ,//g' | sed '/^$/d')
 
-    for link_from in "${link_from_array[@]}"; do
-        echo "- &${link_from}&" >> ${MAIN_TOUPDATE} 
+## MULTI-FILE PARSING WITH MULTI-RULE
+## Parsing into an associative array each title and path
+## With this we can :
+##      - Create an ordered automated index linkFrom
+##      - Append each topic content with a linkTo and a figlet header
+##
+## Also there are different parsing rules (multi-rule)
+##      - Meaning they will be applied to each file sequencially
+##      - Upon one parsing rule returning non-zero, that parsed title will be added 
+
+#mapfile -t files_array < <(find ${DOCU_PATH}/downloaded -type f )
+
+mapfile -t files_array < <(find "${DOCU_PATH}/downloaded" -type f -name "*.html" | sort -V )
+
+
+## First create the title array
+title_array=()
+for file in "${files_array[@]}"; do
+
+    # (Multi-rule) Parsing functions , add as many as you want
+    f1() { pup -i 0 --pre 'h1.title' | pandoc -f html -t plain | sed ':a;N;$!ba;s/\n/ /g';}
+
+    title_parsing_array=(f1)
+
+    found_selector=""
+    for title_parsing in "${title_parsing_array[@]}"; do
+        title=$("$title_parsing" < "$file")
+        if [ -n "$title" ]; then
+            found_selector=true
+            break
+        fi
     done
 
+   # Default case for parsing , if none of the rules return a non-zero string
+    if [ -z "$found_selector" ]; then
+      title=$(basename "$file" | cut -f 1 -d '.')
+    fi
 
-    # 2) Precaching each Package Tree
-    # To each link_from such as - |com.sun.management|
-    #       has a correspondence to a certain package=tree.html
-    #                   such as - 
-    #  .//downloaded/jdk.management/com/sun/management/package-tree.html
-    #  We need to iterate through each package-tree.html , and find its signature
-    #  Creating an associative array ([packageSignature01]="treePath01" [pacakgeSignature02]="treePath02")
+    # Append the value of title to the title_array
+    title_array+=("$title")
+done
 
-    # Declare an associative array
-    declare -A sig_to_paths
 
-    # Use process substitution to run both find commands simultaneously
-    while IFS= read -r key && IFS= read -r value <&3; do
-        # Assign the key-value pair to the associative array
-        sig_to_paths["$key"]="$value"
-    done < <(find "${DOCU_PATH}/downloaded/" -type f -name "package-tree.html" -exec sh -c "cat {} | pup 'h1.title' | pandoc -f html -t plain | sed 's/Hierarchy For Package //g'" \;) \
-       3< <(find "${DOCU_PATH}/downloaded/" -type f -name "package-tree.html") 
+## Creating an associative array to map titles to file paths
 
-    ## TODO
-    ## Associative array can be filled in different ways
-    ##      - Using a shell loop
-    ## find files -print0 | while read -r file; do commands and pandoc and array
-    ## setup; done
-    ##      - Using a globstar
-    ## for file in "${DOCU_PATH}"/dowloaded/**/package-tree.html; do ... ; done
 
-    # 3) Appending each package-tree 
-    #   - After that the package-description 
-    #   - After that iterate throguh each object of the package
+declare -A paths_linkto
 
-    for link_from in "${link_from_array[@]}"; do
-        echo "# ${link_from} #" >> ${MAIN_TOUPDATE} 
-        echo ${link_from} | figlet >> ${MAIN_TOUPDATE} 
-        cat "${sig_to_paths["${link_from}"]}" | pup -i 0 --pre 'main' | pandoc -f html -t plain | sed -r 's/(\w*\.\w*\.)\s/\1/g' >> ${MAIN_TOUPDATE}
-        directory=$(dirname "${sig_to_paths[${link_from}]}")
-        cat ${directory}/package-summary.html | pup 'section#package-description' | pandoc -f html -t plain >> ${MAIN_TOUPDATE}
+# Iterate through the indices of 'files_array'
+for index in "${!files_array[@]}"; do
+    file="${files_array[$index]}"
+    title="${title_array[$index]}"
 
-        # Now we only need to parse each ./package/<object>.html (for the object content)
-        #   The only issue is that
-        #       There is also a ./package/class-use/<object>.html
-        #           <object>.html are same names for both
-        #               Information on ./package/class-use subdir is useless
-        #           Appart for the ./package/<object>.html  unique signature
-        #               Need this to create the link_to
+    # Assign the key-value pair to the associative array 'paths_linkto'
+    paths_linkto["$file"]="$title"
+done
 
-        # We will create an array with ./package/<object>.html
-        #       for each iteration on each member
-        #            parse ./package/class-use/<object>.html
-        #            then ./package/<object>.html (memberValue)
-        #       We will need to insert the class-use subdir to the path
-     
 
-        mapfile -t object_array < <(find ${directory} -maxdepth 1 -type f \( ! -name "package-*" \))
+##for file in "${files_array[@]}"; do
+##    echo "file : ${file}" >&2 ## DEBUGGING
+##done
+##
+##
+##for path in "${paths_linkto[@]}"; do
+##    echo "path : ${path}" >&2 ## DEBUGGING
+##done
 
-        for object in "${object_array[@]}"; do
-            # Parsing the link to
-            # Inserting a parent subdir in a path
-            path=${object}
-            new_path=$(dirname "$path")/class-use/$(basename "$path")
-            
-            link_to="# $(cat ${new_path} | pup -i 0 --pre 'h1.title' | pandoc -f html -t plain | sed -E 's/Uses of (Class|Interface|Enum Class|Annotation Interface|Record Class) //g') #"
-            echo ${link_to} >> ${MAIN_TOUPDATE}
 
-            ## Parsing the object content
-            cat ${object} | pup -i 0 --pre 'main' | pandoc -f html -t plain  >> ${MAIN_TOUPDATE}
+# This will be the linkFrom items
+echo "index" | figlet >> ${MAIN_TOUPDATE}
+
+
+# Populate dirs_array with space-separated strings
+for file in "${files_array[@]}"; do
+
+    filename=$(basename  "${file}")
+    ## Splitting the dirs from the filename , putting all of them into dirs_array
+    remaining_file="${filename}"
+
+##echo "filename : ${filename}" >&2 ## DEBUGGING
+
+    for ((i=0; i< 25; i++)); do
+        if [[ "$remaining_file" =~ ([^\)]+)-\)(.+) ]]; then
+            dirs_array[i]="${BASH_REMATCH[1]}"
+            remaining_file="${BASH_REMATCH[2]}"
+        else
+            dirs_array[i]="${remaining_file}"
+            break
+        fi
+    done
+
+#echo "exiting and processing file"
+##echo "Exiting dirs_array : ${dirs_array[@]}" >&2 ## DEBUGGING
+
+    ## In order to create from this
+    ##"workspace-)cse-)reference-)wrap"
+    ##"workspace-)cse-)reference-)wrap-private-key"
+    ##"workspace-)events-)docs-)release-notes"
+    ##
+    ## to this
+    ##- workspace
+    ##    - cse
+    ##        - reference
+    ##            - wrap
+    ##            - wrap-private-key
+    ##    - events
+    ##        - docs
+    ##            -release-notes
+    ##
+    ## We need to check dirs_array member by member and see what is the indentation
+    ## index in which the directory structure differs
+    ##
+    ##
+    ## defining dirs_arrays
+    ## defining prev_dirs_array
+    ##      Comparing them we calculate
+    ##      first_discrepancy_level 
+    ##          the nesting level at which dirst_array and prev_dirs_array differ
+    ##
+    ## for instance          
+    ##     prev_dirst_array=( "workspace" "cse" "reference" "wrap-private-key") 
+    ##     dirs_array=( "workspace" "events" "docs" "release-notes") 
+    ##     first_discrepancy_level=2
+    ## knowing that file_nesting_level will be determined by length of dirs_array
+    ##   file_nesting_level=${#dirs_array[@]} 
+    ##
+    ## And having 3 printing expressions
+    ##
+    ##
+    ## # printing indentation tabs for a certain current_nesting_level
+    ## for ((i=1 ; i<=${current_nesting_level}; i++)); do
+    ##     for ((j=1; j<${i}; j++)); do
+    ##         echo -ne "\t" >> ${MAIN_TOUPDATE}
+    ##     done
+    ## done
+    ##
+    ## # printing a linkto bulletpoint
+    ## echo -ne "- & @${filename}@ ${paths_linkto[${file}]} &\n" >> ${MAIN_TOUPDATE}
+    ##
+    ## # printing a subdir bullet point
+    ## echo -ne "- ${dirs_array[(${current_nesting_level})]}\n" >> ${MAIN_TOUPDATE}
+    ##
+    ## Iterating on the filelist
+    ##     calculate first_discrepancy_level for each dirs_array in compare with prev_dirs_array
+    ## Then for each file we will need to be iterating on each current_nesting_level
+    ## # Provided that file_nesting_level=${#dirs_array[@]}
+    ##      we iterate from first_discrepancy_level to file_nesting_level
+    ##      setting each iteration as current_nesting_level
+    ##      Starting from current_nesting_level=first_discrepancy_level
+    ##      # printing indetation tabs for a certain current_nesting_level
+    ##          if indentantion_nesting_level -eq to file_nesting_level
+    ##          then we 
+    ##          # printing a linkto bulletpoint
+    ##          otherwise
+    ##          # printing a subdir bullet point
+    ## Note: Base of index variables
+    ##  first_discrepancy_level , base 0
+    ##  file_nesting_level , base 1 , (converting to base 0)
+
+
+
+    # Compare elements
+
+    for ((i=0; i<${#dirs_array[@]}; i++)); do
+        if [ "${dirs_array[$i]}" != "${prev_dirs_array[$i]}" ]; then
+            first_discrepancy_level=${i}
+            break
+        fi
+    done
+
+##echo "prev_dirs_array : ${prev_dirs_array}" >&2 ## DEBUGGING
+##echo "prev_dirs_array length : ${#prev_dirs_array[@]}" >&2 ## DEBUGGING
+##echo "dirs_array : ${dirs_array}" >&2 ## DEBUGGING
+##echo "first_discrepancy_level : ${first_discrepancy_level}" >&2 ## DEBUGGING
+
+
+    # For the rest we will need to be iterating on each current_nesting_level
+    # Provided that file_nesting_level=${#dirs_array[@]}
+    file_nesting_level=${#dirs_array[@]}
+    # converting to base 0
+    file_nesting_level=$((file_nesting_level - 1))
+
+
+    # we iterate from first_discrepancy_level to file_nesting_level
+    # setting each iteration as current_nesting_level
+    for ((current_nesting_level=${first_discrepancy_level} ; current_nesting_level<=${file_nesting_level}; current_nesting_level++)); do
+
+
+    # printing indetation tabs for a certain current_nesting_level
+        # printing indentation tabs for a certain current_nesting_level
+        for ((i=0 ; i<=${current_nesting_level}; i++)); do
+            for ((j=0; j<${i}; j++)); do
+                echo -ne "\t" >> ${MAIN_TOUPDATE}
+            done
         done
+
+##echo "file_nesting_level : ${file_nesting_level}" >&2 ## DEBUGGING
+##echo "current_nesting_level : ${current_nesting_level}" >&2 ## DEBUGGING
+##read -p "Press enter to continue to the next step..." ## DEBUGGING
+
+
+
+        # if indentantion_nesting_level -eq to file_nesting_level
+        # then we print the linkto bulletpoint
+        # otherwise we print the subdir bulletpoint
+            if [[ ${current_nesting_level} -eq ${file_nesting_level} ]]; then
+            # printing a linkto bulletpoint
+            echo -ne "- & @${filename}@ ${paths_linkto[${file}]} &\n" >> ${MAIN_TOUPDATE}
+        else
+            # printing a subdir bullet point
+#echo "dirs_array[${current_nesting_level}] : ${dirs_array[(${current_nesting_level})]}" >&2 ## DEBUGGING
+            echo -ne "- ${dirs_array[(${current_nesting_level})]}\n" >> ${MAIN_TOUPDATE}
+        fi
     done
+
+        
+    ## Settings arrays for a new file iteration
+    unset prev_dirs_array
+    prev_dirs_array=("${dirs_array[@]}")
+    unset dirs_array
+done
+
+
+echo "" >> ${MAIN_TOUPDATE}  ## ADDING A LINE BREAK
+
+# Parsing and appending content , using Multi-rule
+# -----------------------------------------------------------
+## We need to Iterate through each member of the array that correspond to the sorted keys
+for path in "${files_array[@]}"; do
+    ## Creating Link_to
+    filename=$(basename  "${path}")
+    echo "# ${filename} #" >> ${MAIN_TOUPDATE}
+    echo "& ${paths_linkto[${path}]} &" >> ${MAIN_TOUPDATE}
+
+    echo ${paths_linkto[${path}]} | figlet  >> ${MAIN_TOUPDATE}
+
+
+    # (Multi-rule) Parsing functions , add as many as you want
+    f1() { pup -i 0 --pre 'main' | pandoc -f html -t plain --wrap=none ;}
+
+    content_parsing_array=(f1)
+
+    found_selector=""
+    content_dump=$(mktemp)
+    for content_parsing in "${content_parsing_array[@]}"; do
+        "$content_parsing" < "$path" > "$content_dump"
+        if [ 1 -lt $(stat -c %s "${content_dump}") ];then
+            found_selector=true
+            break
+        fi
+    done
+
+    # Default case for parsing , if none of the rules return a non-zero string
+    if [ -z "$found_selector" ]; then
+       cat ${path} | pandoc -f html -t plain --wrap=none > "$content_dump"
+    fi
+
+    ## Retrieving content of the files and cleaning it
+    sed -e  's/^[^|]*|//' \
+        "${content_dump}" >> "${MAIN_TOUPDATE}"
+    echo "" >> ${MAIN_TOUPDATE}  ## ADDING A LINE BREAK
+
+    rm "$content_dump"
+done
 }
 
 

@@ -33,7 +33,7 @@ indexing_rules(){
     `## HTTPS Options` \
       --no-check-certificate \
     `## Recursive Retrieval Options` \
-      --recursive --level=4 \
+      --recursive --level=inf \
     `## Recursive Accept/Reject Options` \
       --no-parent \
       --reject '*.java,*.sql,*.jar,*.jpg,*.zip,*.GIF,*mp4,*.gif,*.svg,*.js,*json,*.css,*.PNG,*.png,*.xml,*.txt' \
@@ -384,6 +384,7 @@ for path in "${files_array[@]}"; do
 
     ## Retrieving content of the files and cleaning it
     sed -e  's/^[^|]*|//' \
+        -e 's/\xA0/ /g' \
         "${content_dump}" >> "${MAIN_TOUPDATE}"
     echo "" >> ${MAIN_TOUPDATE}  ## ADDING A LINE BREAK
 
